@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Send, Mic, Paperclip, Sparkles } from "lucide-react";
+import { DocumentExtractionModal } from "./DocumentExtractionModal";
 
 const ChatInterface = () => {
   const [message, setMessage] = useState("");
+  const [showDocumentExtraction, setShowDocumentExtraction] = useState(false);
 
   const handleSend = () => {
     if (message.trim()) {
@@ -70,7 +72,13 @@ const ChatInterface = () => {
                 />
               </div>
               <div className="flex items-center space-x-2">
-                <Button variant="ghost" size="icon" className="text-chat-text hover:text-chat-border">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="text-chat-text hover:text-chat-border"
+                  onClick={() => setShowDocumentExtraction(true)}
+                  title="Extract & Archive Documents"
+                >
                   <Paperclip className="h-4 w-4" />
                 </Button>
                 <Button variant="ghost" size="icon" className="text-chat-text hover:text-chat-border">
@@ -89,6 +97,12 @@ const ChatInterface = () => {
           </div>
         </div>
       </div>
+
+      {/* Document Extraction Modal */}
+      <DocumentExtractionModal
+        open={showDocumentExtraction}
+        onOpenChange={setShowDocumentExtraction}
+      />
     </div>
   );
 };

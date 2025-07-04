@@ -1,8 +1,22 @@
-# Welcome to your Lovable project
+# TBWA Lions Palette Forge - Ask Ces AI Platform
 
 ## Project info
 
 **URL**: https://lovable.dev/projects/25581f0b-a5bb-4d04-a5e1-a1afdcebe3cc
+
+## 🚀 New Feature: Document Extraction & Archiving
+
+The Ask Ces platform now includes powerful document extraction capabilities:
+
+- 📎 **Google Drive Integration** - Extract documents directly from Google Drive folders
+- 🤖 **AI-Powered Processing** - Automatic text extraction, OCR, and embeddings
+- 🎨 **TBWA Branded UI** - Seamless integration with the Ask Ces chat interface
+- 📊 **Real-time Progress** - Track extraction status with live updates
+
+### Quick Access
+Click the **paperclip icon** in the chat interface to start extracting documents!
+
+See [DOCUMENT_EXTRACTION_README.md](./DOCUMENT_EXTRACTION_README.md) for detailed documentation.
 
 ## How can I edit this code?
 
