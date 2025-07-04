@@ -18,6 +18,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        tbwa: "bg-tbwa-yellow text-tbwa-black hover:bg-tbwa-yellow/90 transition-smooth",
+        "tbwa-outline": "border-2 border-tbwa-yellow bg-transparent text-tbwa-yellow hover:bg-tbwa-yellow hover:text-tbwa-black transition-smooth",
+        "tbwa-secondary": "bg-tbwa-turquoise text-tbwa-black hover:bg-tbwa-turquoise/90 transition-smooth",
+        "tbwa-dark": "bg-tbwa-black text-tbwa-white hover:bg-tbwa-gray transition-smooth",
       },
       size: {
         default: "h-10 px-4 py-2",
