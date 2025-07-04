@@ -24,9 +24,9 @@ const ChatInterface = () => {
               <Sparkles className="h-4 w-4 text-tbwa-black" />
             </div>
             <div>
-              <h3 className="font-semibold text-foreground mb-2">LIONS Intelligence AI</h3>
+              <h3 className="font-semibold text-foreground mb-2">Ask Ces</h3>
               <p className="text-muted-foreground">
-                Welcome to LIONS Intelligence! I'm here to help you analyze campaigns, generate insights, 
+                Welcome to Ask Ces! I'm here to help you analyze campaigns, generate insights, 
                 and unlock creative intelligence. What would you like to explore today?
               </p>
             </div>
@@ -59,7 +59,7 @@ const ChatInterface = () => {
                 <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Ask LIONS Intelligence anything..."
+                  placeholder="Ask Ces anything..."
                   className="w-full bg-transparent text-chat-text placeholder-tbwa-gray resize-none outline-none min-h-[2.5rem] max-h-32"
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && !e.shiftKey) {

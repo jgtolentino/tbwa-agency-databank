@@ -9,7 +9,7 @@ const Navigation = () => {
         <div className="flex items-center space-x-3">
           <Brain className="h-8 w-8 text-tbwa-yellow" />
           <div>
-            <h1 className="text-xl font-bold">LIONS Intelligence</h1>
+            <h1 className="text-xl font-bold">Ask Ces</h1>
             <p className="text-xs text-tbwa-gray">TBWA\SMP</p>
           </div>
         </div>
