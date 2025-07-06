@@ -321,7 +321,7 @@ export class PersonalizationService {
     const baseLayout = {
       density: preferences.ui.density,
       theme: preferences.ui.theme,
-      defaultView: preferences.workspace.defaultView
+      defaultFileView: preferences.workspace.defaultFileView
     };
     
     // Adjust based on behavior
