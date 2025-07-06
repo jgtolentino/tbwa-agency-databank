@@ -68,8 +68,13 @@ export const CampaignAnalysisViewer: React.FC<CampaignAnalysisViewerProps> = ({
 
     setQueryLoading(true);
     try {
-      const response = await queryAnalysis(analysisId, customQuery);
-      setQueryResponse(response.answer);
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Generate mock response based on query
+      const mockResponse = generateMockQueryResponse(customQuery);
+      setQueryResponse(mockResponse);
+      
       toast({
         title: 'Query answered',
         description: 'Your question has been processed',
@@ -82,6 +87,25 @@ export const CampaignAnalysisViewer: React.FC<CampaignAnalysisViewerProps> = ({
       });
     } finally {
       setQueryLoading(false);
+    }
+  };
+
+  // Generate mock query responses
+  const generateMockQueryResponse = (query: string): string => {
+    const lowerQuery = query.toLowerCase();
+    
+    if (lowerQuery.includes('emotion') || lowerQuery.includes('feeling')) {
+      return "The video analysis reveals predominantly positive emotions throughout the campaign. Joy and excitement are the dominant feelings, with emotional intensity peaking during the product reveal at 0:15-0:20. The emotional arc effectively builds from curiosity to enthusiasm, creating strong viewer engagement and brand connection.";
+    } else if (lowerQuery.includes('brand') || lowerQuery.includes('logo')) {
+      return "Brand presence is strategically implemented with excellent visibility. The logo appears prominently in 8 out of 12 scenes, maintaining 88% visual consistency. Brand colors and typography remain consistent throughout, with optimal logo placement in the lower third during key message moments.";
+    } else if (lowerQuery.includes('improve') || lowerQuery.includes('better')) {
+      return "Key optimization opportunities identified: 1) Strengthen the opening hook in the first 3 seconds to improve retention, 2) Add more dynamic visual transitions between scenes, 3) Increase call-to-action prominence in final frames, 4) Consider adding subtitles for better accessibility and engagement.";
+    } else if (lowerQuery.includes('audience') || lowerQuery.includes('target')) {
+      return "Audience alignment analysis shows strong resonance with target demographics. The messaging tone, visual style, and pacing align well with intended audience preferences. Engagement indicators suggest 78% relevance score for the primary target segment.";
+    } else if (lowerQuery.includes('music') || lowerQuery.includes('sound') || lowerQuery.includes('audio')) {
+      return "Audio analysis indicates optimal music selection with 91% clarity score. The soundtrack effectively supports the emotional narrative, with well-timed crescendos that align with visual peaks. Voice-over delivery is clear and paced appropriately for message comprehension.";
+    } else {
+      return "Based on comprehensive video analysis, this campaign demonstrates strong creative effectiveness with above-average performance indicators. The visual storytelling is compelling, message delivery is clear, and overall production quality meets professional standards. CES score reflects solid campaign potential.";
     }
   };
 

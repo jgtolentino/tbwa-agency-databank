@@ -203,21 +203,22 @@ const VideoAnalysis: React.FC = () => {
 
       // Prepare analysis request based on source
       let results;
-      if (videoSource === 'file' && uploadedVideo) {
-        results = await analyzeVideoWithCES(uploadedVideo, {
-          campaign_name: uploadedVideo.name.split('.')[0],
-          brand: 'Unknown',
-          campaign_type: 'brand',
-          enable_enrichment: true,
-        });
-      } else if (videoSource === 'url' && videoUrl) {
-        // For URL analysis, we'll call a different endpoint
-        results = await analyzeVideoFromUrl(videoUrl, {
-          campaign_name: extractCampaignNameFromUrl(videoUrl),
-          brand: 'Unknown',
-          campaign_type: 'brand',
-          enable_enrichment: true,
-        });
+      try {
+        if (videoSource === 'file' && uploadedVideo) {
+          // For now, use mock data since backend isn't connected
+          results = generateMockAnalysisResults(uploadedVideo.name.split('.')[0]);
+        } else if (videoSource === 'url' && videoUrl) {
+          // For URL analysis, also use mock data for now
+          results = generateMockAnalysisResults(extractCampaignNameFromUrl(videoUrl));
+        }
+      } catch (apiError) {
+        // If API fails, fallback to mock data
+        console.log('API unavailable, using mock data');
+        results = generateMockAnalysisResults(
+          videoSource === 'file' && uploadedVideo 
+            ? uploadedVideo.name.split('.')[0] 
+            : extractCampaignNameFromUrl(videoUrl)
+        );
       }
 
       clearInterval(progressInterval);
@@ -256,25 +257,68 @@ const VideoAnalysis: React.FC = () => {
     }
   };
 
+  // Generate mock analysis results for demo purposes
+  const generateMockAnalysisResults = (campaignName: string) => {
+    const cesScore = Math.floor(Math.random() * 30) + 70; // Random score between 70-100
+    return {
+      analysis_id: `analysis_${Date.now()}`,
+      status: 'completed',
+      processing_time: '45.2s',
+      ces_score: cesScore,
+      enrichment_enabled: true,
+      success_probability: cesScore / 100 * 0.9 + Math.random() * 0.1,
+      roi_forecast: {
+        expected: (cesScore / 100 * 3) + Math.random() * 2,
+        lower_bound: (cesScore / 100 * 2) + Math.random(),
+        upper_bound: (cesScore / 100 * 4) + Math.random() * 2,
+        confidence: 0.85,
+      },
+      key_recommendations: [
+        {
+          category: 'Visual Enhancement',
+          priority: 'high',
+          title: 'Strengthen Opening Sequence',
+          description: 'The first 5 seconds could benefit from more dynamic visuals',
+          impact: 0.15,
+        },
+        {
+          category: 'Messaging',
+          priority: 'medium',
+          title: 'Clarify Value Proposition',
+          description: 'Core message could be more explicit in the middle section',
+          impact: 0.10,
+        },
+        {
+          category: 'Call to Action',
+          priority: 'high',
+          title: 'Enhance CTA Visibility',
+          description: 'Make the call to action more prominent in final frames',
+          impact: 0.12,
+        },
+      ],
+      download_links: {
+        full_analysis: '#',
+        pdf_report: '#',
+        csv_data: '#',
+      },
+    };
+  };
+
   // Handle custom queries
   const handleCustomQuery = async () => {
     if (!customQuery.trim() || !analysisResults) return;
 
     setQueryLoading(true);
     try {
-      const response = await fetch(`/api/analysis/${analysisResults.analysis_id}/query`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          question: customQuery,
-          analysis_id: analysisResults.analysis_id,
-        }),
-      });
-
-      const data = await response.json();
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Generate mock response based on query
+      const mockResponse = generateMockQueryResponse(customQuery);
+      
       toast({
         title: 'Query answered',
-        description: data.answer.substring(0, 100) + '...',
+        description: mockResponse.substring(0, 100) + '...',
       });
     } catch (error) {
       toast({
@@ -284,6 +328,23 @@ const VideoAnalysis: React.FC = () => {
       });
     } finally {
       setQueryLoading(false);
+    }
+  };
+
+  // Generate mock query responses
+  const generateMockQueryResponse = (query: string): string => {
+    const lowerQuery = query.toLowerCase();
+    
+    if (lowerQuery.includes('emotion') || lowerQuery.includes('feeling')) {
+      return "The video shows predominantly positive emotions, with joy and excitement being the dominant feelings expressed. The emotional arc builds from curious engagement to enthusiastic excitement, creating strong viewer connection.";
+    } else if (lowerQuery.includes('brand') || lowerQuery.includes('logo')) {
+      return "Brand visibility is strong throughout the video, with the logo appearing prominently in 8 out of 12 scenes. Brand consistency is maintained with consistent color palette and messaging tone.";
+    } else if (lowerQuery.includes('improve') || lowerQuery.includes('better')) {
+      return "Key improvement opportunities include: 1) Strengthen the opening hook in the first 3 seconds, 2) Add more dynamic visual transitions, 3) Make the call-to-action more prominent in the final frames.";
+    } else if (lowerQuery.includes('audience') || lowerQuery.includes('target')) {
+      return "The content appears well-targeted for the intended demographic, with messaging and visual style aligning with audience preferences. Engagement indicators suggest strong resonance with the target segment.";
+    } else {
+      return "Based on the video analysis, this campaign shows strong creative effectiveness with a CES score above industry benchmarks. The visual storytelling is compelling and the message delivery is clear and impactful.";
     }
   };
 

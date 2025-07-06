@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Send, Mic, Paperclip, Sparkles } from "lucide-react";
-import { DocumentExtractionModal } from "./DocumentExtractionModal";
+import { CESExtractionModal } from "./CESExtractionModal";
 
 const ChatInterface = () => {
   const [message, setMessage] = useState("");
@@ -77,7 +77,7 @@ const ChatInterface = () => {
                   size="icon" 
                   className="text-chat-text hover:text-chat-border"
                   onClick={() => setShowDocumentExtraction(true)}
-                  title="Extract & Archive Documents"
+                  title="Analyze Campaign Effectiveness"
                 >
                   <Paperclip className="h-4 w-4" />
                 </Button>
