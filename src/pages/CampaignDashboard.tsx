@@ -154,8 +154,8 @@ const CampaignDashboard: React.FC = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed': return 'default';
-      case 'active': return 'success';
-      case 'pending': return 'warning';
+      case 'active': return 'secondary';
+      case 'pending': return 'outline';
       default: return 'secondary';
     }
   };
