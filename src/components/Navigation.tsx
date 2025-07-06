@@ -1,17 +1,52 @@
 import { Button } from "@/components/ui/button";
-import { Brain, Settings, User, Search, Bell } from "lucide-react";
+import { Brain, User, Search, Bell, Video, BarChart3 } from "lucide-react";
+import { SettingsDropdown } from "./SettingsDropdown";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
+  const location = useLocation();
+  
   return (
     <nav className="bg-nav-bg text-nav-text px-6 py-4 border-b border-tbwa-gray/20">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         {/* Logo */}
-        <div className="flex items-center space-x-3">
+        <Link to="/" className="flex items-center space-x-3">
           <Brain className="h-8 w-8 text-tbwa-yellow" />
           <div>
             <h1 className="text-xl font-bold">Ask Ces</h1>
             <p className="text-xs text-tbwa-gray">TBWA\SMP</p>
           </div>
+        </Link>
+
+        {/* Navigation Links */}
+        <div className="flex items-center space-x-4">
+          <Link to="/">
+            <Button 
+              variant={location.pathname === "/" ? "default" : "ghost"} 
+              className={location.pathname === "/" ? "bg-tbwa-yellow text-tbwa-black" : "text-nav-text hover:text-nav-hover"}
+            >
+              <Brain className="h-4 w-4 mr-2" />
+              Ask Ces
+            </Button>
+          </Link>
+          <Link to="/video-analysis">
+            <Button 
+              variant={location.pathname === "/video-analysis" ? "default" : "ghost"} 
+              className={location.pathname === "/video-analysis" ? "bg-tbwa-yellow text-tbwa-black" : "text-nav-text hover:text-nav-hover"}
+            >
+              <Video className="h-4 w-4 mr-2" />
+              Video Analysis
+            </Button>
+          </Link>
+          <Link to="/campaign-dashboard">
+            <Button 
+              variant={location.pathname.includes("dashboard") ? "default" : "ghost"} 
+              className={location.pathname.includes("dashboard") ? "bg-tbwa-yellow text-tbwa-black" : "text-nav-text hover:text-nav-hover"}
+            >
+              <BarChart3 className="h-4 w-4 mr-2" />
+              Dashboard
+            </Button>
+          </Link>
         </div>
 
         {/* Search */}
@@ -31,9 +66,7 @@ const Navigation = () => {
           <Button variant="ghost" size="icon" className="text-nav-text hover:text-nav-hover">
             <Bell className="h-5 w-5" />
           </Button>
-          <Button variant="ghost" size="icon" className="text-nav-text hover:text-nav-hover">
-            <Settings className="h-5 w-5" />
-          </Button>
+          <SettingsDropdown />
           <Button variant="ghost" size="icon" className="text-nav-text hover:text-nav-hover">
             <User className="h-5 w-5" />
           </Button>
