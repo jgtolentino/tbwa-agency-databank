@@ -20,15 +20,6 @@ const Navigation = () => {
 
         {/* Navigation Links */}
         <div className="flex items-center space-x-4">
-          <Link to="/">
-            <Button 
-              variant={location.pathname === "/" ? "default" : "ghost"} 
-              className={location.pathname === "/" ? "bg-tbwa-yellow text-tbwa-black" : "text-nav-text hover:text-nav-hover"}
-            >
-              <Brain className="h-4 w-4 mr-2" />
-              Ask Ces
-            </Button>
-          </Link>
           <Link to="/video-analysis">
             <Button 
               variant={location.pathname === "/video-analysis" ? "default" : "ghost"} 
