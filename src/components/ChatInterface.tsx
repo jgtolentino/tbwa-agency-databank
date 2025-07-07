@@ -46,7 +46,7 @@ const ChatInterface = () => {
           <Button variant="tbwa-outline" size="sm">
             Market research insights
           </Button>
-          <Button variant="tbwa" size="sm">
+          <Button variant="tbwa-outline" size="sm">
             Competitor analysis
           </Button>
         </div>
