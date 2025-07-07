@@ -20,6 +20,9 @@ import {
   Download,
   Share2,
   RefreshCw,
+  Settings,
+  Globe,
+  Zap,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -29,9 +32,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { analyzeVideoWithCES, analyzeVideoFromUrl } from '@/services/videoAnalysis';
+import { analyzeVideoAdvanced, type AdvancedVideoAnalysisRequest } from '@/services/advancedVideoAnalysis';
 import { CampaignAnalysisViewer } from '@/components/CampaignAnalysisViewer';
 
 const VideoAnalysis: React.FC = () => {
@@ -47,6 +53,13 @@ const VideoAnalysis: React.FC = () => {
   const [analysisResults, setAnalysisResults] = useState<any>(null);
   const [customQuery, setCustomQuery] = useState('');
   const [queryLoading, setQueryLoading] = useState(false);
+  
+  // Advanced analysis options
+  const [useAdvancedAnalysis, setUseAdvancedAnalysis] = useState(true);
+  const [enableEmotionAnalysis, setEnableEmotionAnalysis] = useState(true);
+  const [enableFrameAnalysis, setEnableFrameAnalysis] = useState(true);
+  const [enableCulturalAnalysis, setEnableCulturalAnalysis] = useState(false);
+  const [targetDemographics, setTargetDemographics] = useState('');
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isDragActive, setIsDragActive] = useState(false);
