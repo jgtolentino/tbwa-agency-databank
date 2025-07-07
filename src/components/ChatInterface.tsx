@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Send, Mic, Paperclip, Sparkles } from "lucide-react";
-import { CESExtractionModal } from "./CESExtractionModal";
+import { DocumentExtractionModal } from "./DocumentExtractionModal";
 
 const ChatInterface = () => {
   const [message, setMessage] = useState("");
