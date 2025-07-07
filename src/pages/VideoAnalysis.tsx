@@ -206,10 +206,10 @@ const VideoAnalysis: React.FC = () => {
       try {
         if (videoSource === 'file' && uploadedVideo) {
           // For now, use mock data since backend isn't connected
-          results = generateMockAnalysisResults(uploadedVideo.name.split('.')[0]);
+          results = generateMockAnalysisResults(uploadedVideo.name.split('.')[0], true); // Enable enrichment
         } else if (videoSource === 'url' && videoUrl) {
           // For URL analysis, also use mock data for now
-          results = generateMockAnalysisResults(extractCampaignNameFromUrl(videoUrl));
+          results = generateMockAnalysisResults(extractCampaignNameFromUrl(videoUrl), true); // Enable enrichment
         }
       } catch (apiError) {
         // If API fails, fallback to mock data
@@ -217,7 +217,8 @@ const VideoAnalysis: React.FC = () => {
         results = generateMockAnalysisResults(
           videoSource === 'file' && uploadedVideo 
             ? uploadedVideo.name.split('.')[0] 
-            : extractCampaignNameFromUrl(videoUrl)
+            : extractCampaignNameFromUrl(videoUrl),
+          true // Enable enrichment
         );
       }
 
@@ -258,14 +259,57 @@ const VideoAnalysis: React.FC = () => {
   };
 
   // Generate mock analysis results for demo purposes
-  const generateMockAnalysisResults = (campaignName: string) => {
+  const generateMockAnalysisResults = (campaignName: string, enableEnrichment: boolean = false) => {
     const cesScore = Math.floor(Math.random() * 30) + 70; // Random score between 70-100
     return {
       analysis_id: `analysis_${Date.now()}`,
       status: 'completed',
       processing_time: '45.2s',
       ces_score: cesScore,
-      enrichment_enabled: true,
+      enrichment_enabled: enableEnrichment,
+      market_intelligence: enableEnrichment ? {
+        marketContext: {
+          totalMarketSize: '₱2.4 trillion by 2030 (sari-sari channel)',
+          storeUniverse: '1.3 million stores',
+          channelDominance: 'Mini-stores remain dominant FMCG channel',
+          growthRate: '2.7% regional FMCG growth'
+        },
+        categoryIntelligence: {
+          category: 'cigarettes',
+          marketShare: 0.18,
+          tbwaClientShare: 0.40, // JTI dominance
+          dominantBrands: ['Winston', 'Mevius', 'LD'],
+          growthTrend: -0.02
+        },
+        competitiveContext: [
+          {
+            competitorName: 'Philip Morris International',
+            marketShare: 0.33,
+            keyBrands: ['Marlboro', 'Parliament'],
+            recentCampaigns: ['Marlboro Red Campaign', 'IQOS Heat-not-burn'],
+            strengths: ['Strong brand recognition', 'Premium positioning'],
+            weaknesses: ['Declining category', 'Regulatory pressure']
+          }
+        ],
+        dataSources: [
+          {
+            name: 'NielsenIQ – Asia Channel Dynamics 2025',
+            category: 'primary',
+            description: 'Latest 2024 growth trends and basket mix for sari-sari stores'
+          },
+          {
+            name: 'Kantar Worldpanel – FMCG Monitor: Q3 2024',
+            category: 'primary', 
+            description: 'Unit-growth breakdown by mega-category and region'
+          }
+        ],
+        dataQuality: {
+          primarySourcesUsed: 4,
+          totalSourcesUsed: 7,
+          methodologyTransparency: 'High - using primary measurement companies',
+          lastUpdate: new Date().toISOString()
+        }
+      } : undefined,
       success_probability: cesScore / 100 * 0.9 + Math.random() * 0.1,
       roi_forecast: {
         expected: (cesScore / 100 * 3) + Math.random() * 2,
@@ -287,6 +331,15 @@ const VideoAnalysis: React.FC = () => {
           title: 'Clarify Value Proposition',
           description: 'Core message could be more explicit in the middle section',
           impact: 0.10,
+        },
+        {
+          category: 'Market Intelligence',
+          priority: enableEnrichment ? 'high' : 'low',
+          title: enableEnrichment ? 'Leverage Market Position' : 'Enable Market Intelligence',
+          description: enableEnrichment 
+            ? 'With 40% category share, emphasize market leadership in messaging'
+            : 'Enable market intelligence for deeper competitive insights',
+          impact: enableEnrichment ? 0.18 : 0.05,
         },
         {
           category: 'Call to Action',

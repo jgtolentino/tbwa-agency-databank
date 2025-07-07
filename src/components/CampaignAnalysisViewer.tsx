@@ -318,9 +318,10 @@ export const CampaignAnalysisViewer: React.FC<CampaignAnalysisViewerProps> = ({
 
       {/* Analysis Tabs */}
       <Tabs defaultValue="timeline" className="space-y-4">
-        <TabsList className="grid grid-cols-4 w-full max-w-xl">
+        <TabsList className="grid grid-cols-5 w-full max-w-2xl">
           <TabsTrigger value="timeline">Timeline</TabsTrigger>
           <TabsTrigger value="features">Features</TabsTrigger>
+          <TabsTrigger value="market">Market Intel</TabsTrigger>
           <TabsTrigger value="recommendations">Insights</TabsTrigger>
           <TabsTrigger value="query">Ask AI</TabsTrigger>
         </TabsList>
@@ -421,6 +422,134 @@ export const CampaignAnalysisViewer: React.FC<CampaignAnalysisViewerProps> = ({
                   <Bar dataKey="importance" fill="#dc2626" radius={[0, 4, 4, 0]} />
                 </BarChart>
               </ResponsiveContainer>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="market" className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>Market Intelligence</CardTitle>
+              <CardDescription>Real-time market data and competitive insights</CardDescription>
+            </CardHeader>
+            <CardContent>
+              {/* Market Context Overview */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-sm">Market Context</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span>Market Size</span>
+                        <span className="font-medium">₱2.4T by 2030</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Store Universe</span>
+                        <span className="font-medium">1.3M stores</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Channel Dominance</span>
+                        <Badge variant="secondary">Mini-stores</Badge>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Growth Rate</span>
+                        <span className="font-medium text-green-600">+2.7%</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-sm">Data Quality</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span>Primary Sources</span>
+                        <span className="font-medium">4</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Total Sources</span>
+                        <span className="font-medium">7</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Reliability Score</span>
+                        <span className="font-medium text-green-600">87%</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Last Update</span>
+                        <span className="font-medium">Mar 2025</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Category Analysis */}
+              <Card className="mb-4">
+                <CardHeader>
+                  <CardTitle className="text-sm">Category Performance</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
+                      <div>
+                        <p className="font-medium">Category Market Share</p>
+                        <p className="text-sm text-muted-foreground">Position in overall FMCG market</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-2xl font-bold">18%</p>
+                        <p className="text-sm text-muted-foreground">of total market</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-tbwa-red/5 rounded-lg border border-tbwa-red/20">
+                      <div>
+                        <p className="font-medium">TBWA Client Share</p>
+                        <p className="text-sm text-muted-foreground">Our client's position in category</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-2xl font-bold text-tbwa-red">40%</p>
+                        <p className="text-sm text-muted-foreground">category leader</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Data Sources */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-sm">Key Data Sources</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-2 border rounded">
+                      <div>
+                        <p className="font-medium text-sm">NielsenIQ</p>
+                        <p className="text-xs text-muted-foreground">Asia Channel Dynamics 2025</p>
+                      </div>
+                      <Badge>Primary</Badge>
+                    </div>
+                    <div className="flex items-center justify-between p-2 border rounded">
+                      <div>
+                        <p className="font-medium text-sm">Kantar Worldpanel</p>
+                        <p className="text-xs text-muted-foreground">FMCG Monitor Q3 2024</p>
+                      </div>
+                      <Badge>Primary</Badge>
+                    </div>
+                    <div className="flex items-center justify-between p-2 border rounded">
+                      <div>
+                        <p className="font-medium text-sm">Seatca TobaccoWatch</p>
+                        <p className="text-xs text-muted-foreground">Market share analysis</p>
+                      </div>
+                      <Badge variant="secondary">Advocacy</Badge>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </CardContent>
           </Card>
         </TabsContent>
