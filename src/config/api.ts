@@ -2,33 +2,35 @@
  * API Configuration
  */
 
-// Base URL for API endpoints
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+import { currentMCPConfig } from './mcp-integration';
 
-// Video Analysis API endpoints
+// Base URL for API endpoints - now using MCP backend
+export const API_BASE_URL = currentMCPConfig.http;
+
+// Video Analysis API endpoints (MCP-compatible)
 export const VIDEO_API_ENDPOINTS = {
-  analyze: '/analyze/video',
-  results: '/analysis',
-  query: '/analysis/query',
-  export: '/analysis/export',
-  batch: '/batch/analyze',
-  history: '/analysis/history',
+  analyze: '/api/jampacked/analyze',
+  results: '/api/jampacked/results',
+  query: '/api/jampacked/insights',
+  export: '/api/tasks/results',
+  batch: '/api/tasks/create',
+  history: '/api/tasks/history',
 };
 
-// Campaign API endpoints
+// Campaign API endpoints (MCP-compatible)
 export const CAMPAIGN_API_ENDPOINTS = {
-  analytics: '/campaigns/analytics',
-  benchmarks: '/campaigns/benchmarks',
-  details: '/campaigns',
-  search: '/campaigns/search',
+  analytics: '/api/jampacked/campaigns',
+  benchmarks: '/api/jampacked/insights',
+  details: '/api/jampacked/campaigns',
+  search: '/api/jampacked/campaigns',
 };
 
-// Document API endpoints
+// Document API endpoints (MCP-compatible)
 export const DOCUMENT_API_ENDPOINTS = {
-  upload: '/documents/upload',
-  extract: '/documents/extract',
-  search: '/documents/search',
-  insights: '/documents/insights',
+  upload: '/api/documents/upload',
+  extract: '/api/documents/extract',
+  search: '/api/documents/search',
+  insights: '/api/documents/embeddings',
 };
 
 // Authentication configuration
@@ -48,9 +50,12 @@ export const UPLOAD_CONFIG = {
   acceptedDocumentFormats: ['.pdf', '.ppt', '.pptx', '.doc', '.docx'],
 };
 
-// WebSocket configuration for real-time updates
+// WebSocket configuration for real-time updates (MCP-compatible)
 export const WS_CONFIG = {
-  url: import.meta.env.VITE_WS_URL || 'ws://localhost:8000/ws',
+  url: currentMCPConfig.http.replace('http', 'ws') + '/ws',
   reconnectInterval: 5000,
-  maxReconnectAttempts: 5,
+  maxReconnectAttempts: 10,
 };
+
+// MCP Integration exports
+export { mcpIntegration, MCP_ENDPOINTS, MCPIntegrationStatus } from './mcp-integration';
