@@ -58,4 +58,5 @@ export const WS_CONFIG = {
 };
 
 // MCP Integration exports
-export { mcpIntegration, MCP_ENDPOINTS, MCPIntegrationStatus } from './mcp-integration';
+export { mcpIntegration, MCP_ENDPOINTS } from './mcp-integration';
+export type { MCPIntegrationStatus } from './mcp-integration';
