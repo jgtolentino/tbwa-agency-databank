@@ -20,3 +20,14 @@ export default defineConfig(({ mode }) => ({
     },
   },
 }));
+
+// Production optimizations
+const productionConfig = {
+  build: {
+    rollupOptions: {
+      external: process.env.NODE_ENV === 'production' ? [
+        './src/mocks/**/*'
+      ] : []
+    }
+  }
+};

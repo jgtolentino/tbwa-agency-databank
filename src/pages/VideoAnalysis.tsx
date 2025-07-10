@@ -219,15 +219,12 @@ const VideoAnalysis: React.FC = () => {
       try {
         if (videoSource === 'file' && uploadedVideo) {
           // For now, use mock data since backend isn't connected
-          results = generateMockAnalysisResults(uploadedVideo.name.split('.')[0], true); // Enable enrichment
         } else if (videoSource === 'url' && videoUrl) {
           // For URL analysis, also use mock data for now
-          results = generateMockAnalysisResults(extractCampaignNameFromUrl(videoUrl), true); // Enable enrichment
         }
       } catch (apiError) {
         // If API fails, fallback to mock data
         console.log('API unavailable, using mock data');
-        results = generateMockAnalysisResults(
           videoSource === 'file' && uploadedVideo 
             ? uploadedVideo.name.split('.')[0] 
             : extractCampaignNameFromUrl(videoUrl),
@@ -272,7 +269,6 @@ const VideoAnalysis: React.FC = () => {
   };
 
   // Generate mock analysis results for demo purposes
-  const generateMockAnalysisResults = (campaignName: string, enableEnrichment: boolean = false) => {
     const cesScore = Math.floor(Math.random() * 30) + 70; // Random score between 70-100
     return {
       analysis_id: `analysis_${Date.now()}`,
@@ -380,7 +376,6 @@ const VideoAnalysis: React.FC = () => {
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       // Generate mock response based on query
-      const mockResponse = generateMockQueryResponse(customQuery);
       
       toast({
         title: 'Query answered',
@@ -398,7 +393,6 @@ const VideoAnalysis: React.FC = () => {
   };
 
   // Generate mock query responses
-  const generateMockQueryResponse = (query: string): string => {
     const lowerQuery = query.toLowerCase();
     
     if (lowerQuery.includes('emotion') || lowerQuery.includes('feeling')) {
