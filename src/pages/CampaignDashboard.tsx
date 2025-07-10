@@ -42,12 +42,15 @@ const CampaignDashboard: React.FC = () => {
   const [selectedCampaignType, setSelectedCampaignType] = useState('all');
   const [dashboardData, setDashboardData] = useState<any>(null);
 
+  console.log('CampaignDashboard component loaded', { loading, dashboardData });
+
   // Fetch dashboard data
   useEffect(() => {
     loadDashboardData();
   }, [selectedTimeRange, selectedIndustry, selectedCampaignType]);
 
   const loadDashboardData = async () => {
+    console.log('loadDashboardData called');
     setLoading(true);
     try {
       const data = await getCampaignAnalytics({
@@ -56,6 +59,7 @@ const CampaignDashboard: React.FC = () => {
         campaignType: selectedCampaignType,
       });
       setDashboardData(data);
+      console.log('Dashboard data loaded from API:', data);
     } catch (error) {
       console.log('Backend unavailable, using fallback data for preview');
       // Temporary fallback for preview - will be removed when backend is stable
