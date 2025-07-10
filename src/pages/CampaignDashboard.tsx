@@ -67,81 +67,39 @@ const CampaignDashboard: React.FC = () => {
     }
   };
 
-  // Mock data for demonstration
-  const mockData = {
-    overview: {
-      totalCampaigns: 156,
-      avgCesScore: 72.5,
-      totalBudget: 4.2,
-      avgRoi: 3.8,
-      topPerformers: 28,
-      needsImprovement: 12,
-    },
-    cesDistribution: [
-      { range: '0-20', count: 5, percentage: 3.2 },
-      { range: '21-40', count: 12, percentage: 7.7 },
-      { range: '41-60', count: 34, percentage: 21.8 },
-      { range: '61-80', count: 78, percentage: 50.0 },
-      { range: '81-100', count: 27, percentage: 17.3 },
-    ],
-    trendData: [
-      { month: 'Jan', avgCes: 68, campaigns: 12, roi: 3.2 },
-      { month: 'Feb', avgCes: 70, campaigns: 15, roi: 3.5 },
-      { month: 'Mar', avgCes: 69, campaigns: 18, roi: 3.4 },
-      { month: 'Apr', avgCes: 72, campaigns: 22, roi: 3.7 },
-      { month: 'May', avgCes: 74, campaigns: 20, roi: 3.9 },
-      { month: 'Jun', avgCes: 76, campaigns: 24, roi: 4.1 },
-    ],
-    featureImportance: [
-      { feature: 'Visual Quality', weight: 0.34, category: 'creative' },
-      { feature: 'Brand Consistency', weight: 0.28, category: 'brand' },
-      { feature: 'Message Clarity', weight: 0.22, category: 'messaging' },
-      { feature: 'Emotional Impact', weight: 0.19, category: 'creative' },
-      { feature: 'Target Precision', weight: 0.17, category: 'strategy' },
-      { feature: 'Channel Mix', weight: 0.15, category: 'media' },
-    ],
-    industryBenchmarks: [
-      { industry: 'Technology', avgCes: 74, topQuartile: 85, campaigns: 32 },
-      { industry: 'Retail', avgCes: 71, topQuartile: 82, campaigns: 45 },
-      { industry: 'Finance', avgCes: 69, topQuartile: 80, campaigns: 28 },
-      { industry: 'Healthcare', avgCes: 73, topQuartile: 84, campaigns: 21 },
-      { industry: 'Automotive', avgCes: 75, topQuartile: 86, campaigns: 30 },
-    ],
-    recentCampaigns: [
-      {
-        id: 1,
-        name: 'Summer Product Launch',
-        brand: 'Nike',
-        cesScore: 85,
-        roi: 4.2,
-        status: 'completed',
-        type: 'brand',
-        date: '2024-06-15',
-      },
-      {
-        id: 2,
-        name: 'Back to School',
-        brand: 'Apple',
-        cesScore: 78,
-        roi: 3.8,
-        status: 'active',
-        type: 'performance',
-        date: '2024-06-20',
-      },
-      {
-        id: 3,
-        name: 'Sustainability Initiative',
-        brand: 'Patagonia',
-        cesScore: 82,
-        roi: 3.5,
-        status: 'completed',
-        type: 'csr',
-        date: '2024-06-10',
-      },
-    ],
-  };
+  // Use the dashboard data from the API
+  const data = dashboardData;
 
-  const data = dashboardData || mockData;
+  // Show error state if no data is available and not loading
+  if (!data && !loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Card className="w-96">
+          <CardContent className="p-6 text-center">
+            <p className="text-muted-foreground mb-4">No campaign data available</p>
+            <Button onClick={loadDashboardData} disabled={loading}>
+              <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+              Retry Loading
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Card className="w-96">
+          <CardContent className="p-6 text-center">
+            <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4" />
+            <p className="text-muted-foreground">Loading campaign data...</p>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 
   const categoryColors = {
     creative: '#3b82f6',

@@ -5,7 +5,7 @@
 
 import { API_BASE_URL } from '@/config/api';
 import { enrichCampaignWithMarketData, getMarketIntelligenceSummary } from './marketIntelligence';
-import { generateMockAnalysisResults } from '@/mocks/mockVideoAnalysis';
+// Removed mock imports - using live backend only
 import { mcpServiceAdapter, MCPAnalysisResponse, MCPTask } from './mcp-service-adapter';
 
 export interface VideoAnalysisRequest {
@@ -161,9 +161,9 @@ export async function analyzeVideoWithCES(
       }
     };
   } catch (error) {
-    // Fallback to enriched mock data if MCP fails
-    console.warn('MCP unavailable, using enriched mock data:', error);
-    return generateEnrichedMockAnalysis(videoFile.name, metadata);
+    // If MCP fails, throw error - no fallback to mock data
+    console.error('MCP video analysis failed:', error);
+    throw new Error('Video analysis service unavailable. Please try again later.');
   }
 }
 
@@ -236,9 +236,9 @@ export async function analyzeVideoFromUrl(
       }
     };
   } catch (error) {
-    // Fallback to enriched mock data if MCP fails
-    console.warn('MCP unavailable, using enriched mock data:', error);
-    return generateEnrichedMockAnalysis(videoUrl, metadata);
+    // If MCP fails, throw error - no fallback to mock data
+    console.error('MCP URL analysis failed:', error);
+    throw new Error('Video analysis service unavailable. Please try again later.');
   }
 }
 
@@ -251,8 +251,8 @@ export async function getAnalysisResults(analysisId: string): Promise<AnalysisRe
     const taskResults = await mcpServiceAdapter.getTaskResults(analysisId);
     
     if (!taskResults) {
-      console.error('No results found for task, using mock data.');
-      return generateMockAnalysisResults(analysisId);
+      console.error('No results found for task.');
+      throw new Error('Analysis results not found.');
     }
 
     // Transform MCP results to expected format
@@ -284,8 +284,8 @@ export async function getAnalysisResults(analysisId: string): Promise<AnalysisRe
       enhanced_ces_analysis: taskResults.enhanced_ces_analysis
     };
   } catch (error) {
-    console.error('MCP task results unavailable, using mock data.', error);
-    return generateMockAnalysisResults(analysisId);
+    console.error('MCP task results unavailable.', error);
+    throw new Error('Unable to retrieve analysis results.');
   }
 }
 
@@ -329,23 +329,9 @@ export async function exportAnalysisReport(
     const exportBlob = await mcpServiceAdapter.exportResults(analysisId, format);
     return exportBlob;
   } catch (error) {
-    // Fallback to enriched mock export
-    console.warn('MCP export unavailable, generating enriched mock export:', error);
-    const marketSummary = getMarketIntelligenceSummary();
-    
-    const mockData = format === 'json' 
-      ? JSON.stringify({ 
-          analysis_id: analysisId, 
-          export_date: new Date(),
-          market_intelligence_summary: marketSummary,
-          source: 'mcp-fallback'
-        })
-      : `Analysis ID: ${analysisId}\nExport Date: ${new Date()}\nMarket Intelligence: ${marketSummary.totalSources} sources, ${marketSummary.averageReliabilityScore}% avg reliability\nSource: MCP Backend (fallback)`;
-    
-    return new Blob([mockData], { 
-      type: format === 'pdf' ? 'application/pdf' : 
-           format === 'csv' ? 'text/csv' : 'application/json' 
-    });
+    // If MCP export fails, throw error - no fallback to mock data
+    console.error('MCP export unavailable:', error);
+    throw new Error('Export service unavailable. Please try again later.');
   }
 }
 
@@ -383,59 +369,6 @@ const detectCampaignCategoryFromUrl = (url: string): string => {
   }
   return 'general';
 };
-
-// Generate enriched mock analysis for fallback
-const generateEnrichedMockAnalysis = async (
-  source: string, 
-  metadata: VideoAnalysisRequest
-): Promise<VideoAnalysisResponse> => {
-  const campaignCategory = source.includes('http') 
-    ? detectCampaignCategoryFromUrl(source)
-    : detectCampaignCategory(source);
-    
-  const cesScore = Math.floor(Math.random() * 30) + 70;
-  const marketIntelligence = metadata.enable_enrichment 
-    ? await enrichCampaignWithMarketData(campaignCategory)
-    : undefined;
-
-  return {
-    analysis_id: `analysis_${Date.now()}`,
-    status: 'completed',
-    processing_time: '45.2s',
-    ces_score: cesScore,
-    enrichment_enabled: metadata.enable_enrichment || false,
-    market_intelligence: marketIntelligence,
-    success_probability: cesScore / 100 * 0.9 + Math.random() * 0.1,
-    roi_forecast: {
-      expected: (cesScore / 100 * 3) + Math.random() * 2,
-      lower_bound: (cesScore / 100 * 2) + Math.random(),
-      upper_bound: (cesScore / 100 * 4) + Math.random() * 2,
-      confidence: 0.85,
-    },
-    key_recommendations: [
-      {
-        category: 'Visual Enhancement',
-        priority: 'high',
-        title: 'Strengthen Opening Sequence',
-        description: 'The first 5 seconds could benefit from more dynamic visuals',
-        impact: 0.15,
-      },
-      {
-        category: 'Market Positioning',
-        priority: 'medium', 
-        title: 'Leverage Market Intelligence',
-        description: `Based on ${campaignCategory} market data, consider competitive positioning`,
-        impact: 0.12,
-      },
-    ],
-    download_links: {
-      full_analysis: '#',
-      pdf_report: '#',
-      csv_data: '#',
-    },
-  };
-};
-
 /**
  * Batch analyze multiple videos
  */
