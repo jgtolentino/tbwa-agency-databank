@@ -2,10 +2,8 @@
  * API Configuration
  */
 
-import { currentMCPConfig } from './mcp-integration';
-
-// Base URL for API endpoints - now using MCP backend
-export const API_BASE_URL = currentMCPConfig.http;
+// Base URL for API endpoints - using mock API server for development
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8001';
 
 // Video Analysis API endpoints (MCP-compatible)
 export const VIDEO_API_ENDPOINTS = {
