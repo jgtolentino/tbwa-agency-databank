@@ -139,3 +139,4 @@ export const mockAPI = {
 };
 
 // Use mock API in development
+export const api = import.meta.env.DEV ? mockAPI : extractionAPI;

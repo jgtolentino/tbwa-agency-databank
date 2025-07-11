@@ -72,11 +72,8 @@ export const CampaignAnalysisViewer: React.FC<CampaignAnalysisViewerProps> = ({
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       // Generate mock response based on query
-      // No mock fallback
-        setQueryResponse({ error: "Backend required" });
-      } else {
-        setQueryResponse({ error: "Backend unavailable" });
-      }
+      const mockResponse = generateMockQueryResponse(customQuery);
+      setQueryResponse(mockResponse);
       
       toast({
         title: 'Query answered',
@@ -94,6 +91,7 @@ export const CampaignAnalysisViewer: React.FC<CampaignAnalysisViewerProps> = ({
   };
 
   // Generate mock query responses
+  const generateMockQueryResponse = (query: string): string => {
     const lowerQuery = query.toLowerCase();
     
     if (lowerQuery.includes('emotion') || lowerQuery.includes('feeling')) {

@@ -13,7 +13,7 @@ export const MCP_CONFIG = {
   
   // Cloud MCP PostgreSQL Server
   cloud: {
-    http: process.env.VITE_MCP_HTTP_URL || 'https://mcp-sqlite-server.onrender.com',
+    http: process.env.VITE_MCP_HTTP_URL || 'https://your-render-app.onrender.com',
     database: process.env.VITE_DATABASE_URL || 'postgresql://...',
     apiKey: process.env.VITE_MCP_API_KEY || ''
   }
@@ -113,7 +113,7 @@ export class MCPIntegration {
         method: 'GET',
         headers: {
           ...MCP_REQUEST_CONFIG.headers,
-          'Authorization': `Bearer ${'apiKey' in currentMCPConfig ? currentMCPConfig.apiKey : ''}`
+          'Authorization': `Bearer ${currentMCPConfig.cloud.apiKey}`
         }
       });
 
@@ -162,7 +162,7 @@ export class MCPIntegration {
         method,
         headers: {
           ...MCP_REQUEST_CONFIG.headers,
-          'Authorization': `Bearer ${'apiKey' in currentMCPConfig ? currentMCPConfig.apiKey : ''}`
+          'Authorization': `Bearer ${currentMCPConfig.cloud.apiKey}`
         },
         body: data ? JSON.stringify(data) : undefined,
         signal: AbortSignal.timeout(MCP_REQUEST_CONFIG.timeout)

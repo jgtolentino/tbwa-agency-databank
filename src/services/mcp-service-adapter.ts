@@ -395,3 +395,6 @@ export class MCPServiceAdapter {
 
 // Export singleton instance
 export const mcpServiceAdapter = new MCPServiceAdapter();
+
+// Export types
+export type { MCPAnalysisRequest, MCPAnalysisResponse, MCPTask };

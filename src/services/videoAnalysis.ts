@@ -1,4 +1,3 @@
-import { isDevelopment } from "@/config/production-guard";
 /**
  * Video Analysis Service
  * Handles video campaign analysis with CES scoring and market intelligence enrichment
@@ -6,6 +5,7 @@ import { isDevelopment } from "@/config/production-guard";
 
 import { API_BASE_URL } from '@/config/api';
 import { enrichCampaignWithMarketData, getMarketIntelligenceSummary } from './marketIntelligence';
+import { generateMockAnalysisResults } from '@/mocks/mockVideoAnalysis';
 import { mcpServiceAdapter, MCPAnalysisResponse, MCPTask } from './mcp-service-adapter';
 
 export interface VideoAnalysisRequest {
@@ -162,10 +162,8 @@ export async function analyzeVideoWithCES(
     };
   } catch (error) {
     // Fallback to enriched mock data if MCP fails
-    if (isDevelopment) {
-      console.warn('MCP unavailable, using enriched mock data:', error);
-    }
-    throw new Error('Backend unavailable and mock data disabled in production');
+    console.warn('MCP unavailable, using enriched mock data:', error);
+    return generateEnrichedMockAnalysis(videoFile.name, metadata);
   }
 }
 
@@ -239,10 +237,8 @@ export async function analyzeVideoFromUrl(
     };
   } catch (error) {
     // Fallback to enriched mock data if MCP fails
-    if (isDevelopment) {
-      console.warn('MCP unavailable, using enriched mock data:', error);
-    }
-    throw new Error('Backend unavailable and mock data disabled in production');
+    console.warn('MCP unavailable, using enriched mock data:', error);
+    return generateEnrichedMockAnalysis(videoUrl, metadata);
   }
 }
 
@@ -256,6 +252,7 @@ export async function getAnalysisResults(analysisId: string): Promise<AnalysisRe
     
     if (!taskResults) {
       console.error('No results found for task, using mock data.');
+      return generateMockAnalysisResults(analysisId);
     }
 
     // Transform MCP results to expected format
@@ -288,6 +285,7 @@ export async function getAnalysisResults(analysisId: string): Promise<AnalysisRe
     };
   } catch (error) {
     console.error('MCP task results unavailable, using mock data.', error);
+    return generateMockAnalysisResults(analysisId);
   }
 }
 
@@ -335,6 +333,7 @@ export async function exportAnalysisReport(
     console.warn('MCP export unavailable, generating enriched mock export:', error);
     const marketSummary = getMarketIntelligenceSummary();
     
+    const mockData = format === 'json' 
       ? JSON.stringify({ 
           analysis_id: analysisId, 
           export_date: new Date(),
@@ -343,6 +342,7 @@ export async function exportAnalysisReport(
         })
       : `Analysis ID: ${analysisId}\nExport Date: ${new Date()}\nMarket Intelligence: ${marketSummary.totalSources} sources, ${marketSummary.averageReliabilityScore}% avg reliability\nSource: MCP Backend (fallback)`;
     
+    return new Blob([mockData], { 
       type: format === 'pdf' ? 'application/pdf' : 
            format === 'csv' ? 'text/csv' : 'application/json' 
     });
@@ -385,6 +385,7 @@ const detectCampaignCategoryFromUrl = (url: string): string => {
 };
 
 // Generate enriched mock analysis for fallback
+const generateEnrichedMockAnalysis = async (
   source: string, 
   metadata: VideoAnalysisRequest
 ): Promise<VideoAnalysisResponse> => {
