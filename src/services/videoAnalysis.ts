@@ -335,14 +335,16 @@ export async function exportAnalysisReport(
     console.warn('MCP export unavailable, generating enriched mock export:', error);
     const marketSummary = getMarketIntelligenceSummary();
     
-      ? JSON.stringify({ 
-          analysis_id: analysisId, 
-          export_date: new Date(),
-          market_intelligence_summary: marketSummary,
-          source: 'mcp-fallback'
-        })
-      : `Analysis ID: ${analysisId}\nExport Date: ${new Date()}\nMarket Intelligence: ${marketSummary.totalSources} sources, ${marketSummary.averageReliabilityScore}% avg reliability\nSource: MCP Backend (fallback)`;
-    
+    return new Blob([
+      format === 'json' 
+        ? JSON.stringify({ 
+            analysis_id: analysisId, 
+            export_date: new Date(),
+            market_intelligence_summary: marketSummary,
+            source: 'mcp-fallback'
+          })
+        : `Analysis ID: ${analysisId}\nExport Date: ${new Date()}\nMarket Intelligence: ${marketSummary.totalSources} sources, ${marketSummary.averageReliabilityScore}% avg reliability\nSource: MCP Backend (fallback)`
+    ], {
       type: format === 'pdf' ? 'application/pdf' : 
            format === 'csv' ? 'text/csv' : 'application/json' 
     });
@@ -385,6 +387,7 @@ const detectCampaignCategoryFromUrl = (url: string): string => {
 };
 
 // Generate enriched mock analysis for fallback
+export const generateEnrichedMockAnalysis = async (
   source: string, 
   metadata: VideoAnalysisRequest
 ): Promise<VideoAnalysisResponse> => {

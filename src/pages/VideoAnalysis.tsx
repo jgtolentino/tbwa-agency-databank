@@ -36,7 +36,7 @@ import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { analyzeVideoWithCES, analyzeVideoFromUrl } from '@/services/videoAnalysis';
+import { analyzeVideoWithCES, analyzeVideoFromUrl, generateEnrichedMockAnalysis } from '@/services/videoAnalysis';
 import { analyzeVideoAdvanced, type AdvancedVideoAnalysisRequest } from '@/services/advancedVideoAnalysis';
 import { CampaignAnalysisViewer } from '@/components/CampaignAnalysisViewer';
 
@@ -225,10 +225,18 @@ const VideoAnalysis: React.FC = () => {
       } catch (apiError) {
         // If API fails, fallback to mock data
         console.log('API unavailable, using mock data');
+        results = await generateEnrichedMockAnalysis(
           videoSource === 'file' && uploadedVideo 
             ? uploadedVideo.name.split('.')[0] 
             : extractCampaignNameFromUrl(videoUrl),
-          true // Enable enrichment
+          {
+            brand: "Campaign Brand",
+            campaign_name: videoSource === 'file' && uploadedVideo 
+              ? uploadedVideo.name.split('.')[0] 
+              : extractCampaignNameFromUrl(videoUrl),
+            campaign_type: "brand",
+            enable_enrichment: true
+          }
         );
       }
 
@@ -269,6 +277,7 @@ const VideoAnalysis: React.FC = () => {
   };
 
   // Generate mock analysis results for demo purposes
+  const generateMockAnalysisResults = (enableEnrichment: boolean = false) => {
     const cesScore = Math.floor(Math.random() * 30) + 70; // Random score between 70-100
     return {
       analysis_id: `analysis_${Date.now()}`,
@@ -376,6 +385,7 @@ const VideoAnalysis: React.FC = () => {
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       // Generate mock response based on query
+      const mockResponse = generateMockQueryResponse(customQuery);
       
       toast({
         title: 'Query answered',
@@ -393,6 +403,7 @@ const VideoAnalysis: React.FC = () => {
   };
 
   // Generate mock query responses
+  const generateMockQueryResponse = (query: string): string => {
     const lowerQuery = query.toLowerCase();
     
     if (lowerQuery.includes('emotion') || lowerQuery.includes('feeling')) {

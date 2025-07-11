@@ -225,7 +225,10 @@ export default function CampaignDashboard() {
         </TabsContent>
         
         <TabsContent value="insights">
-          <CampaignAnalysisViewer />
+          <CampaignAnalysisViewer 
+            analysisId="campaign-dashboard" 
+            videoUrl="https://example.com/campaign-video.mp4" 
+          />
         </TabsContent>
       </Tabs>
     </div>
