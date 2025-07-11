@@ -333,18 +333,6 @@ export async function exportAnalysisReport(
     console.warn('MCP export unavailable, generating enriched mock export:', error);
     const marketSummary = getMarketIntelligenceSummary();
     
-<<<<<<< HEAD
-    const mockData = format === 'json' 
-      ? JSON.stringify({ 
-          analysis_id: analysisId, 
-          export_date: new Date(),
-          market_intelligence_summary: marketSummary,
-          source: 'mcp-fallback'
-        })
-      : `Analysis ID: ${analysisId}\nExport Date: ${new Date()}\nMarket Intelligence: ${marketSummary.totalSources} sources, ${marketSummary.averageReliabilityScore}% avg reliability\nSource: MCP Backend (fallback)`;
-    
-    return new Blob([mockData], { 
-=======
     return new Blob([
       format === 'json' 
         ? JSON.stringify({ 
@@ -355,7 +343,6 @@ export async function exportAnalysisReport(
           })
         : `Analysis ID: ${analysisId}\nExport Date: ${new Date()}\nMarket Intelligence: ${marketSummary.totalSources} sources, ${marketSummary.averageReliabilityScore}% avg reliability\nSource: MCP Backend (fallback)`
     ], {
->>>>>>> acebc11c48d4a403d13fc728759d7a09e35edfe9
       type: format === 'pdf' ? 'application/pdf' : 
            format === 'csv' ? 'text/csv' : 'application/json' 
     });
@@ -398,11 +385,7 @@ const detectCampaignCategoryFromUrl = (url: string): string => {
 };
 
 // Generate enriched mock analysis for fallback
-<<<<<<< HEAD
-const generateEnrichedMockAnalysis = async (
-=======
 export const generateEnrichedMockAnalysis = async (
->>>>>>> acebc11c48d4a403d13fc728759d7a09e35edfe9
   source: string, 
   metadata: VideoAnalysisRequest
 ): Promise<VideoAnalysisResponse> => {

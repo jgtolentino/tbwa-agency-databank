@@ -50,10 +50,11 @@ export const UPLOAD_CONFIG = {
 
 // WebSocket configuration for real-time updates (MCP-compatible)
 export const WS_CONFIG = {
-  url: currentMCPConfig.http.replace('http', 'ws') + '/ws',
+  url: API_BASE_URL.replace('http', 'ws') + '/ws',
   reconnectInterval: 5000,
   maxReconnectAttempts: 10,
 };
 
 // MCP Integration exports
-export { mcpIntegration, MCP_ENDPOINTS, MCPIntegrationStatus } from './mcp-integration';
+export type { MCPIntegrationStatus } from './mcp-integration';
+export { mcpIntegration, MCP_ENDPOINTS } from './mcp-integration';

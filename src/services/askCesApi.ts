@@ -402,17 +402,4 @@ export function parseCommand(message: string): { command: string; params: any } 
   };
 }
 
-// Export types for use in components
-export type {
-  CampaignAnalysisRequest,
-  CampaignAnalysisResponse,
-  CreativeBriefRequest,
-  CreativeBriefResponse,
-  MarketInsightsRequest,
-  MarketInsightsResponse,
-  CompetitorAnalysisRequest,
-  CompetitorAnalysisResponse,
-  ChatMessage,
-  ChatRequest,
-  ChatResponse
-};
+// Note: askCesApi already exported above

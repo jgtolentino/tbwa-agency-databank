@@ -113,7 +113,7 @@ export class MCPIntegration {
         method: 'GET',
         headers: {
           ...MCP_REQUEST_CONFIG.headers,
-          'Authorization': `Bearer ${currentMCPConfig.cloud.apiKey}`
+          'Authorization': `Bearer ${'apiKey' in currentMCPConfig ? currentMCPConfig.apiKey : ''}`
         }
       });
 
@@ -162,7 +162,7 @@ export class MCPIntegration {
         method,
         headers: {
           ...MCP_REQUEST_CONFIG.headers,
-          'Authorization': `Bearer ${currentMCPConfig.cloud.apiKey}`
+          'Authorization': `Bearer ${'apiKey' in currentMCPConfig ? currentMCPConfig.apiKey : ''}`
         },
         body: data ? JSON.stringify(data) : undefined,
         signal: AbortSignal.timeout(MCP_REQUEST_CONFIG.timeout)

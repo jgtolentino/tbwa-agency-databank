@@ -53,15 +53,13 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				// TBWA Brand Colors
-				tbwa: {
-					yellow: 'hsl(var(--tbwa-yellow))',
-					turquoise: 'hsl(var(--tbwa-turquoise))',
-					black: 'hsl(var(--tbwa-black))',
-					white: 'hsl(var(--tbwa-white))',
-					gray: 'hsl(var(--tbwa-gray))',
-					'light-gray': 'hsl(var(--tbwa-light-gray))',
-					red: 'hsl(var(--destructive))'
-				},
+				'tbwa-yellow': 'hsl(var(--tbwa-yellow))',
+				'tbwa-turquoise': 'hsl(var(--tbwa-turquoise))',
+				'tbwa-black': 'hsl(var(--tbwa-black))',
+				'tbwa-white': 'hsl(var(--tbwa-white))',
+				'tbwa-gray': 'hsl(var(--tbwa-gray))',
+				'tbwa-light-gray': 'hsl(var(--tbwa-light-gray))',
+				'tbwa-red': 'hsl(var(--destructive))',
 				nav: {
 					bg: 'hsl(var(--nav-bg))',
 					text: 'hsl(var(--nav-text))',
