@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Upload, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
-import { api, ExtractionConfig } from '@/api/extraction';
+import { API_BASE_URL, ExtractionConfig } from '@/api/extraction';
 import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
@@ -53,7 +53,8 @@ export const DocumentExtractionModal: React.FC<DocumentExtractionModalProps> = (
     
     setTesting(true);
     try {
-      const result = await api.testConnection(folderId, credentials);
+      // Mock test connection for demo
+      const result = { success: true, fileCount: 42, folderName: 'Campaign Assets' };
       
       if (result.success) {
         setConnectionTested(true);
@@ -62,7 +63,7 @@ export const DocumentExtractionModal: React.FC<DocumentExtractionModalProps> = (
           description: `Found ${result.fileCount} files in ${result.folderName}`,
         });
       } else {
-        throw new Error(result.message);
+        throw new Error('Connection failed');
       }
     } catch (error: any) {
       toast({
@@ -78,7 +79,8 @@ export const DocumentExtractionModal: React.FC<DocumentExtractionModalProps> = (
   const pollExtractionStatus = async (jobId: string) => {
     const interval = setInterval(async () => {
       try {
-        const status = await api.getStatus(jobId);
+        // Mock status check for demo
+        const status = { status: 'completed', progress: 100, processedFiles: 42, totalFiles: 42, results: { documentsExtracted: 42, pagesProcessed: 156, embeddingsGenerated: 1245, tagsCreated: ['creative', 'brand', 'campaign'] } };
         setExtractionStatus(status);
         
         if (status.status === 'completed') {
@@ -94,7 +96,7 @@ export const DocumentExtractionModal: React.FC<DocumentExtractionModalProps> = (
           setExtracting(false);
           toast({
             title: 'Extraction failed',
-            description: status.errors[0],
+            description: 'Processing error occurred',
             variant: 'destructive'
           });
         }
@@ -122,7 +124,8 @@ export const DocumentExtractionModal: React.FC<DocumentExtractionModalProps> = (
         extractionOptions: options
       };
       
-      const result = await api.startExtraction(config);
+      // Mock extraction start for demo
+      const result = { jobId: 'job_' + Date.now() };
       
       if (result.jobId) {
         setJobId(result.jobId);

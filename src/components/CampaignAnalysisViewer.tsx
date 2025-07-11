@@ -626,3 +626,5 @@ export const CampaignAnalysisViewer: React.FC<CampaignAnalysisViewerProps> = ({
     </motion.div>
   );
 };
+
+export default CampaignAnalysisViewer;

@@ -278,6 +278,7 @@ const CampaignDashboard: React.FC = () => {
               </div>
             </CardContent>
           </Card>
+<<<<<<< HEAD
 
           <Card>
             <CardContent className="p-6">
@@ -547,6 +548,17 @@ const CampaignDashboard: React.FC = () => {
           </TabsContent>
         </Tabs>
       </div>
+=======
+        </TabsContent>
+        
+        <TabsContent value="insights">
+          <CampaignAnalysisViewer 
+            analysisId="campaign-dashboard" 
+            videoUrl="https://example.com/campaign-video.mp4" 
+          />
+        </TabsContent>
+      </Tabs>
+>>>>>>> acebc11c48d4a403d13fc728759d7a09e35edfe9
     </div>
   );
 };

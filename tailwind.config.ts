@@ -60,7 +60,7 @@ export default {
 					white: 'hsl(var(--tbwa-white))',
 					gray: 'hsl(var(--tbwa-gray))',
 					'light-gray': 'hsl(var(--tbwa-light-gray))',
-					red: '#dc2626'
+					red: 'hsl(var(--destructive))'
 				},
 				nav: {
 					bg: 'hsl(var(--nav-bg))',

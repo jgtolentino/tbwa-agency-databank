@@ -36,7 +36,7 @@ import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { analyzeVideoWithCES, analyzeVideoFromUrl } from '@/services/videoAnalysis';
+import { analyzeVideoWithCES, analyzeVideoFromUrl, generateEnrichedMockAnalysis } from '@/services/videoAnalysis';
 import { analyzeVideoAdvanced, type AdvancedVideoAnalysisRequest } from '@/services/advancedVideoAnalysis';
 import { CampaignAnalysisViewer } from '@/components/CampaignAnalysisViewer';
 
