@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  ces-writer-mcp:
+    image: mcp-sqlite:latest
+    container_name: ces-writer-mcp
+    ports:
+      - "8896:8896"
+    environment:
+      - DATABASE_URL=${PGVECTOR_URL}
+      - SCHEMA=creative_ops
+      - PORT=8896
+      - API_KEY=${CES_SERVICE_ROLE}
+      - LOG_LEVEL=info
+    volumes:
+      - ./supabase/migrations:/migrations:ro
+    networks:
+      - ces-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8896/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  ces-network:
+    driver: bridge

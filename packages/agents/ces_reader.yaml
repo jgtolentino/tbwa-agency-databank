@@ -1,0 +1,27 @@
+name: ces_reader
+codename: ces
+endpoint: https://ces-gw.onrender.com
+headers:
+  Authorization: Bearer ${{ env.CES_API_TOKEN }}
+
+tools:
+  - name: ask
+    method: POST
+    path: /ask
+    input: |
+      { "prompt": "{{ input }}" }
+    
+  - name: search_similar
+    method: POST
+    path: /similar
+    input: |
+      {
+        "image_url": "{{ input.image_url }}",
+        "limit": {{ input.limit | default(5) }}
+      }
+    
+  - name: palette_score
+    method: POST
+    path: /score
+    input: |
+      { "image_url": "{{ input.image_url }}" }
