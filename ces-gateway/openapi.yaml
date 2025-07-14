@@ -1,0 +1,137 @@
+openapi: 3.0.0
+info:
+  title: CES Gateway API
+  description: Creative Excellence System - Orchestrates palette analysis and creative intelligence
+  version: 1.0.0
+  contact:
+    name: TBWA Data & Analytics
+    email: data@tbwa.com
+
+servers:
+  - url: https://ces-gw.onrender.com
+    description: Production server
+
+security:
+  - bearerAuth: []
+
+paths:
+  /health:
+    get:
+      summary: Health check
+      description: Check the health status of the gateway and upstream services
+      operationId: healthCheck
+      security: []
+      responses:
+        '200':
+          description: Service health status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+
+  /ask:
+    post:
+      summary: Ask CES
+      description: Main endpoint for creative intelligence queries
+      operationId: askCES
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AskRequest'
+      responses:
+        '200':
+          description: Query results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AskResponse'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+
+  /score:
+    post:
+      summary: Score image
+      description: Score an image using the palette forge model
+      operationId: scoreImage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                image_url:
+                  type: string
+                  format: uri
+                campaign_id:
+                  type: string
+                  format: uuid
+              required:
+                - image_url
+      responses:
+        '200':
+          description: Scoring results
+          content:
+            application/json:
+              schema:
+                type: object
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token
+
+  schemas:
+    AskRequest:
+      type: object
+      required:
+        - prompt
+      properties:
+        prompt:
+          type: string
+          description: The creative intelligence query
+          example: "Which 2024 TikTok spots match Pantone Peach Fuzz?"
+        limit:
+          type: integer
+          default: 10
+          description: Maximum number of results to return
+        include_embeddings:
+          type: boolean
+          default: false
+          description: Whether to include embeddings in the response
+
+    AskResponse:
+      type: object
+      properties:
+        prompt:
+          type: string
+          description: The original query
+        answers:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        sources:
+          type: array
+          items:
+            type: string
+        metadata:
+          type: object
+          additionalProperties: true
+
+    HealthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [healthy, degraded, unhealthy]
+        services:
+          type: object
+          additionalProperties:
+            type: string

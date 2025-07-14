@@ -1,0 +1,43 @@
+services:
+  # Palette Forge Service
+  - type: web
+    name: palette-svc
+    runtime: docker
+    dockerfilePath: ./service/Dockerfile
+    plan: starter
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: PGVECTOR_URL
+        sync: false
+      - key: MODEL_PATH
+        value: models/ckpt.pt
+      - key: API_TOKEN
+        sync: false
+      - key: RETURN_EMBEDDINGS
+        value: true
+    healthCheckPath: /health
+    autoDeploy: true
+
+  # CES Gateway Service  
+  - type: web
+    name: ces-gw
+    runtime: docker
+    dockerfilePath: ./ces-gateway/Dockerfile
+    plan: starter
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: PALETTE_SERVICE_URL
+        fromService:
+          type: web
+          name: palette-svc
+          property: host
+      - key: CES_API_TOKEN
+        sync: false
+    healthCheckPath: /health
+    autoDeploy: true
