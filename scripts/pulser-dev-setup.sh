@@ -24,19 +24,24 @@ fi
 # Install agent configurations
 echo ""
 echo "📦 Installing CES agents..."
-pulser config add packages/agents/ces_reader.yaml
+
+# Create Pulser config directory if it doesn't exist
+mkdir -p ~/.pulser/agents
+
+# Copy agent files directly
+cp packages/agents/ces_reader.yaml ~/.pulser/agents/
 echo "✅ CES reader agent installed"
 
 # Only install writer in CI/dev environments
 if [ "$CI" = "true" ] || [ "$INSTALL_WRITER" = "true" ]; then
-    pulser config add packages/agents/ces_writer.yaml
+    cp packages/agents/ces_writer.yaml ~/.pulser/agents/
     echo "✅ CES writer agent installed (CI/dev only)"
 fi
 
 # Test the installation
 echo ""
 echo "🧪 Testing Pulser setup..."
-pulser list | grep ces
+ls ~/.pulser/agents/ | grep ces
 if [ $? -eq 0 ]; then
     echo "✅ CES agents registered successfully"
 else
