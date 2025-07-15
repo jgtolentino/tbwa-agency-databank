@@ -1,5 +1,6 @@
 name: ces_reader
 codename: ces
+aliases: [ces, jam, jp]
 endpoint: https://ces-gw.onrender.com
 headers:
   Authorization: Bearer ${{ env.CES_API_TOKEN }}
@@ -25,3 +26,21 @@ tools:
     path: /score
     input: |
       { "image_url": "{{ input.image_url }}" }
+  
+  - name: warc_search
+    method: POST
+    path: /warc/search
+    input: |
+      {
+        "query": "{{ input.query }}",
+        "limit": {{ input.limit | default(10) }}
+      }
+  
+  - name: warc_effectiveness
+    method: POST
+    path: /warc/effectiveness
+    input: |
+      {
+        "case_id": "{{ input.case_id }}",
+        "metrics": {{ input.metrics | default([]) | tojson }}
+      }

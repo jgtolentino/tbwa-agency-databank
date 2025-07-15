@@ -1,0 +1,14 @@
+[
+  {
+    "source_file": "complete_warc_json.json",
+    "sha256": "e6629c2db680b6f4e0ec378f204a610b84e7aded8d348ce8728dbeca4bd51096",
+    "rows": 2,
+    "loaded_at": "2025-07-15T07:10:24.258149Z"
+  },
+  {
+    "source_file": "warc_comprehensive_json.json",
+    "sha256": "e1c18c7e119ce10595ca018bc8141ead2e1539df8313c7d53034499f5aa949b0",
+    "rows": 24,
+    "loaded_at": "2025-07-15T07:10:24.258841Z"
+  }
+]
