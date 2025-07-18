@@ -18,9 +18,21 @@ export function useTransactionData(filters: DashboardFilters) {
   const [data, setData] = useState<Transaction[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
-  const supabase = createClientComponentClient()
+  
+  // Handle missing environment variables gracefully
+  let supabase: any = null
+  try {
+    supabase = createClientComponentClient()
+  } catch (error) {
+    console.warn('Supabase client creation failed:', error)
+  }
 
   useEffect(() => {
+    if (!supabase) {
+      setLoading(false)
+      return
+    }
+
     async function fetchData() {
       try {
         setLoading(true)

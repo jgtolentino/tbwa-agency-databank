@@ -16,9 +16,21 @@ export function useUser() {
   const [user, setUser] = useState<User | null>(null)
   const [profile, setProfile] = useState<UserProfile | null>(null)
   const [loading, setLoading] = useState(true)
-  const supabase = createClientComponentClient()
+  
+  // Handle missing environment variables gracefully
+  let supabase: any = null
+  try {
+    supabase = createClientComponentClient()
+  } catch (error) {
+    console.warn('Supabase client creation failed:', error)
+  }
 
   useEffect(() => {
+    if (!supabase) {
+      setLoading(false)
+      return
+    }
+
     async function loadUser() {
       try {
         const { data: { user } } = await supabase.auth.getUser()
@@ -44,7 +56,7 @@ export function useUser() {
 
     // Subscribe to auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
+      async (event: any, session: any) => {
         setUser(session?.user ?? null)
         if (session?.user) {
           const { data: profile } = await supabase
