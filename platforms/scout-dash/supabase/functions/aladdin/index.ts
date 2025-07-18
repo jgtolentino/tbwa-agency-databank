@@ -86,7 +86,7 @@ serve(async (req) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          model: 'mixtral-8x7b-32768',
+          model: 'llama-3.3-70b-versatile',
           messages: [
             { role: 'system', content: systemPrompt },
             { role: 'user', content: userPrompt }
@@ -97,6 +97,15 @@ serve(async (req) => {
       })
 
       const data = await response.json()
+      
+      if (!response.ok) {
+        throw new Error(`Groq API error: ${data.error?.message || 'Unknown error'}`)
+      }
+      
+      if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+        throw new Error('Invalid response structure from Groq API')
+      }
+      
       aiResponse = data.choices[0].message.content
     } else if (OPENAI_API_KEY) {
       const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -117,6 +126,15 @@ serve(async (req) => {
       })
 
       const data = await response.json()
+      
+      if (!response.ok) {
+        throw new Error(`OpenAI API error: ${data.error?.message || 'Unknown error'}`)
+      }
+      
+      if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+        throw new Error('Invalid response structure from OpenAI API')
+      }
+      
       aiResponse = data.choices[0].message.content
     } else {
       // Fallback response
@@ -129,7 +147,7 @@ serve(async (req) => {
       insights: aiResponse,
       metadata: {
         confidence,
-        model: GROQ_API_KEY ? 'groq-mixtral' : OPENAI_API_KEY ? 'gpt-4o-mini' : 'fallback',
+        model: GROQ_API_KEY ? 'groq-llama-3.3-70b' : OPENAI_API_KEY ? 'gpt-4o-mini' : 'fallback',
         generated_at: new Date().toISOString()
       }
     }
