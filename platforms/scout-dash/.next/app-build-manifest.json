@@ -1,0 +1,52 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-82ea73ad9d30f1b7.js",
+      "static/chunks/4bd1b696-787e09d648f42856.js",
+      "static/chunks/964-f6c90e223426714e.js",
+      "static/chunks/main-app-e649375e8c802271.js",
+      "static/chunks/app/_not-found/page-9b371ac260a6619a.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-82ea73ad9d30f1b7.js",
+      "static/chunks/4bd1b696-787e09d648f42856.js",
+      "static/chunks/964-f6c90e223426714e.js",
+      "static/chunks/main-app-e649375e8c802271.js",
+      "static/css/d4c7dccfb950f5e4.css",
+      "static/chunks/app/layout-56107590038790d6.js"
+    ],
+    "/dashboard/optimized/page": [
+      "static/chunks/webpack-82ea73ad9d30f1b7.js",
+      "static/chunks/4bd1b696-787e09d648f42856.js",
+      "static/chunks/964-f6c90e223426714e.js",
+      "static/chunks/main-app-e649375e8c802271.js",
+      "static/chunks/222-06b7aeaa4de63b2e.js",
+      "static/chunks/579-215661c642acb3c2.js",
+      "static/chunks/app/dashboard/optimized/page-758d118dafe378b2.js"
+    ],
+    "/dashboard/page": [
+      "static/chunks/webpack-82ea73ad9d30f1b7.js",
+      "static/chunks/4bd1b696-787e09d648f42856.js",
+      "static/chunks/964-f6c90e223426714e.js",
+      "static/chunks/main-app-e649375e8c802271.js",
+      "static/chunks/222-06b7aeaa4de63b2e.js",
+      "static/chunks/182-04d13cb0a33765f4.js",
+      "static/chunks/app/dashboard/page-4fc0c52102846eea.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-82ea73ad9d30f1b7.js",
+      "static/chunks/4bd1b696-787e09d648f42856.js",
+      "static/chunks/964-f6c90e223426714e.js",
+      "static/chunks/main-app-e649375e8c802271.js",
+      "static/chunks/63-e830d34011207317.js",
+      "static/chunks/app/page-02a1c94d7c033a66.js"
+    ],
+    "/test-bots/page": [
+      "static/chunks/webpack-82ea73ad9d30f1b7.js",
+      "static/chunks/4bd1b696-787e09d648f42856.js",
+      "static/chunks/964-f6c90e223426714e.js",
+      "static/chunks/main-app-e649375e8c802271.js",
+      "static/chunks/app/test-bots/page-883cd644700ca687.js"
+    ]
+  }
+}
