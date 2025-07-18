@@ -1,0 +1,26 @@
+name: ces_writer
+endpoint: http://localhost:8896
+headers:
+  apikey: ${{ env.CES_SERVICE_ROLE }}
+
+tools:
+  - name: ddl
+    method: POST
+    path: /mcp/ddl
+    input: |
+      { "sql": "{{ input }}" }
+  
+  - name: bulk_insert
+    method: POST
+    path: /mcp/bulk_insert
+    input: |
+      {
+        "table": "{{ input.table }}",
+        "records": {{ input.records | tojson }}
+      }
+  
+  - name: migrate
+    method: POST
+    path: /mcp/migrate
+    input: |
+      { "migration_file": "{{ input }}" }

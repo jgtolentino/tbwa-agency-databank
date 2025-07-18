@@ -1,0 +1,20 @@
+ui:
+  prompt_buttons:
+    style: shaded-yellow
+    labels:
+      - Analyze campaign performance
+      - Generate creative brief
+      - Market research insights
+      - Competitor analysis
+learnbot:
+  enabled: true
+  welcome_message: "Welcome to Ask Ces! I'll guide you step-by-step through analyzing campaigns, generating creative briefs, discovering market insights, and performing competitor analysis."
+  demo_steps:
+    - feature: analyze_campaign
+      description: "Let's analyze campaign performance."
+    - feature: generate_brief
+      description: "Now let's generate a creative brief."
+    - feature: market_insights
+      description: "Explore market research insights."
+    - feature: competitor_analysis
+      description: "Finally, run a competitor analysis."

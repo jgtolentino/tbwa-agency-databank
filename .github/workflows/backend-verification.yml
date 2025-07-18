@@ -1,0 +1,75 @@
+name: Backend Verification
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verify-backend:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run static backend verification
+      run: ./verify-backend-strict.sh
+      continue-on-error: true
+      
+    - name: Start application
+      run: |
+        npm run dev &
+        sleep 10
+      env:
+        VITE_USE_MOCK_API: false
+        
+    - name: Install Playwright
+      run: npx playwright install chromium
+      
+    - name: Run live backend verification
+      run: node verify-backend-live-strict.js
+      
+    - name: Upload verification report
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: backend-verification-report
+        path: |
+          backend-verification-strict-report.json
+          
+    - name: Comment PR with results
+      uses: actions/github-script@v6
+      if: github.event_name == 'pull_request'
+      with:
+        script: |
+          const fs = require('fs');
+          const report = JSON.parse(fs.readFileSync('backend-verification-strict-report.json', 'utf8'));
+          
+          const comment = `## 🔍 Backend Verification Results
+          
+          **Verdict:** ${report.verdict}
+          
+          | Metric | Value |
+          |--------|-------|
+          | Total API Calls | ${report.apiCalls.length} |
+          | Mock Patterns | ${report.mockDetections.length} |
+          | Workflows Tested | ${report.workflows.length} |
+          
+          ${report.verdict === 'REAL_BACKEND_CONFIRMED' ? '✅ Real backend integration confirmed!' : '⚠️ Review required - see full report'}
+          `;
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comment
+          });
