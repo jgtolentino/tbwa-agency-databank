@@ -1,4 +1,6 @@
-export default function Home() {
+'use client';
+
+export default function SimpleDashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white border-b border-gray-200">
