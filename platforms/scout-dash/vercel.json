@@ -7,7 +7,7 @@
   "regions": ["iad1"],
   "env": {
     "NEXT_PUBLIC_SUPABASE_URL": "https://cxzllzyxwpyptfretryc.supabase.co",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4emxsenl4d3B5cHRmcmV0cnljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIzNzYxODAsImV4cCI6MjA2Nzk1MjE4MH0.b794GEIWE4ZdMAm9xQYAJ0Gx-XEn1fhJBTIIeTro_1g",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4emxsenl4d3B5cHRmcmV0cnljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg4NDE0NDgsImV4cCI6MjQwODg2MTQ0OH0.-m9PTb5gV17R9QqlhdRNLXxClnLbXn7v8XJ5qdoKKog",
     "NEXT_PUBLIC_GENIE_URL": "https://cxzllzyxwpyptfretryc.supabase.co/functions/v1/aladdin",
     "NEXT_PUBLIC_RETAILBOT_URL": "https://cxzllzyxwpyptfretryc.supabase.co/functions/v1/retailbot",
     "NEXT_PUBLIC_ADSBOT_URL": "https://cxzllzyxwpyptfretryc.supabase.co/functions/v1/adsbot",
