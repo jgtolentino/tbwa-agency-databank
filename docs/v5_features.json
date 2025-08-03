@@ -23,7 +23,7 @@
   },
   "pages": [
     "home", "live", "brand", "mix", "behavior", "profile", "market",
-    "saved", "insights", "predict"
+    "geographic", "saved", "insights", "predict"
   ],
   "filters": [
     "date_range",
