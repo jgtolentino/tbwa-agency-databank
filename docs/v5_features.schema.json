@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["product","version","updated","data","pages","filters","modules","security","slo"],
+  "properties": {
+    "product": { "const": "Scout v5" },
+    "version": { "type": "string" },
+    "updated": { "type": "string", "format": "date" },
+    "data": {
+      "type": "object",
+      "required": ["layer","views","rpcs","master"],
+      "properties": {
+        "layer": { "const": "gold" },
+        "views": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "rpcs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "master": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      },
+      "additionalProperties": true
+    },
+    "pages": { "type": "array", "items": { "type": "string" }, "minItems": 5 },
+    "filters": { "type": "array", "items": { "type": "string" }, "minItems": 5 },
+    "modules": { "type": "object" },
+    "security": { "type": "object" },
+    "slo": { "type": "object" }
+  },
+  "additionalProperties": true
+}

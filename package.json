@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "validate:docs": "node scripts/validate_v5_features.mjs"
   },
   "dependencies": {
     "@supabase/auth-helpers-nextjs": "^0.10.0",
@@ -28,6 +29,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
