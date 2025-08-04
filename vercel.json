@@ -4,4 +4,3 @@
   "framework": "nextjs",
   "installCommand": "npm install --legacy-peer-deps"
 }
-EOF < /dev/null
