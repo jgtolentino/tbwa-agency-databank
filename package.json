@@ -10,10 +10,12 @@
     "validate:docs": "node scripts/validate_v5_features.mjs"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.14",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.52.0",
     "@types/d3": "^7.4.3",
+    "autoprefixer": "^10.4.21",
     "d3": "^7.9.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^3.0.1",
@@ -27,7 +29,7 @@
     "zustand": "^5.0.7"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
