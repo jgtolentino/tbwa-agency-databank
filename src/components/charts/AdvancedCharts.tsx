@@ -730,29 +730,89 @@ export const BehaviorTraitsChart = () => {
     { trait: 'Discovery Oriented', percentage: 18 }
   ]
 
+  // TBWA color scheme for behavior traits
+  const tbwaColors = [
+    '#FFD700', // TBWA Yellow (primary)
+    '#FF6B35', // Scout secondary
+    '#4A90E2', // Professional blue
+    '#7B68EE', // Medium slate blue
+    '#32CD32', // Lime green
+    '#FF69B4'  // Hot pink
+  ]
+
   return (
-    <div className="h-64 w-full">
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={traitData} margin={{ top: 20, right: 30, left: 80, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-          <XAxis type="number" stroke="#6B7280" fontSize={12} tickLine={false} />
-          <YAxis dataKey="trait" type="category" stroke="#6B7280" fontSize={12} width={75} />
+    <div className="h-96 w-full bg-white rounded-lg p-4 shadow-sm">
+      <ResponsiveContainer width="100%" height="70%">
+        <BarChart 
+          data={traitData} 
+          layout="horizontal"
+          margin={{ top: 20, right: 40, left: 120, bottom: 20 }}
+        >
+          <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" />
+          <XAxis 
+            type="number" 
+            domain={[0, 50]}
+            stroke="#374151" 
+            fontSize={12} 
+            tickLine={false}
+            axisLine={false}
+          />
+          <YAxis 
+            dataKey="trait" 
+            type="category" 
+            stroke="#374151" 
+            fontSize={11} 
+            width={115}
+            tickLine={false}
+            axisLine={false}
+          />
           <Tooltip 
             formatter={(value: any) => [`${value}%`, 'Customer Percentage']}
+            labelFormatter={(label) => `Trait: ${label}`}
             contentStyle={{
-              backgroundColor: 'white',
-              border: '1px solid #e5e7eb',
-              borderRadius: '8px',
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+              backgroundColor: '#1f2937',
+              border: '2px solid #FFD700',
+              borderRadius: '12px',
+              color: 'white',
+              boxShadow: '0 8px 25px -5px rgba(0, 0, 0, 0.3)',
+              fontSize: '13px'
             }}
           />
-          <Bar dataKey="percentage" radius={[0, 4, 4, 0]}>
+          <Bar dataKey="percentage" radius={[0, 8, 8, 0]} strokeWidth={1} stroke="#ffffff">
             {traitData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />
+              <Cell 
+                key={`cell-${index}`} 
+                fill={tbwaColors[index]} 
+                stroke={index === 0 ? '#1f2937' : 'transparent'}
+                strokeWidth={index === 0 ? 2 : 0}
+              />
             ))}
           </Bar>
         </BarChart>
       </ResponsiveContainer>
+      
+      {/* Enhanced insights panel */}
+      <div className="mt-4 grid grid-cols-2 gap-4">
+        <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-3 rounded-lg border-l-4 border-tbwa-yellow">
+          <div className="flex items-center space-x-2 mb-2">
+            <div className="w-3 h-3 bg-tbwa-yellow rounded-full"></div>
+            <h4 className="font-semibold text-gray-800 text-sm">Top Trait</h4>
+          </div>
+          <p className="text-sm text-gray-700">
+            <strong>45% Price Sensitive</strong> - Majority prioritize value
+          </p>
+        </div>
+        
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-3 rounded-lg border-l-4 border-scout-secondary">
+          <div className="flex items-center space-x-2 mb-2">
+            <div className="w-3 h-3 bg-scout-secondary rounded-full"></div>
+            <h4 className="font-semibold text-gray-800 text-sm">Loyalty Factor</h4>
+          </div>
+          <p className="text-sm text-gray-700">
+            <strong>38% Brand Loyal</strong> - Strong retention opportunity
+          </p>
+        </div>
+      </div>
     </div>
   )
 }
