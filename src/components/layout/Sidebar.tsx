@@ -1,5 +1,5 @@
 import React from 'react'
-import { TrendingUp, Package, Users, UserCheck, BarChart3, Database } from 'lucide-react'
+import { TrendingUp, Package, Users, UserCheck, BarChart3, Database, Target, MapPin } from 'lucide-react'
 
 interface SidebarProps {
   activeSection: string
@@ -31,6 +31,18 @@ const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
       label: 'Consumer Profiling', 
       icon: UserCheck,
       description: 'Demographics & location'
+    },
+    {
+      id: 'competitive-analysis',
+      label: 'Competitive Analysis', 
+      icon: Target,
+      description: 'Brand vs brand comparisons'
+    },
+    {
+      id: 'geographical-intelligence',
+      label: 'Geographical Intelligence', 
+      icon: MapPin,
+      description: 'Location & regional insights'
     },
     {
       id: 'databank',

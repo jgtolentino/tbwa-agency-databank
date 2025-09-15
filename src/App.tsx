@@ -6,7 +6,9 @@ import {
   EnhancedTransactionTrends,
   EnhancedProductMix,
   EnhancedConsumerBehavior,
-  EnhancedConsumerProfiling
+  EnhancedConsumerProfiling,
+  EnhancedCompetitiveAnalysis,
+  EnhancedGeographicalIntelligence
 } from './components/enhanced/EnhancedDashboard'
 import { DatabankPage } from './components/databank'
 
@@ -51,6 +53,10 @@ function App() {
           return <EnhancedConsumerBehavior />
         case 'consumer-profiling':
           return <EnhancedConsumerProfiling />
+        case 'competitive-analysis':
+          return <EnhancedCompetitiveAnalysis />
+        case 'geographical-intelligence':
+          return <EnhancedGeographicalIntelligence />
         default:
           return <EnhancedTransactionTrends />
       }
@@ -65,6 +71,10 @@ function App() {
           return <EnhancedConsumerBehavior />
         case 'consumer-profiling':
           return <EnhancedConsumerProfiling />
+        case 'competitive-analysis':
+          return <EnhancedCompetitiveAnalysis />
+        case 'geographical-intelligence':
+          return <EnhancedGeographicalIntelligence />
         default:
           return <EnhancedTransactionTrends />
       }
