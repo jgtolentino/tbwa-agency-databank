@@ -1117,3 +1117,5 @@ export const GeoDemographicsChart = () => {
 export { ChoroplethMap } from './ChoroplethMap'
 // Export MercatorChoroplethMap component
 export { MercatorChoroplethMap } from './MercatorChoroplethMap'
+// Export VisxChoroplethMap component  
+export { VisxChoroplethMap } from './VisxChoroplethMap'

@@ -28,7 +28,8 @@ import {
   StoreLocationChart,
   GeoDemographicsChart,
   ChoroplethMap,
-  MercatorChoroplethMap
+  MercatorChoroplethMap,
+  VisxChoroplethMap
 } from '../charts/AdvancedCharts'
 
 // Enhanced data from Scout dashboard analysis
@@ -787,7 +788,7 @@ export const EnhancedGeographicalIntelligence = () => {
           {activeTab === 'Regional Performance' && (
             <div>
               <h3 className="text-lg font-semibold text-scout-text mb-4">Philippines Regional Performance Map</h3>
-              <MercatorChoroplethMap 
+              <VisxChoroplethMap 
                 title="Regional Revenue & Performance Distribution"
                 metric="revenue"
               />
