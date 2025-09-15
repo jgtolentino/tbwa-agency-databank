@@ -201,13 +201,7 @@ export const MercatorChoroplethMap: React.FC<MercatorChoroplethMapProps> = ({
       featureidkey: 'properties.REGION',
       locations,
       z,
-      colorscale: [
-        [0.0, '#eaf2ff'],
-        [0.25, '#c8dcff'], 
-        [0.5, '#95bcff'],
-        [0.75, '#5d96ff'],
-        [1.0, '#2f6bff']
-      ],
+      colorscale: 'Blues',
       marker: { 
         line: { color: '#ffffff', width: 1.2 } 
       },
@@ -390,7 +384,7 @@ export const MercatorChoroplethMap: React.FC<MercatorChoroplethMapProps> = ({
                 .map((region, index) => (
                   <div key={region.id} className="flex items-center justify-between text-sm">
                     <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 rounded-full bg-scout-secondary" />
+                      <div className="w-3 h-3 rounded-full bg-blue-600" />
                       <span className="font-medium">{region.name.split(' ')[0]}</span>
                     </div>
                     <span className="text-gray-600">{formatValue(region)}</span>
@@ -402,7 +396,7 @@ export const MercatorChoroplethMap: React.FC<MercatorChoroplethMapProps> = ({
           {/* Quick Stats */}
           <div className="grid grid-cols-2 gap-3">
             <div className="bg-white border rounded-lg p-3">
-              <div className="text-2xl font-bold text-scout-secondary">
+              <div className="text-2xl font-bold text-blue-600">
                 {data.reduce((sum, r) => sum + r.stores, 0)}
               </div>
               <div className="text-xs text-gray-500">Total Stores</div>
