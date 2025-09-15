@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Funnel, MapPin } from 'lucide-react';
+import { Users, MapPin } from 'lucide-react';
 
 interface ConsumerProfilingChartProps {
   totalCustomers?: number;
@@ -30,7 +30,7 @@ export const ConsumerProfilingChart: React.FC<ConsumerProfilingChartProps> = ({
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-gray-900">Consumer Profiling</h2>
-        <Funnel className="h-4 w-4 text-gray-400" />
+        <Users className="h-4 w-4 text-gray-400" />
       </div>
 
       <div className="space-y-4">

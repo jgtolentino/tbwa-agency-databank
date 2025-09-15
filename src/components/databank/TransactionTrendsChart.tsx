@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { Funnel, ShoppingCart, Clock, TrendingUp, TrendingDown } from 'lucide-react';
+import { BarChart3, ShoppingCart, Clock, TrendingUp, TrendingDown } from 'lucide-react';
 
 interface TransactionData {
   date: string;
@@ -76,7 +76,7 @@ export const TransactionTrendsChart: React.FC<TransactionTrendsChartProps> = ({
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-gray-900">Transaction Trends</h2>
-        <Funnel className="h-4 w-4 text-gray-400" />
+        <BarChart3 className="h-4 w-4 text-gray-400" />
       </div>
 
       {/* Metrics Cards */}

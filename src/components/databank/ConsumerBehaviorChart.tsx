@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ResponsiveContainer, Cell } from 'recharts';
-import { Funnel, Heart, Sparkles } from 'lucide-react';
+import { Filter, Heart, Sparkles } from 'lucide-react';
 
 interface FunnelData {
   name: string;
