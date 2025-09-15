@@ -42,7 +42,7 @@ export const AIBots = {
       context?: Record<string, any>, 
       userRole: string = 'analyst'
     ): Promise<GenieResponse> => {
-      const response = await fetch(process.env.NEXT_PUBLIC_GENIE_URL!, {
+      const response = await fetch(import.meta.env.VITE_GENIE_URL!, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt, context, user_role: userRole })
@@ -71,7 +71,7 @@ export const AIBots = {
       storeData?: Record<string, any>,
       analysisType: string = 'performance'
     ): Promise<RetailResponse> => {
-      const response = await fetch(process.env.NEXT_PUBLIC_RETAILBOT_URL!, {
+      const response = await fetch(import.meta.env.VITE_RETAILBOT_URL!, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -93,7 +93,7 @@ export const AIBots = {
      * @param data - Historical sales data
      */
     forecast: async (data: Record<string, any>): Promise<any> => {
-      const response = await fetch(process.env.NEXT_PUBLIC_RETAILBOT_URL!, {
+      const response = await fetch(import.meta.env.VITE_RETAILBOT_URL!, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -124,7 +124,7 @@ export const AIBots = {
       campaignData?: Record<string, any>, 
       metricsFocus: string[] = ['ctr', 'conversion', 'roi']
     ): Promise<AdsResponse> => {
-      const response = await fetch(process.env.NEXT_PUBLIC_ADSBOT_URL!, {
+      const response = await fetch(import.meta.env.VITE_ADSBOT_URL!, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -145,7 +145,7 @@ export const AIBots = {
      * @param creativeData - Current creative performance
      */
     optimizeCreative: async (creativeData: Record<string, any>): Promise<any> => {
-      const response = await fetch(process.env.NEXT_PUBLIC_ADSBOT_URL!, {
+      const response = await fetch(import.meta.env.VITE_ADSBOT_URL!, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
