@@ -137,11 +137,11 @@ const AIPanel = ({ section }: AIPanelProps) => {
             <div className="flex space-x-2">
               <input
                 type="text"
-                placeholder="Ask AI about this data..."
+                placeholder="Ask Suqi about this data..."
                 className="flex-1 text-sm px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-scout-secondary focus:border-transparent"
               />
               <button className="scout-btn-primary text-sm px-4 py-2">
-                Ask AI
+                Ask Suqi
               </button>
             </div>
           </div>
