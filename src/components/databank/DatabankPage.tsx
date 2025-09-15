@@ -1,51 +1,29 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { DatabankHeader } from './DatabankHeader';
-import { FilterControls, FilterState } from './FilterControls';
-import { TransactionTrendsChart } from './TransactionTrendsChart';
-import { ProductMixChart } from './ProductMixChart';
-import { ConsumerBehaviorChart } from './ConsumerBehaviorChart';
-import { ConsumerProfilingChart } from './ConsumerProfilingChart';
-import { ComparativeAnalytics } from './ComparativeAnalytics';
+import DataDictionary from './DataDictionary';
 
 interface DatabankPageProps {
   className?: string;
 }
 
 export const DatabankPage: React.FC<DatabankPageProps> = ({ className }) => {
-  const [filters, setFilters] = useState<FilterState>({
-    dateRange: 'today',
-    location: 'all',
-    category: 'all',
-    brand: 'all'
-  });
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleRefresh = useCallback(async () => {
-    setIsLoading(true);
-    // Simulate API refresh
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setIsLoading(false);
+  const handleRefresh = useCallback(() => {
+    // Refresh data dictionary - could reload field definitions
+    console.log('Refreshing data dictionary...');
   }, []);
 
   const handleExportPDF = useCallback(() => {
-    // Implement PDF export logic
-    console.log('Exporting to PDF...');
+    // Export data dictionary as PDF
+    console.log('Exporting data dictionary to PDF...');
   }, []);
 
   const handleExportExcel = useCallback(() => {
-    // Implement Excel export logic
-    console.log('Exporting to Excel...');
-  }, []);
-
-  const handleFiltersChange = useCallback((newFilters: FilterState) => {
-    setFilters(newFilters);
-    // Implement filter logic - would typically trigger API calls
-    console.log('Filters changed:', newFilters);
+    // Export data dictionary as Excel
+    console.log('Exporting data dictionary to Excel...');
   }, []);
 
   return (
-    <div className={`min-h-screen bg-gray-50 ${className || ''}`}>
+    <div className={`w-full ${className || ''}`}>
       {/* Header */}
       <DatabankHeader
         onRefresh={handleRefresh}
@@ -53,44 +31,10 @@ export const DatabankPage: React.FC<DatabankPageProps> = ({ className }) => {
         onExportExcel={handleExportExcel}
       />
 
-      {/* Filter Controls */}
-      <FilterControls
-        filters={filters}
-        onFiltersChange={handleFiltersChange}
-      />
-
-      {/* Main Dashboard Content */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          
-          {/* Transaction Trends Chart */}
-          <TransactionTrendsChart />
-
-          {/* Product Mix & SKU Analytics Chart */}
-          <ProductMixChart />
-
-          {/* Consumer Behavior & Preferences Chart */}
-          <ConsumerBehaviorChart />
-
-          {/* Consumer Profiling Chart */}
-          <ConsumerProfilingChart />
-
-        </div>
-
-        {/* Comparative Analytics - Full Width */}
-        <ComparativeAnalytics />
-
+      {/* Data Dictionary Content */}
+      <div className="px-4 sm:px-6 lg:px-8 py-8">
+        <DataDictionary />
       </div>
-
-      {/* Loading Overlay */}
-      {isLoading && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 flex items-center gap-4">
-            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
-            <span className="text-gray-900">Refreshing data...</span>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

@@ -22,7 +22,7 @@ export const KPICard = ({ title, value, change, format = 'number', icon }: KPICa
   }
 
   const getTrendIcon = () => {
-    if (\!change) return null
+    if (!change) return null
     
     if (change > 0) {
       return <TrendingUp className="w-4 h-4 text-green-600" />
@@ -34,7 +34,7 @@ export const KPICard = ({ title, value, change, format = 'number', icon }: KPICa
   }
 
   const getTrendColor = () => {
-    if (\!change) return ''
+    if (!change) return ''
     return change > 0 ? 'text-green-600' : change < 0 ? 'text-red-600' : 'text-gray-400'
   }
 
@@ -48,7 +48,7 @@ export const KPICard = ({ title, value, change, format = 'number', icon }: KPICa
       <div>
         <p className="text-2xl font-bold text-gray-900">{formatValue()}</p>
         
-        {change \!== undefined && (
+        {change !== undefined && (
           <div className={"flex items-center gap-1 mt-1 " + getTrendColor()}>
             {getTrendIcon()}
             <span className="text-sm font-medium">
@@ -60,4 +60,3 @@ export const KPICard = ({ title, value, change, format = 'number', icon }: KPICa
     </div>
   )
 }
-EOF < /dev/null

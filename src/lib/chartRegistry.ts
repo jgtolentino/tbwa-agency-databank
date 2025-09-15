@@ -95,4 +95,3 @@ export const chartRegistry: Record<ChartType, ChartRegistryItem> = {
 }
 
 export const getChartConfig = (type: ChartType) => chartRegistry[type]
-EOF < /dev/null

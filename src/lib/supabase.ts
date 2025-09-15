@@ -172,4 +172,3 @@ export const executeQuery = async (sql: string) => {
     return { error: 'Failed to execute query' }
   }
 }
-EOF < /dev/null

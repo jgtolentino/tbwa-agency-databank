@@ -1,25 +1,25 @@
 import React from 'react'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Cell, BarChart, Bar, ResponsiveContainer, FunnelChart, Funnel, LabelList, LineChart, Line, ComposedChart, ReferenceLine } from 'recharts'
 
-// Amazon color palette for charts
-const AMAZON_COLORS = {
-  primary: '#3a4552',
-  secondary: '#f79500', 
-  accent: '#60A5FA',
-  success: '#10B981',
-  warning: '#F59E0B',
-  error: '#EF4444',
-  purple: '#8B5CF6'
+// TBWA color palette for charts
+const TBWA_COLORS = {
+  primary: '#000000',      // TBWA Black
+  secondary: '#FFD700',    // TBWA Yellow
+  accent: '#1E40AF',       // TBWA Blue
+  success: '#059669',      // TBWA Emerald
+  warning: '#D97706',      // TBWA Orange
+  error: '#DC2626',        // TBWA Red
+  purple: '#6B46C1'        // TBWA Purple
 }
 
 const CHART_COLORS = [
-  AMAZON_COLORS.secondary,
-  AMAZON_COLORS.accent, 
-  AMAZON_COLORS.success,
-  AMAZON_COLORS.warning,
-  AMAZON_COLORS.error,
-  AMAZON_COLORS.purple,
-  '#EC4899'
+  TBWA_COLORS.secondary,   // Yellow
+  TBWA_COLORS.accent,      // Blue
+  TBWA_COLORS.success,     // Emerald
+  TBWA_COLORS.warning,     // Orange
+  TBWA_COLORS.error,       // Red
+  TBWA_COLORS.purple,      // Purple
+  '#EC4899'                // Pink accent
 ]
 
 // Transaction Trends Area Chart (from Scout dashboard)
@@ -30,8 +30,8 @@ export const TransactionAreaChart = ({ data }: { data: any[] }) => {
         <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           <defs>
             <linearGradient id="transactionGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor={AMAZON_COLORS.secondary} stopOpacity={0.8}/>
-              <stop offset="95%" stopColor={AMAZON_COLORS.secondary} stopOpacity={0.1}/>
+              <stop offset="5%" stopColor={TBWA_COLORS.secondary} stopOpacity={0.8}/>
+              <stop offset="95%" stopColor={TBWA_COLORS.secondary} stopOpacity={0.1}/>
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -58,7 +58,7 @@ export const TransactionAreaChart = ({ data }: { data: any[] }) => {
           <Area 
             type="monotone" 
             dataKey="transactions" 
-            stroke={AMAZON_COLORS.secondary}
+            stroke={TBWA_COLORS.secondary}
             strokeWidth={2}
             fill="url(#transactionGradient)" 
           />
@@ -68,28 +68,33 @@ export const TransactionAreaChart = ({ data }: { data: any[] }) => {
   )
 }
 
-// Product Mix Bar Chart (replaced pie chart as requested)
+// Product Mix Horizontal Bar Chart (no diagonal labels)
 export const ProductMixPieChart = ({ data }: { data: any[] }) => {
   return (
     <div className="h-64 w-full">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+        <BarChart 
+          data={data} 
+          layout="horizontal"
+          margin={{ top: 20, right: 30, left: 80, bottom: 5 }}
+        >
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
           <XAxis 
-            dataKey="name" 
-            stroke="#6B7280" 
-            fontSize={12}
-            tickLine={false}
-            angle={-45}
-            textAnchor="end"
-            height={60}
-          />
-          <YAxis 
+            type="number"
             stroke="#6B7280" 
             fontSize={12}
             tickLine={false}
             axisLine={false}
-            label={{ value: 'Percentage (%)', angle: -90, position: 'insideLeft' }}
+            label={{ value: 'Percentage (%)', position: 'insideBottom', offset: -5 }}
+          />
+          <YAxis 
+            type="category"
+            dataKey="name"
+            stroke="#6B7280" 
+            fontSize={12}
+            tickLine={false}
+            axisLine={false}
+            width={80}
           />
           <Tooltip 
             formatter={(value: any, name: any) => [`${value}%`, 'Share']}
@@ -100,10 +105,18 @@ export const ProductMixPieChart = ({ data }: { data: any[] }) => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Bar dataKey="value" radius={[4, 4, 0, 0]}>
+          <Bar dataKey="value" radius={[0, 4, 4, 0]}>
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />
             ))}
+            <LabelList 
+              dataKey="value" 
+              position="inside" 
+              fill="white" 
+              fontSize={12}
+              fontWeight="600"
+              formatter={(value: any) => `${value}%`}
+            />
           </Bar>
         </BarChart>
       </ResponsiveContainer>
@@ -135,15 +148,15 @@ export const CustomerJourneyFunnel = ({ data }: { data: any[] }) => {
   
   return (
     <div className="h-64 w-full flex items-center justify-center">
-      <svg width="400" height="240" viewBox="0 0 400 240">
+      <svg width="800" height="240" viewBox="0 0 800 240">
         {data.map((item, index) => {
-          const width = (item.count / maxValue) * 300 // Max width of 300px
+          const width = (item.count / maxValue) * 600 // Max width of 600px
           const height = 35 // Height per section
           const y = index * height + 20
-          const x = (400 - width) / 2 // Center horizontally
+          const x = (800 - width) / 2 // Center horizontally
           
           // Create trapezoid path for funnel effect
-          const nextWidth = index < data.length - 1 ? (data[index + 1].count / maxValue) * 300 : width * 0.8
+          const nextWidth = index < data.length - 1 ? (data[index + 1].count / maxValue) * 600 : width * 0.8
           const topLeft = x
           const topRight = x + width
           const bottomLeft = x + (width - nextWidth) / 2
@@ -160,11 +173,11 @@ export const CustomerJourneyFunnel = ({ data }: { data: any[] }) => {
                 strokeWidth={2}
               />
               <text
-                x={400 / 2}
+                x={800 / 2}
                 y={y + height / 2}
                 textAnchor="middle"
                 fill="white"
-                fontSize="12"
+                fontSize="14"
                 fontWeight="600"
                 dy="0.35em"
               >
@@ -206,7 +219,7 @@ export const IncomeDistributionChart = ({ data }: { data: any[] }) => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Bar dataKey="percentage" fill={AMAZON_COLORS.accent} radius={[4, 4, 0, 0]} />
+          <Bar dataKey="percentage" fill={TBWA_COLORS.accent} radius={[4, 4, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>
@@ -357,8 +370,8 @@ export const RevenueChart = ({ data }: { data: any[] }) => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Area type="monotone" dataKey="revenue" fill={AMAZON_COLORS.accent} stroke={AMAZON_COLORS.accent} />
-          <Line type="monotone" dataKey="transactions" stroke={AMAZON_COLORS.secondary} strokeWidth={2} />
+          <Area type="monotone" dataKey="revenue" fill={TBWA_COLORS.accent} stroke={TBWA_COLORS.accent} />
+          <Line type="monotone" dataKey="transactions" stroke={TBWA_COLORS.secondary} strokeWidth={2} />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
@@ -392,9 +405,9 @@ export const BasketSizeChart = ({ data }: { data: any[] }) => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Line type="monotone" dataKey="basketSize" stroke={AMAZON_COLORS.success} strokeWidth={3} />
-          <Line type="monotone" dataKey="avgValue" stroke={AMAZON_COLORS.warning} strokeWidth={2} strokeDasharray="5 5" />
-          <ReferenceLine y={2.5} stroke={AMAZON_COLORS.error} strokeDasharray="3 3" label="Target" />
+          <Line type="monotone" dataKey="basketSize" stroke={TBWA_COLORS.success} strokeWidth={3} />
+          <Line type="monotone" dataKey="avgValue" stroke={TBWA_COLORS.warning} strokeWidth={2} strokeDasharray="5 5" />
+          <ReferenceLine y={2.5} stroke={TBWA_COLORS.error} strokeDasharray="3 3" label="Target" />
         </LineChart>
       </ResponsiveContainer>
     </div>
@@ -415,8 +428,8 @@ export const DurationChart = ({ data }: { data: any[] }) => {
         <AreaChart data={durationData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
           <defs>
             <linearGradient id="durationGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor={AMAZON_COLORS.purple} stopOpacity={0.8}/>
-              <stop offset="95%" stopColor={AMAZON_COLORS.purple} stopOpacity={0.1}/>
+              <stop offset="5%" stopColor={TBWA_COLORS.purple} stopOpacity={0.8}/>
+              <stop offset="95%" stopColor={TBWA_COLORS.purple} stopOpacity={0.1}/>
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -434,8 +447,8 @@ export const DurationChart = ({ data }: { data: any[] }) => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Area type="monotone" dataKey="duration" stroke={AMAZON_COLORS.purple} fill="url(#durationGradient)" />
-          <Line type="monotone" dataKey="efficiency" stroke={AMAZON_COLORS.success} strokeWidth={2} />
+          <Area type="monotone" dataKey="duration" stroke={TBWA_COLORS.purple} fill="url(#durationGradient)" />
+          <Line type="monotone" dataKey="efficiency" stroke={TBWA_COLORS.success} strokeWidth={2} />
         </AreaChart>
       </ResponsiveContainer>
     </div>
@@ -471,9 +484,9 @@ export const ParetoChart = ({ data }: { data: any[] }) => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Bar dataKey="revenue" fill={AMAZON_COLORS.accent} radius={[4, 4, 0, 0]} />
-          <Line type="monotone" dataKey="cumulative" stroke={AMAZON_COLORS.error} strokeWidth={3} />
-          <ReferenceLine y={80} stroke={AMAZON_COLORS.warning} strokeDasharray="3 3" label="80% Line" />
+          <Bar dataKey="revenue" fill={TBWA_COLORS.accent} radius={[4, 4, 0, 0]} />
+          <Line type="monotone" dataKey="cumulative" stroke={TBWA_COLORS.error} strokeWidth={3} />
+          <ReferenceLine y={80} stroke={TBWA_COLORS.warning} strokeDasharray="3 3" label="80% Line" />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
@@ -616,8 +629,8 @@ export const BasketAnalysisChart = () => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Bar dataKey="frequency" fill={AMAZON_COLORS.success} radius={[4, 4, 0, 0]} />
-          <Line type="monotone" dataKey="lift" stroke={AMAZON_COLORS.error} strokeWidth={3} />
+          <Bar dataKey="frequency" fill={TBWA_COLORS.success} radius={[4, 4, 0, 0]} />
+          <Line type="monotone" dataKey="lift" stroke={TBWA_COLORS.error} strokeWidth={3} />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
@@ -641,12 +654,12 @@ export const RequestMethodsChart = () => {
         <AreaChart data={methodData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
           <defs>
             <linearGradient id="voiceGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor={AMAZON_COLORS.accent} stopOpacity={0.8}/>
-              <stop offset="95%" stopColor={AMAZON_COLORS.accent} stopOpacity={0.1}/>
+              <stop offset="5%" stopColor={TBWA_COLORS.accent} stopOpacity={0.8}/>
+              <stop offset="95%" stopColor={TBWA_COLORS.accent} stopOpacity={0.1}/>
             </linearGradient>
             <linearGradient id="visualGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor={AMAZON_COLORS.success} stopOpacity={0.8}/>
-              <stop offset="95%" stopColor={AMAZON_COLORS.success} stopOpacity={0.1}/>
+              <stop offset="5%" stopColor={TBWA_COLORS.success} stopOpacity={0.8}/>
+              <stop offset="95%" stopColor={TBWA_COLORS.success} stopOpacity={0.1}/>
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -661,8 +674,8 @@ export const RequestMethodsChart = () => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Area type="monotone" dataKey="voice" stackId="1" stroke={AMAZON_COLORS.accent} fill="url(#voiceGradient)" />
-          <Area type="monotone" dataKey="visual" stackId="1" stroke={AMAZON_COLORS.success} fill="url(#visualGradient)" />
+          <Area type="monotone" dataKey="voice" stackId="1" stroke={TBWA_COLORS.accent} fill="url(#voiceGradient)" />
+          <Area type="monotone" dataKey="visual" stackId="1" stroke={TBWA_COLORS.success} fill="url(#visualGradient)" />
         </AreaChart>
       </ResponsiveContainer>
     </div>
@@ -698,8 +711,8 @@ export const AcceptanceRatesChart = () => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Bar dataKey="acceptance" fill={AMAZON_COLORS.success} radius={[4, 4, 0, 0]} />
-          <Line type="monotone" dataKey="confidence" stroke={AMAZON_COLORS.warning} strokeWidth={3} />
+          <Bar dataKey="acceptance" fill={TBWA_COLORS.success} radius={[4, 4, 0, 0]} />
+          <Line type="monotone" dataKey="confidence" stroke={TBWA_COLORS.warning} strokeWidth={3} />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
@@ -770,8 +783,8 @@ export const AgeGenderChart = () => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Bar dataKey="male" fill={AMAZON_COLORS.accent} radius={[4, 4, 0, 0]} />
-          <Bar dataKey="female" fill={AMAZON_COLORS.success} radius={[4, 4, 0, 0]} />
+          <Bar dataKey="male" fill={TBWA_COLORS.accent} radius={[4, 4, 0, 0]} />
+          <Bar dataKey="female" fill={TBWA_COLORS.success} radius={[4, 4, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>
@@ -808,8 +821,8 @@ export const LocationChart = () => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Bar dataKey="customers" fill={AMAZON_COLORS.accent} radius={[4, 4, 0, 0]} />
-          <Line type="monotone" dataKey="revenue" stroke={AMAZON_COLORS.warning} strokeWidth={3} />
+          <Bar dataKey="customers" fill={TBWA_COLORS.accent} radius={[4, 4, 0, 0]} />
+          <Line type="monotone" dataKey="revenue" stroke={TBWA_COLORS.warning} strokeWidth={3} />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
@@ -845,9 +858,9 @@ export const SegmentBehaviorChart = () => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Bar dataKey="avgSpend" fill={AMAZON_COLORS.success} radius={[4, 4, 0, 0]} />
-          <Line type="monotone" dataKey="frequency" stroke={AMAZON_COLORS.warning} strokeWidth={2} />
-          <Line type="monotone" dataKey="satisfaction" stroke={AMAZON_COLORS.accent} strokeWidth={2} strokeDasharray="5 5" />
+          <Bar dataKey="avgSpend" fill={TBWA_COLORS.success} radius={[4, 4, 0, 0]} />
+          <Line type="monotone" dataKey="frequency" stroke={TBWA_COLORS.warning} strokeWidth={2} />
+          <Line type="monotone" dataKey="satisfaction" stroke={TBWA_COLORS.accent} strokeWidth={2} strokeDasharray="5 5" />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
@@ -889,9 +902,9 @@ export const BrandMarketShareChart = () => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Bar dataKey="storeVisits" fill={AMAZON_COLORS.secondary} radius={[4, 4, 0, 0]} />
-          <Line type="monotone" dataKey="conversion" stroke={AMAZON_COLORS.accent} strokeWidth={3} />
-          <Line type="monotone" dataKey="marketShare" stroke={AMAZON_COLORS.success} strokeWidth={3} strokeDasharray="5 5" />
+          <Bar dataKey="storeVisits" fill={TBWA_COLORS.secondary} radius={[4, 4, 0, 0]} />
+          <Line type="monotone" dataKey="conversion" stroke={TBWA_COLORS.accent} strokeWidth={3} />
+          <Line type="monotone" dataKey="marketShare" stroke={TBWA_COLORS.success} strokeWidth={3} strokeDasharray="5 5" />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
@@ -932,10 +945,10 @@ export const CategoryCompetitiveChart = () => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Bar dataKey="ourShare" fill={AMAZON_COLORS.secondary} radius={[4, 4, 0, 0]} />
-          <Bar dataKey="competitor1" fill={AMAZON_COLORS.accent} radius={[4, 4, 0, 0]} />
-          <Bar dataKey="competitor2" fill={AMAZON_COLORS.purple} radius={[4, 4, 0, 0]} />
-          <Line type="monotone" dataKey="growth" stroke={AMAZON_COLORS.success} strokeWidth={3} />
+          <Bar dataKey="ourShare" fill={TBWA_COLORS.secondary} radius={[4, 4, 0, 0]} />
+          <Bar dataKey="competitor1" fill={TBWA_COLORS.accent} radius={[4, 4, 0, 0]} />
+          <Bar dataKey="competitor2" fill={TBWA_COLORS.purple} radius={[4, 4, 0, 0]} />
+          <Line type="monotone" dataKey="growth" stroke={TBWA_COLORS.success} strokeWidth={3} />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
@@ -974,9 +987,9 @@ export const TimePeriodCompetitiveChart = () => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Area type="monotone" dataKey="ourPerformance" fill={AMAZON_COLORS.secondary} fillOpacity={0.3} stroke={AMAZON_COLORS.secondary} strokeWidth={3} />
-          <Line type="monotone" dataKey="competitorAvg" stroke={AMAZON_COLORS.accent} strokeWidth={3} strokeDasharray="5 5" />
-          <Line type="monotone" dataKey="marketGrowth" stroke={AMAZON_COLORS.success} strokeWidth={2} />
+          <Area type="monotone" dataKey="ourPerformance" fill={TBWA_COLORS.secondary} fillOpacity={0.3} stroke={TBWA_COLORS.secondary} strokeWidth={3} />
+          <Line type="monotone" dataKey="competitorAvg" stroke={TBWA_COLORS.accent} strokeWidth={3} strokeDasharray="5 5" />
+          <Line type="monotone" dataKey="marketGrowth" stroke={TBWA_COLORS.success} strokeWidth={2} />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
@@ -1020,8 +1033,8 @@ export const RegionalHeatmapChart = () => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Bar dataKey="performance" fill={AMAZON_COLORS.secondary} radius={[4, 4, 0, 0]} />
-          <Line type="monotone" dataKey="customers" stroke={AMAZON_COLORS.accent} strokeWidth={3} />
+          <Bar dataKey="performance" fill={TBWA_COLORS.secondary} radius={[4, 4, 0, 0]} />
+          <Line type="monotone" dataKey="customers" stroke={TBWA_COLORS.accent} strokeWidth={3} />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
@@ -1063,9 +1076,9 @@ export const StoreLocationChart = () => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Bar dataKey="footTraffic" fill={AMAZON_COLORS.accent} radius={[4, 4, 0, 0]} />
-          <Line type="monotone" dataKey="conversion" stroke={AMAZON_COLORS.warning} strokeWidth={3} />
-          <Line type="monotone" dataKey="revenue" stroke={AMAZON_COLORS.success} strokeWidth={3} strokeDasharray="3 3" />
+          <Bar dataKey="footTraffic" fill={TBWA_COLORS.accent} radius={[4, 4, 0, 0]} />
+          <Line type="monotone" dataKey="conversion" stroke={TBWA_COLORS.warning} strokeWidth={3} />
+          <Line type="monotone" dataKey="revenue" stroke={TBWA_COLORS.success} strokeWidth={3} strokeDasharray="3 3" />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
@@ -1106,8 +1119,8 @@ export const GeoDemographicsChart = () => {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             }}
           />
-          <Bar dataKey="percentage" fill={AMAZON_COLORS.purple} radius={[4, 4, 0, 0]} />
-          <Line type="monotone" dataKey="spending" stroke={AMAZON_COLORS.success} strokeWidth={3} />
+          <Bar dataKey="percentage" fill={TBWA_COLORS.purple} radius={[4, 4, 0, 0]} />
+          <Line type="monotone" dataKey="spending" stroke={TBWA_COLORS.success} strokeWidth={3} />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
@@ -1119,3 +1132,5 @@ export { ChoroplethMap } from './ChoroplethMap'
 export { MercatorChoroplethMap } from './MercatorChoroplethMap'
 // Export VisxChoroplethMap component  
 export { VisxChoroplethMap } from './VisxChoroplethMap'
+// Export MapboxChoroplethMap component
+export { MapboxChoroplethMap } from './MapboxChoroplethMap'

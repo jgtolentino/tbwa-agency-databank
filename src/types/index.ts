@@ -110,4 +110,3 @@ export interface DashboardState {
   isLoading: boolean;
   error: string | null;
 }
-EOF < /dev/null

@@ -2,7 +2,7 @@ import { saveAs } from 'file-saver'
 import html2canvas from 'html2canvas'
 
 export const exportToCSV = (data: any[], filename: string) => {
-  if (\!data || data.length === 0) {
+  if (!data || data.length === 0) {
     console.warn('No data to export')
     return
   }
@@ -32,7 +32,7 @@ export const exportToCSV = (data: any[], filename: string) => {
 
 export const exportToPNG = async (elementId: string, filename: string) => {
   const element = document.getElementById(elementId)
-  if (\!element) {
+  if (!element) {
     console.warn('Element not found for export')
     return
   }
@@ -74,4 +74,3 @@ export const formatCurrency = (num: number): string => {
 export const formatPercent = (num: number): string => {
   return (num * 100).toFixed(1) + '%'
 }
-EOF < /dev/null

@@ -95,7 +95,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
 
   const ComparisonModeSelector = () => (
     <div className="space-y-3">
-      <div className="flex items-center space-x-2 text-sm font-medium text-gray-700">
+      <div className="flex items-center space-x-2 text-sm font-medium text-tbwa-black">
         <Target className="w-4 h-4" />
         <span>Analysis Mode</span>
       </div>
@@ -111,7 +111,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
             className={`p-2 text-xs rounded-md border transition-colors ${
               filters.comparisonMode === mode.value
                 ? 'bg-scout-secondary text-white border-scout-secondary'
-                : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'
+                : 'bg-white text-tbwa-black text-opacity-80 border-tbwa-yellow border-opacity-30 hover:bg-tbwa-yellow bg-opacity-5'
             }`}
           >
             <div className="font-medium">{mode.label}</div>
@@ -141,11 +141,11 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
   }) => (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-2 text-sm font-medium text-gray-700">
+        <div className="flex items-center space-x-2 text-sm font-medium text-tbwa-black">
           {icon}
           <span>{title}</span>
         </div>
-        <div className="text-xs text-gray-500">
+        <div className="text-xs text-tbwa-black text-opacity-70">
           {selected.length} selected
         </div>
       </div>
@@ -164,7 +164,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
               className={`px-2 py-1 text-xs rounded transition-colors ${
                 comparison === comp.value
                   ? 'bg-orange-100 text-orange-700 border border-orange-200'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  : 'bg-tbwa-lightGray text-tbwa-black text-opacity-80 hover:bg-tbwa-yellow hover:bg-opacity-20'
               }`}
               title={comp.desc}
             >
@@ -177,12 +177,12 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
       {/* Selection Grid */}
       <div className="grid grid-cols-1 gap-1 max-h-32 overflow-y-auto">
         {items.map(item => (
-          <label key={item} className="flex items-center space-x-2 text-sm hover:bg-gray-50 p-1 rounded">
+          <label key={item} className="flex items-center space-x-2 text-sm hover:bg-tbwa-yellow bg-opacity-5 p-1 rounded">
             <input
               type="checkbox"
               checked={selected.includes(item)}
               onChange={() => onSelectionChange(toggleArrayItem(selected, item))}
-              className="rounded border-gray-300 text-scout-secondary focus:ring-scout-secondary"
+              className="rounded border-tbwa-yellow text-scout-secondary focus:ring-scout-secondary"
             />
             <span className="flex-1">{item}</span>
           </label>
@@ -193,7 +193,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
 
   const TimePeriodSelector = () => (
     <div className="space-y-3">
-      <div className="flex items-center space-x-2 text-sm font-medium text-gray-700">
+      <div className="flex items-center space-x-2 text-sm font-medium text-tbwa-black">
         <Calendar className="w-4 h-4" />
         <span>Time Period</span>
       </div>
@@ -216,7 +216,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
             className={`p-2 rounded border transition-colors ${
               filters.timePeriod === period.value
                 ? 'bg-scout-secondary text-white border-scout-secondary'
-                : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'
+                : 'bg-white text-tbwa-black text-opacity-80 border-tbwa-yellow border-opacity-30 hover:bg-tbwa-yellow bg-opacity-5'
             }`}
           >
             {period.label}
@@ -229,21 +229,21 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
         <div className="space-y-2">
           <div className="grid grid-cols-2 gap-2">
             <div>
-              <label className="block text-xs text-gray-600 mb-1">Start Date</label>
+              <label className="block text-xs text-tbwa-black text-opacity-80 mb-1">Start Date</label>
               <input
                 type="date"
                 value={filters.dateRange.start}
                 onChange={(e) => updateFilter('dateRange', { ...filters.dateRange, start: e.target.value })}
-                className="w-full text-xs border border-gray-200 rounded px-2 py-1"
+                className="w-full text-xs border border-tbwa-yellow border-opacity-30 rounded px-2 py-1"
               />
             </div>
             <div>
-              <label className="block text-xs text-gray-600 mb-1">End Date</label>
+              <label className="block text-xs text-tbwa-black text-opacity-80 mb-1">End Date</label>
               <input
                 type="date"
                 value={filters.dateRange.end}
                 onChange={(e) => updateFilter('dateRange', { ...filters.dateRange, end: e.target.value })}
-                className="w-full text-xs border border-gray-200 rounded px-2 py-1"
+                className="w-full text-xs border border-tbwa-yellow border-opacity-30 rounded px-2 py-1"
               />
             </div>
           </div>
@@ -252,7 +252,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
 
       {/* Temporal Comparison */}
       <div className="space-y-2">
-        <div className="text-xs font-medium text-gray-600">Temporal Analysis</div>
+        <div className="text-xs font-medium text-tbwa-black text-opacity-80">Temporal Analysis</div>
         <div className="grid grid-cols-2 gap-1">
           {[
             { value: 'current', label: 'Current' },
@@ -266,7 +266,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
               className={`p-1 text-xs rounded border transition-colors ${
                 filters.temporalComparison === temp.value
                   ? 'bg-orange-100 text-orange-700 border-orange-200'
-                  : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'
+                  : 'bg-white text-tbwa-black text-opacity-80 border-tbwa-yellow border-opacity-30 hover:bg-tbwa-yellow bg-opacity-5'
               }`}
             >
               {temp.label}
@@ -283,20 +283,20 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
     onToggle: () => void
     children: React.ReactNode
   }) => (
-    <div className="border border-gray-200 rounded-lg">
+    <div className="border border-tbwa-yellow border-opacity-30 rounded-lg">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between p-3 text-left hover:bg-gray-50"
+        className="w-full flex items-center justify-between p-3 text-left hover:bg-tbwa-yellow bg-opacity-5"
       >
-        <span className="font-medium text-gray-800">{title}</span>
+        <span className="font-medium text-tbwa-black">{title}</span>
         {isExpanded ? (
-          <ChevronUp className="w-4 h-4 text-gray-500" />
+          <ChevronUp className="w-4 h-4 text-tbwa-black text-opacity-70" />
         ) : (
-          <ChevronDown className="w-4 h-4 text-gray-500" />
+          <ChevronDown className="w-4 h-4 text-tbwa-black text-opacity-70" />
         )}
       </button>
       {isExpanded && (
-        <div className="p-3 border-t border-gray-200">
+        <div className="p-3 border-t border-tbwa-yellow border-opacity-30">
           {children}
         </div>
       )}
@@ -305,10 +305,10 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
 
   if (isCollapsed) {
     return (
-      <div className="w-12 bg-white border-l border-gray-200 flex flex-col items-center py-4">
+      <div className="w-12 bg-white border-l border-tbwa-yellow border-opacity-30 flex flex-col items-center py-4">
         <button
           onClick={onToggle}
-          className="p-2 text-gray-500 hover:text-scout-secondary hover:bg-gray-50 rounded-lg transition-colors"
+          className="p-2 text-tbwa-black text-opacity-70 hover:text-scout-secondary hover:bg-tbwa-yellow bg-opacity-5 rounded-lg transition-colors"
           title="Expand Filters"
         >
           <Filter className="w-5 h-5" />
@@ -318,16 +318,16 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
   }
 
   return (
-    <div className="w-80 bg-white border-l border-gray-200 flex flex-col max-h-screen">
+    <div className="w-80 bg-white border-l border-tbwa-yellow border-opacity-30 flex flex-col max-h-screen">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200">
+      <div className="flex items-center justify-between p-4 border-b border-tbwa-yellow border-opacity-30">
         <div className="flex items-center space-x-2">
           <Filter className="w-5 h-5 text-scout-secondary" />
-          <h3 className="font-semibold text-gray-800">Advanced Filters</h3>
+          <h3 className="font-semibold text-tbwa-black">Advanced Filters</h3>
         </div>
         <button
           onClick={onToggle}
-          className="p-1 text-gray-500 hover:text-gray-700 rounded"
+          className="p-1 text-tbwa-black text-opacity-70 hover:text-tbwa-black rounded"
         >
           <X className="w-4 h-4" />
         </button>
@@ -443,21 +443,21 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
             
             {/* Price Range */}
             <div className="space-y-2">
-              <div className="text-sm font-medium text-gray-700">Price Range (₱)</div>
+              <div className="text-sm font-medium text-tbwa-black">Price Range (₱)</div>
               <div className="grid grid-cols-2 gap-2">
                 <input
                   type="number"
                   placeholder="Min"
                   value={filters.priceRange[0]}
                   onChange={(e) => updateFilter('priceRange', [Number(e.target.value), filters.priceRange[1]])}
-                  className="text-xs border border-gray-200 rounded px-2 py-1"
+                  className="text-xs border border-tbwa-yellow border-opacity-30 rounded px-2 py-1"
                 />
                 <input
                   type="number"
                   placeholder="Max"
                   value={filters.priceRange[1]}
                   onChange={(e) => updateFilter('priceRange', [filters.priceRange[0], Number(e.target.value)])}
-                  className="text-xs border border-gray-200 rounded px-2 py-1"
+                  className="text-xs border border-tbwa-yellow border-opacity-30 rounded px-2 py-1"
                 />
               </div>
             </div>
@@ -481,11 +481,11 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
                   type="checkbox"
                   checked={filters[option.key as keyof CascadingFilterState] as boolean}
                   onChange={(e) => updateFilter(option.key as keyof CascadingFilterState, e.target.checked)}
-                  className="rounded border-gray-300 text-scout-secondary focus:ring-scout-secondary"
+                  className="rounded border-tbwa-yellow text-scout-secondary focus:ring-scout-secondary"
                 />
                 <div>
-                  <div className="text-sm font-medium text-gray-700">{option.label}</div>
-                  <div className="text-xs text-gray-500">{option.desc}</div>
+                  <div className="text-sm font-medium text-tbwa-black">{option.label}</div>
+                  <div className="text-xs text-tbwa-black text-opacity-70">{option.desc}</div>
                 </div>
               </label>
             ))}
@@ -494,7 +494,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
       </div>
 
       {/* Actions */}
-      <div className="border-t border-gray-200 p-4 space-y-3">
+      <div className="border-t border-tbwa-yellow border-opacity-30 p-4 space-y-3">
         <div className="flex space-x-2">
           <button
             onClick={onApply}
@@ -504,14 +504,14 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
           </button>
           <button
             onClick={onReset}
-            className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 text-sm"
+            className="px-4 py-2 border border-tbwa-yellow text-tbwa-black rounded-lg hover:bg-tbwa-yellow bg-opacity-5 text-sm"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
         </div>
         
         {/* Filter Summary */}
-        <div className="text-xs text-gray-500 space-y-1">
+        <div className="text-xs text-tbwa-black text-opacity-70 space-y-1">
           <div>Mode: <span className="font-medium">{filters.comparisonMode}</span></div>
           <div>Brands: <span className="font-medium">{filters.selectedBrands.length}</span></div>
           <div>Categories: <span className="font-medium">{filters.selectedCategories.length}</span></div>

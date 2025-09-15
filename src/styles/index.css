@@ -32,11 +32,11 @@
   }
 
   .scout-btn-primary {
-    @apply scout-btn bg-scout-secondary text-white border border-scout-secondary;
+    @apply scout-btn bg-tbwa-yellow text-tbwa-black border border-tbwa-yellow hover:bg-tbwa-darkYellow;
   }
 
   .scout-btn-secondary {
-    @apply scout-btn bg-scout-border text-scout-text hover:bg-gray-200;
+    @apply scout-btn bg-tbwa-white text-tbwa-black border border-tbwa-yellow hover:bg-tbwa-yellow hover:bg-opacity-10;
   }
 
   .scout-sidebar {

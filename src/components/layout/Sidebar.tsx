@@ -48,20 +48,20 @@ const Sidebar = ({ activeSection, onSectionChange, isCollapsed, onToggle }: Side
     },
     {
       id: 'databank',
-      label: 'Databank Dashboard', 
+      label: 'Scout Dashboard Transactions', 
       icon: Database,
-      description: 'Complete analytics view'
+      description: 'Data Dictionary (2025 Draft)'
     }
   ]
 
   // Collapsed sidebar
   if (isCollapsed) {
     return (
-      <div className="fixed top-0 left-0 bottom-0 w-16 p-4 bg-scout-card border-r border-gray-200">
+      <div className="fixed top-0 left-0 bottom-0 w-16 p-4 bg-tbwa-black border-r border-tbwa-yellow">
         {/* Toggle Button */}
         <button
           onClick={onToggle}
-          className="w-8 h-8 mb-6 flex items-center justify-center text-gray-500 hover:text-scout-secondary hover:bg-gray-50 rounded-lg transition-colors"
+          className="w-8 h-8 mb-6 flex items-center justify-center text-tbwa-yellow hover:text-tbwa-white hover:bg-tbwa-yellow hover:bg-opacity-20 rounded-lg transition-colors"
           title="Expand Sidebar"
         >
           <Menu className="w-5 h-5" />
@@ -79,8 +79,8 @@ const Sidebar = ({ activeSection, onSectionChange, isCollapsed, onToggle }: Side
                 onClick={() => onSectionChange(item.id)}
                 className={`w-8 h-8 flex items-center justify-center rounded-lg transition-colors ${
                   isActive 
-                    ? 'bg-scout-secondary text-white' 
-                    : 'text-gray-500 hover:bg-gray-50 hover:text-scout-secondary'
+                    ? 'bg-tbwa-yellow text-tbwa-black' 
+                    : 'text-tbwa-yellow hover:bg-tbwa-yellow hover:bg-opacity-20 hover:text-tbwa-white'
                 }`}
                 title={item.label}
               >
@@ -95,26 +95,30 @@ const Sidebar = ({ activeSection, onSectionChange, isCollapsed, onToggle }: Side
 
   // Expanded sidebar
   return (
-    <div className="fixed top-0 left-0 bottom-0 w-64 p-4 bg-scout-card border-r border-gray-200">
+    <div className="fixed top-0 left-0 bottom-0 w-64 p-4 bg-tbwa-black border-r border-tbwa-yellow">
       {/* Header with Toggle */}
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center">
-          <BarChart3 className="w-8 h-8 text-scout-secondary mr-3" />
-          <div>
-            <h1 className="text-xl font-bold text-scout-text">Scout Analytics</h1>
-            <p className="text-sm text-gray-500">Retail Intelligence</p>
+          <div className="flex flex-col">
+            <img 
+              src="/tbwasmp-logo.webp" 
+              alt="TBWA SMP Logo" 
+              className="h-6 w-auto mb-1"
+            />
+            <h1 className="text-xl font-bold text-tbwa-white">Suqi Analytics</h1>
+            <p className="text-sm text-tbwa-yellow">Retail Intelligence</p>
           </div>
         </div>
         <button
           onClick={onToggle}
-          className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+          className="w-8 h-8 flex items-center justify-center text-tbwa-yellow hover:text-tbwa-white hover:bg-tbwa-yellow hover:bg-opacity-20 rounded-lg transition-colors"
           title="Collapse Sidebar"
         >
           <ChevronLeft className="w-4 h-4" />
         </button>
       </div>
 
-      <hr className="mb-6 border-scout-border" />
+      <hr className="mb-6 border-tbwa-yellow border-opacity-30" />
 
       {/* Navigation */}
       <nav className="space-y-2">
@@ -128,15 +132,15 @@ const Sidebar = ({ activeSection, onSectionChange, isCollapsed, onToggle }: Side
               onClick={() => onSectionChange(item.id)}
               className={`w-full text-left p-3 rounded-lg transition-colors ${
                 isActive 
-                  ? 'bg-scout-border text-scout-text' 
-                  : 'text-scout-text hover:bg-gray-50 hover:text-scout-secondary'
+                  ? 'bg-tbwa-yellow bg-opacity-20 text-tbwa-white' 
+                  : 'text-tbwa-white hover:bg-tbwa-yellow hover:bg-opacity-10 hover:text-tbwa-yellow'
               }`}
             >
               <div className="flex items-start space-x-3">
-                <Icon className={`w-5 h-5 mt-0.5 ${isActive ? 'text-scout-secondary' : ''}`} />
+                <Icon className={`w-5 h-5 mt-0.5 ${isActive ? 'text-tbwa-yellow' : ''}`} />
                 <div>
                   <div className="font-medium text-sm">{item.label}</div>
-                  <div className="text-xs text-gray-500 mt-1">{item.description}</div>
+                  <div className="text-xs text-tbwa-yellow text-opacity-80 mt-1">{item.description}</div>
                 </div>
               </div>
             </button>
@@ -146,9 +150,9 @@ const Sidebar = ({ activeSection, onSectionChange, isCollapsed, onToggle }: Side
 
       {/* Footer */}
       <div className="absolute bottom-4 left-4 right-4">
-        <div className="text-xs text-gray-500 space-y-1">
-          <div>Created by <strong>Scout Team</strong></div>
-          <div>Data Source: <strong>Live Recordings</strong></div>
+        <div className="text-xs text-tbwa-yellow text-opacity-70 space-y-1">
+          <div>Created by <strong className="text-tbwa-white">Scout Team</strong></div>
+          <div>Data Source: <strong className="text-tbwa-white">Mock Data</strong></div>
         </div>
       </div>
     </div>

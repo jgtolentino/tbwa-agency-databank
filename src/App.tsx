@@ -125,26 +125,28 @@ function App() {
 
   return (
     <div className="min-h-screen bg-scout-light">
-      {/* Databank page renders full-screen without sidebar */}
-      {activeSection === 'databank' ? (
-        renderActiveSection()
-      ) : (
-        <div className="flex min-h-screen">
-          {/* Sidebar Navigation */}
-          <Sidebar 
-            activeSection={activeSection} 
-            onSectionChange={setActiveSection}
-            isCollapsed={isSidebarCollapsed}
-            onToggle={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-          />
-          
-          {/* Main Content Area */}
-          <div 
-            className="flex-1 flex transition-all duration-300"
-            style={{ marginLeft: isSidebarCollapsed ? '64px' : '256px' }}
-          >
-            {/* Dashboard Content */}
-            <div className="flex-1 p-6">
+      <div className="flex min-h-screen">
+        {/* Sidebar Navigation */}
+        <Sidebar 
+          activeSection={activeSection} 
+          onSectionChange={setActiveSection}
+          isCollapsed={isSidebarCollapsed}
+          onToggle={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+        />
+        
+        {/* Main Content Area */}
+        <div 
+          className="flex-1 flex transition-all duration-300"
+          style={{ marginLeft: isSidebarCollapsed ? '64px' : '256px' }}
+        >
+          {/* Dashboard Content */}
+          <div className="flex-1 p-6">
+            {/* Check if this is the databank page for different layout */}
+            {activeSection === 'databank' ? (
+              <div className="w-full">
+                {renderActiveSection()}
+              </div>
+            ) : (
               <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
                 {/* Main Dashboard Content */}
                 <div className="xl:col-span-3">
@@ -156,9 +158,11 @@ function App() {
                   <AIPanel section={activeSection} />
                 </div>
               </div>
-            </div>
-            
-            {/* Cascading Filter Panel */}
+            )}
+          </div>
+          
+          {/* Cascading Filter Panel - hide for databank */}
+          {activeSection !== 'databank' && (
             <CascadingFilterPanel
               isCollapsed={isFilterCollapsed}
               onToggle={() => setIsFilterCollapsed(!isFilterCollapsed)}
@@ -167,9 +171,9 @@ function App() {
               onReset={handleFilterReset}
               onApply={handleFilterApply}
             />
-          </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   )
 }

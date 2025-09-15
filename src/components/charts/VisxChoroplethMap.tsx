@@ -302,9 +302,9 @@ const VisxMapComponent = withTooltip<VisxChoroplethMapProps, TooltipData>(({
               />
               <Mercator<any>
                 data={geojson.features}
-                scale={1000}
+                scale={2400}
                 translate={[width / 2, height / 2]}
-                center={[121, 12.5]}
+                center={[122, 13]}
               >
                 {(mercator) => (
                   <g>

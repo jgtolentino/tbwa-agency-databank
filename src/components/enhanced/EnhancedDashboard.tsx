@@ -29,7 +29,8 @@ import {
   GeoDemographicsChart,
   ChoroplethMap,
   MercatorChoroplethMap,
-  VisxChoroplethMap
+  VisxChoroplethMap,
+  MapboxChoroplethMap
 } from '../charts/AdvancedCharts'
 
 // Enhanced data from Scout dashboard analysis
@@ -86,8 +87,8 @@ export const EnhancedTransactionTrends = () => {
       {/* Enhanced Header with Export */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-scout-text mb-2">Transaction Trends</h2>
-          <p className="text-gray-600">Volume, timing & patterns with advanced analytics</p>
+          <h2 className="text-2xl font-bold text-tbwa-black mb-2">Transaction Trends</h2>
+          <p className="text-tbwa-black text-opacity-70">Volume, timing & patterns with advanced analytics</p>
         </div>
         <div className="flex items-center space-x-2">
           <button className="scout-btn-secondary flex items-center space-x-2">
@@ -788,7 +789,7 @@ export const EnhancedGeographicalIntelligence = () => {
           {activeTab === 'Regional Performance' && (
             <div>
               <h3 className="text-lg font-semibold text-scout-text mb-4">Philippines Regional Performance Map</h3>
-              <VisxChoroplethMap 
+              <MapboxChoroplethMap 
                 title="Regional Revenue & Performance Distribution"
                 metric="revenue"
               />

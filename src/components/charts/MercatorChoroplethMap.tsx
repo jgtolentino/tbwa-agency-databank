@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import dynamic from 'next/dynamic'
 import { MapPin, TrendingUp, TrendingDown, Info } from 'lucide-react'
-
-// Dynamic import to avoid SSR issues with Plotly
-const Plot = dynamic(() => import('react-plotly.js'), { ssr: false })
+import Plot from 'react-plotly.js'
 
 interface RegionData {
   id: string

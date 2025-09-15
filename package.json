@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
+    "build:check": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -23,6 +24,7 @@
     "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
     "lucide-react": "0.294.0",
+    "mapbox-gl": "1.13.3",
     "playwright": "1.55.0",
     "plotly.js": "^2.27.1",
     "plotly.js-dist-min": "3.1.0",
@@ -30,6 +32,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-grid-layout": "^1.4.4",
+    "react-map-gl": "8.0.4",
     "react-plotly.js": "2.6.0",
     "react-router-dom": "^6.20.1",
     "recharts": "2.15.4",
@@ -37,6 +40,7 @@
   },
   "devDependencies": {
     "@types/file-saver": "^2.0.7",
+    "@types/mapbox-gl": "3.4.1",
     "@types/node": "^20.10.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",

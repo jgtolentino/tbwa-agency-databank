@@ -63,4 +63,3 @@ export const BarChart = ({
     </ResponsiveContainer>
   )
 }
-EOF < /dev/null

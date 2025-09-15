@@ -67,4 +67,3 @@ export const useDashboardStore = create<DashboardStore>()(
     }
   )
 )
-EOF < /dev/null
