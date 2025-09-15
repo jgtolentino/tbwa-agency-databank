@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Sidebar from './components/layout/Sidebar'
 import AIPanel from './components/layout/AIPanel'
-import { GlobalFilters, FilterState, exportToPDF, exportToExcel } from './components/filters/GlobalFilters'
+import { CascadingFilterPanel, CascadingFilterState } from './components/filters/CascadingFilterPanel'
 import { 
   EnhancedTransactionTrends,
   EnhancedProductMix,
@@ -16,25 +16,67 @@ function App() {
   const [activeSection, setActiveSection] = useState('transaction-trends')
   const [showEnhanced, setShowEnhanced] = useState(true) // Toggle between enhanced and basic views
   
-  // Global filter state
-  const [filters, setFilters] = useState<FilterState>({
-    timeframe: '7d',
-    location: 'all',
-    category: 'all',
-    brand: 'all'
+  // Panel states
+  const [isFilterCollapsed, setIsFilterCollapsed] = useState(false)
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
+  
+  // Cascading filter state
+  const [cascadingFilters, setCascadingFilters] = useState<CascadingFilterState>({
+    comparisonMode: 'single',
+    selectedBrands: [],
+    brandComparison: 'vs',
+    selectedCategories: [],
+    categoryComparison: 'vs',
+    selectedRegions: [],
+    selectedStores: [],
+    locationComparison: 'vs',
+    timePeriod: 'daily',
+    dateRange: {
+      start: new Date().toISOString().split('T')[0],
+      end: new Date().toISOString().split('T')[0]
+    },
+    temporalComparison: 'current',
+    customerSegment: [],
+    transactionType: [],
+    priceRange: [0, 10000],
+    showTrends: true,
+    showDeltas: false,
+    showPercentages: true
   })
 
   const handleRefresh = () => {
-    console.log('Refreshing dashboard data...')
-    // In a real implementation, this would trigger data refresh
+    console.log('Refreshing dashboard data...', cascadingFilters)
+    // In a real implementation, this would trigger data refresh with filters
   }
 
-  const handleExport = (format: 'pdf' | 'excel') => {
-    if (format === 'pdf') {
-      exportToPDF()
-    } else {
-      exportToExcel()
-    }
+  const handleFilterApply = () => {
+    console.log('Applying filters:', cascadingFilters)
+    handleRefresh()
+  }
+
+  const handleFilterReset = () => {
+    setCascadingFilters({
+      comparisonMode: 'single',
+      selectedBrands: [],
+      brandComparison: 'vs',
+      selectedCategories: [],
+      categoryComparison: 'vs',
+      selectedRegions: [],
+      selectedStores: [],
+      locationComparison: 'vs',
+      timePeriod: 'daily',
+      dateRange: {
+        start: new Date().toISOString().split('T')[0],
+        end: new Date().toISOString().split('T')[0]
+      },
+      temporalComparison: 'current',
+      customerSegment: [],
+      transactionType: [],
+      priceRange: [0, 10000],
+      showTrends: true,
+      showDeltas: false,
+      showPercentages: true
+    })
   }
 
   const renderActiveSection = () => {
@@ -87,36 +129,46 @@ function App() {
       {activeSection === 'databank' ? (
         renderActiveSection()
       ) : (
-        <>
+        <div className="flex min-h-screen">
           {/* Sidebar Navigation */}
           <Sidebar 
             activeSection={activeSection} 
-            onSectionChange={setActiveSection} 
+            onSectionChange={setActiveSection}
+            isCollapsed={isSidebarCollapsed}
+            onToggle={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
           />
           
           {/* Main Content Area */}
-          <div className="scout-content">
-            {/* Global Filters */}
-            <GlobalFilters 
-              filters={filters}
-              onFilterChange={setFilters}
-              onRefresh={handleRefresh}
-              onExport={handleExport}
-            />
-            
-            <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
-              {/* Main Dashboard Content */}
-              <div className="xl:col-span-3">
-                {renderActiveSection()}
-              </div>
-              
-              {/* AI Recommendations Panel */}
-              <div className="xl:col-span-1">
-                <AIPanel section={activeSection} />
+          <div 
+            className="flex-1 flex transition-all duration-300"
+            style={{ marginLeft: isSidebarCollapsed ? '64px' : '256px' }}
+          >
+            {/* Dashboard Content */}
+            <div className="flex-1 p-6">
+              <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
+                {/* Main Dashboard Content */}
+                <div className="xl:col-span-3">
+                  {renderActiveSection()}
+                </div>
+                
+                {/* AI Recommendations Panel */}
+                <div className="xl:col-span-1">
+                  <AIPanel section={activeSection} />
+                </div>
               </div>
             </div>
+            
+            {/* Cascading Filter Panel */}
+            <CascadingFilterPanel
+              isCollapsed={isFilterCollapsed}
+              onToggle={() => setIsFilterCollapsed(!isFilterCollapsed)}
+              filters={cascadingFilters}
+              onFilterChange={setCascadingFilters}
+              onReset={handleFilterReset}
+              onApply={handleFilterApply}
+            />
           </div>
-        </>
+        </div>
       )}
     </div>
   )

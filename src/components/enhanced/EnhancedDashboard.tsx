@@ -26,7 +26,8 @@ import {
   TimePeriodCompetitiveChart,
   RegionalHeatmapChart,
   StoreLocationChart,
-  GeoDemographicsChart
+  GeoDemographicsChart,
+  ChoroplethMap
 } from '../charts/AdvancedCharts'
 
 // Enhanced data from Scout dashboard analysis
@@ -784,14 +785,26 @@ export const EnhancedGeographicalIntelligence = () => {
         <div className="mt-4">
           {activeTab === 'Regional Performance' && (
             <div>
-              <h3 className="text-lg font-semibold text-scout-text mb-4">Regional Performance Heatmap</h3>
-              <RegionalHeatmapChart />
-              <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-scout-accent">
-                <p className="text-sm font-medium text-scout-text">Regional Insights</p>
-                <p className="text-sm text-gray-600 mt-1">
-                  Metro Manila leads with 95% performance score and ₱850K revenue. 
-                  Davao (85%) and Cagayan de Oro (81%) show strong growth potential.
-                </p>
+              <h3 className="text-lg font-semibold text-scout-text mb-4">Philippines Regional Performance Map</h3>
+              <ChoroplethMap 
+                title="Regional Revenue & Performance Distribution"
+                metric="revenue"
+              />
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-scout-accent">
+                  <p className="text-sm font-medium text-scout-text">Regional Insights</p>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Metro Manila (NCR) leads with ₱2.85M revenue and 45 stores. 
+                    CALABARZON shows highest growth at 14.2% with strong market penetration.
+                  </p>
+                </div>
+                <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                  <p className="text-sm font-medium text-scout-text">Growth Opportunities</p>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Central Visayas and Davao Region show balanced performance with 
+                    strong growth rates (11.8% and 10.6%) and expanding customer base.
+                  </p>
+                </div>
               </div>
             </div>
           )}

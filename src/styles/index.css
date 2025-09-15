@@ -40,11 +40,15 @@
   }
 
   .scout-sidebar {
-    @apply fixed top-0 left-0 bottom-0 w-64 p-4 bg-scout-card;
+    @apply fixed top-0 left-0 bottom-0 w-64 p-4 bg-scout-card border-r border-gray-200;
+  }
+
+  .scout-sidebar-collapsed {
+    @apply fixed top-0 left-0 bottom-0 w-16 p-4 bg-scout-card border-r border-gray-200;
   }
 
   .scout-content {
-    @apply ml-64 mr-2 mt-8 p-4 bg-scout-light min-h-screen;
+    @apply mr-2 mt-8 p-4 bg-scout-light min-h-screen;
   }
 
   .scout-nav-link {

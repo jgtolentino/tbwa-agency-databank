@@ -1,12 +1,14 @@
 import React from 'react'
-import { TrendingUp, Package, Users, UserCheck, BarChart3, Database, Target, MapPin } from 'lucide-react'
+import { TrendingUp, Package, Users, UserCheck, BarChart3, Database, Target, MapPin, ChevronLeft, Menu } from 'lucide-react'
 
 interface SidebarProps {
   activeSection: string
   onSectionChange: (section: string) => void
+  isCollapsed: boolean
+  onToggle: () => void
 }
 
-const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
+const Sidebar = ({ activeSection, onSectionChange, isCollapsed, onToggle }: SidebarProps) => {
   const navItems = [
     {
       id: 'transaction-trends',
@@ -52,15 +54,64 @@ const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
     }
   ]
 
+  // Collapsed sidebar
+  if (isCollapsed) {
+    return (
+      <div className="fixed top-0 left-0 bottom-0 w-16 p-4 bg-scout-card border-r border-gray-200">
+        {/* Toggle Button */}
+        <button
+          onClick={onToggle}
+          className="w-8 h-8 mb-6 flex items-center justify-center text-gray-500 hover:text-scout-secondary hover:bg-gray-50 rounded-lg transition-colors"
+          title="Expand Sidebar"
+        >
+          <Menu className="w-5 h-5" />
+        </button>
+
+        {/* Navigation Icons */}
+        <nav className="space-y-3">
+          {navItems.map((item) => {
+            const Icon = item.icon
+            const isActive = activeSection === item.id
+            
+            return (
+              <button
+                key={item.id}
+                onClick={() => onSectionChange(item.id)}
+                className={`w-8 h-8 flex items-center justify-center rounded-lg transition-colors ${
+                  isActive 
+                    ? 'bg-scout-secondary text-white' 
+                    : 'text-gray-500 hover:bg-gray-50 hover:text-scout-secondary'
+                }`}
+                title={item.label}
+              >
+                <Icon className="w-5 h-5" />
+              </button>
+            )
+          })}
+        </nav>
+      </div>
+    )
+  }
+
+  // Expanded sidebar
   return (
-    <div className="scout-sidebar">
-      {/* Logo */}
-      <div className="flex items-center mb-8">
-        <BarChart3 className="w-8 h-8 text-scout-secondary mr-3" />
-        <div>
-          <h1 className="text-xl font-bold text-scout-text">Scout Analytics</h1>
-          <p className="text-sm text-gray-500">Retail Intelligence</p>
+    <div className="fixed top-0 left-0 bottom-0 w-64 p-4 bg-scout-card border-r border-gray-200">
+      {/* Header with Toggle */}
+      <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center">
+          <BarChart3 className="w-8 h-8 text-scout-secondary mr-3" />
+          <div>
+            <h1 className="text-xl font-bold text-scout-text">Scout Analytics</h1>
+            <p className="text-sm text-gray-500">Retail Intelligence</p>
+          </div>
         </div>
+        <button
+          onClick={onToggle}
+          className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+          title="Collapse Sidebar"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
       </div>
 
       <hr className="mb-6 border-scout-border" />

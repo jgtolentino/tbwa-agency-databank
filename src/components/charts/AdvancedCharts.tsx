@@ -1113,3 +1113,5 @@ export const GeoDemographicsChart = () => {
     </div>
   )
 }
+// Export ChoroplethMap component
+export { ChoroplethMap } from './ChoroplethMap'
