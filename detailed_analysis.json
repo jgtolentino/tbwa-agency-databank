@@ -1,0 +1,497 @@
+{
+  "rechartsComponents": [
+    {
+      "index": 0,
+      "element": "DIV",
+      "className": "recharts-responsive-container",
+      "bounds": {
+        "width": 546,
+        "height": 256,
+        "x": 377,
+        "y": 452.5
+      },
+      "styles": {
+        "position": "static",
+        "display": "block",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(0, 0, 0)"
+      },
+      "innerHTML": "<div style=\"width: 0px; height: 0px; overflow: visible;\"><div class=\"recharts-wrapper\" style=\"position: relative; cursor: default; width: 546px; height: 256px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\" tabindex=\"-1\" class=\"recharts-tooltip-wrapper\" style=\"visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;\"><div class=\"recharts-default-tooltip\" role=\"status\" aria-live=\"assertive\" style=\"margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;\"><p class=\"recharts-tooltip-label\" style=\"margin: 0px;\"></p></div></div><svg role=\"application\" tabindex=\"0\" class=\"recharts-surface\" width=\"546\" height=\"256\" viewBox=\"0 0 546 256\" style=\"width: 100%; height: 100%;\"><title></title><desc></desc><defs><clipPath id=\"recharts1-clip\"><rect x=\"65\" y=\"5\" height=\"216\" width=\"476\"></rect></clipPath></defs><g class=\"recharts-cartesian-grid\"><g class=\"recharts-cartesian-grid-horizontal\"><line stroke-dasharray=",
+      "parentContainer": {
+        "className": "recharts-responsive-container",
+        "tagName": "DIV"
+      },
+      "dataAttributes": []
+    },
+    {
+      "index": 1,
+      "element": "DIV",
+      "className": "recharts-wrapper",
+      "bounds": {
+        "width": 546,
+        "height": 256,
+        "x": 377,
+        "y": 452.5
+      },
+      "styles": {
+        "position": "relative",
+        "display": "block",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(0, 0, 0)"
+      },
+      "innerHTML": "<div xmlns=\"http://www.w3.org/1999/xhtml\" tabindex=\"-1\" class=\"recharts-tooltip-wrapper\" style=\"visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;\"><div class=\"recharts-default-tooltip\" role=\"status\" aria-live=\"assertive\" style=\"margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;\"><p class=\"recharts-tooltip-label\" style=\"margin: 0px;\"></p></div></div><svg role=\"application\" tabindex=\"0\" class=\"recharts-surface\" width=\"546\" height=\"256\" viewBox=\"0 0 546 256\" style=\"width: 100%; height: 100%;\"><title></title><desc></desc><defs><clipPath id=\"recharts1-clip\"><rect x=\"65\" y=\"5\" height=\"216\" width=\"476\"></rect></clipPath></defs><g class=\"recharts-cartesian-grid\"><g class=\"recharts-cartesian-grid-horizontal\"><line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"none\" x=\"65\" y=\"5\" width=\"476\" height=\"216\" x1=\"65\" y1=\"221\" x2=\"541\" y2=\"221\"></line><line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"",
+      "parentContainer": {
+        "className": "recharts-wrapper",
+        "tagName": "DIV"
+      },
+      "dataAttributes": []
+    },
+    {
+      "index": 2,
+      "element": "g",
+      "className": {},
+      "bounds": {
+        "width": 476,
+        "height": 185.54400634765625,
+        "x": 442,
+        "y": 487.95599365234375
+      },
+      "styles": {
+        "position": "static",
+        "display": "inline",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(0, 0, 0)"
+      },
+      "innerHTML": "<g class=\"recharts-layer\"><path stroke-width=\"2\" fill=\"#93BBFC\" fill-opacity=\"0.6\" height=\"216\" width=\"476\" stroke=\"none\" class=\"recharts-curve recharts-area-area\" d=\"M65,110.624C70.471,80.06,75.943,49.496,81.414,49.496C86.885,49.496,92.356,75.416,97.828,75.416C103.299,75.416,108.77,52.952,114.241,52.952C119.713,52.952,125.184,53.024,130.655,53.168C136.126,53.312,141.598,111.272,147.069,111.272C152.54,111.272,158.011,35.456,163.483,35.456C168.954,35.456,174.425,133.088,179.897,133.088C185.368,133.088,190.839,125.924,196.31,112.352C201.782,98.78,207.253,51.656,212.724,51.656C218.195,51.656,223.667,56.408,229.138,59.216C234.609,62.024,240.08,63.032,245.552,68.504C251.023,73.976,256.494,92.048,261.966,92.048C267.437,92.048,272.908,45.392,278.379,45.392C283.851,45.392,289.322,60.08,294.793,68.072C300.264,76.064,305.736,89.888,311.207,93.344C316.678,96.8,322.149,95.072,327.621,98.528C333.092,101.984,338.563,123.584,344.034,123.584C349.506,123.584,354.977,106.34,360.448,97.448C365.92,88.556,",
+      "parentContainer": {
+        "className": {},
+        "tagName": "g"
+      },
+      "dataAttributes": []
+    },
+    {
+      "index": 3,
+      "element": "DIV",
+      "className": "recharts-responsive-container",
+      "bounds": {
+        "width": 546,
+        "height": 256,
+        "x": 997,
+        "y": 380.5
+      },
+      "styles": {
+        "position": "static",
+        "display": "block",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(0, 0, 0)"
+      },
+      "innerHTML": "<div style=\"width: 0px; height: 0px; overflow: visible;\"><div class=\"recharts-wrapper\" style=\"position: relative; cursor: default; width: 546px; height: 256px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\" tabindex=\"-1\" class=\"recharts-tooltip-wrapper\" style=\"visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;\"></div><svg cx=\"50%\" cy=\"50%\" role=\"application\" tabindex=\"0\" class=\"recharts-surface\" width=\"546\" height=\"256\" viewBox=\"0 0 546 256\" style=\"width: 100%; height: 100%;\"><title></title><desc></desc><defs><clipPath id=\"recharts3-clip\"><rect x=\"5\" y=\"5\" height=\"246\" width=\"536\"></rect></clipPath></defs><g class=\"recharts-layer recharts-pie\" tabindex=\"0\"><g class=\"recharts-layer\"><g class=\"recharts-layer recharts-pie-sector\" tabindex=\"-1\"><path cx=\"273\" cy=\"128\" fill=\"#3B82F6\" stroke=\"#fff\" name=\"Beverages\" tabindex=\"-1\" data-recharts-item-index=\"0\" data-recharts-item-data-key=\"value\" class=\"recharts-sector\" d=\"M 353,128\n    A 80,80,0,\n    0,0,\n    225.977",
+      "parentContainer": {
+        "className": "recharts-responsive-container",
+        "tagName": "DIV"
+      },
+      "dataAttributes": []
+    },
+    {
+      "index": 4,
+      "element": "DIV",
+      "className": "recharts-wrapper",
+      "bounds": {
+        "width": 546,
+        "height": 256,
+        "x": 997,
+        "y": 380.5
+      },
+      "styles": {
+        "position": "relative",
+        "display": "block",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(0, 0, 0)"
+      },
+      "innerHTML": "<div xmlns=\"http://www.w3.org/1999/xhtml\" tabindex=\"-1\" class=\"recharts-tooltip-wrapper\" style=\"visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;\"></div><svg cx=\"50%\" cy=\"50%\" role=\"application\" tabindex=\"0\" class=\"recharts-surface\" width=\"546\" height=\"256\" viewBox=\"0 0 546 256\" style=\"width: 100%; height: 100%;\"><title></title><desc></desc><defs><clipPath id=\"recharts3-clip\"><rect x=\"5\" y=\"5\" height=\"246\" width=\"536\"></rect></clipPath></defs><g class=\"recharts-layer recharts-pie\" tabindex=\"0\"><g class=\"recharts-layer\"><g class=\"recharts-layer recharts-pie-sector\" tabindex=\"-1\"><path cx=\"273\" cy=\"128\" fill=\"#3B82F6\" stroke=\"#fff\" name=\"Beverages\" tabindex=\"-1\" data-recharts-item-index=\"0\" data-recharts-item-data-key=\"value\" class=\"recharts-sector\" d=\"M 353,128\n    A 80,80,0,\n    0,0,\n    225.97717981660216,63.278640450004204\n  L 273,128 Z\"></path></g><g class=\"recharts-layer recharts-pie-sector\" tabindex=\"-1\"><path cx=\"273\" cy=\"128\" fill=\"#10B981\" strok",
+      "parentContainer": {
+        "className": "recharts-wrapper",
+        "tagName": "DIV"
+      },
+      "dataAttributes": []
+    },
+    {
+      "index": 5,
+      "element": "g",
+      "className": {},
+      "bounds": {
+        "width": 381.6201171875,
+        "height": 203.206298828125,
+        "x": 1077.004638671875,
+        "y": 403.89935302734375
+      },
+      "styles": {
+        "position": "static",
+        "display": "inline",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(0, 0, 0)"
+      },
+      "innerHTML": "<g class=\"recharts-layer\"><g class=\"recharts-layer recharts-pie-sector\" tabindex=\"-1\"><path cx=\"273\" cy=\"128\" fill=\"#3B82F6\" stroke=\"#fff\" name=\"Beverages\" tabindex=\"-1\" data-recharts-item-index=\"0\" data-recharts-item-data-key=\"value\" class=\"recharts-sector\" d=\"M 353,128\n    A 80,80,0,\n    0,0,\n    225.97717981660216,63.278640450004204\n  L 273,128 Z\"></path></g><g class=\"recharts-layer recharts-pie-sector\" tabindex=\"-1\"><path cx=\"273\" cy=\"128\" fill=\"#10B981\" stroke=\"#fff\" name=\"Snacks\" tabindex=\"-1\" data-recharts-item-index=\"1\" data-recharts-item-data-key=\"value\" class=\"recharts-sector\" d=\"M 225.97717981660216,63.278640450004204\n    A 80,80,0,\n    0,0,\n    208.2786404500042,175.02282018339784\n  L 273,128 Z\"></path></g><g class=\"recharts-layer recharts-pie-sector\" tabindex=\"-1\"><path cx=\"273\" cy=\"128\" fill=\"#F59E0B\" stroke=\"#fff\" name=\"Personal Care\" tabindex=\"-1\" data-recharts-item-index=\"2\" data-recharts-item-data-key=\"value\" class=\"recharts-sector\" d=\"M 208.2786404500042,175.02282018",
+      "parentContainer": {
+        "className": {},
+        "tagName": "g"
+      },
+      "dataAttributes": []
+    },
+    {
+      "index": 6,
+      "element": "DIV",
+      "className": "recharts-responsive-container",
+      "bounds": {
+        "width": 546,
+        "height": 256,
+        "x": 377,
+        "y": 993.5
+      },
+      "styles": {
+        "position": "static",
+        "display": "block",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(0, 0, 0)"
+      },
+      "innerHTML": "<div style=\"width: 0px; height: 0px; overflow: visible;\"><div class=\"recharts-wrapper\" style=\"position: relative; cursor: default; width: 546px; height: 256px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\" tabindex=\"-1\" class=\"recharts-tooltip-wrapper\" style=\"visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;\"><div class=\"recharts-default-tooltip\" role=\"status\" aria-live=\"assertive\" style=\"margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;\"><p class=\"recharts-tooltip-label\" style=\"margin: 0px;\"></p></div></div><svg role=\"application\" tabindex=\"0\" class=\"recharts-surface\" width=\"546\" height=\"256\" viewBox=\"0 0 546 256\" style=\"width: 100%; height: 100%;\"><title></title><desc></desc><defs><clipPath id=\"recharts5-clip\"><rect x=\"5\" y=\"5\" height=\"246\" width=\"536\"></rect></clipPath></defs><g class=\"recharts-layer recharts-trapezoids\"><g class=\"recharts-layer\"><g class=\"recharts-layer recharts",
+      "parentContainer": {
+        "className": "recharts-responsive-container",
+        "tagName": "DIV"
+      },
+      "dataAttributes": []
+    },
+    {
+      "index": 7,
+      "element": "DIV",
+      "className": "recharts-wrapper",
+      "bounds": {
+        "width": 546,
+        "height": 256,
+        "x": 377,
+        "y": 993.5
+      },
+      "styles": {
+        "position": "relative",
+        "display": "block",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(0, 0, 0)"
+      },
+      "innerHTML": "<div xmlns=\"http://www.w3.org/1999/xhtml\" tabindex=\"-1\" class=\"recharts-tooltip-wrapper\" style=\"visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;\"><div class=\"recharts-default-tooltip\" role=\"status\" aria-live=\"assertive\" style=\"margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;\"><p class=\"recharts-tooltip-label\" style=\"margin: 0px;\"></p></div></div><svg role=\"application\" tabindex=\"0\" class=\"recharts-surface\" width=\"546\" height=\"256\" viewBox=\"0 0 546 256\" style=\"width: 100%; height: 100%;\"><title></title><desc></desc><defs><clipPath id=\"recharts5-clip\"><rect x=\"5\" y=\"5\" height=\"246\" width=\"536\"></rect></clipPath></defs><g class=\"recharts-layer recharts-trapezoids\"><g class=\"recharts-layer\"><g class=\"recharts-layer recharts-funnel-trapezoid\"><g><path x=\"30\" y=\"5\" width=\"476\" height=\"47.2\" name=\"Store Visit\" stroke=\"#fff\" fill=\"#3B82F6\" class=\"recharts-trapezoid\" d=\"M 30,5L 506,5L 4",
+      "parentContainer": {
+        "className": "recharts-wrapper",
+        "tagName": "DIV"
+      },
+      "dataAttributes": []
+    }
+  ],
+  "kpiCards": [],
+  "tabSystem": {},
+  "filterComponents": [
+    {
+      "index": 0,
+      "type": "SELECT",
+      "inputType": "select-one",
+      "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+      "value": "last30days",
+      "options": [
+        {
+          "value": "today",
+          "text": "Today"
+        },
+        {
+          "value": "last7days",
+          "text": "Last 7 Days"
+        },
+        {
+          "value": "last30days",
+          "text": "Last 30 Days"
+        },
+        {
+          "value": "last90days",
+          "text": "Last 90 Days"
+        },
+        {
+          "value": "custom",
+          "text": "Custom Range"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "type": "SELECT",
+      "inputType": "select-one",
+      "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+      "value": "all",
+      "options": [
+        {
+          "value": "all",
+          "text": "All Locations"
+        },
+        {
+          "value": "metro-manila",
+          "text": "Metro Manila"
+        },
+        {
+          "value": "luzon",
+          "text": "Luzon"
+        },
+        {
+          "value": "visayas",
+          "text": "Visayas"
+        },
+        {
+          "value": "mindanao",
+          "text": "Mindanao"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "type": "SELECT",
+      "inputType": "select-one",
+      "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+      "value": "all",
+      "options": [
+        {
+          "value": "all",
+          "text": "All Categories"
+        },
+        {
+          "value": "beverages",
+          "text": "Beverages"
+        },
+        {
+          "value": "snacks",
+          "text": "Snacks"
+        },
+        {
+          "value": "personal-care",
+          "text": "Personal Care"
+        },
+        {
+          "value": "household",
+          "text": "Household"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "type": "SELECT",
+      "inputType": "select-one",
+      "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+      "value": "all",
+      "options": [
+        {
+          "value": "all",
+          "text": "All Brands"
+        },
+        {
+          "value": "brand-a",
+          "text": "Brand A"
+        },
+        {
+          "value": "brand-b",
+          "text": "Brand B"
+        },
+        {
+          "value": "brand-c",
+          "text": "Brand C"
+        },
+        {
+          "value": "unbranded",
+          "text": "Unbranded"
+        }
+      ]
+    }
+  ],
+  "dataProcessing": [],
+  "utilityFunctions": [],
+  "cssClasses": [
+    "min-h-screen",
+    "bg-gray-50",
+    "bg-white",
+    "border-b",
+    "border-gray-200",
+    "mx-auto",
+    "max-w-7xl",
+    "px-4",
+    "sm:px-6",
+    "lg:px-8",
+    "flex",
+    "items-center",
+    "justify-between",
+    "py-6",
+    "text-3xl",
+    "font-bold",
+    "text-gray-900",
+    "mt-1",
+    "text-sm",
+    "text-gray-500",
+    "gap-4",
+    "inline-flex",
+    "gap-2",
+    "py-2",
+    "font-medium",
+    "text-gray-700",
+    "border",
+    "border-gray-300",
+    "rounded-lg",
+    "hover:bg-gray-50",
+    "relative",
+    "group",
+    "text-white",
+    "bg-blue-600",
+    "hover:bg-blue-700",
+    "focus:outline-none",
+    "focus:ring-2",
+    "focus:ring-blue-500",
+    "focus:ring-offset-2",
+    "absolute",
+    "right-0",
+    "mt-2",
+    "w-48",
+    "shadow-lg",
+    "hidden",
+    "group-hover:block",
+    "w-full",
+    "sticky",
+    "top-0",
+    "z-10",
+    "py-4",
+    "flex-wrap",
+    "block",
+    "w-40",
+    "rounded-md",
+    "focus:border-blue-500",
+    "py-8",
+    "grid",
+    "grid-cols-1",
+    "lg:grid-cols-2",
+    "gap-6",
+    "shadow-sm",
+    "p-6",
+    "mb-4",
+    "text-lg",
+    "font-semibold",
+    "space-y-4",
+    "grid-cols-2",
+    "p-4",
+    "text-2xl",
+    "text-red-600",
+    "ml-1",
+    "text-green-600",
+    "px-3",
+    "border-b-2",
+    "transition-colors",
+    "border-blue-600",
+    "text-blue-600",
+    "border-transparent",
+    "hover:text-gray-700",
+    "text-gray-600",
+    "rounded",
+    "h-64",
+    "recharts-responsive-container",
+    "recharts-wrapper",
+    "recharts-tooltip-wrapper",
+    "recharts-default-tooltip",
+    "recharts-tooltip-label",
+    "grid-cols-3",
+    "gap-3",
+    "text-center",
+    "text-xl",
+    "bg-blue-50",
+    "p-3",
+    "items-start",
+    "text-blue-900",
+    "text-blue-700",
+    "text-xs",
+    "bg-green-50",
+    "text-green-900",
+    "text-green-700",
+    "text-purple-600",
+    "h-full",
+    "space-y-3",
+    "space-y-2",
+    "w-24",
+    "bg-gray-200",
+    "rounded-full",
+    "h-2",
+    "w-1/4",
+    "w-3/5",
+    "bg-green-600",
+    "w-1/6",
+    "bg-yellow-600",
+    "justify-center",
+    "h-32",
+    "w-32",
+    "inset-0",
+    "bottom-0",
+    "w-16",
+    "h-16",
+    "w-3",
+    "h-3",
+    "bg-purple-50",
+    "text-purple-900",
+    "text-purple-700",
+    "mt-8",
+    "md:grid-cols-3"
+  ],
+  "componentHierarchy": {},
+  "inlineScripts": [
+    {
+      "content": "document.querySelectorAll('body link[rel=\"icon\"], body link[rel=\"apple-touch-icon\"]').forEach(el => document.head.appendChild(el))",
+      "type": ""
+    },
+    {
+      "content": "(self.__next_f=self.__next_f||[]).push([0])",
+      "type": ""
+    },
+    {
+      "content": "self.__next_f.push([1,\"1:\\\"$Sreact.fragment\\\"\\n2:I[87555,[],\\\"\\\"]\\n3:I[31295,[],\\\"\\\"]\\n4:I[90894,[],\\\"ClientPageRoot\\\"]\\n5:I[60510,[\\\"524\\\",\\\"static/chunks/2170a4aa-f220f188891353c6.js\\\",\\\"930\\\",\\\"static/chunks/164f4fb6-69a77c80738c9314.js\\\",\\\"72\\\",\\\"static/chunks/72-9942fe08882ea7fc.js\\\",\\\"989\\\",\\\"static/chunks/app/databank/page-7b1709c270c9f498.js\\\"],\\\"default\\\"]\\n8:I[59665,[],\\\"MetadataBoundary\\\"]\\na:I[59665,[],\\\"OutletBoundary\\\"]\\nd:I[74911,[],\\\"AsyncMetadataOutlet\\\"]\\nf:I[59665,[],\\\"ViewportBoundary\\\"]\\n11:I[26614,[],\\\"\\\"]\\n:HL[\\\"/_next/static/css/a30ac04de8fe0978.css\\\",\\\"style\\\"]\\n\"])",
+      "type": ""
+    },
+    {
+      "content": "self.__next_f.push([1,\"0:{\\\"P\\\":null,\\\"b\\\":\\\"_S1ft5DQLFYgAHi8nbzPv\\\",\\\"p\\\":\\\"\\\",\\\"c\\\":[\\\"\\\",\\\"databank\\\"],\\\"i\\\":false,\\\"f\\\":[[[\\\"\\\",{\\\"children\\\":[\\\"databank\\\",{\\\"children\\\":[\\\"__PAGE__\\\",{}]}]},\\\"$undefined\\\",\\\"$undefined\\\",true],[\\\"\\\",[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/a30ac04de8fe0978.css\\\",\\\"precedence\\\":\\\"next\\\",\\\"crossOrigin\\\":\\\"$undefined\\\",\\\"nonce\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"html\\\",null,{\\\"lang\\\":\\\"en\\\",\\\"children\\\":[[\\\"$\\\",\\\"head\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"link\\\",null,{\\\"rel\\\":\\\"preconnect\\\",\\\"href\\\":\\\"https://fonts.googleapis.com\\\"}],[\\\"$\\\",\\\"link\\\",null,{\\\"rel\\\":\\\"preconnect\\\",\\\"href\\\":\\\"https://fonts.gstatic.com\\\",\\\"crossOrigin\\\":\\\"\\\"}]]}],[\\\"$\\\",\\\"body\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"min-h-screen bg-gray-50\\\",\\\"children\\\":[\\\"$\\\",\\\"$L2\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$L3\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":[[[\\\"$\\\",\\\"title\\\",null,{\\\"children\\\":\\\"404: This page could not be found.\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"fontFamily\\\":\\\"system-ui,\\\\\\\"Segoe UI\\\\\\\",Roboto,Helvetica,Arial,sans-serif,\\\\\\\"Apple Color Emoji\\\\\\\",\\\\\\\"Segoe UI Emoji\\\\\\\"\\\",\\\"height\\\":\\\"100vh\\\",\\\"textAlign\\\":\\\"center\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\",\\\"alignItems\\\":\\\"center\\\",\\\"justifyContent\\\":\\\"center\\\"},\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"style\\\",null,{\\\"dangerouslySetInnerHTML\\\":{\\\"__html\\\":\\\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\\\"}}],[\\\"$\\\",\\\"h1\\\",null,{\\\"className\\\":\\\"next-error-h1\\\",\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\",\\\"margin\\\":\\\"0 20px 0 0\\\",\\\"padding\\\":\\\"0 23px 0 0\\\",\\\"fontS",
+      "type": ""
+    },
+    {
+      "content": "self.__next_f.push([1,\"12:\\\"$Sreact.suspense\\\"\\n13:I[74911,[],\\\"AsyncMetadata\\\"]\\n6:{}\\n7:{}\\n9:[\\\"$\\\",\\\"$12\\\",null,{\\\"fallback\\\":null,\\\"children\\\":[\\\"$\\\",\\\"$L13\\\",null,{\\\"promise\\\":\\\"$@14\\\"}]}]\\n\"])",
+      "type": ""
+    },
+    {
+      "content": "self.__next_f.push([1,\"c:null\\n\"])",
+      "type": ""
+    },
+    {
+      "content": "self.__next_f.push([1,\"10:[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"charSet\\\":\\\"utf-8\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]]\\nb:null\\n\"])",
+      "type": ""
+    },
+    {
+      "content": "self.__next_f.push([1,\"14:{\\\"metadata\\\":[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"Scout Analytics Dashboard - TBWA AI Platform\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"description\\\",\\\"content\\\":\\\"AI-powered retail intelligence platform for the Philippines market\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"2\\\",{\\\"name\\\":\\\"robots\\\",\\\"content\\\":\\\"index, follow\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"3\\\",{\\\"property\\\":\\\"og:title\\\",\\\"content\\\":\\\"Scout Analytics Dashboard\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"4\\\",{\\\"property\\\":\\\"og:description\\\",\\\"content\\\":\\\"AI-powered retail intelligence platform\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"5\\\",{\\\"property\\\":\\\"og:url\\\",\\\"content\\\":\\\"https://scout-mvp.vercel.app\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"6\\\",{\\\"property\\\":\\\"og:type\\\",\\\"content\\\":\\\"website\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"7\\\",{\\\"name\\\":\\\"twitter:card\\\",\\\"content\\\":\\\"summary_large_image\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"8\\\",{\\\"name\\\":\\\"twitter:title\\\",\\\"content\\\":\\\"Scout Analytics Dashboard\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"9\\\",{\\\"name\\\":\\\"twitter:description\\\",\\\"content\\\":\\\"AI-powered retail intelligence platform\\\"}]],\\\"error\\\":null,\\\"digest\\\":\\\"$undefined\\\"}\\ne:{\\\"metadata\\\":\\\"$14:metadata\\\",\\\"error\\\":null,\\\"digest\\\":\\\"$undefined\\\"}\\n\"])",
+      "type": ""
+    }
+  ],
+  "dataPatterns": {
+    "apiEndpoints": [],
+    "dataKeys": [
+      "data-precedence",
+      "data-recharts-item-index",
+      "data-recharts-item-data-key"
+    ],
+    "rechartProps": [
+      "dataBoundary",
+      "dataOutlet"
+    ],
+    "colorPalettes": [
+      "#93BBFC",
+      "#3B82F6",
+      "#10B981",
+      "#F59E0B",
+      "#EF4444",
+      "#8B5CF6",
+      "#EC4899"
+    ]
+  },
+  "extractedAt": "2025-09-15T10:43:48.451Z"
+}

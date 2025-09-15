@@ -1,0 +1,4432 @@
+{
+  "timestamp": "2025-09-15T10:42:41.517Z",
+  "url": "https://scout-analytics-nextjs.vercel.app/databank",
+  "title": "Scout Analytics Dashboard - TBWA AI Platform",
+  "componentAnalysis": {
+    "components": [
+      {
+        "tagName": "DIV",
+        "className": "recharts-responsive-container",
+        "textContent": "2025-08-192025-08-242025-08-292025-09-032025-09-082025-09-1502505007501000",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-responsive-container"
+          },
+          {
+            "name": "style",
+            "value": "width: 100%; height: 100%; min-width: 0px;"
+          }
+        ],
+        "bounds": {
+          "x": 377,
+          "y": 452.5,
+          "width": 546,
+          "height": 256
+        }
+      },
+      {
+        "tagName": "DIV",
+        "className": "recharts-wrapper",
+        "textContent": "2025-08-192025-08-242025-08-292025-09-032025-09-082025-09-1502505007501000",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-wrapper"
+          },
+          {
+            "name": "style",
+            "value": "position: relative; cursor: default; width: 546px; height: 256px;"
+          }
+        ],
+        "bounds": {
+          "x": 377,
+          "y": 452.5,
+          "width": 546,
+          "height": 256
+        }
+      },
+      {
+        "tagName": "DIV",
+        "className": "recharts-tooltip-wrapper",
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "xmlns",
+            "value": "http://www.w3.org/1999/xhtml"
+          },
+          {
+            "name": "tabindex",
+            "value": "-1"
+          },
+          {
+            "name": "class",
+            "value": "recharts-tooltip-wrapper"
+          },
+          {
+            "name": "style",
+            "value": "visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;"
+          }
+        ],
+        "bounds": {
+          "x": 377,
+          "y": 452.5,
+          "width": 22,
+          "height": 22
+        }
+      },
+      {
+        "tagName": "DIV",
+        "className": "recharts-default-tooltip",
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-default-tooltip"
+          },
+          {
+            "name": "role",
+            "value": "status"
+          },
+          {
+            "name": "aria-live",
+            "value": "assertive"
+          },
+          {
+            "name": "style",
+            "value": "margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"
+          }
+        ],
+        "bounds": {
+          "x": 377,
+          "y": 452.5,
+          "width": 22,
+          "height": 22
+        }
+      },
+      {
+        "tagName": "svg",
+        "className": {},
+        "textContent": "2025-08-192025-08-242025-08-292025-09-032025-09-082025-09-1502505007501000",
+        "attributes": [
+          {
+            "name": "role",
+            "value": "application"
+          },
+          {
+            "name": "tabindex",
+            "value": "0"
+          },
+          {
+            "name": "class",
+            "value": "recharts-surface"
+          },
+          {
+            "name": "width",
+            "value": "546"
+          },
+          {
+            "name": "height",
+            "value": "256"
+          },
+          {
+            "name": "viewBox",
+            "value": "0 0 546 256"
+          },
+          {
+            "name": "style",
+            "value": "width: 100%; height: 100%;"
+          }
+        ],
+        "bounds": {
+          "x": 377,
+          "y": 452.5,
+          "width": 546,
+          "height": 256
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-cartesian-grid"
+          }
+        ],
+        "bounds": {
+          "x": 442,
+          "y": 457.5,
+          "width": 476,
+          "height": 216
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-cartesian-grid-horizontal"
+          }
+        ],
+        "bounds": {
+          "x": 442,
+          "y": 457.5,
+          "width": 476,
+          "height": 216
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-cartesian-grid-vertical"
+          }
+        ],
+        "bounds": {
+          "x": 442,
+          "y": 457.5,
+          "width": 476,
+          "height": 216
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "2025-08-192025-08-242025-08-292025-09-032025-09-082025-09-15",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"
+          }
+        ],
+        "bounds": {
+          "x": 440.22210693359375,
+          "y": 673.5,
+          "width": 482.77789306640625,
+          "height": 19.02001953125
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "2025-08-192025-08-242025-08-292025-09-032025-09-082025-09-15",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-cartesian-axis-ticks"
+          }
+        ],
+        "bounds": {
+          "x": 440.22210693359375,
+          "y": 673.5,
+          "width": 482.77789306640625,
+          "height": 19.02001953125
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "2025-08-19",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-cartesian-axis-tick"
+          }
+        ],
+        "bounds": {
+          "x": 440.22210693359375,
+          "y": 673.5,
+          "width": 69.2109375,
+          "height": 19.02001953125
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "2025-08-19",
+        "attributes": [
+          {
+            "name": "height",
+            "value": "30"
+          },
+          {
+            "name": "orientation",
+            "value": "bottom"
+          },
+          {
+            "name": "width",
+            "value": "476"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "font-size",
+            "value": "12"
+          },
+          {
+            "name": "x",
+            "value": "97.82758620689653"
+          },
+          {
+            "name": "y",
+            "value": "229"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-cartesian-axis-tick-value"
+          },
+          {
+            "name": "text-anchor",
+            "value": "middle"
+          },
+          {
+            "name": "fill",
+            "value": "#666"
+          }
+        ],
+        "bounds": {
+          "x": 440.22210693359375,
+          "y": 678.52001953125,
+          "width": 69.2109375,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "2025-08-24",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-cartesian-axis-tick"
+          }
+        ],
+        "bounds": {
+          "x": 521.4981079101562,
+          "y": 673.5,
+          "width": 70.796875,
+          "height": 19.02001953125
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "2025-08-24",
+        "attributes": [
+          {
+            "name": "height",
+            "value": "30"
+          },
+          {
+            "name": "orientation",
+            "value": "bottom"
+          },
+          {
+            "name": "width",
+            "value": "476"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "font-size",
+            "value": "12"
+          },
+          {
+            "name": "x",
+            "value": "179.8965517241379"
+          },
+          {
+            "name": "y",
+            "value": "229"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-cartesian-axis-tick-value"
+          },
+          {
+            "name": "text-anchor",
+            "value": "middle"
+          },
+          {
+            "name": "fill",
+            "value": "#666"
+          }
+        ],
+        "bounds": {
+          "x": 521.4981079101562,
+          "y": 678.52001953125,
+          "width": 70.796875,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "2025-08-29",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-cartesian-axis-tick"
+          }
+        ],
+        "bounds": {
+          "x": 603.5202026367188,
+          "y": 673.5,
+          "width": 70.890625,
+          "height": 19.02001953125
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "2025-08-29",
+        "attributes": [
+          {
+            "name": "height",
+            "value": "30"
+          },
+          {
+            "name": "orientation",
+            "value": "bottom"
+          },
+          {
+            "name": "width",
+            "value": "476"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "font-size",
+            "value": "12"
+          },
+          {
+            "name": "x",
+            "value": "261.9655172413793"
+          },
+          {
+            "name": "y",
+            "value": "229"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-cartesian-axis-tick-value"
+          },
+          {
+            "name": "text-anchor",
+            "value": "middle"
+          },
+          {
+            "name": "fill",
+            "value": "#666"
+          }
+        ],
+        "bounds": {
+          "x": 603.5202026367188,
+          "y": 678.52001953125,
+          "width": 70.890625,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "2025-09-03",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-cartesian-axis-tick"
+          }
+        ],
+        "bounds": {
+          "x": 685.5032348632812,
+          "y": 673.5,
+          "width": 71.0625,
+          "height": 19.02001953125
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "2025-09-03",
+        "attributes": [
+          {
+            "name": "height",
+            "value": "30"
+          },
+          {
+            "name": "orientation",
+            "value": "bottom"
+          },
+          {
+            "name": "width",
+            "value": "476"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "font-size",
+            "value": "12"
+          },
+          {
+            "name": "x",
+            "value": "344.0344827586207"
+          },
+          {
+            "name": "y",
+            "value": "229"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-cartesian-axis-tick-value"
+          },
+          {
+            "name": "text-anchor",
+            "value": "middle"
+          },
+          {
+            "name": "fill",
+            "value": "#666"
+          }
+        ],
+        "bounds": {
+          "x": 685.5032348632812,
+          "y": 678.52001953125,
+          "width": 71.0625,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "2025-09-08",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-cartesian-axis-tick"
+          }
+        ],
+        "bounds": {
+          "x": 767.5018920898438,
+          "y": 673.5,
+          "width": 71.203125,
+          "height": 19.02001953125
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "2025-09-08",
+        "attributes": [
+          {
+            "name": "height",
+            "value": "30"
+          },
+          {
+            "name": "orientation",
+            "value": "bottom"
+          },
+          {
+            "name": "width",
+            "value": "476"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "font-size",
+            "value": "12"
+          },
+          {
+            "name": "x",
+            "value": "426.1034482758621"
+          },
+          {
+            "name": "y",
+            "value": "229"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-cartesian-axis-tick-value"
+          },
+          {
+            "name": "text-anchor",
+            "value": "middle"
+          },
+          {
+            "name": "fill",
+            "value": "#666"
+          }
+        ],
+        "bounds": {
+          "x": 767.5018920898438,
+          "y": 678.52001953125,
+          "width": 71.203125,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "2025-09-15",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-cartesian-axis-tick"
+          }
+        ],
+        "bounds": {
+          "x": 854.03125,
+          "y": 673.5,
+          "width": 68.96875,
+          "height": 19.02001953125
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "2025-09-15",
+        "attributes": [
+          {
+            "name": "height",
+            "value": "30"
+          },
+          {
+            "name": "orientation",
+            "value": "bottom"
+          },
+          {
+            "name": "width",
+            "value": "476"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "font-size",
+            "value": "12"
+          },
+          {
+            "name": "x",
+            "value": "511.515625"
+          },
+          {
+            "name": "y",
+            "value": "229"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-cartesian-axis-tick-value"
+          },
+          {
+            "name": "text-anchor",
+            "value": "middle"
+          },
+          {
+            "name": "fill",
+            "value": "#666"
+          }
+        ],
+        "bounds": {
+          "x": 854.03125,
+          "y": 678.52001953125,
+          "width": 68.96875,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "02505007501000",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-cartesian-axis recharts-yAxis yAxis"
+          }
+        ],
+        "bounds": {
+          "x": 405.7578125,
+          "y": 454.260009765625,
+          "width": 36.2421875,
+          "height": 226
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "02505007501000",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-cartesian-axis-ticks"
+          }
+        ],
+        "bounds": {
+          "x": 405.7578125,
+          "y": 454.260009765625,
+          "width": 36.2421875,
+          "height": 226
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "0",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-cartesian-axis-tick"
+          }
+        ],
+        "bounds": {
+          "x": 426.4375,
+          "y": 666.260009765625,
+          "width": 15.5625,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "0",
+        "attributes": [
+          {
+            "name": "orientation",
+            "value": "left"
+          },
+          {
+            "name": "width",
+            "value": "60"
+          },
+          {
+            "name": "height",
+            "value": "216"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "font-size",
+            "value": "12"
+          },
+          {
+            "name": "x",
+            "value": "57"
+          },
+          {
+            "name": "y",
+            "value": "221"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-cartesian-axis-tick-value"
+          },
+          {
+            "name": "text-anchor",
+            "value": "end"
+          },
+          {
+            "name": "fill",
+            "value": "#666"
+          }
+        ],
+        "bounds": {
+          "x": 426.4375,
+          "y": 666.260009765625,
+          "width": 7.5625,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "250",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-cartesian-axis-tick"
+          }
+        ],
+        "bounds": {
+          "x": 411.78125,
+          "y": 612.260009765625,
+          "width": 30.21875,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "250",
+        "attributes": [
+          {
+            "name": "orientation",
+            "value": "left"
+          },
+          {
+            "name": "width",
+            "value": "60"
+          },
+          {
+            "name": "height",
+            "value": "216"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "font-size",
+            "value": "12"
+          },
+          {
+            "name": "x",
+            "value": "57"
+          },
+          {
+            "name": "y",
+            "value": "167"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-cartesian-axis-tick-value"
+          },
+          {
+            "name": "text-anchor",
+            "value": "end"
+          },
+          {
+            "name": "fill",
+            "value": "#666"
+          }
+        ],
+        "bounds": {
+          "x": 411.78125,
+          "y": 612.260009765625,
+          "width": 22.21875,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "500",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-cartesian-axis-tick"
+          }
+        ],
+        "bounds": {
+          "x": 411.4609375,
+          "y": 558.260009765625,
+          "width": 30.5390625,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "500",
+        "attributes": [
+          {
+            "name": "orientation",
+            "value": "left"
+          },
+          {
+            "name": "width",
+            "value": "60"
+          },
+          {
+            "name": "height",
+            "value": "216"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "font-size",
+            "value": "12"
+          },
+          {
+            "name": "x",
+            "value": "57"
+          },
+          {
+            "name": "y",
+            "value": "113"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-cartesian-axis-tick-value"
+          },
+          {
+            "name": "text-anchor",
+            "value": "end"
+          },
+          {
+            "name": "fill",
+            "value": "#666"
+          }
+        ],
+        "bounds": {
+          "x": 411.4609375,
+          "y": 558.260009765625,
+          "width": 22.5390625,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "750",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-cartesian-axis-tick"
+          }
+        ],
+        "bounds": {
+          "x": 412.3046875,
+          "y": 504.260009765625,
+          "width": 29.6953125,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "750",
+        "attributes": [
+          {
+            "name": "orientation",
+            "value": "left"
+          },
+          {
+            "name": "width",
+            "value": "60"
+          },
+          {
+            "name": "height",
+            "value": "216"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "font-size",
+            "value": "12"
+          },
+          {
+            "name": "x",
+            "value": "57"
+          },
+          {
+            "name": "y",
+            "value": "59"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-cartesian-axis-tick-value"
+          },
+          {
+            "name": "text-anchor",
+            "value": "end"
+          },
+          {
+            "name": "fill",
+            "value": "#666"
+          }
+        ],
+        "bounds": {
+          "x": 412.3046875,
+          "y": 504.260009765625,
+          "width": 21.6953125,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "1000",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-cartesian-axis-tick"
+          }
+        ],
+        "bounds": {
+          "x": 405.7578125,
+          "y": 454.260009765625,
+          "width": 36.2421875,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "1000",
+        "attributes": [
+          {
+            "name": "orientation",
+            "value": "left"
+          },
+          {
+            "name": "width",
+            "value": "60"
+          },
+          {
+            "name": "height",
+            "value": "216"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "font-size",
+            "value": "12"
+          },
+          {
+            "name": "x",
+            "value": "57"
+          },
+          {
+            "name": "y",
+            "value": "9"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-cartesian-axis-tick-value"
+          },
+          {
+            "name": "text-anchor",
+            "value": "end"
+          },
+          {
+            "name": "fill",
+            "value": "#666"
+          }
+        ],
+        "bounds": {
+          "x": 405.7578125,
+          "y": 454.260009765625,
+          "width": 28.2421875,
+          "height": 14
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-area"
+          }
+        ],
+        "bounds": {
+          "x": 442,
+          "y": 479.5320129394531,
+          "width": 476,
+          "height": 193.96798706054688
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer"
+          }
+        ],
+        "bounds": {
+          "x": 442,
+          "y": 479.5320129394531,
+          "width": 476,
+          "height": 193.96798706054688
+        }
+      },
+      {
+        "tagName": "path",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "stroke-width",
+            "value": "2"
+          },
+          {
+            "name": "fill",
+            "value": "#93BBFC"
+          },
+          {
+            "name": "fill-opacity",
+            "value": "0.6"
+          },
+          {
+            "name": "height",
+            "value": "216"
+          },
+          {
+            "name": "width",
+            "value": "476"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "class",
+            "value": "recharts-curve recharts-area-area"
+          },
+          {
+            "name": "d",
+            "value": "M65,126.176C70.471,91.832,75.943,57.488,81.414,57.488C86.885,57.488,92.356,83.048,97.828,88.376C103.299,93.704,108.77,91.04,114.241,96.368C119.713,101.696,125.184,133.088,130.655,133.088C136.126,133.088,141.598,113.72,147.069,110.408C152.54,107.096,158.011,108.752,163.483,105.44C168.954,102.128,174.425,94.424,179.897,81.464C185.368,68.504,190.839,27.68,196.31,27.68C201.782,27.68,207.253,69.368,212.724,69.368C218.195,69.368,223.667,58.568,229.138,58.568C234.609,58.568,240.08,87.512,245.552,87.512C251.023,87.512,256.494,27.032,261.966,27.032C267.437,27.032,272.908,29.48,278.379,34.376C283.851,39.272,289.322,89.672,294.793,89.672C300.264,89.672,305.736,54.464,311.207,54.464C316.678,54.464,322.149,118.832,327.621,119.264C333.092,119.696,338.563,119.48,344.034,119.912C349.506,120.344,354.977,125.744,360.448,125.744C365.92,125.744,371.391,77.252,376.862,63.104C382.333,48.956,387.805,40.856,393.276,40.856C398.747,40.856,404.218,130.928,409.69,130.928C415.161,130.928,420.632,96.152,426.103,96.152C431.575,96.152,437.046,100.04,442.517,100.04C447.989,100.04,453.46,81.788,458.931,71.312C464.402,60.836,469.874,37.184,475.345,37.184C480.816,37.184,486.287,65.156,491.759,74.336C497.23,83.516,502.701,92.264,508.172,92.264C513.644,92.264,519.115,56.84,524.586,56.84C530.057,56.84,535.529,68.828,541,80.816L541,221C535.529,221,530.057,221,524.586,221C519.115,221,513.644,221,508.172,221C502.701,221,497.23,221,491.759,221C486.287,221,480.816,221,475.345,221C469.874,221,464.402,221,458.931,221C453.46,221,447.989,221,442.517,221C437.046,221,431.575,221,426.103,221C420.632,221,415.161,221,409.69,221C404.218,221,398.747,221,393.276,221C387.805,221,382.333,221,376.862,221C371.391,221,365.92,221,360.448,221C354.977,221,349.506,221,344.034,221C338.563,221,333.092,221,327.621,221C322.149,221,316.678,221,311.207,221C305.736,221,300.264,221,294.793,221C289.322,221,283.851,221,278.379,221C272.908,221,267.437,221,261.966,221C256.494,221,251.023,221,245.552,221C240.08,221,234.609,221,229.138,221C223.667,221,218.195,221,212.724,221C207.253,221,201.782,221,196.31,221C190.839,221,185.368,221,179.897,221C174.425,221,168.954,221,163.483,221C158.011,221,152.54,221,147.069,221C141.598,221,136.126,221,130.655,221C125.184,221,119.713,221,114.241,221C108.77,221,103.299,221,97.828,221C92.356,221,86.885,221,81.414,221C75.943,221,70.471,221,65,221Z"
+          }
+        ],
+        "bounds": {
+          "x": 442,
+          "y": 479.5320129394531,
+          "width": 476,
+          "height": 193.96798706054688
+        }
+      },
+      {
+        "tagName": "path",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "stroke-width",
+            "value": "2"
+          },
+          {
+            "name": "fill",
+            "value": "none"
+          },
+          {
+            "name": "fill-opacity",
+            "value": "0.6"
+          },
+          {
+            "name": "height",
+            "value": "216"
+          },
+          {
+            "name": "stroke",
+            "value": "#3B82F6"
+          },
+          {
+            "name": "width",
+            "value": "476"
+          },
+          {
+            "name": "class",
+            "value": "recharts-curve recharts-area-curve"
+          },
+          {
+            "name": "d",
+            "value": "M65,126.176C70.471,91.832,75.943,57.488,81.414,57.488C86.885,57.488,92.356,83.048,97.828,88.376C103.299,93.704,108.77,91.04,114.241,96.368C119.713,101.696,125.184,133.088,130.655,133.088C136.126,133.088,141.598,113.72,147.069,110.408C152.54,107.096,158.011,108.752,163.483,105.44C168.954,102.128,174.425,94.424,179.897,81.464C185.368,68.504,190.839,27.68,196.31,27.68C201.782,27.68,207.253,69.368,212.724,69.368C218.195,69.368,223.667,58.568,229.138,58.568C234.609,58.568,240.08,87.512,245.552,87.512C251.023,87.512,256.494,27.032,261.966,27.032C267.437,27.032,272.908,29.48,278.379,34.376C283.851,39.272,289.322,89.672,294.793,89.672C300.264,89.672,305.736,54.464,311.207,54.464C316.678,54.464,322.149,118.832,327.621,119.264C333.092,119.696,338.563,119.48,344.034,119.912C349.506,120.344,354.977,125.744,360.448,125.744C365.92,125.744,371.391,77.252,376.862,63.104C382.333,48.956,387.805,40.856,393.276,40.856C398.747,40.856,404.218,130.928,409.69,130.928C415.161,130.928,420.632,96.152,426.103,96.152C431.575,96.152,437.046,100.04,442.517,100.04C447.989,100.04,453.46,81.788,458.931,71.312C464.402,60.836,469.874,37.184,475.345,37.184C480.816,37.184,486.287,65.156,491.759,74.336C497.23,83.516,502.701,92.264,508.172,92.264C513.644,92.264,519.115,56.84,524.586,56.84C530.057,56.84,535.529,68.828,541,80.816"
+          }
+        ],
+        "bounds": {
+          "x": 442,
+          "y": 479.5320129394531,
+          "width": 476,
+          "height": 106.05599975585938
+        }
+      },
+      {
+        "tagName": "DIV",
+        "className": "recharts-responsive-container",
+        "textContent": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-responsive-container"
+          },
+          {
+            "name": "style",
+            "value": "width: 100%; height: 100%; min-width: 0px;"
+          }
+        ],
+        "bounds": {
+          "x": 997,
+          "y": 380.5,
+          "width": 546,
+          "height": 256
+        }
+      },
+      {
+        "tagName": "DIV",
+        "className": "recharts-wrapper",
+        "textContent": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-wrapper"
+          },
+          {
+            "name": "style",
+            "value": "position: relative; cursor: default; width: 546px; height: 256px;"
+          }
+        ],
+        "bounds": {
+          "x": 997,
+          "y": 380.5,
+          "width": 546,
+          "height": 256
+        }
+      },
+      {
+        "tagName": "svg",
+        "className": {},
+        "textContent": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%",
+        "attributes": [
+          {
+            "name": "cx",
+            "value": "50%"
+          },
+          {
+            "name": "cy",
+            "value": "50%"
+          },
+          {
+            "name": "role",
+            "value": "application"
+          },
+          {
+            "name": "tabindex",
+            "value": "0"
+          },
+          {
+            "name": "class",
+            "value": "recharts-surface"
+          },
+          {
+            "name": "width",
+            "value": "546"
+          },
+          {
+            "name": "height",
+            "value": "256"
+          },
+          {
+            "name": "viewBox",
+            "value": "0 0 546 256"
+          },
+          {
+            "name": "style",
+            "value": "width: 100%; height: 100%;"
+          }
+        ],
+        "bounds": {
+          "x": 997,
+          "y": 380.5,
+          "width": 546,
+          "height": 256
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-pie"
+          },
+          {
+            "name": "tabindex",
+            "value": "0"
+          }
+        ],
+        "bounds": {
+          "x": 1077.004638671875,
+          "y": 403.89935302734375,
+          "width": 381.6201171875,
+          "height": 203.206298828125
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer"
+          }
+        ],
+        "bounds": {
+          "x": 1077.004638671875,
+          "y": 403.89935302734375,
+          "width": 381.6201171875,
+          "height": 203.206298828125
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-pie-sector"
+          },
+          {
+            "name": "tabindex",
+            "value": "-1"
+          }
+        ],
+        "bounds": {
+          "x": 1222.9771728515625,
+          "y": 428.5,
+          "width": 127.0228271484375,
+          "height": 80
+        }
+      },
+      {
+        "tagName": "path",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "cx",
+            "value": "273"
+          },
+          {
+            "name": "cy",
+            "value": "128"
+          },
+          {
+            "name": "fill",
+            "value": "#3B82F6"
+          },
+          {
+            "name": "stroke",
+            "value": "#fff"
+          },
+          {
+            "name": "name",
+            "value": "Beverages"
+          },
+          {
+            "name": "tabindex",
+            "value": "-1"
+          },
+          {
+            "name": "data-recharts-item-index",
+            "value": "0"
+          },
+          {
+            "name": "data-recharts-item-data-key",
+            "value": "value"
+          },
+          {
+            "name": "class",
+            "value": "recharts-sector"
+          },
+          {
+            "name": "d",
+            "value": "M 353,128\n    A 80,80,0,\n    0,0,\n    225.97717981660216,63.278640450004204\n  L 273,128 Z"
+          }
+        ],
+        "bounds": {
+          "x": 1222.9771728515625,
+          "y": 428.5,
+          "width": 127.0228271484375,
+          "height": 80
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-pie-sector"
+          },
+          {
+            "name": "tabindex",
+            "value": "-1"
+          }
+        ],
+        "bounds": {
+          "x": 1190,
+          "y": 443.77862548828125,
+          "width": 80,
+          "height": 111.74420166015625
+        }
+      },
+      {
+        "tagName": "path",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "cx",
+            "value": "273"
+          },
+          {
+            "name": "cy",
+            "value": "128"
+          },
+          {
+            "name": "fill",
+            "value": "#10B981"
+          },
+          {
+            "name": "stroke",
+            "value": "#fff"
+          },
+          {
+            "name": "name",
+            "value": "Snacks"
+          },
+          {
+            "name": "tabindex",
+            "value": "-1"
+          },
+          {
+            "name": "data-recharts-item-index",
+            "value": "1"
+          },
+          {
+            "name": "data-recharts-item-data-key",
+            "value": "value"
+          },
+          {
+            "name": "class",
+            "value": "recharts-sector"
+          },
+          {
+            "name": "d",
+            "value": "M 225.97717981660216,63.278640450004204\n    A 80,80,0,\n    0,0,\n    208.2786404500042,175.02282018339784\n  L 273,128 Z"
+          }
+        ],
+        "bounds": {
+          "x": 1190,
+          "y": 443.77862548828125,
+          "width": 80,
+          "height": 111.74420166015625
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-pie-sector"
+          },
+          {
+            "name": "tabindex",
+            "value": "-1"
+          }
+        ],
+        "bounds": {
+          "x": 1205.2786865234375,
+          "y": 508.5,
+          "width": 89.4427490234375,
+          "height": 80
+        }
+      },
+      {
+        "tagName": "path",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "cx",
+            "value": "273"
+          },
+          {
+            "name": "cy",
+            "value": "128"
+          },
+          {
+            "name": "fill",
+            "value": "#F59E0B"
+          },
+          {
+            "name": "stroke",
+            "value": "#fff"
+          },
+          {
+            "name": "name",
+            "value": "Personal Care"
+          },
+          {
+            "name": "tabindex",
+            "value": "-1"
+          },
+          {
+            "name": "data-recharts-item-index",
+            "value": "2"
+          },
+          {
+            "name": "data-recharts-item-data-key",
+            "value": "value"
+          },
+          {
+            "name": "class",
+            "value": "recharts-sector"
+          },
+          {
+            "name": "d",
+            "value": "M 208.2786404500042,175.02282018339784\n    A 80,80,0,\n    0,0,\n    297.7213595499958,204.0845213036123\n  L 273,128 Z"
+          }
+        ],
+        "bounds": {
+          "x": 1205.2786865234375,
+          "y": 508.5,
+          "width": 89.4427490234375,
+          "height": 80
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-pie-sector"
+          },
+          {
+            "name": "tabindex",
+            "value": "-1"
+          }
+        ],
+        "bounds": {
+          "x": 1270,
+          "y": 508.5,
+          "width": 76.08447265625,
+          "height": 76.08453369140625
+        }
+      },
+      {
+        "tagName": "path",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "cx",
+            "value": "273"
+          },
+          {
+            "name": "cy",
+            "value": "128"
+          },
+          {
+            "name": "fill",
+            "value": "#EF4444"
+          },
+          {
+            "name": "stroke",
+            "value": "#fff"
+          },
+          {
+            "name": "name",
+            "value": "Household"
+          },
+          {
+            "name": "tabindex",
+            "value": "-1"
+          },
+          {
+            "name": "data-recharts-item-index",
+            "value": "3"
+          },
+          {
+            "name": "data-recharts-item-data-key",
+            "value": "value"
+          },
+          {
+            "name": "class",
+            "value": "recharts-sector"
+          },
+          {
+            "name": "d",
+            "value": "M 297.7213595499958,204.0845213036123\n    A 80,80,0,\n    0,0,\n    349.0845213036123,152.7213595499958\n  L 273,128 Z"
+          }
+        ],
+        "bounds": {
+          "x": 1270,
+          "y": 508.5,
+          "width": 76.08447265625,
+          "height": 76.08453369140625
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-pie-sector"
+          },
+          {
+            "name": "tabindex",
+            "value": "-1"
+          }
+        ],
+        "bounds": {
+          "x": 1270,
+          "y": 508.5,
+          "width": 80,
+          "height": 24.72137451171875
+        }
+      },
+      {
+        "tagName": "path",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "cx",
+            "value": "273"
+          },
+          {
+            "name": "cy",
+            "value": "128"
+          },
+          {
+            "name": "fill",
+            "value": "#8B5CF6"
+          },
+          {
+            "name": "stroke",
+            "value": "#fff"
+          },
+          {
+            "name": "name",
+            "value": "Others"
+          },
+          {
+            "name": "tabindex",
+            "value": "-1"
+          },
+          {
+            "name": "data-recharts-item-index",
+            "value": "4"
+          },
+          {
+            "name": "data-recharts-item-data-key",
+            "value": "value"
+          },
+          {
+            "name": "class",
+            "value": "recharts-sector"
+          },
+          {
+            "name": "d",
+            "value": "M 349.0845213036123,152.7213595499958\n    A 80,80,0,\n    0,0,\n    353,128.00000000000003\n  L 273,128 Z"
+          }
+        ],
+        "bounds": {
+          "x": 1270,
+          "y": 508.5,
+          "width": 80,
+          "height": 24.72137451171875
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-pie-labels"
+          }
+        ],
+        "bounds": {
+          "x": 1077.004638671875,
+          "y": 403.89935302734375,
+          "width": 381.6201171875,
+          "height": 203.206298828125
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "Beverages: 35%",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer"
+          }
+        ],
+        "bounds": {
+          "x": 1315.3990478515625,
+          "y": 403.89935302734375,
+          "width": 118.7890625,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "Beverages: 35%",
+        "attributes": [
+          {
+            "name": "cx",
+            "value": "273"
+          },
+          {
+            "name": "cy",
+            "value": "128"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "name",
+            "value": "Beverages"
+          },
+          {
+            "name": "alignment-baseline",
+            "value": "middle"
+          },
+          {
+            "name": "x",
+            "value": "318.3990499739547"
+          },
+          {
+            "name": "y",
+            "value": "38.89934758116323"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-pie-label-text"
+          },
+          {
+            "name": "text-anchor",
+            "value": "start"
+          },
+          {
+            "name": "fill",
+            "value": "#3B82F6"
+          }
+        ],
+        "bounds": {
+          "x": 1315.3990478515625,
+          "y": 403.89935302734375,
+          "width": 118.7890625,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "Snacks: 25%",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer"
+          }
+        ],
+        "bounds": {
+          "x": 1077.004638671875,
+          "y": 477.3565673828125,
+          "width": 94.2265625,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "Snacks: 25%",
+        "attributes": [
+          {
+            "name": "cx",
+            "value": "273"
+          },
+          {
+            "name": "cy",
+            "value": "128"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "name",
+            "value": "Snacks"
+          },
+          {
+            "name": "alignment-baseline",
+            "value": "middle"
+          },
+          {
+            "name": "x",
+            "value": "174.23116594048622"
+          },
+          {
+            "name": "y",
+            "value": "112.3565534959769"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-pie-label-text"
+          },
+          {
+            "name": "text-anchor",
+            "value": "end"
+          },
+          {
+            "name": "fill",
+            "value": "#10B981"
+          }
+        ],
+        "bounds": {
+          "x": 1077.004638671875,
+          "y": 477.3565673828125,
+          "width": 94.2265625,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "Personal Care: 20%",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer"
+          }
+        ],
+        "bounds": {
+          "x": 1096.1060791015625,
+          "y": 588.1056518554688,
+          "width": 142.9921875,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "Personal Care: 20%",
+        "attributes": [
+          {
+            "name": "cx",
+            "value": "273"
+          },
+          {
+            "name": "cy",
+            "value": "128"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "name",
+            "value": "Personal Care"
+          },
+          {
+            "name": "alignment-baseline",
+            "value": "middle"
+          },
+          {
+            "name": "x",
+            "value": "242.09830056250524"
+          },
+          {
+            "name": "y",
+            "value": "223.10565162951536"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-pie-label-text"
+          },
+          {
+            "name": "text-anchor",
+            "value": "end"
+          },
+          {
+            "name": "fill",
+            "value": "#F59E0B"
+          }
+        ],
+        "bounds": {
+          "x": 1096.1060791015625,
+          "y": 588.1056518554688,
+          "width": 142.9921875,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "Household: 15%",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer"
+          }
+        ],
+        "bounds": {
+          "x": 1340.710693359375,
+          "y": 563.710693359375,
+          "width": 117.9140625,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "Household: 15%",
+        "attributes": [
+          {
+            "name": "cx",
+            "value": "273"
+          },
+          {
+            "name": "cy",
+            "value": "128"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "name",
+            "value": "Household"
+          },
+          {
+            "name": "alignment-baseline",
+            "value": "middle"
+          },
+          {
+            "name": "x",
+            "value": "343.71067811865476"
+          },
+          {
+            "name": "y",
+            "value": "198.71067811865476"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-pie-label-text"
+          },
+          {
+            "name": "text-anchor",
+            "value": "start"
+          },
+          {
+            "name": "fill",
+            "value": "#EF4444"
+          }
+        ],
+        "bounds": {
+          "x": 1340.710693359375,
+          "y": 563.710693359375,
+          "width": 117.9140625,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "Others: 5%",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer"
+          }
+        ],
+        "bounds": {
+          "x": 1368.768798828125,
+          "y": 508.6434326171875,
+          "width": 81.84375,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "Others: 5%",
+        "attributes": [
+          {
+            "name": "cx",
+            "value": "273"
+          },
+          {
+            "name": "cy",
+            "value": "128"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "name",
+            "value": "Others"
+          },
+          {
+            "name": "alignment-baseline",
+            "value": "middle"
+          },
+          {
+            "name": "x",
+            "value": "371.7688340595138"
+          },
+          {
+            "name": "y",
+            "value": "143.6434465040231"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-pie-label-text"
+          },
+          {
+            "name": "text-anchor",
+            "value": "start"
+          },
+          {
+            "name": "fill",
+            "value": "#8B5CF6"
+          }
+        ],
+        "bounds": {
+          "x": 1368.768798828125,
+          "y": 508.6434326171875,
+          "width": 81.84375,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "DIV",
+        "className": "recharts-responsive-container",
+        "textContent": "1000850650480420",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-responsive-container"
+          },
+          {
+            "name": "style",
+            "value": "width: 100%; height: 100%; min-width: 0px;"
+          }
+        ],
+        "bounds": {
+          "x": 377,
+          "y": 993.5,
+          "width": 546,
+          "height": 256
+        }
+      },
+      {
+        "tagName": "DIV",
+        "className": "recharts-wrapper",
+        "textContent": "1000850650480420",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-wrapper"
+          },
+          {
+            "name": "style",
+            "value": "position: relative; cursor: default; width: 546px; height: 256px;"
+          }
+        ],
+        "bounds": {
+          "x": 377,
+          "y": 993.5,
+          "width": 546,
+          "height": 256
+        }
+      },
+      {
+        "tagName": "DIV",
+        "className": "recharts-tooltip-wrapper",
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "xmlns",
+            "value": "http://www.w3.org/1999/xhtml"
+          },
+          {
+            "name": "tabindex",
+            "value": "-1"
+          },
+          {
+            "name": "class",
+            "value": "recharts-tooltip-wrapper"
+          },
+          {
+            "name": "style",
+            "value": "visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;"
+          }
+        ],
+        "bounds": {
+          "x": 377,
+          "y": 993.5,
+          "width": 22,
+          "height": 22
+        }
+      },
+      {
+        "tagName": "DIV",
+        "className": "recharts-default-tooltip",
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-default-tooltip"
+          },
+          {
+            "name": "role",
+            "value": "status"
+          },
+          {
+            "name": "aria-live",
+            "value": "assertive"
+          },
+          {
+            "name": "style",
+            "value": "margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"
+          }
+        ],
+        "bounds": {
+          "x": 377,
+          "y": 993.5,
+          "width": 22,
+          "height": 22
+        }
+      },
+      {
+        "tagName": "svg",
+        "className": {},
+        "textContent": "1000850650480420",
+        "attributes": [
+          {
+            "name": "role",
+            "value": "application"
+          },
+          {
+            "name": "tabindex",
+            "value": "0"
+          },
+          {
+            "name": "class",
+            "value": "recharts-surface"
+          },
+          {
+            "name": "width",
+            "value": "546"
+          },
+          {
+            "name": "height",
+            "value": "256"
+          },
+          {
+            "name": "viewBox",
+            "value": "0 0 546 256"
+          },
+          {
+            "name": "style",
+            "value": "width: 100%; height: 100%;"
+          }
+        ],
+        "bounds": {
+          "x": 377,
+          "y": 993.5,
+          "width": 546,
+          "height": 256
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "1000850650480420",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-trapezoids"
+          }
+        ],
+        "bounds": {
+          "x": 407,
+          "y": 998.5,
+          "width": 476,
+          "height": 236
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "1000850650480420",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer"
+          }
+        ],
+        "bounds": {
+          "x": 407,
+          "y": 998.5,
+          "width": 476,
+          "height": 236
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-funnel-trapezoid"
+          }
+        ],
+        "bounds": {
+          "x": 407,
+          "y": 998.5,
+          "width": 476,
+          "height": 47.199951171875
+        }
+      },
+      {
+        "tagName": "path",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "x",
+            "value": "30"
+          },
+          {
+            "name": "y",
+            "value": "5"
+          },
+          {
+            "name": "width",
+            "value": "476"
+          },
+          {
+            "name": "height",
+            "value": "47.2"
+          },
+          {
+            "name": "name",
+            "value": "Store Visit"
+          },
+          {
+            "name": "stroke",
+            "value": "#fff"
+          },
+          {
+            "name": "fill",
+            "value": "#3B82F6"
+          },
+          {
+            "name": "class",
+            "value": "recharts-trapezoid"
+          },
+          {
+            "name": "d",
+            "value": "M 30,5L 506,5L 470.29999999999995,52.2L 65.69999999999999,52.2L 30,5 Z"
+          }
+        ],
+        "bounds": {
+          "x": 407,
+          "y": 998.5,
+          "width": 476,
+          "height": 47.199951171875
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-funnel-trapezoid"
+          }
+        ],
+        "bounds": {
+          "x": 442.70001220703125,
+          "y": 1045.699951171875,
+          "width": 404.5999755859375,
+          "height": 47.2000732421875
+        }
+      },
+      {
+        "tagName": "path",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "x",
+            "value": "65.7"
+          },
+          {
+            "name": "y",
+            "value": "52.2"
+          },
+          {
+            "name": "width",
+            "value": "404.59999999999997"
+          },
+          {
+            "name": "height",
+            "value": "47.2"
+          },
+          {
+            "name": "name",
+            "value": "Product Browse"
+          },
+          {
+            "name": "stroke",
+            "value": "#fff"
+          },
+          {
+            "name": "fill",
+            "value": "#10B981"
+          },
+          {
+            "name": "class",
+            "value": "recharts-trapezoid"
+          },
+          {
+            "name": "d",
+            "value": "M 65.7,52.2L 470.29999999999995,52.2L 422.7,99.4L 113.29999999999995,99.4L 65.7,52.2 Z"
+          }
+        ],
+        "bounds": {
+          "x": 442.70001220703125,
+          "y": 1045.699951171875,
+          "width": 404.5999755859375,
+          "height": 47.2000732421875
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-funnel-trapezoid"
+          }
+        ],
+        "bounds": {
+          "x": 490.29998779296875,
+          "y": 1092.9000244140625,
+          "width": 309.4000244140625,
+          "height": 47.199951171875
+        }
+      },
+      {
+        "tagName": "path",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "x",
+            "value": "113.3"
+          },
+          {
+            "name": "y",
+            "value": "99.4"
+          },
+          {
+            "name": "width",
+            "value": "309.40000000000003"
+          },
+          {
+            "name": "height",
+            "value": "47.2"
+          },
+          {
+            "name": "name",
+            "value": "Brand Request"
+          },
+          {
+            "name": "stroke",
+            "value": "#fff"
+          },
+          {
+            "name": "fill",
+            "value": "#F59E0B"
+          },
+          {
+            "name": "class",
+            "value": "recharts-trapezoid"
+          },
+          {
+            "name": "d",
+            "value": "M 113.3,99.4L 422.70000000000005,99.4L 382.24,146.60000000000002L 153.76000000000002,146.60000000000002L 113.3,99.4 Z"
+          }
+        ],
+        "bounds": {
+          "x": 490.29998779296875,
+          "y": 1092.9000244140625,
+          "width": 309.4000244140625,
+          "height": 47.199951171875
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-funnel-trapezoid"
+          }
+        ],
+        "bounds": {
+          "x": 530.760009765625,
+          "y": 1140.0999755859375,
+          "width": 228.47998046875,
+          "height": 47.2000732421875
+        }
+      },
+      {
+        "tagName": "path",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "x",
+            "value": "153.76"
+          },
+          {
+            "name": "y",
+            "value": "146.60000000000002"
+          },
+          {
+            "name": "width",
+            "value": "228.48"
+          },
+          {
+            "name": "height",
+            "value": "47.2"
+          },
+          {
+            "name": "name",
+            "value": "Accept Suggestion"
+          },
+          {
+            "name": "stroke",
+            "value": "#fff"
+          },
+          {
+            "name": "fill",
+            "value": "#8B5CF6"
+          },
+          {
+            "name": "class",
+            "value": "recharts-trapezoid"
+          },
+          {
+            "name": "d",
+            "value": "M 153.76,146.60000000000002L 382.24,146.60000000000002L 367.96000000000004,193.8L 168.04000000000005,193.8L 153.76,146.60000000000002 Z"
+          }
+        ],
+        "bounds": {
+          "x": 530.760009765625,
+          "y": 1140.0999755859375,
+          "width": 228.47998046875,
+          "height": 47.2000732421875
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-funnel-trapezoid"
+          }
+        ],
+        "bounds": {
+          "x": 545.0399780273438,
+          "y": 1187.300048828125,
+          "width": 199.91998291015625,
+          "height": 47.199951171875
+        }
+      },
+      {
+        "tagName": "path",
+        "className": {},
+        "textContent": "",
+        "attributes": [
+          {
+            "name": "x",
+            "value": "168.04"
+          },
+          {
+            "name": "y",
+            "value": "193.8"
+          },
+          {
+            "name": "width",
+            "value": "199.92"
+          },
+          {
+            "name": "height",
+            "value": "47.2"
+          },
+          {
+            "name": "name",
+            "value": "Purchase"
+          },
+          {
+            "name": "stroke",
+            "value": "#fff"
+          },
+          {
+            "name": "fill",
+            "value": "#EC4899"
+          },
+          {
+            "name": "class",
+            "value": "recharts-trapezoid"
+          },
+          {
+            "name": "d",
+            "value": "M 168.04,193.8L 367.96,193.8L 268,241L 268,241L 168.04,193.8 Z"
+          }
+        ],
+        "bounds": {
+          "x": 545.0399780273438,
+          "y": 1187.300048828125,
+          "width": 199.91998291015625,
+          "height": 47.199951171875
+        }
+      },
+      {
+        "tagName": "g",
+        "className": {},
+        "textContent": "1000850650480420",
+        "attributes": [
+          {
+            "name": "class",
+            "value": "recharts-layer recharts-label-list"
+          }
+        ],
+        "bounds": {
+          "x": 626.796875,
+          "y": 1012.280029296875,
+          "width": 36.40625,
+          "height": 207.7999267578125
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "1000",
+        "attributes": [
+          {
+            "name": "offset",
+            "value": "5"
+          },
+          {
+            "name": "width",
+            "value": "440.29999999999995"
+          },
+          {
+            "name": "height",
+            "value": "47.2"
+          },
+          {
+            "name": "name",
+            "value": "Store Visit"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "x",
+            "value": "268"
+          },
+          {
+            "name": "y",
+            "value": "28.6"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-label"
+          },
+          {
+            "name": "text-anchor",
+            "value": "middle"
+          },
+          {
+            "name": "fill",
+            "value": "#fff"
+          }
+        ],
+        "bounds": {
+          "x": 626.796875,
+          "y": 1012.280029296875,
+          "width": 36.40625,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "850",
+        "attributes": [
+          {
+            "name": "offset",
+            "value": "5"
+          },
+          {
+            "name": "width",
+            "value": "357"
+          },
+          {
+            "name": "height",
+            "value": "47.2"
+          },
+          {
+            "name": "name",
+            "value": "Product Browse"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "x",
+            "value": "268"
+          },
+          {
+            "name": "y",
+            "value": "75.80000000000001"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-label"
+          },
+          {
+            "name": "text-anchor",
+            "value": "middle"
+          },
+          {
+            "name": "fill",
+            "value": "#fff"
+          }
+        ],
+        "bounds": {
+          "x": 630.375,
+          "y": 1059.47998046875,
+          "width": 29.25,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "650",
+        "attributes": [
+          {
+            "name": "offset",
+            "value": "5"
+          },
+          {
+            "name": "width",
+            "value": "268.94"
+          },
+          {
+            "name": "height",
+            "value": "47.2"
+          },
+          {
+            "name": "name",
+            "value": "Brand Request"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "x",
+            "value": "268"
+          },
+          {
+            "name": "y",
+            "value": "123"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-label"
+          },
+          {
+            "name": "text-anchor",
+            "value": "middle"
+          },
+          {
+            "name": "fill",
+            "value": "#fff"
+          }
+        ],
+        "bounds": {
+          "x": 630.390625,
+          "y": 1106.679931640625,
+          "width": 29.21875,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "480",
+        "attributes": [
+          {
+            "name": "offset",
+            "value": "5"
+          },
+          {
+            "name": "width",
+            "value": "214.2"
+          },
+          {
+            "name": "height",
+            "value": "47.2"
+          },
+          {
+            "name": "name",
+            "value": "Accept Suggestion"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "x",
+            "value": "268"
+          },
+          {
+            "name": "y",
+            "value": "170.20000000000002"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-label"
+          },
+          {
+            "name": "text-anchor",
+            "value": "middle"
+          },
+          {
+            "name": "fill",
+            "value": "#fff"
+          }
+        ],
+        "bounds": {
+          "x": 630.171875,
+          "y": 1153.8800048828125,
+          "width": 29.65625,
+          "height": 19
+        }
+      },
+      {
+        "tagName": "text",
+        "className": {},
+        "textContent": "420",
+        "attributes": [
+          {
+            "name": "offset",
+            "value": "5"
+          },
+          {
+            "name": "width",
+            "value": "99.96"
+          },
+          {
+            "name": "height",
+            "value": "47.2"
+          },
+          {
+            "name": "name",
+            "value": "Purchase"
+          },
+          {
+            "name": "stroke",
+            "value": "none"
+          },
+          {
+            "name": "x",
+            "value": "268"
+          },
+          {
+            "name": "y",
+            "value": "217.4"
+          },
+          {
+            "name": "class",
+            "value": "recharts-text recharts-label"
+          },
+          {
+            "name": "text-anchor",
+            "value": "middle"
+          },
+          {
+            "name": "fill",
+            "value": "#fff"
+          }
+        ],
+        "bounds": {
+          "x": 630.453125,
+          "y": 1201.0799560546875,
+          "width": 29.09375,
+          "height": 19
+        }
+      }
+    ],
+    "charts": [
+      {
+        "type": "recharts-responsive-container",
+        "bounds": {
+          "x": 377,
+          "y": 452.5,
+          "width": 546,
+          "height": 256,
+          "top": 452.5,
+          "right": 923,
+          "bottom": 708.5,
+          "left": 377
+        },
+        "innerHTML": "<div style=\"width: 0px; height: 0px; overflow: visible;\"><div class=\"recharts-wrapper\" style=\"position: relative; cursor: default; width: 546px; height: 256px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\" tabindex=\"-1\" class=\"recharts-tooltip-wrapper\" style=\"visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;\"><div class=\"recharts-default-tooltip\" role=\"status\" aria-live=\"assertive\" style=\"margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px "
+      },
+      {
+        "type": "recharts-wrapper",
+        "bounds": {
+          "x": 377,
+          "y": 452.5,
+          "width": 546,
+          "height": 256,
+          "top": 452.5,
+          "right": 923,
+          "bottom": 708.5,
+          "left": 377
+        },
+        "innerHTML": "<div xmlns=\"http://www.w3.org/1999/xhtml\" tabindex=\"-1\" class=\"recharts-tooltip-wrapper\" style=\"visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;\"><div class=\"recharts-default-tooltip\" role=\"status\" aria-live=\"assertive\" style=\"margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;\"><p class=\"recharts-tooltip-label\" style=\"margin: 0px;\"></p></div></div><svg role=\"application\" tabindex=\"0\" class"
+      },
+      {
+        "type": "recharts-tooltip-wrapper",
+        "bounds": {
+          "x": 377,
+          "y": 452.5,
+          "width": 22,
+          "height": 22,
+          "top": 452.5,
+          "right": 399,
+          "bottom": 474.5,
+          "left": 377
+        },
+        "innerHTML": "<div class=\"recharts-default-tooltip\" role=\"status\" aria-live=\"assertive\" style=\"margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;\"><p class=\"recharts-tooltip-label\" style=\"margin: 0px;\"></p></div>"
+      },
+      {
+        "type": "recharts-default-tooltip",
+        "bounds": {
+          "x": 377,
+          "y": 452.5,
+          "width": 22,
+          "height": 22,
+          "top": 452.5,
+          "right": 399,
+          "bottom": 474.5,
+          "left": 377
+        },
+        "innerHTML": "<p class=\"recharts-tooltip-label\" style=\"margin: 0px;\"></p>"
+      },
+      {
+        "type": "recharts-tooltip-label",
+        "bounds": {
+          "x": 388,
+          "y": 463.5,
+          "width": 0,
+          "height": 0,
+          "top": 463.5,
+          "right": 388,
+          "bottom": 463.5,
+          "left": 388
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 377,
+          "y": 452.5,
+          "width": 546,
+          "height": 256,
+          "top": 452.5,
+          "right": 923,
+          "bottom": 708.5,
+          "left": 377
+        },
+        "innerHTML": "<title></title><desc></desc><defs><clipPath id=\"recharts1-clip\"><rect x=\"65\" y=\"5\" height=\"216\" width=\"476\"></rect></clipPath></defs><g class=\"recharts-cartesian-grid\"><g class=\"recharts-cartesian-grid-horizontal\"><line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"none\" x=\"65\" y=\"5\" width=\"476\" height=\"216\" x1=\"65\" y1=\"221\" x2=\"541\" y2=\"221\"></line><line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"none\" x=\"65\" y=\"5\" width=\"476\" height=\"216\" x1=\"65\" y1=\"167\" x2=\"541\" y2=\"167\"></line><line stroke-das"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 442,
+          "y": 457.5,
+          "width": 476,
+          "height": 216,
+          "top": 457.5,
+          "right": 918,
+          "bottom": 673.5,
+          "left": 442
+        },
+        "innerHTML": "<g class=\"recharts-cartesian-grid-horizontal\"><line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"none\" x=\"65\" y=\"5\" width=\"476\" height=\"216\" x1=\"65\" y1=\"221\" x2=\"541\" y2=\"221\"></line><line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"none\" x=\"65\" y=\"5\" width=\"476\" height=\"216\" x1=\"65\" y1=\"167\" x2=\"541\" y2=\"167\"></line><line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"none\" x=\"65\" y=\"5\" width=\"476\" height=\"216\" x1=\"65\" y1=\"113\" x2=\"541\" y2=\"113\"></line><line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 442,
+          "y": 457.5,
+          "width": 476,
+          "height": 216,
+          "top": 457.5,
+          "right": 918,
+          "bottom": 673.5,
+          "left": 442
+        },
+        "innerHTML": "<line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"none\" x=\"65\" y=\"5\" width=\"476\" height=\"216\" x1=\"65\" y1=\"221\" x2=\"541\" y2=\"221\"></line><line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"none\" x=\"65\" y=\"5\" width=\"476\" height=\"216\" x1=\"65\" y1=\"167\" x2=\"541\" y2=\"167\"></line><line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"none\" x=\"65\" y=\"5\" width=\"476\" height=\"216\" x1=\"65\" y1=\"113\" x2=\"541\" y2=\"113\"></line><line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"none\" x=\"65\" y=\"5\" width=\"476\" height=\"216\" x1"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 442,
+          "y": 457.5,
+          "width": 476,
+          "height": 216,
+          "top": 457.5,
+          "right": 918,
+          "bottom": 673.5,
+          "left": 442
+        },
+        "innerHTML": "<line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"none\" x=\"65\" y=\"5\" width=\"476\" height=\"216\" x1=\"97.82758620689653\" y1=\"5\" x2=\"97.82758620689653\" y2=\"221\"></line><line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"none\" x=\"65\" y=\"5\" width=\"476\" height=\"216\" x1=\"196.3103448275862\" y1=\"5\" x2=\"196.3103448275862\" y2=\"221\"></line><line stroke-dasharray=\"3 3\" stroke=\"#ccc\" fill=\"none\" x=\"65\" y=\"5\" width=\"476\" height=\"216\" x1=\"294.7931034482758\" y1=\"5\" x2=\"294.7931034482758\" y2=\"221\"></line><line stroke-d"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 440.22210693359375,
+          "y": 673.5,
+          "width": 482.77789306640625,
+          "height": 19.02001953125,
+          "top": 673.5,
+          "right": 923,
+          "bottom": 692.52001953125,
+          "left": 440.22210693359375
+        },
+        "innerHTML": "<line height=\"30\" orientation=\"bottom\" x=\"65\" y=\"221\" width=\"476\" class=\"recharts-cartesian-axis-line\" stroke=\"#666\" fill=\"none\" x1=\"65\" y1=\"221\" x2=\"541\" y2=\"221\"></line><g class=\"recharts-cartesian-axis-ticks\"><g class=\"recharts-layer recharts-cartesian-axis-tick\"><line height=\"30\" orientation=\"bottom\" x=\"65\" y=\"221\" width=\"476\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"97.82758620689653\" y1=\"227\" x2=\"97.82758620689653\" y2=\"221\"></line><text height=\"30\" orientatio"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 442,
+          "y": 673.5,
+          "width": 476,
+          "height": 0,
+          "top": 673.5,
+          "right": 918,
+          "bottom": 673.5,
+          "left": 442
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 440.22210693359375,
+          "y": 673.5,
+          "width": 482.77789306640625,
+          "height": 19.02001953125,
+          "top": 673.5,
+          "right": 923,
+          "bottom": 692.52001953125,
+          "left": 440.22210693359375
+        },
+        "innerHTML": "<g class=\"recharts-layer recharts-cartesian-axis-tick\"><line height=\"30\" orientation=\"bottom\" x=\"65\" y=\"221\" width=\"476\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"97.82758620689653\" y1=\"227\" x2=\"97.82758620689653\" y2=\"221\"></line><text height=\"30\" orientation=\"bottom\" width=\"476\" stroke=\"none\" font-size=\"12\" x=\"97.82758620689653\" y=\"229\" class=\"recharts-text recharts-cartesian-axis-tick-value\" text-anchor=\"middle\" fill=\"#666\"><tspan x=\"97.82758620689653\" dy=\"0.71em\""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 440.22210693359375,
+          "y": 673.5,
+          "width": 69.2109375,
+          "height": 19.02001953125,
+          "top": 673.5,
+          "right": 509.43304443359375,
+          "bottom": 692.52001953125,
+          "left": 440.22210693359375
+        },
+        "innerHTML": "<line height=\"30\" orientation=\"bottom\" x=\"65\" y=\"221\" width=\"476\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"97.82758620689653\" y1=\"227\" x2=\"97.82758620689653\" y2=\"221\"></line><text height=\"30\" orientation=\"bottom\" width=\"476\" stroke=\"none\" font-size=\"12\" x=\"97.82758620689653\" y=\"229\" class=\"recharts-text recharts-cartesian-axis-tick-value\" text-anchor=\"middle\" fill=\"#666\"><tspan x=\"97.82758620689653\" dy=\"0.71em\">2025-08-19</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 474.82757568359375,
+          "y": 673.5,
+          "width": 0,
+          "height": 6,
+          "top": 673.5,
+          "right": 474.82757568359375,
+          "bottom": 679.5,
+          "left": 474.82757568359375
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 440.22210693359375,
+          "y": 678.52001953125,
+          "width": 69.2109375,
+          "height": 14,
+          "top": 678.52001953125,
+          "right": 509.43304443359375,
+          "bottom": 692.52001953125,
+          "left": 440.22210693359375
+        },
+        "innerHTML": "<tspan x=\"97.82758620689653\" dy=\"0.71em\">2025-08-19</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 521.4981079101562,
+          "y": 673.5,
+          "width": 70.796875,
+          "height": 19.02001953125,
+          "top": 673.5,
+          "right": 592.2949829101562,
+          "bottom": 692.52001953125,
+          "left": 521.4981079101562
+        },
+        "innerHTML": "<line height=\"30\" orientation=\"bottom\" x=\"65\" y=\"221\" width=\"476\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"179.8965517241379\" y1=\"227\" x2=\"179.8965517241379\" y2=\"221\"></line><text height=\"30\" orientation=\"bottom\" width=\"476\" stroke=\"none\" font-size=\"12\" x=\"179.8965517241379\" y=\"229\" class=\"recharts-text recharts-cartesian-axis-tick-value\" text-anchor=\"middle\" fill=\"#666\"><tspan x=\"179.8965517241379\" dy=\"0.71em\">2025-08-24</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 556.8965454101562,
+          "y": 673.5,
+          "width": 0,
+          "height": 6,
+          "top": 673.5,
+          "right": 556.8965454101562,
+          "bottom": 679.5,
+          "left": 556.8965454101562
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 521.4981079101562,
+          "y": 678.52001953125,
+          "width": 70.796875,
+          "height": 14,
+          "top": 678.52001953125,
+          "right": 592.2949829101562,
+          "bottom": 692.52001953125,
+          "left": 521.4981079101562
+        },
+        "innerHTML": "<tspan x=\"179.8965517241379\" dy=\"0.71em\">2025-08-24</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 603.5202026367188,
+          "y": 673.5,
+          "width": 70.890625,
+          "height": 19.02001953125,
+          "top": 673.5,
+          "right": 674.4108276367188,
+          "bottom": 692.52001953125,
+          "left": 603.5202026367188
+        },
+        "innerHTML": "<line height=\"30\" orientation=\"bottom\" x=\"65\" y=\"221\" width=\"476\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"261.9655172413793\" y1=\"227\" x2=\"261.9655172413793\" y2=\"221\"></line><text height=\"30\" orientation=\"bottom\" width=\"476\" stroke=\"none\" font-size=\"12\" x=\"261.9655172413793\" y=\"229\" class=\"recharts-text recharts-cartesian-axis-tick-value\" text-anchor=\"middle\" fill=\"#666\"><tspan x=\"261.9655172413793\" dy=\"0.71em\">2025-08-29</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 638.9655151367188,
+          "y": 673.5,
+          "width": 0,
+          "height": 6,
+          "top": 673.5,
+          "right": 638.9655151367188,
+          "bottom": 679.5,
+          "left": 638.9655151367188
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 603.5202026367188,
+          "y": 678.52001953125,
+          "width": 70.890625,
+          "height": 14,
+          "top": 678.52001953125,
+          "right": 674.4108276367188,
+          "bottom": 692.52001953125,
+          "left": 603.5202026367188
+        },
+        "innerHTML": "<tspan x=\"261.9655172413793\" dy=\"0.71em\">2025-08-29</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 685.5032348632812,
+          "y": 673.5,
+          "width": 71.0625,
+          "height": 19.02001953125,
+          "top": 673.5,
+          "right": 756.5657348632812,
+          "bottom": 692.52001953125,
+          "left": 685.5032348632812
+        },
+        "innerHTML": "<line height=\"30\" orientation=\"bottom\" x=\"65\" y=\"221\" width=\"476\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"344.0344827586207\" y1=\"227\" x2=\"344.0344827586207\" y2=\"221\"></line><text height=\"30\" orientation=\"bottom\" width=\"476\" stroke=\"none\" font-size=\"12\" x=\"344.0344827586207\" y=\"229\" class=\"recharts-text recharts-cartesian-axis-tick-value\" text-anchor=\"middle\" fill=\"#666\"><tspan x=\"344.0344827586207\" dy=\"0.71em\">2025-09-03</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 721.0344848632812,
+          "y": 673.5,
+          "width": 0,
+          "height": 6,
+          "top": 673.5,
+          "right": 721.0344848632812,
+          "bottom": 679.5,
+          "left": 721.0344848632812
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 685.5032348632812,
+          "y": 678.52001953125,
+          "width": 71.0625,
+          "height": 14,
+          "top": 678.52001953125,
+          "right": 756.5657348632812,
+          "bottom": 692.52001953125,
+          "left": 685.5032348632812
+        },
+        "innerHTML": "<tspan x=\"344.0344827586207\" dy=\"0.71em\">2025-09-03</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 767.5018920898438,
+          "y": 673.5,
+          "width": 71.203125,
+          "height": 19.02001953125,
+          "top": 673.5,
+          "right": 838.7050170898438,
+          "bottom": 692.52001953125,
+          "left": 767.5018920898438
+        },
+        "innerHTML": "<line height=\"30\" orientation=\"bottom\" x=\"65\" y=\"221\" width=\"476\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"426.1034482758621\" y1=\"227\" x2=\"426.1034482758621\" y2=\"221\"></line><text height=\"30\" orientation=\"bottom\" width=\"476\" stroke=\"none\" font-size=\"12\" x=\"426.1034482758621\" y=\"229\" class=\"recharts-text recharts-cartesian-axis-tick-value\" text-anchor=\"middle\" fill=\"#666\"><tspan x=\"426.1034482758621\" dy=\"0.71em\">2025-09-08</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 803.1034545898438,
+          "y": 673.5,
+          "width": 0,
+          "height": 6,
+          "top": 673.5,
+          "right": 803.1034545898438,
+          "bottom": 679.5,
+          "left": 803.1034545898438
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 767.5018920898438,
+          "y": 678.52001953125,
+          "width": 71.203125,
+          "height": 14,
+          "top": 678.52001953125,
+          "right": 838.7050170898438,
+          "bottom": 692.52001953125,
+          "left": 767.5018920898438
+        },
+        "innerHTML": "<tspan x=\"426.1034482758621\" dy=\"0.71em\">2025-09-08</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 854.03125,
+          "y": 673.5,
+          "width": 68.96875,
+          "height": 19.02001953125,
+          "top": 673.5,
+          "right": 923,
+          "bottom": 692.52001953125,
+          "left": 854.03125
+        },
+        "innerHTML": "<line height=\"30\" orientation=\"bottom\" x=\"65\" y=\"221\" width=\"476\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"541\" y1=\"227\" x2=\"541\" y2=\"221\"></line><text height=\"30\" orientation=\"bottom\" width=\"476\" stroke=\"none\" font-size=\"12\" x=\"511.515625\" y=\"229\" class=\"recharts-text recharts-cartesian-axis-tick-value\" text-anchor=\"middle\" fill=\"#666\"><tspan x=\"511.515625\" dy=\"0.71em\">2025-09-15</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 918,
+          "y": 673.5,
+          "width": 0,
+          "height": 6,
+          "top": 673.5,
+          "right": 918,
+          "bottom": 679.5,
+          "left": 918
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 854.03125,
+          "y": 678.52001953125,
+          "width": 68.96875,
+          "height": 14,
+          "top": 678.52001953125,
+          "right": 923,
+          "bottom": 692.52001953125,
+          "left": 854.03125
+        },
+        "innerHTML": "<tspan x=\"511.515625\" dy=\"0.71em\">2025-09-15</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 405.7578125,
+          "y": 454.260009765625,
+          "width": 36.2421875,
+          "height": 226,
+          "top": 454.260009765625,
+          "right": 442,
+          "bottom": 680.260009765625,
+          "left": 405.7578125
+        },
+        "innerHTML": "<line orientation=\"left\" width=\"60\" x=\"5\" y=\"5\" height=\"216\" class=\"recharts-cartesian-axis-line\" stroke=\"#666\" fill=\"none\" x1=\"65\" y1=\"5\" x2=\"65\" y2=\"221\"></line><g class=\"recharts-cartesian-axis-ticks\"><g class=\"recharts-layer recharts-cartesian-axis-tick\"><line orientation=\"left\" width=\"60\" x=\"5\" y=\"5\" height=\"216\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"59\" y1=\"221\" x2=\"65\" y2=\"221\"></line><text orientation=\"left\" width=\"60\" height=\"216\" stroke=\"none\" font-siz"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 442,
+          "y": 457.5,
+          "width": 0,
+          "height": 216,
+          "top": 457.5,
+          "right": 442,
+          "bottom": 673.5,
+          "left": 442
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 405.7578125,
+          "y": 454.260009765625,
+          "width": 36.2421875,
+          "height": 226,
+          "top": 454.260009765625,
+          "right": 442,
+          "bottom": 680.260009765625,
+          "left": 405.7578125
+        },
+        "innerHTML": "<g class=\"recharts-layer recharts-cartesian-axis-tick\"><line orientation=\"left\" width=\"60\" x=\"5\" y=\"5\" height=\"216\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"59\" y1=\"221\" x2=\"65\" y2=\"221\"></line><text orientation=\"left\" width=\"60\" height=\"216\" stroke=\"none\" font-size=\"12\" x=\"57\" y=\"221\" class=\"recharts-text recharts-cartesian-axis-tick-value\" text-anchor=\"end\" fill=\"#666\"><tspan x=\"57\" dy=\"0.355em\">0</tspan></text></g><g class=\"recharts-layer recharts-cartesian-axis"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 426.4375,
+          "y": 666.260009765625,
+          "width": 15.5625,
+          "height": 14,
+          "top": 666.260009765625,
+          "right": 442,
+          "bottom": 680.260009765625,
+          "left": 426.4375
+        },
+        "innerHTML": "<line orientation=\"left\" width=\"60\" x=\"5\" y=\"5\" height=\"216\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"59\" y1=\"221\" x2=\"65\" y2=\"221\"></line><text orientation=\"left\" width=\"60\" height=\"216\" stroke=\"none\" font-size=\"12\" x=\"57\" y=\"221\" class=\"recharts-text recharts-cartesian-axis-tick-value\" text-anchor=\"end\" fill=\"#666\"><tspan x=\"57\" dy=\"0.355em\">0</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 436,
+          "y": 673.5,
+          "width": 6,
+          "height": 0,
+          "top": 673.5,
+          "right": 442,
+          "bottom": 673.5,
+          "left": 436
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 426.4375,
+          "y": 666.260009765625,
+          "width": 7.5625,
+          "height": 14,
+          "top": 666.260009765625,
+          "right": 434,
+          "bottom": 680.260009765625,
+          "left": 426.4375
+        },
+        "innerHTML": "<tspan x=\"57\" dy=\"0.355em\">0</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 411.78125,
+          "y": 612.260009765625,
+          "width": 30.21875,
+          "height": 14,
+          "top": 612.260009765625,
+          "right": 442,
+          "bottom": 626.260009765625,
+          "left": 411.78125
+        },
+        "innerHTML": "<line orientation=\"left\" width=\"60\" x=\"5\" y=\"5\" height=\"216\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"59\" y1=\"167\" x2=\"65\" y2=\"167\"></line><text orientation=\"left\" width=\"60\" height=\"216\" stroke=\"none\" font-size=\"12\" x=\"57\" y=\"167\" class=\"recharts-text recharts-cartesian-axis-tick-value\" text-anchor=\"end\" fill=\"#666\"><tspan x=\"57\" dy=\"0.355em\">250</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 436,
+          "y": 619.5,
+          "width": 6,
+          "height": 0,
+          "top": 619.5,
+          "right": 442,
+          "bottom": 619.5,
+          "left": 436
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 411.78125,
+          "y": 612.260009765625,
+          "width": 22.21875,
+          "height": 14,
+          "top": 612.260009765625,
+          "right": 434,
+          "bottom": 626.260009765625,
+          "left": 411.78125
+        },
+        "innerHTML": "<tspan x=\"57\" dy=\"0.355em\">250</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 411.4609375,
+          "y": 558.260009765625,
+          "width": 30.5390625,
+          "height": 14,
+          "top": 558.260009765625,
+          "right": 442,
+          "bottom": 572.260009765625,
+          "left": 411.4609375
+        },
+        "innerHTML": "<line orientation=\"left\" width=\"60\" x=\"5\" y=\"5\" height=\"216\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"59\" y1=\"113\" x2=\"65\" y2=\"113\"></line><text orientation=\"left\" width=\"60\" height=\"216\" stroke=\"none\" font-size=\"12\" x=\"57\" y=\"113\" class=\"recharts-text recharts-cartesian-axis-tick-value\" text-anchor=\"end\" fill=\"#666\"><tspan x=\"57\" dy=\"0.355em\">500</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 436,
+          "y": 565.5,
+          "width": 6,
+          "height": 0,
+          "top": 565.5,
+          "right": 442,
+          "bottom": 565.5,
+          "left": 436
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 411.4609375,
+          "y": 558.260009765625,
+          "width": 22.5390625,
+          "height": 14,
+          "top": 558.260009765625,
+          "right": 434,
+          "bottom": 572.260009765625,
+          "left": 411.4609375
+        },
+        "innerHTML": "<tspan x=\"57\" dy=\"0.355em\">500</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 412.3046875,
+          "y": 504.260009765625,
+          "width": 29.6953125,
+          "height": 14,
+          "top": 504.260009765625,
+          "right": 442,
+          "bottom": 518.260009765625,
+          "left": 412.3046875
+        },
+        "innerHTML": "<line orientation=\"left\" width=\"60\" x=\"5\" y=\"5\" height=\"216\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"59\" y1=\"59\" x2=\"65\" y2=\"59\"></line><text orientation=\"left\" width=\"60\" height=\"216\" stroke=\"none\" font-size=\"12\" x=\"57\" y=\"59\" class=\"recharts-text recharts-cartesian-axis-tick-value\" text-anchor=\"end\" fill=\"#666\"><tspan x=\"57\" dy=\"0.355em\">750</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 436,
+          "y": 511.5,
+          "width": 6,
+          "height": 0,
+          "top": 511.5,
+          "right": 442,
+          "bottom": 511.5,
+          "left": 436
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 412.3046875,
+          "y": 504.260009765625,
+          "width": 21.6953125,
+          "height": 14,
+          "top": 504.260009765625,
+          "right": 434,
+          "bottom": 518.260009765625,
+          "left": 412.3046875
+        },
+        "innerHTML": "<tspan x=\"57\" dy=\"0.355em\">750</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 405.7578125,
+          "y": 454.260009765625,
+          "width": 36.2421875,
+          "height": 14,
+          "top": 454.260009765625,
+          "right": 442,
+          "bottom": 468.260009765625,
+          "left": 405.7578125
+        },
+        "innerHTML": "<line orientation=\"left\" width=\"60\" x=\"5\" y=\"5\" height=\"216\" class=\"recharts-cartesian-axis-tick-line\" stroke=\"#666\" fill=\"none\" x1=\"59\" y1=\"5\" x2=\"65\" y2=\"5\"></line><text orientation=\"left\" width=\"60\" height=\"216\" stroke=\"none\" font-size=\"12\" x=\"57\" y=\"9\" class=\"recharts-text recharts-cartesian-axis-tick-value\" text-anchor=\"end\" fill=\"#666\"><tspan x=\"57\" dy=\"0.355em\">1000</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 436,
+          "y": 457.5,
+          "width": 6,
+          "height": 0,
+          "top": 457.5,
+          "right": 442,
+          "bottom": 457.5,
+          "left": 436
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 405.7578125,
+          "y": 454.260009765625,
+          "width": 28.2421875,
+          "height": 14,
+          "top": 454.260009765625,
+          "right": 434,
+          "bottom": 468.260009765625,
+          "left": 405.7578125
+        },
+        "innerHTML": "<tspan x=\"57\" dy=\"0.355em\">1000</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 442,
+          "y": 479.5320129394531,
+          "width": 476,
+          "height": 193.96798706054688,
+          "top": 479.5320129394531,
+          "right": 918,
+          "bottom": 673.5,
+          "left": 442
+        },
+        "innerHTML": "<g class=\"recharts-layer\"><path stroke-width=\"2\" fill=\"#93BBFC\" fill-opacity=\"0.6\" height=\"216\" width=\"476\" stroke=\"none\" class=\"recharts-curve recharts-area-area\" d=\"M65,126.176C70.471,91.832,75.943,57.488,81.414,57.488C86.885,57.488,92.356,83.048,97.828,88.376C103.299,93.704,108.77,91.04,114.241,96.368C119.713,101.696,125.184,133.088,130.655,133.088C136.126,133.088,141.598,113.72,147.069,110.408C152.54,107.096,158.011,108.752,163.483,105.44C168.954,102.128,174.425,94.424,179.897,81.464C185.368"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 442,
+          "y": 479.5320129394531,
+          "width": 476,
+          "height": 193.96798706054688,
+          "top": 479.5320129394531,
+          "right": 918,
+          "bottom": 673.5,
+          "left": 442
+        },
+        "innerHTML": "<path stroke-width=\"2\" fill=\"#93BBFC\" fill-opacity=\"0.6\" height=\"216\" width=\"476\" stroke=\"none\" class=\"recharts-curve recharts-area-area\" d=\"M65,126.176C70.471,91.832,75.943,57.488,81.414,57.488C86.885,57.488,92.356,83.048,97.828,88.376C103.299,93.704,108.77,91.04,114.241,96.368C119.713,101.696,125.184,133.088,130.655,133.088C136.126,133.088,141.598,113.72,147.069,110.408C152.54,107.096,158.011,108.752,163.483,105.44C168.954,102.128,174.425,94.424,179.897,81.464C185.368,68.504,190.839,27.68,196."
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 442,
+          "y": 479.5320129394531,
+          "width": 476,
+          "height": 193.96798706054688,
+          "top": 479.5320129394531,
+          "right": 918,
+          "bottom": 673.5,
+          "left": 442
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 442,
+          "y": 479.5320129394531,
+          "width": 476,
+          "height": 106.05599975585938,
+          "top": 479.5320129394531,
+          "right": 918,
+          "bottom": 585.5880126953125,
+          "left": 442
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": "recharts-responsive-container",
+        "bounds": {
+          "x": 997,
+          "y": 380.5,
+          "width": 546,
+          "height": 256,
+          "top": 380.5,
+          "right": 1543,
+          "bottom": 636.5,
+          "left": 997
+        },
+        "innerHTML": "<div style=\"width: 0px; height: 0px; overflow: visible;\"><div class=\"recharts-wrapper\" style=\"position: relative; cursor: default; width: 546px; height: 256px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\" tabindex=\"-1\" class=\"recharts-tooltip-wrapper\" style=\"visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;\"></div><svg cx=\"50%\" cy=\"50%\" role=\"application\" tabindex=\"0\" class=\"recharts-surface\" width=\"546\" height=\"256\" viewBox=\"0 0 546 256\" style=\"width: 100%; height"
+      },
+      {
+        "type": "recharts-wrapper",
+        "bounds": {
+          "x": 997,
+          "y": 380.5,
+          "width": 546,
+          "height": 256,
+          "top": 380.5,
+          "right": 1543,
+          "bottom": 636.5,
+          "left": 997
+        },
+        "innerHTML": "<div xmlns=\"http://www.w3.org/1999/xhtml\" tabindex=\"-1\" class=\"recharts-tooltip-wrapper\" style=\"visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;\"></div><svg cx=\"50%\" cy=\"50%\" role=\"application\" tabindex=\"0\" class=\"recharts-surface\" width=\"546\" height=\"256\" viewBox=\"0 0 546 256\" style=\"width: 100%; height: 100%;\"><title></title><desc></desc><defs><clipPath id=\"recharts3-clip\"><rect x=\"5\" y=\"5\" height=\"246\" width=\"536\"></rect></clipPath></defs><g class=\"recharts-l"
+      },
+      {
+        "type": "recharts-tooltip-wrapper",
+        "bounds": {
+          "x": 997,
+          "y": 380.5,
+          "width": 0,
+          "height": 0,
+          "top": 380.5,
+          "right": 997,
+          "bottom": 380.5,
+          "left": 997
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 997,
+          "y": 380.5,
+          "width": 546,
+          "height": 256,
+          "top": 380.5,
+          "right": 1543,
+          "bottom": 636.5,
+          "left": 997
+        },
+        "innerHTML": "<title></title><desc></desc><defs><clipPath id=\"recharts3-clip\"><rect x=\"5\" y=\"5\" height=\"246\" width=\"536\"></rect></clipPath></defs><g class=\"recharts-layer recharts-pie\" tabindex=\"0\"><g class=\"recharts-layer\"><g class=\"recharts-layer recharts-pie-sector\" tabindex=\"-1\"><path cx=\"273\" cy=\"128\" fill=\"#3B82F6\" stroke=\"#fff\" name=\"Beverages\" tabindex=\"-1\" data-recharts-item-index=\"0\" data-recharts-item-data-key=\"value\" class=\"recharts-sector\" d=\"M 353,128\n    A 80,80,0,\n    0,0,\n    225.977179816602"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1077.004638671875,
+          "y": 403.89935302734375,
+          "width": 381.6201171875,
+          "height": 203.206298828125,
+          "top": 403.89935302734375,
+          "right": 1458.624755859375,
+          "bottom": 607.1056518554688,
+          "left": 1077.004638671875
+        },
+        "innerHTML": "<g class=\"recharts-layer\"><g class=\"recharts-layer recharts-pie-sector\" tabindex=\"-1\"><path cx=\"273\" cy=\"128\" fill=\"#3B82F6\" stroke=\"#fff\" name=\"Beverages\" tabindex=\"-1\" data-recharts-item-index=\"0\" data-recharts-item-data-key=\"value\" class=\"recharts-sector\" d=\"M 353,128\n    A 80,80,0,\n    0,0,\n    225.97717981660216,63.278640450004204\n  L 273,128 Z\"></path></g><g class=\"recharts-layer recharts-pie-sector\" tabindex=\"-1\"><path cx=\"273\" cy=\"128\" fill=\"#10B981\" stroke=\"#fff\" name=\"Snacks\" tabindex="
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1077.004638671875,
+          "y": 403.89935302734375,
+          "width": 381.6201171875,
+          "height": 203.206298828125,
+          "top": 403.89935302734375,
+          "right": 1458.624755859375,
+          "bottom": 607.1056518554688,
+          "left": 1077.004638671875
+        },
+        "innerHTML": "<g class=\"recharts-layer recharts-pie-sector\" tabindex=\"-1\"><path cx=\"273\" cy=\"128\" fill=\"#3B82F6\" stroke=\"#fff\" name=\"Beverages\" tabindex=\"-1\" data-recharts-item-index=\"0\" data-recharts-item-data-key=\"value\" class=\"recharts-sector\" d=\"M 353,128\n    A 80,80,0,\n    0,0,\n    225.97717981660216,63.278640450004204\n  L 273,128 Z\"></path></g><g class=\"recharts-layer recharts-pie-sector\" tabindex=\"-1\"><path cx=\"273\" cy=\"128\" fill=\"#10B981\" stroke=\"#fff\" name=\"Snacks\" tabindex=\"-1\" data-recharts-item-in"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1222.9771728515625,
+          "y": 428.5,
+          "width": 127.0228271484375,
+          "height": 80,
+          "top": 428.5,
+          "right": 1350,
+          "bottom": 508.5,
+          "left": 1222.9771728515625
+        },
+        "innerHTML": "<path cx=\"273\" cy=\"128\" fill=\"#3B82F6\" stroke=\"#fff\" name=\"Beverages\" tabindex=\"-1\" data-recharts-item-index=\"0\" data-recharts-item-data-key=\"value\" class=\"recharts-sector\" d=\"M 353,128\n    A 80,80,0,\n    0,0,\n    225.97717981660216,63.278640450004204\n  L 273,128 Z\"></path>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1222.9771728515625,
+          "y": 428.5,
+          "width": 127.0228271484375,
+          "height": 80,
+          "top": 428.5,
+          "right": 1350,
+          "bottom": 508.5,
+          "left": 1222.9771728515625
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1190,
+          "y": 443.77862548828125,
+          "width": 80,
+          "height": 111.74420166015625,
+          "top": 443.77862548828125,
+          "right": 1270,
+          "bottom": 555.5228271484375,
+          "left": 1190
+        },
+        "innerHTML": "<path cx=\"273\" cy=\"128\" fill=\"#10B981\" stroke=\"#fff\" name=\"Snacks\" tabindex=\"-1\" data-recharts-item-index=\"1\" data-recharts-item-data-key=\"value\" class=\"recharts-sector\" d=\"M 225.97717981660216,63.278640450004204\n    A 80,80,0,\n    0,0,\n    208.2786404500042,175.02282018339784\n  L 273,128 Z\"></path>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1190,
+          "y": 443.77862548828125,
+          "width": 80,
+          "height": 111.74420166015625,
+          "top": 443.77862548828125,
+          "right": 1270,
+          "bottom": 555.5228271484375,
+          "left": 1190
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1205.2786865234375,
+          "y": 508.5,
+          "width": 89.4427490234375,
+          "height": 80,
+          "top": 508.5,
+          "right": 1294.721435546875,
+          "bottom": 588.5,
+          "left": 1205.2786865234375
+        },
+        "innerHTML": "<path cx=\"273\" cy=\"128\" fill=\"#F59E0B\" stroke=\"#fff\" name=\"Personal Care\" tabindex=\"-1\" data-recharts-item-index=\"2\" data-recharts-item-data-key=\"value\" class=\"recharts-sector\" d=\"M 208.2786404500042,175.02282018339784\n    A 80,80,0,\n    0,0,\n    297.7213595499958,204.0845213036123\n  L 273,128 Z\"></path>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1205.2786865234375,
+          "y": 508.5,
+          "width": 89.4427490234375,
+          "height": 80,
+          "top": 508.5,
+          "right": 1294.721435546875,
+          "bottom": 588.5,
+          "left": 1205.2786865234375
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1270,
+          "y": 508.5,
+          "width": 76.08447265625,
+          "height": 76.08453369140625,
+          "top": 508.5,
+          "right": 1346.08447265625,
+          "bottom": 584.5845336914062,
+          "left": 1270
+        },
+        "innerHTML": "<path cx=\"273\" cy=\"128\" fill=\"#EF4444\" stroke=\"#fff\" name=\"Household\" tabindex=\"-1\" data-recharts-item-index=\"3\" data-recharts-item-data-key=\"value\" class=\"recharts-sector\" d=\"M 297.7213595499958,204.0845213036123\n    A 80,80,0,\n    0,0,\n    349.0845213036123,152.7213595499958\n  L 273,128 Z\"></path>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1270,
+          "y": 508.5,
+          "width": 76.08447265625,
+          "height": 76.08453369140625,
+          "top": 508.5,
+          "right": 1346.08447265625,
+          "bottom": 584.5845336914062,
+          "left": 1270
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1270,
+          "y": 508.5,
+          "width": 80,
+          "height": 24.72137451171875,
+          "top": 508.5,
+          "right": 1350,
+          "bottom": 533.2213745117188,
+          "left": 1270
+        },
+        "innerHTML": "<path cx=\"273\" cy=\"128\" fill=\"#8B5CF6\" stroke=\"#fff\" name=\"Others\" tabindex=\"-1\" data-recharts-item-index=\"4\" data-recharts-item-data-key=\"value\" class=\"recharts-sector\" d=\"M 349.0845213036123,152.7213595499958\n    A 80,80,0,\n    0,0,\n    353,128.00000000000003\n  L 273,128 Z\"></path>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1270,
+          "y": 508.5,
+          "width": 80,
+          "height": 24.72137451171875,
+          "top": 508.5,
+          "right": 1350,
+          "bottom": 533.2213745117188,
+          "left": 1270
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1077.004638671875,
+          "y": 403.89935302734375,
+          "width": 381.6201171875,
+          "height": 203.206298828125,
+          "top": 403.89935302734375,
+          "right": 1458.624755859375,
+          "bottom": 607.1056518554688,
+          "left": 1077.004638671875
+        },
+        "innerHTML": "<g class=\"recharts-layer\"><text cx=\"273\" cy=\"128\" stroke=\"none\" name=\"Beverages\" alignment-baseline=\"middle\" x=\"318.3990499739547\" y=\"38.89934758116323\" class=\"recharts-text recharts-pie-label-text\" text-anchor=\"start\" fill=\"#3B82F6\"><tspan x=\"318.3990499739547\" dy=\"0em\">Beverages: 35%</tspan></text></g><g class=\"recharts-layer\"><text cx=\"273\" cy=\"128\" stroke=\"none\" name=\"Snacks\" alignment-baseline=\"middle\" x=\"174.23116594048622\" y=\"112.3565534959769\" class=\"recharts-text recharts-pie-label-text"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1315.3990478515625,
+          "y": 403.89935302734375,
+          "width": 118.7890625,
+          "height": 19,
+          "top": 403.89935302734375,
+          "right": 1434.1881103515625,
+          "bottom": 422.89935302734375,
+          "left": 1315.3990478515625
+        },
+        "innerHTML": "<text cx=\"273\" cy=\"128\" stroke=\"none\" name=\"Beverages\" alignment-baseline=\"middle\" x=\"318.3990499739547\" y=\"38.89934758116323\" class=\"recharts-text recharts-pie-label-text\" text-anchor=\"start\" fill=\"#3B82F6\"><tspan x=\"318.3990499739547\" dy=\"0em\">Beverages: 35%</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1315.3990478515625,
+          "y": 403.89935302734375,
+          "width": 118.7890625,
+          "height": 19,
+          "top": 403.89935302734375,
+          "right": 1434.1881103515625,
+          "bottom": 422.89935302734375,
+          "left": 1315.3990478515625
+        },
+        "innerHTML": "<tspan x=\"318.3990499739547\" dy=\"0em\">Beverages: 35%</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1077.004638671875,
+          "y": 477.3565673828125,
+          "width": 94.2265625,
+          "height": 19,
+          "top": 477.3565673828125,
+          "right": 1171.231201171875,
+          "bottom": 496.3565673828125,
+          "left": 1077.004638671875
+        },
+        "innerHTML": "<text cx=\"273\" cy=\"128\" stroke=\"none\" name=\"Snacks\" alignment-baseline=\"middle\" x=\"174.23116594048622\" y=\"112.3565534959769\" class=\"recharts-text recharts-pie-label-text\" text-anchor=\"end\" fill=\"#10B981\"><tspan x=\"174.23116594048622\" dy=\"0em\">Snacks: 25%</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1077.004638671875,
+          "y": 477.3565673828125,
+          "width": 94.2265625,
+          "height": 19,
+          "top": 477.3565673828125,
+          "right": 1171.231201171875,
+          "bottom": 496.3565673828125,
+          "left": 1077.004638671875
+        },
+        "innerHTML": "<tspan x=\"174.23116594048622\" dy=\"0em\">Snacks: 25%</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1096.1060791015625,
+          "y": 588.1056518554688,
+          "width": 142.9921875,
+          "height": 19,
+          "top": 588.1056518554688,
+          "right": 1239.0982666015625,
+          "bottom": 607.1056518554688,
+          "left": 1096.1060791015625
+        },
+        "innerHTML": "<text cx=\"273\" cy=\"128\" stroke=\"none\" name=\"Personal Care\" alignment-baseline=\"middle\" x=\"242.09830056250524\" y=\"223.10565162951536\" class=\"recharts-text recharts-pie-label-text\" text-anchor=\"end\" fill=\"#F59E0B\"><tspan x=\"242.09830056250524\" dy=\"0em\">Personal Care: 20%</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1096.1060791015625,
+          "y": 588.1056518554688,
+          "width": 142.9921875,
+          "height": 19,
+          "top": 588.1056518554688,
+          "right": 1239.0982666015625,
+          "bottom": 607.1056518554688,
+          "left": 1096.1060791015625
+        },
+        "innerHTML": "<tspan x=\"242.09830056250524\" dy=\"0em\">Personal Care: 20%</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1340.710693359375,
+          "y": 563.710693359375,
+          "width": 117.9140625,
+          "height": 19,
+          "top": 563.710693359375,
+          "right": 1458.624755859375,
+          "bottom": 582.710693359375,
+          "left": 1340.710693359375
+        },
+        "innerHTML": "<text cx=\"273\" cy=\"128\" stroke=\"none\" name=\"Household\" alignment-baseline=\"middle\" x=\"343.71067811865476\" y=\"198.71067811865476\" class=\"recharts-text recharts-pie-label-text\" text-anchor=\"start\" fill=\"#EF4444\"><tspan x=\"343.71067811865476\" dy=\"0em\">Household: 15%</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1340.710693359375,
+          "y": 563.710693359375,
+          "width": 117.9140625,
+          "height": 19,
+          "top": 563.710693359375,
+          "right": 1458.624755859375,
+          "bottom": 582.710693359375,
+          "left": 1340.710693359375
+        },
+        "innerHTML": "<tspan x=\"343.71067811865476\" dy=\"0em\">Household: 15%</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1368.768798828125,
+          "y": 508.6434326171875,
+          "width": 81.84375,
+          "height": 19,
+          "top": 508.6434326171875,
+          "right": 1450.612548828125,
+          "bottom": 527.6434326171875,
+          "left": 1368.768798828125
+        },
+        "innerHTML": "<text cx=\"273\" cy=\"128\" stroke=\"none\" name=\"Others\" alignment-baseline=\"middle\" x=\"371.7688340595138\" y=\"143.6434465040231\" class=\"recharts-text recharts-pie-label-text\" text-anchor=\"start\" fill=\"#8B5CF6\"><tspan x=\"371.7688340595138\" dy=\"0em\">Others: 5%</tspan></text>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 1368.768798828125,
+          "y": 508.6434326171875,
+          "width": 81.84375,
+          "height": 19,
+          "top": 508.6434326171875,
+          "right": 1450.612548828125,
+          "bottom": 527.6434326171875,
+          "left": 1368.768798828125
+        },
+        "innerHTML": "<tspan x=\"371.7688340595138\" dy=\"0em\">Others: 5%</tspan>"
+      },
+      {
+        "type": "recharts-responsive-container",
+        "bounds": {
+          "x": 377,
+          "y": 993.5,
+          "width": 546,
+          "height": 256,
+          "top": 993.5,
+          "right": 923,
+          "bottom": 1249.5,
+          "left": 377
+        },
+        "innerHTML": "<div style=\"width: 0px; height: 0px; overflow: visible;\"><div class=\"recharts-wrapper\" style=\"position: relative; cursor: default; width: 546px; height: 256px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\" tabindex=\"-1\" class=\"recharts-tooltip-wrapper\" style=\"visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;\"><div class=\"recharts-default-tooltip\" role=\"status\" aria-live=\"assertive\" style=\"margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px "
+      },
+      {
+        "type": "recharts-wrapper",
+        "bounds": {
+          "x": 377,
+          "y": 993.5,
+          "width": 546,
+          "height": 256,
+          "top": 993.5,
+          "right": 923,
+          "bottom": 1249.5,
+          "left": 377
+        },
+        "innerHTML": "<div xmlns=\"http://www.w3.org/1999/xhtml\" tabindex=\"-1\" class=\"recharts-tooltip-wrapper\" style=\"visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;\"><div class=\"recharts-default-tooltip\" role=\"status\" aria-live=\"assertive\" style=\"margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;\"><p class=\"recharts-tooltip-label\" style=\"margin: 0px;\"></p></div></div><svg role=\"application\" tabindex=\"0\" class"
+      },
+      {
+        "type": "recharts-tooltip-wrapper",
+        "bounds": {
+          "x": 377,
+          "y": 993.5,
+          "width": 22,
+          "height": 22,
+          "top": 993.5,
+          "right": 399,
+          "bottom": 1015.5,
+          "left": 377
+        },
+        "innerHTML": "<div class=\"recharts-default-tooltip\" role=\"status\" aria-live=\"assertive\" style=\"margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;\"><p class=\"recharts-tooltip-label\" style=\"margin: 0px;\"></p></div>"
+      },
+      {
+        "type": "recharts-default-tooltip",
+        "bounds": {
+          "x": 377,
+          "y": 993.5,
+          "width": 22,
+          "height": 22,
+          "top": 993.5,
+          "right": 399,
+          "bottom": 1015.5,
+          "left": 377
+        },
+        "innerHTML": "<p class=\"recharts-tooltip-label\" style=\"margin: 0px;\"></p>"
+      },
+      {
+        "type": "recharts-tooltip-label",
+        "bounds": {
+          "x": 388,
+          "y": 1004.5,
+          "width": 0,
+          "height": 0,
+          "top": 1004.5,
+          "right": 388,
+          "bottom": 1004.5,
+          "left": 388
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 377,
+          "y": 993.5,
+          "width": 546,
+          "height": 256,
+          "top": 993.5,
+          "right": 923,
+          "bottom": 1249.5,
+          "left": 377
+        },
+        "innerHTML": "<title></title><desc></desc><defs><clipPath id=\"recharts5-clip\"><rect x=\"5\" y=\"5\" height=\"246\" width=\"536\"></rect></clipPath></defs><g class=\"recharts-layer recharts-trapezoids\"><g class=\"recharts-layer\"><g class=\"recharts-layer recharts-funnel-trapezoid\"><g><path x=\"30\" y=\"5\" width=\"476\" height=\"47.2\" name=\"Store Visit\" stroke=\"#fff\" fill=\"#3B82F6\" class=\"recharts-trapezoid\" d=\"M 30,5L 506,5L 470.29999999999995,52.2L 65.69999999999999,52.2L 30,5 Z\"></path></g></g><g class=\"recharts-layer rechar"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 407,
+          "y": 998.5,
+          "width": 476,
+          "height": 236,
+          "top": 998.5,
+          "right": 883,
+          "bottom": 1234.5,
+          "left": 407
+        },
+        "innerHTML": "<g class=\"recharts-layer\"><g class=\"recharts-layer recharts-funnel-trapezoid\"><g><path x=\"30\" y=\"5\" width=\"476\" height=\"47.2\" name=\"Store Visit\" stroke=\"#fff\" fill=\"#3B82F6\" class=\"recharts-trapezoid\" d=\"M 30,5L 506,5L 470.29999999999995,52.2L 65.69999999999999,52.2L 30,5 Z\"></path></g></g><g class=\"recharts-layer recharts-funnel-trapezoid\"><g><path x=\"65.7\" y=\"52.2\" width=\"404.59999999999997\" height=\"47.2\" name=\"Product Browse\" stroke=\"#fff\" fill=\"#10B981\" class=\"recharts-trapezoid\" d=\"M 65.7,5"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 407,
+          "y": 998.5,
+          "width": 476,
+          "height": 236,
+          "top": 998.5,
+          "right": 883,
+          "bottom": 1234.5,
+          "left": 407
+        },
+        "innerHTML": "<g class=\"recharts-layer recharts-funnel-trapezoid\"><g><path x=\"30\" y=\"5\" width=\"476\" height=\"47.2\" name=\"Store Visit\" stroke=\"#fff\" fill=\"#3B82F6\" class=\"recharts-trapezoid\" d=\"M 30,5L 506,5L 470.29999999999995,52.2L 65.69999999999999,52.2L 30,5 Z\"></path></g></g><g class=\"recharts-layer recharts-funnel-trapezoid\"><g><path x=\"65.7\" y=\"52.2\" width=\"404.59999999999997\" height=\"47.2\" name=\"Product Browse\" stroke=\"#fff\" fill=\"#10B981\" class=\"recharts-trapezoid\" d=\"M 65.7,52.2L 470.29999999999995,52"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 407,
+          "y": 998.5,
+          "width": 476,
+          "height": 47.199951171875,
+          "top": 998.5,
+          "right": 883,
+          "bottom": 1045.699951171875,
+          "left": 407
+        },
+        "innerHTML": "<g><path x=\"30\" y=\"5\" width=\"476\" height=\"47.2\" name=\"Store Visit\" stroke=\"#fff\" fill=\"#3B82F6\" class=\"recharts-trapezoid\" d=\"M 30,5L 506,5L 470.29999999999995,52.2L 65.69999999999999,52.2L 30,5 Z\"></path></g>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 407,
+          "y": 998.5,
+          "width": 476,
+          "height": 47.199951171875,
+          "top": 998.5,
+          "right": 883,
+          "bottom": 1045.699951171875,
+          "left": 407
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 442.70001220703125,
+          "y": 1045.699951171875,
+          "width": 404.5999755859375,
+          "height": 47.2000732421875,
+          "top": 1045.699951171875,
+          "right": 847.2999877929688,
+          "bottom": 1092.9000244140625,
+          "left": 442.70001220703125
+        },
+        "innerHTML": "<g><path x=\"65.7\" y=\"52.2\" width=\"404.59999999999997\" height=\"47.2\" name=\"Product Browse\" stroke=\"#fff\" fill=\"#10B981\" class=\"recharts-trapezoid\" d=\"M 65.7,52.2L 470.29999999999995,52.2L 422.7,99.4L 113.29999999999995,99.4L 65.7,52.2 Z\"></path></g>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 442.70001220703125,
+          "y": 1045.699951171875,
+          "width": 404.5999755859375,
+          "height": 47.2000732421875,
+          "top": 1045.699951171875,
+          "right": 847.2999877929688,
+          "bottom": 1092.9000244140625,
+          "left": 442.70001220703125
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 490.29998779296875,
+          "y": 1092.9000244140625,
+          "width": 309.4000244140625,
+          "height": 47.199951171875,
+          "top": 1092.9000244140625,
+          "right": 799.7000122070312,
+          "bottom": 1140.0999755859375,
+          "left": 490.29998779296875
+        },
+        "innerHTML": "<g><path x=\"113.3\" y=\"99.4\" width=\"309.40000000000003\" height=\"47.2\" name=\"Brand Request\" stroke=\"#fff\" fill=\"#F59E0B\" class=\"recharts-trapezoid\" d=\"M 113.3,99.4L 422.70000000000005,99.4L 382.24,146.60000000000002L 153.76000000000002,146.60000000000002L 113.3,99.4 Z\"></path></g>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 490.29998779296875,
+          "y": 1092.9000244140625,
+          "width": 309.4000244140625,
+          "height": 47.199951171875,
+          "top": 1092.9000244140625,
+          "right": 799.7000122070312,
+          "bottom": 1140.0999755859375,
+          "left": 490.29998779296875
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 530.760009765625,
+          "y": 1140.0999755859375,
+          "width": 228.47998046875,
+          "height": 47.2000732421875,
+          "top": 1140.0999755859375,
+          "right": 759.239990234375,
+          "bottom": 1187.300048828125,
+          "left": 530.760009765625
+        },
+        "innerHTML": "<g><path x=\"153.76\" y=\"146.60000000000002\" width=\"228.48\" height=\"47.2\" name=\"Accept Suggestion\" stroke=\"#fff\" fill=\"#8B5CF6\" class=\"recharts-trapezoid\" d=\"M 153.76,146.60000000000002L 382.24,146.60000000000002L 367.96000000000004,193.8L 168.04000000000005,193.8L 153.76,146.60000000000002 Z\"></path></g>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 530.760009765625,
+          "y": 1140.0999755859375,
+          "width": 228.47998046875,
+          "height": 47.2000732421875,
+          "top": 1140.0999755859375,
+          "right": 759.239990234375,
+          "bottom": 1187.300048828125,
+          "left": 530.760009765625
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 545.0399780273438,
+          "y": 1187.300048828125,
+          "width": 199.91998291015625,
+          "height": 47.199951171875,
+          "top": 1187.300048828125,
+          "right": 744.9599609375,
+          "bottom": 1234.5,
+          "left": 545.0399780273438
+        },
+        "innerHTML": "<g><path x=\"168.04\" y=\"193.8\" width=\"199.92\" height=\"47.2\" name=\"Purchase\" stroke=\"#fff\" fill=\"#EC4899\" class=\"recharts-trapezoid\" d=\"M 168.04,193.8L 367.96,193.8L 268,241L 268,241L 168.04,193.8 Z\"></path></g>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 545.0399780273438,
+          "y": 1187.300048828125,
+          "width": 199.91998291015625,
+          "height": 47.199951171875,
+          "top": 1187.300048828125,
+          "right": 744.9599609375,
+          "bottom": 1234.5,
+          "left": 545.0399780273438
+        },
+        "innerHTML": ""
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 626.796875,
+          "y": 1012.280029296875,
+          "width": 36.40625,
+          "height": 207.7999267578125,
+          "top": 1012.280029296875,
+          "right": 663.203125,
+          "bottom": 1220.0799560546875,
+          "left": 626.796875
+        },
+        "innerHTML": "<text offset=\"5\" width=\"440.29999999999995\" height=\"47.2\" name=\"Store Visit\" stroke=\"none\" x=\"268\" y=\"28.6\" class=\"recharts-text recharts-label\" text-anchor=\"middle\" fill=\"#fff\"><tspan x=\"268\" dy=\"0.355em\">1000</tspan></text><text offset=\"5\" width=\"357\" height=\"47.2\" name=\"Product Browse\" stroke=\"none\" x=\"268\" y=\"75.80000000000001\" class=\"recharts-text recharts-label\" text-anchor=\"middle\" fill=\"#fff\"><tspan x=\"268\" dy=\"0.355em\">850</tspan></text><text offset=\"5\" width=\"268.94\" height=\"47.2\" name"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 626.796875,
+          "y": 1012.280029296875,
+          "width": 36.40625,
+          "height": 19,
+          "top": 1012.280029296875,
+          "right": 663.203125,
+          "bottom": 1031.280029296875,
+          "left": 626.796875
+        },
+        "innerHTML": "<tspan x=\"268\" dy=\"0.355em\">1000</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 630.375,
+          "y": 1059.47998046875,
+          "width": 29.25,
+          "height": 19,
+          "top": 1059.47998046875,
+          "right": 659.625,
+          "bottom": 1078.47998046875,
+          "left": 630.375
+        },
+        "innerHTML": "<tspan x=\"268\" dy=\"0.355em\">850</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 630.390625,
+          "y": 1106.679931640625,
+          "width": 29.21875,
+          "height": 19,
+          "top": 1106.679931640625,
+          "right": 659.609375,
+          "bottom": 1125.679931640625,
+          "left": 630.390625
+        },
+        "innerHTML": "<tspan x=\"268\" dy=\"0.355em\">650</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 630.171875,
+          "y": 1153.8800048828125,
+          "width": 29.65625,
+          "height": 19,
+          "top": 1153.8800048828125,
+          "right": 659.828125,
+          "bottom": 1172.8800048828125,
+          "left": 630.171875
+        },
+        "innerHTML": "<tspan x=\"268\" dy=\"0.355em\">480</tspan>"
+      },
+      {
+        "type": {},
+        "bounds": {
+          "x": 630.453125,
+          "y": 1201.0799560546875,
+          "width": 29.09375,
+          "height": 19,
+          "top": 1201.0799560546875,
+          "right": 659.546875,
+          "bottom": 1220.0799560546875,
+          "left": 630.453125
+        },
+        "innerHTML": "<tspan x=\"268\" dy=\"0.355em\">420</tspan>"
+      }
+    ],
+    "kpis": [],
+    "tabs": [],
+    "filters": [
+      {
+        "tagName": "SELECT",
+        "type": "select-one",
+        "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+        "value": "last30days"
+      },
+      {
+        "tagName": "SELECT",
+        "type": "select-one",
+        "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+        "value": "all"
+      },
+      {
+        "tagName": "SELECT",
+        "type": "select-one",
+        "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+        "value": "all"
+      },
+      {
+        "tagName": "SELECT",
+        "type": "select-one",
+        "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+        "value": "all"
+      }
+    ],
+    "buttons": [
+      {
+        "className": "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50",
+        "textContent": "Refresh",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+        "textContent": "Export Report",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50",
+        "textContent": "Export as PDF",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50",
+        "textContent": "Export as Excel",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+        "textContent": "Volume",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "textContent": "₱ Revenue",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "textContent": "Basket Size",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "textContent": "Duration",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+        "textContent": "Category Mix",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "textContent": "Pareto Analysis",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "textContent": "Substitutions",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "textContent": "Basket Analysis",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+        "textContent": "Purchase Funnel",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "textContent": "Request Methods",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "textContent": "Acceptance Rates",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "textContent": "Behavior Traits",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+        "textContent": "Demographics",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "textContent": "Age & Gender",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "textContent": "Location",
+        "type": "submit",
+        "role": null
+      },
+      {
+        "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "textContent": "Segment Behavior",
+        "type": "submit",
+        "role": null
+      }
+    ],
+    "dataStructures": []
+  },
+  "resources": {
+    "scripts": [
+      "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/4bd1b696-a45697d7c9a7d01d.js",
+      "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/684-c6b1666611f5f958.js",
+      "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/main-app-df55f4bdaf350cb2.js",
+      "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/webpack-9504e47d199ff7da.js"
+    ],
+    "styles": [
+      "https://scout-analytics-nextjs.vercel.app/_next/static/css/a30ac04de8fe0978.css"
+    ]
+  },
+  "reactData": "React data not directly accessible",
+  "chartLibraries": {
+    "recharts": true,
+    "d3": false,
+    "chartjs": false,
+    "amcharts": false,
+    "highcharts": false
+  },
+  "networkRequests": []
+}
