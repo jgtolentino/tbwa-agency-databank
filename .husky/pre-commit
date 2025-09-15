@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run strict backend verification before commit
+echo "🔍 Running backend verification..."
+npm run verify-backend-strict
+
+if [ $? -ne 0 ]; then
+  echo "❌ Backend verification failed. Please fix mock/static patterns before committing."
+  echo "💡 Tip: Use conditional imports for mock data:"
+  echo "   if (import.meta.env.DEV) { ... }"
+  exit 1
+fi
+
+echo "✅ Backend verification passed"

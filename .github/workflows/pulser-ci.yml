@@ -1,0 +1,47 @@
+name: Pulser CES CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/agents/**'
+      - 'supabase/migrations/**'
+  pull_request:
+    branches: [main]
+
+env:
+  CES_API_TOKEN: ${{ secrets.CES_API_TOKEN }}
+  CES_GATEWAY_URL: https://ces-gw.onrender.com
+  CES_SERVICE_ROLE: ${{ secrets.CES_SERVICE_ROLE }}
+
+jobs:
+  test-pulser-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install Pulser
+        run: |
+          curl -sSL https://raw.githubusercontent.com/agency-databank/pulser/main/install.sh | bash
+          echo "$HOME/.pulser/bin" >> $GITHUB_PATH
+      
+      - name: Setup Pulser agents
+        run: |
+          export INSTALL_WRITER=true
+          ./scripts/pulser-dev-setup.sh
+      
+      - name: Run integration tests
+        run: ./scripts/test-pulser-integration.sh
+      
+      - name: Test migrations (CI only)
+        if: github.event_name == 'push'
+        run: |
+          # Start writer MCP
+          docker compose -f docker-compose.writer.yml up -d
+          sleep 10
+          
+          # Run test migration
+          pulser call ces_writer migrate "test_migration.sql"
+          
+          # Cleanup
+          docker compose -f docker-compose.writer.yml down

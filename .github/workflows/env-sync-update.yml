@@ -1,0 +1,42 @@
+name: Update KeyKey Env Sync
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to perform'
+        required: true
+        default: 'add-services'
+        type: choice
+        options:
+          - add-services
+          - update-mappings
+
+jobs:
+  update-keykey:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update env-sync.yml
+        run: |
+          echo "📝 Add these services to your env-sync.yml:"
+          echo ""
+          echo "services:"
+          echo "  - name: palette-svc"
+          echo "    envVars:"
+          echo "      - from: PALETTE_SUPA_URL"
+          echo "        to: SUPABASE_URL"
+          echo "      - from: PALETTE_SUPA_KEY"
+          echo "        to: SUPABASE_ANON_KEY"
+          echo "      - from: PALETTE_PGV_URL"
+          echo "        to: PGVECTOR_URL"
+          echo "      - from: CES_API_TOKEN"
+          echo "        to: API_TOKEN"
+          echo ""
+          echo "  - name: ces-gw"
+          echo "    envVars:"
+          echo "      - from: PALETTE_SUPA_URL"
+          echo "        to: SUPABASE_URL"
+          echo "      - from: PALETTE_SUPA_KEY"
+          echo "        to: SUPABASE_ANON_KEY"
+          echo "      - from: CES_API_TOKEN"
+          echo "        to: CES_API_TOKEN"
