@@ -1,0 +1,1140 @@
+{
+  "metadata": {
+    "title": "Scout Analytics Dashboard - TBWA AI Platform",
+    "url": "https://scout-analytics-nextjs.vercel.app/databank",
+    "extractedAt": "2025-09-15T11:00:59.864Z"
+  },
+  "componentData": {
+    "components": [],
+    "charts": [
+      {
+        "index": 0,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 1,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 2,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 3,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 4,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 5,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 6,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 7,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 8,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 9,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 10,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 11,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 12,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 13,
+        "tagName": "DIV",
+        "className": "recharts-responsive-container",
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 14,
+        "tagName": "DIV",
+        "className": "recharts-wrapper",
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 15,
+        "tagName": "DIV",
+        "className": "recharts-tooltip-wrapper",
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 16,
+        "tagName": "DIV",
+        "className": "recharts-default-tooltip",
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 17,
+        "tagName": "P",
+        "className": "recharts-tooltip-label",
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 18,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "546",
+        "height": "256"
+      },
+      {
+        "index": 19,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 20,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 21,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 22,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 23,
+        "tagName": "line",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "30"
+      },
+      {
+        "index": 24,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 25,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 26,
+        "tagName": "line",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "30"
+      },
+      {
+        "index": 27,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "30"
+      },
+      {
+        "index": 28,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 29,
+        "tagName": "line",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "30"
+      },
+      {
+        "index": 30,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "30"
+      },
+      {
+        "index": 31,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 32,
+        "tagName": "line",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "30"
+      },
+      {
+        "index": 33,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "30"
+      },
+      {
+        "index": 34,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 35,
+        "tagName": "line",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "30"
+      },
+      {
+        "index": 36,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "30"
+      },
+      {
+        "index": 37,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 38,
+        "tagName": "line",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "30"
+      },
+      {
+        "index": 39,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "30"
+      },
+      {
+        "index": 40,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 41,
+        "tagName": "line",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "30"
+      },
+      {
+        "index": 42,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "30"
+      },
+      {
+        "index": 43,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 44,
+        "tagName": "line",
+        "className": {},
+        "id": "",
+        "width": "60",
+        "height": "216"
+      },
+      {
+        "index": 45,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 46,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 47,
+        "tagName": "line",
+        "className": {},
+        "id": "",
+        "width": "60",
+        "height": "216"
+      },
+      {
+        "index": 48,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "60",
+        "height": "216"
+      },
+      {
+        "index": 49,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 50,
+        "tagName": "line",
+        "className": {},
+        "id": "",
+        "width": "60",
+        "height": "216"
+      },
+      {
+        "index": 51,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "60",
+        "height": "216"
+      },
+      {
+        "index": 52,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 53,
+        "tagName": "line",
+        "className": {},
+        "id": "",
+        "width": "60",
+        "height": "216"
+      },
+      {
+        "index": 54,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "60",
+        "height": "216"
+      },
+      {
+        "index": 55,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 56,
+        "tagName": "line",
+        "className": {},
+        "id": "",
+        "width": "60",
+        "height": "216"
+      },
+      {
+        "index": 57,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "60",
+        "height": "216"
+      },
+      {
+        "index": 58,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 59,
+        "tagName": "line",
+        "className": {},
+        "id": "",
+        "width": "60",
+        "height": "216"
+      },
+      {
+        "index": 60,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "60",
+        "height": "216"
+      },
+      {
+        "index": 61,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 62,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 63,
+        "tagName": "path",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "216"
+      },
+      {
+        "index": 64,
+        "tagName": "path",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "216"
+      },
+      {
+        "index": 65,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 66,
+        "tagName": "DIV",
+        "className": "recharts-responsive-container",
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 67,
+        "tagName": "DIV",
+        "className": "recharts-wrapper",
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 68,
+        "tagName": "DIV",
+        "className": "recharts-tooltip-wrapper",
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 69,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "546",
+        "height": "256"
+      },
+      {
+        "index": 70,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 71,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 72,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 73,
+        "tagName": "path",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 74,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 75,
+        "tagName": "path",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 76,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 77,
+        "tagName": "path",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 78,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 79,
+        "tagName": "path",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 80,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 81,
+        "tagName": "path",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 82,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 83,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 84,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 85,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 86,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 87,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 88,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 89,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 90,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 91,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 92,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 93,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 94,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 95,
+        "tagName": "DIV",
+        "className": "recharts-responsive-container",
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 96,
+        "tagName": "DIV",
+        "className": "recharts-wrapper",
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 97,
+        "tagName": "DIV",
+        "className": "recharts-tooltip-wrapper",
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 98,
+        "tagName": "DIV",
+        "className": "recharts-default-tooltip",
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 99,
+        "tagName": "P",
+        "className": "recharts-tooltip-label",
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 100,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "546",
+        "height": "256"
+      },
+      {
+        "index": 101,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 102,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 103,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 104,
+        "tagName": "path",
+        "className": {},
+        "id": "",
+        "width": "476",
+        "height": "47.2"
+      },
+      {
+        "index": 105,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 106,
+        "tagName": "path",
+        "className": {},
+        "id": "",
+        "width": "404.59999999999997",
+        "height": "47.2"
+      },
+      {
+        "index": 107,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 108,
+        "tagName": "path",
+        "className": {},
+        "id": "",
+        "width": "309.40000000000003",
+        "height": "47.2"
+      },
+      {
+        "index": 109,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 110,
+        "tagName": "path",
+        "className": {},
+        "id": "",
+        "width": "228.48",
+        "height": "47.2"
+      },
+      {
+        "index": 111,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 112,
+        "tagName": "path",
+        "className": {},
+        "id": "",
+        "width": "199.92",
+        "height": "47.2"
+      },
+      {
+        "index": 113,
+        "tagName": "g",
+        "className": {},
+        "id": "",
+        "width": null,
+        "height": null
+      },
+      {
+        "index": 114,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "440.29999999999995",
+        "height": "47.2"
+      },
+      {
+        "index": 115,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "357",
+        "height": "47.2"
+      },
+      {
+        "index": 116,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "268.94",
+        "height": "47.2"
+      },
+      {
+        "index": 117,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "214.2",
+        "height": "47.2"
+      },
+      {
+        "index": 118,
+        "tagName": "text",
+        "className": {},
+        "id": "",
+        "width": "99.96",
+        "height": "47.2"
+      },
+      {
+        "index": 119,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 120,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 121,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      },
+      {
+        "index": 122,
+        "tagName": "svg",
+        "className": {},
+        "id": "",
+        "width": "24",
+        "height": "24"
+      }
+    ],
+    "dataAttributes": {
+      "data-precedence": "next",
+      "data-recharts-item-index": "4",
+      "data-recharts-item-data-key": "value"
+    },
+    "pageTitle": "Scout Analytics Dashboard - TBWA AI Platform",
+    "bodyClasses": "",
+    "headContent": "<link rel=\"stylesheet\" href=\"/_next/static/css/a30ac04de8fe0978.css\" data-precedence=\"next\"><script src=\"/_next/static/chunks/4bd1b696-a45697d7c9a7d01d.js\" async=\"\"></script><script src=\"/_next/static/chunks/684-c6b1666611f5f958.js\" async=\"\"></script><script src=\"/_next/static/chunks/main-app-df55f4bdaf350cb2.js\" async=\"\"></script><script src=\"/_next/static/chunks/2170a4aa-f220f188891353c6.js\" async=\"\"></script><script src=\"/_next/static/chunks/164f4fb6-69a77c80738c9314.js\" async=\"\"></script><script>document.querySelectorAll('body link[rel=\"icon\"], body link[rel=\"apple-touch-icon\"]').forEach(el => document.head.appendChild(el))</script><script src=\"/_next/static/chunks/polyfills-42372ed130431b0a.js\" nomodule=\"\"></script><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin=\"\"><title>Scout Analytics Dashboard - TBWA AI Platform</title><meta name=\"description\" content=\"AI-powered retail intelligence platform for the Philippines market\"><meta name=\"robots\" content=\"index, follow\"><meta property=\"og:title\" content=\"Scout Analytics Dashboard\"><meta property=\"og:description\" content=\"AI-powered retail intelligence platform\"><meta property=\"og:url\" content=\"https://scout-mvp.vercel.app\"><meta property=\"og:type\" content=\"website\"><meta name=\"twitter:card\" content=\"summary_large_image\"><meta name=\"twitter:title\" content=\"Scout Analytics Dashboard\"><meta name=\"twitter:description\" content=\"AI-powered retail intelligence platform\">"
+  },
+  "networkRequests": [
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/databank",
+      "method": "GET",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"macOS\""
+      },
+      "postData": null
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/css/a30ac04de8fe0978.css",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/webpack-9504e47d199ff7da.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/4bd1b696-a45697d7c9a7d01d.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/684-c6b1666611f5f958.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/main-app-df55f4bdaf350cb2.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/2170a4aa-f220f188891353c6.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/164f4fb6-69a77c80738c9314.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/72-9942fe08882ea7fc.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/app/databank/page-7b1709c270c9f498.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    }
+  ],
+  "scriptUrls": [
+    "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/4bd1b696-a45697d7c9a7d01d.js",
+    "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/684-c6b1666611f5f958.js",
+    "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/main-app-df55f4bdaf350cb2.js",
+    "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/2170a4aa-f220f188891353c6.js",
+    "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/164f4fb6-69a77c80738c9314.js",
+    "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/72-9942fe08882ea7fc.js",
+    "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/app/databank/page-7b1709c270c9f498.js",
+    "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/polyfills-42372ed130431b0a.js",
+    "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/webpack-9504e47d199ff7da.js"
+  ],
+  "cssUrls": [
+    "https://scout-analytics-nextjs.vercel.app/_next/static/css/a30ac04de8fe0978.css"
+  ]
+}

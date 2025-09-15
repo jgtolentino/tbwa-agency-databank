@@ -8,6 +8,7 @@ import {
   EnhancedConsumerBehavior,
   EnhancedConsumerProfiling
 } from './components/enhanced/EnhancedDashboard'
+import { DatabankPage } from './components/databank'
 
 function App() {
   const [activeSection, setActiveSection] = useState('transaction-trends')
@@ -35,6 +36,11 @@ function App() {
   }
 
   const renderActiveSection = () => {
+    // Check if this is the full databank page
+    if (activeSection === 'databank') {
+      return <DatabankPage />
+    }
+
     if (showEnhanced) {
       switch (activeSection) {
         case 'transaction-trends':
@@ -67,34 +73,41 @@ function App() {
 
   return (
     <div className="min-h-screen bg-scout-light">
-      {/* Sidebar Navigation */}
-      <Sidebar 
-        activeSection={activeSection} 
-        onSectionChange={setActiveSection} 
-      />
-      
-      {/* Main Content Area */}
-      <div className="scout-content">
-        {/* Global Filters */}
-        <GlobalFilters 
-          filters={filters}
-          onFilterChange={setFilters}
-          onRefresh={handleRefresh}
-          onExport={handleExport}
-        />
-        
-        <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
-          {/* Main Dashboard Content */}
-          <div className="xl:col-span-3">
-            {renderActiveSection()}
-          </div>
+      {/* Databank page renders full-screen without sidebar */}
+      {activeSection === 'databank' ? (
+        renderActiveSection()
+      ) : (
+        <>
+          {/* Sidebar Navigation */}
+          <Sidebar 
+            activeSection={activeSection} 
+            onSectionChange={setActiveSection} 
+          />
           
-          {/* AI Recommendations Panel */}
-          <div className="xl:col-span-1">
-            <AIPanel section={activeSection} />
+          {/* Main Content Area */}
+          <div className="scout-content">
+            {/* Global Filters */}
+            <GlobalFilters 
+              filters={filters}
+              onFilterChange={setFilters}
+              onRefresh={handleRefresh}
+              onExport={handleExport}
+            />
+            
+            <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
+              {/* Main Dashboard Content */}
+              <div className="xl:col-span-3">
+                {renderActiveSection()}
+              </div>
+              
+              {/* AI Recommendations Panel */}
+              <div className="xl:col-span-1">
+                <AIPanel section={activeSection} />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </div>
   )
 }
