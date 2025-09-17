@@ -1,0 +1,60 @@
+/* ChartVision Styles */
+.cv-container {
+  @apply min-h-screen bg-gray-50 p-6;
+}
+
+.cv-header {
+  @apply text-3xl font-bold text-gray-900 mb-8;
+}
+
+.cv-section {
+  @apply bg-white rounded-lg shadow-lg p-6 mb-8;
+}
+
+.cv-h2 {
+  @apply text-2xl font-semibold text-gray-800 mb-6;
+}
+
+.cv-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.cv-card {
+  @apply bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow;
+}
+
+.cv-title {
+  @apply font-semibold text-gray-700 text-sm mb-3;
+}
+
+/* Recharts Overrides */
+.recharts-wrapper {
+  @apply w-full h-full;
+}
+
+.recharts-text {
+  @apply text-xs fill-gray-600;
+}
+
+.recharts-legend-item-text {
+  @apply text-sm fill-gray-700;
+}
+
+/* Loading States */
+.cv-loading {
+  @apply flex items-center justify-center h-64;
+}
+
+.cv-spinner {
+  @apply animate-spin h-8 w-8 text-blue-500;
+}
+
+/* Error States */
+.cv-error {
+  @apply bg-red-50 border border-red-200 rounded-lg p-4 text-red-700;
+}
+
+/* Empty States */
+.cv-empty {
+  @apply text-center py-12 text-gray-500;
+}

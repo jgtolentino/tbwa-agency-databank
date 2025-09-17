@@ -1,0 +1,221 @@
+name: Dashboard Compatibility CI
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'supabase/migrations/**'
+      - 'components/**'
+      - 'tests/**'
+      - 'scripts/**'
+      - '.github/workflows/dashboard-compatibility-ci.yml'
+  push:
+    branches: [ dashboard-compatibility-layer ]
+
+env:
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+  SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+
+jobs:
+  lint:
+    name: Code Quality & Linting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: TypeScript check
+        run: npm run type-check
+
+      - name: SQL lint (sqlfluff)
+        uses: sqlfluff/sqlfluff-github-actions@main
+        with:
+          paths: './supabase/migrations'
+          dialect: 'postgres'
+
+  db-validate:
+    name: Database Validation
+    runs-on: ubuntu-latest
+    needs: [lint]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+
+      - name: Validate database connectivity
+        env:
+          PGPASSWORD: ${{ secrets.SUPABASE_PASSWORD }}
+        run: |
+          psql "${{ secrets.SUPABASE_DB_URL }}" -c "SELECT 1;" || exit 1
+
+      - name: Run migration validation
+        env:
+          PGPASSWORD: ${{ secrets.SUPABASE_PASSWORD }}
+        run: |
+          chmod +x scripts/validate-dashboard-compatibility.sh
+          PG_URL_SCOUT="${{ secrets.SUPABASE_DB_URL }}" ./scripts/validate-dashboard-compatibility.sh full
+
+      - name: Test RPC functions with real data
+        env:
+          PGPASSWORD: ${{ secrets.SUPABASE_PASSWORD }}
+        run: |
+          chmod +x scripts/test-rpc-production.sh
+          PG_URL_SCOUT="${{ secrets.SUPABASE_DB_URL }}" ./scripts/test-rpc-production.sh
+
+      - name: Validate governance badge
+        env:
+          PGPASSWORD: ${{ secrets.SUPABASE_PASSWORD }}
+        run: |
+          psql "${{ secrets.SUPABASE_DB_URL }}" -f scripts/verify-governance-badge.sql
+
+  test-e2e:
+    name: E2E Testing
+    runs-on: ubuntu-latest
+    needs: [db-validate]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Start development server
+        run: |
+          npm run dev &
+          npx wait-on http://localhost:3000
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ env.SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ env.SUPABASE_ANON_KEY }}
+
+      - name: Run Playwright tests
+        run: npx playwright test
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ env.SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ env.SUPABASE_ANON_KEY }}
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+  mcp-health:
+    name: MCP Server Health Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Supabase MCP connectivity
+        run: |
+          curl -f "${{ env.SUPABASE_URL }}/rest/v1/" \
+            -H "apikey: ${{ env.SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ env.SUPABASE_ANON_KEY }}" || exit 1
+
+      - name: Test RPC endpoints
+        run: |
+          curl -f "${{ env.SUPABASE_URL }}/rest/v1/rpc/get_data_source_status" \
+            -X POST \
+            -H "apikey: ${{ env.SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ env.SUPABASE_ANON_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{}' || exit 1
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  performance-test:
+    name: Performance Benchmarks
+    runs-on: ubuntu-latest
+    needs: [db-validate]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+
+      - name: Performance benchmark - CAG functions (<1.2s)
+        env:
+          PGPASSWORD: ${{ secrets.SUPABASE_PASSWORD }}
+        run: |
+          start_time=$(date +%s%N)
+          psql "${{ secrets.SUPABASE_DB_URL }}" -c "SELECT * FROM scout.get_geo_summary('{}');" > /dev/null
+          end_time=$(date +%s%N)
+          duration_ms=$(( (end_time - start_time) / 1000000 ))
+          echo "Geographic Summary: ${duration_ms}ms"
+          if [ $duration_ms -gt 1200 ]; then
+            echo "FAIL: Geographic Summary exceeded 1200ms target"
+            exit 1
+          fi
+
+      - name: Performance benchmark - RAG functions (<3s)
+        env:
+          PGPASSWORD: ${{ secrets.SUPABASE_PASSWORD }}
+        run: |
+          start_time=$(date +%s%N)
+          psql "${{ secrets.SUPABASE_DB_URL }}" -c "SELECT * FROM scout.get_financial_metrics('{}');" > /dev/null
+          end_time=$(date +%s%N)
+          duration_ms=$(( (end_time - start_time) / 1000000 ))
+          echo "Financial Metrics: ${duration_ms}ms"
+          if [ $duration_ms -gt 3000 ]; then
+            echo "FAIL: Financial Metrics exceeded 3000ms target"
+            exit 1
+          fi
+
+  deployment-ready:
+    name: Deployment Readiness
+    runs-on: ubuntu-latest
+    needs: [lint, db-validate, test-e2e, mcp-health, performance-test]
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Mark deployment ready
+        run: |
+          echo "✅ All CI checks passed"
+          echo "✅ Database validation: PASS"
+          echo "✅ E2E tests: PASS"
+          echo "✅ Performance: PASS"
+          echo "✅ MCP health: PASS"
+          echo "🚀 Ready for deployment to main"

@@ -1,0 +1,18 @@
+# Vercel ignore file
+node_modules
+.next
+.git
+*.log
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Generated files that might have syntax issues
+components/chartvision/*/MainPage.tsx
+components/chartvision/*/*Dashboard.tsx
+components/chartvision/*/*DataHook.tsx
+
+# Keep only simplified dashboards
+!components/chartvision/SimplifiedDashboards.tsx

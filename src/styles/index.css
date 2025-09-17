@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --scout-primary: 30 64 175;
+    --scout-secondary: 59 130 246;
+    --scout-accent: 96 165 250;
+    --scout-dark: 15 23 42;
+    --scout-light: 248 250 252;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+  }
+}
+
+@layer components {
+  .scout-card {
+    @apply bg-scout-card rounded-lg border border-scout-card p-6;
+    box-shadow: 0 6px 8px rgba(89, 87, 87, 0.1);
+  }
+
+  .scout-card-chart {
+    @apply bg-scout-card rounded-lg border-2 border-scout-card;
+    box-shadow: 0 6px 8px rgba(89, 87, 87, 0.1);
+  }
+
+  .scout-btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+  }
+
+  .scout-btn-primary {
+    @apply scout-btn bg-tbwa-yellow text-tbwa-black border border-tbwa-yellow hover:bg-tbwa-darkYellow;
+  }
+
+  .scout-btn-secondary {
+    @apply scout-btn bg-tbwa-white text-tbwa-black border border-tbwa-yellow hover:bg-tbwa-yellow hover:bg-opacity-10;
+  }
+
+  .scout-sidebar {
+    @apply fixed top-0 left-0 bottom-0 w-64 p-4 bg-scout-card border-r border-gray-200;
+  }
+
+  .scout-sidebar-collapsed {
+    @apply fixed top-0 left-0 bottom-0 w-16 p-4 bg-scout-card border-r border-gray-200;
+  }
+
+  .scout-content {
+    @apply mr-2 mt-8 p-4 bg-scout-light min-h-screen;
+  }
+
+  .scout-nav-link {
+    @apply text-scout-text hover:text-scout-secondary font-medium py-2 px-3 rounded block;
+  }
+
+  .scout-nav-link.active {
+    @apply bg-scout-border text-scout-text;
+  }
+}
+
+/* React Grid Layout Styles */
+.react-grid-layout {
+  position: relative;
+  transition: height 200ms ease;
+}
+
+.react-grid-item {
+  transition: all 200ms ease;
+  transition-property: left, top;
+}
+
+.react-grid-item.cssTransforms {
+  transition-property: transform;
+}
+
+.react-grid-item.resizing {
+  z-index: 1;
+  will-change: width, height;
+}
+
+.react-grid-item.react-draggable-dragging {
+  transition: none;
+  z-index: 3;
+  will-change: transform;
+}
+
+.react-grid-item.react-grid-placeholder {
+  background: rgb(59, 130, 246, 0.1);
+  opacity: 0.2;
+  transition-duration: 100ms;
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.react-grid-item > .react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+}
+
+.react-grid-item > .react-resizable-handle::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 5px;
+  height: 5px;
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+}
