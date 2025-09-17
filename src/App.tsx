@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Sidebar from './components/layout/Sidebar'
 import AIPanel from './components/layout/AIPanel'
 import { CascadingFilterPanel, CascadingFilterState } from './components/filters/CascadingFilterPanel'
-import { 
+import {
   EnhancedTransactionTrends,
   EnhancedProductMix,
   EnhancedConsumerBehavior,
@@ -11,6 +11,8 @@ import {
   EnhancedGeographicalIntelligence
 } from './components/enhanced/EnhancedDashboard'
 import { DatabankPage } from './components/databank'
+import DataSourceBadge from './components/ui/DataSourceBadge'
+import { assertNoMockInProd } from './lib/env'
 
 function App() {
   const [activeSection, setActiveSection] = useState('transaction-trends')
@@ -43,6 +45,11 @@ function App() {
     showDeltas: false,
     showPercentages: true
   })
+
+  // Production guard - prevent mocks in production
+  useEffect(() => {
+    assertNoMockInProd();
+  }, []);
 
   const handleRefresh = () => {
     console.log('Refreshing dashboard data...', cascadingFilters)
@@ -141,6 +148,18 @@ function App() {
         >
           {/* Dashboard Content */}
           <div className="flex-1 p-6">
+            {/* Data Source Status Header */}
+            <div className="mb-4 flex justify-between items-center">
+              <h1 className="text-2xl font-bold text-gray-900 capitalize">
+                {activeSection.replace('-', ' ')} Dashboard
+              </h1>
+              <DataSourceBadge
+                data-testid="data-source-badge"
+                showDetails={true}
+                size="md"
+              />
+            </div>
+
             {/* Check if this is the databank page for different layout */}
             {activeSection === 'databank' ? (
               <div className="w-full">

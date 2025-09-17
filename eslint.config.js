@@ -24,6 +24,30 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       "@typescript-eslint/no-unused-vars": "off",
+      // Production guards: prevent mock imports in production components
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: ["**/mocks/**", "**/mock/**"],
+              message: "Mock imports not allowed in production components. Use environment guards instead.",
+            },
+            {
+              group: ["**/lib/mocks/**"],
+              message: "Mock library imports forbidden in production. Check ENV.USE_MOCK before importing.",
+            },
+          ],
+        },
+      ],
+      // Prevent direct mock usage without environment checks
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector: "CallExpression[callee.name='mockData']",
+          message: "Direct mock calls forbidden. Use fetchOrFallback() with environment guards.",
+        },
+      ],
     },
   }
 );
