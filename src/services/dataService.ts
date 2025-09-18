@@ -6,10 +6,16 @@ const DATA_MODE = import.meta.env.VITE_DATA_MODE || 'mock_csv'
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || ''
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || ''
 
-// Initialize Supabase client if in supabase mode
-const supabase = (DATA_MODE === 'supabase' && SUPABASE_URL && SUPABASE_ANON_KEY)
-  ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-  : null
+// Initialize Supabase client only if in supabase mode and credentials are available
+let supabase: any = null;
+if (DATA_MODE === 'supabase' && SUPABASE_URL && SUPABASE_ANON_KEY && SUPABASE_URL !== 'https://your-project.supabase.co') {
+  try {
+    supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  } catch (error) {
+    console.warn('Failed to initialize Supabase client:', error);
+    supabase = null;
+  }
+}
 
 export interface FlatTxn {
   category: string;
@@ -213,88 +219,94 @@ async function fetchFromSupabase(endpoint: string, options: RequestInit = {}): P
 }
 
 export async function getTransactions(page: number = 1, pageSize: number = 50): Promise<Paged<FlatTxn>> {
-  if (DATA_MODE === 'mock_csv') {
-    const data = await loadMockData();
-    const start = (page - 1) * pageSize;
-    const end = start + pageSize;
+  if (DATA_MODE === 'supabase' && supabase) {
+    try {
+      const offset = (page - 1) * pageSize;
+      const rows = await fetchFromSupabase(
+        `scout_gold_transactions_flat?select=*&offset=${offset}&limit=${pageSize}`
+      );
 
-    return {
-      rows: data.slice(start, end),
-      total: data.length,
-      page,
-      pageSize
-    };
-  } else if (DATA_MODE === 'supabase') {
-    const offset = (page - 1) * pageSize;
-    const rows = await fetchFromSupabase(
-      `scout_gold_transactions_flat?select=*&offset=${offset}&limit=${pageSize}`
-    );
+      // Get total count with HEAD request
+      const totalResponse = await fetch(`${SUPABASE_URL}/rest/v1/scout_gold_transactions_flat?select=transaction_id`, {
+        method: 'HEAD',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Prefer': 'count=exact'
+        }
+      });
 
-    // Get total count with HEAD request
-    const totalResponse = await fetch(`${SUPABASE_URL}/rest/v1/scout_gold_transactions_flat?select=transaction_id`, {
-      method: 'HEAD',
-      headers: {
-        'apikey': SUPABASE_ANON_KEY,
-        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-        'Prefer': 'count=exact'
-      }
-    });
+      const contentRange = totalResponse.headers.get('content-range') || '';
+      const total = Number((contentRange.includes('/') ? contentRange.split('/')[1] : '') || rows.length);
 
-    const contentRange = totalResponse.headers.get('content-range') || '';
-    const total = Number((contentRange.includes('/') ? contentRange.split('/')[1] : '') || rows.length);
-
-    return {
-      rows,
-      total,
-      page,
-      pageSize
-    };
+      return {
+        rows,
+        total,
+        page,
+        pageSize
+      };
+    } catch (error) {
+      console.warn('Supabase fetch failed, falling back to CSV data:', error);
+    }
   }
 
-  throw new Error(`Unknown data mode: ${DATA_MODE}`);
+  // Default to CSV mode (fallback for supabase errors or mock_csv mode)
+  const data = await loadMockData();
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+
+  return {
+    rows: data.slice(start, end),
+    total: data.length,
+    page,
+    pageSize
+  };
 }
 
 export async function getKpis(): Promise<KpiSummary> {
-  if (DATA_MODE === 'mock_csv') {
-    const data = await loadMockData();
-    const uniqueStores = new Set(data.map(r => r.store)).size;
-    const uniqueDevices = new Set(data.map(r => r.device)).size;
-    const uniqueBrands = new Set(data.map(r => r.brand)).size;
-    const totalRevenue = data.reduce((sum, r) => sum + (r.total_price || 0), 0);
-    const dates = data.map(r => r.date_ph).filter(Boolean).sort();
+  if (DATA_MODE === 'supabase' && supabase) {
+    try {
+      const rows = await fetchFromSupabase(
+        'scout_gold_transactions_flat?select=brand,store,storeid,device,deviceid,total_price,transactiondate,ts_ph,date_ph&limit=200000'
+      );
 
-    return {
-      totalRows: data.length,
-      uniqueStores,
-      uniqueDevices,
-      uniqueBrands,
-      totalRevenue,
-      dateMin: dates[0] || null,
-      dateMax: dates[dates.length - 1] || null
-    };
-  } else if (DATA_MODE === 'supabase') {
-    const rows = await fetchFromSupabase(
-      'scout_gold_transactions_flat?select=brand,store,storeid,device,deviceid,total_price,transactiondate,ts_ph,date_ph&limit=200000'
-    );
+      const uniqueStores = new Set(rows.map((r: any) => r.store || r.storeid)).size;
+      const uniqueDevices = new Set(rows.map((r: any) => r.device || r.deviceid)).size;
+      const uniqueBrands = new Set(rows.map((r: any) => r.brand)).size;
+      const totalRevenue = rows.reduce((sum: number, r: any) => sum + (Number(r.total_price) || 0), 0);
+      const dates = rows.map((r: any) => r.transactiondate || r.ts_ph || r.date_ph).filter(Boolean).sort();
 
-    const uniqueStores = new Set(rows.map((r: any) => r.store || r.storeid)).size;
-    const uniqueDevices = new Set(rows.map((r: any) => r.device || r.deviceid)).size;
-    const uniqueBrands = new Set(rows.map((r: any) => r.brand)).size;
-    const totalRevenue = rows.reduce((sum: number, r: any) => sum + (Number(r.total_price) || 0), 0);
-    const dates = rows.map((r: any) => r.transactiondate || r.ts_ph || r.date_ph).filter(Boolean).sort();
-
-    return {
-      totalRows: rows.length,
-      uniqueStores,
-      uniqueDevices,
-      uniqueBrands,
-      totalRevenue,
-      dateMin: dates[0] || null,
-      dateMax: dates[dates.length - 1] || null
-    };
+      return {
+        totalRows: rows.length,
+        uniqueStores,
+        uniqueDevices,
+        uniqueBrands,
+        totalRevenue,
+        dateMin: dates[0] || null,
+        dateMax: dates[dates.length - 1] || null
+      };
+    } catch (error) {
+      console.warn('Supabase KPIs fetch failed, falling back to CSV data:', error);
+    }
   }
 
-  throw new Error(`Unknown data mode: ${DATA_MODE}`);
+  // Default to CSV mode (fallback for supabase errors or mock_csv mode)
+  const data = await loadMockData();
+  const uniqueStores = new Set(data.map(r => r.store)).size;
+  const uniqueDevices = new Set(data.map(r => r.device)).size;
+  const uniqueBrands = new Set(data.map(r => r.brand)).size;
+  const totalRevenue = data.reduce((sum, r) => sum + (r.total_price || 0), 0);
+  const dates = data.map(r => r.date_ph).filter(Boolean).sort();
+
+  return {
+    totalRows: data.length,
+    uniqueStores,
+    uniqueDevices,
+    uniqueBrands,
+    totalRevenue,
+    dateMin: dates[0] || null,
+    dateMax: dates[dates.length - 1] || null
+  };
 }
 
 // Utility function to get current data mode for display
