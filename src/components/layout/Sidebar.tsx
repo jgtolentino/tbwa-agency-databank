@@ -1,5 +1,5 @@
 import React from 'react'
-import { TrendingUp, Package, Users, UserCheck, BarChart3, Database, Target, MapPin, ChevronLeft, Menu } from 'lucide-react'
+import { TrendingUp, Package, Users, UserCheck, BarChart3, Database, Target, MapPin, ChevronLeft, Menu, Crown } from 'lucide-react'
 import { getDataSourceBadge } from '../../services/dataService'
 
 interface SidebarProps {
@@ -12,8 +12,14 @@ interface SidebarProps {
 const Sidebar = ({ activeSection, onSectionChange, isCollapsed, onToggle }: SidebarProps) => {
   const navItems = [
     {
+      id: 'executive-overview',
+      label: 'Executive Overview',
+      icon: Crown,
+      description: 'Strategic command center'
+    },
+    {
       id: 'transaction-trends',
-      label: 'Transaction Trends', 
+      label: 'Transaction Trends',
       icon: TrendingUp,
       description: 'Volume, timing & patterns'
     },

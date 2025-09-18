@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Sidebar from './components/layout/Sidebar'
 import AIPanel from './components/layout/AIPanel'
 import { CascadingFilterPanel, CascadingFilterState } from './components/filters/CascadingFilterPanel'
-import { 
+import {
   EnhancedTransactionTrends,
   EnhancedProductMix,
   EnhancedConsumerBehavior,
@@ -11,9 +11,10 @@ import {
   EnhancedGeographicalIntelligence
 } from './components/enhanced/EnhancedDashboard'
 import { DatabankPage } from './components/databank'
+import ExecutiveOverview from './components/executive/ExecutiveOverview'
 
 function App() {
-  const [activeSection, setActiveSection] = useState('transaction-trends')
+  const [activeSection, setActiveSection] = useState('executive-overview')
   const [showEnhanced, setShowEnhanced] = useState(true) // Toggle between enhanced and basic views
   
   // Panel states
@@ -85,6 +86,11 @@ function App() {
       return <DatabankPage />
     }
 
+    // Check if this is the executive overview page
+    if (activeSection === 'executive-overview') {
+      return <ExecutiveOverview />
+    }
+
     if (showEnhanced) {
       switch (activeSection) {
         case 'transaction-trends':
@@ -141,8 +147,8 @@ function App() {
         >
           {/* Dashboard Content */}
           <div className="flex-1 p-6">
-            {/* Check if this is the databank page for different layout */}
-            {activeSection === 'databank' ? (
+            {/* Check if this is the databank or executive overview page for different layout */}
+            {activeSection === 'databank' || activeSection === 'executive-overview' ? (
               <div className="w-full">
                 {renderActiveSection()}
               </div>
@@ -152,7 +158,7 @@ function App() {
                 <div className="xl:col-span-3">
                   {renderActiveSection()}
                 </div>
-                
+
                 {/* AI Recommendations Panel */}
                 <div className="xl:col-span-1">
                   <AIPanel section={activeSection} />
@@ -161,8 +167,8 @@ function App() {
             )}
           </div>
           
-          {/* Cascading Filter Panel - hide for databank */}
-          {activeSection !== 'databank' && (
+          {/* Cascading Filter Panel - hide for databank and executive overview */}
+          {activeSection !== 'databank' && activeSection !== 'executive-overview' && (
             <CascadingFilterPanel
               isCollapsed={isFilterCollapsed}
               onToggle={() => setIsFilterCollapsed(!isFilterCollapsed)}
