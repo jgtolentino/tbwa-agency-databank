@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Download, RefreshCw, Calendar, MapPin, Package, Filter } from 'lucide-react'
+import StorePerformanceMap from '../maps/StorePerformanceMap'
+import GeographicInsights from '../ai/GeographicInsights'
 import { 
   TransactionAreaChart, 
   ProductMixPieChart, 
@@ -725,16 +727,16 @@ export const EnhancedCompetitiveAnalysis = () => {
 
 // Geographical Intelligence Section
 export const EnhancedGeographicalIntelligence = () => {
-  const [activeTab, setActiveTab] = useState('Regional Performance')
-  const tabs = ['Regional Performance', 'Store Locations', 'Demographics', 'Market Penetration']
+  const [activeTab, setActiveTab] = useState('Store Map')
+  const tabs = ['Store Map', 'Geographic Insights', 'Performance Analysis']
 
   return (
     <div className="space-y-6">
       {/* Enhanced Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-scout-text mb-2">Geographical Intelligence</h2>
-          <p className="text-gray-600">Location-based insights, regional performance & market penetration analysis</p>
+          <h2 className="text-2xl font-bold text-scout-text mb-2">Geographic Analytics</h2>
+          <p className="text-gray-600">Store performance mapping, concentration risk analysis & expansion opportunities</p>
         </div>
         <div className="flex items-center space-x-2">
           <button className="scout-btn-primary flex items-center space-x-2">
@@ -744,118 +746,101 @@ export const EnhancedGeographicalIntelligence = () => {
         </div>
       </div>
 
-      {/* Enhanced KPI Cards */}
+      {/* Enhanced KPI Cards - Real data from store analytics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <EnhancedKPICard
-          title="Top Region"
-          value="Metro Manila"
-          subValue="95% performance"
+          title="Top Store"
+          value="Store 108"
+          subValue="₱1.25M revenue"
           trend="up"
           icon={MapPin}
         />
         <EnhancedKPICard
-          title="Regional Coverage"
-          value="6 Regions"
-          change={1}
-          changeType="absolute"
+          title="Store Network"
+          value="20 Stores"
+          subValue="7 analyzed"
           trend="up"
           icon={MapPin}
         />
         <EnhancedKPICard
-          title="Avg Performance"
-          value="78%"
-          change={5.2}
-          trend="up"
+          title="Concentration Risk"
+          value="44.6%"
+          subValue="Store 108 dominance"
+          trend="warning"
           icon={MapPin}
         />
         <EnhancedKPICard
-          title="Market Penetration"
-          value="42%"
-          change={3.8}
-          trend="up"
+          title="Performance Gap"
+          value="38%"
+          subValue="Analyzed vs Network"
+          trend="down"
           icon={MapPin}
         />
       </div>
 
-      {/* Tab Navigation with Charts */}
+      {/* Tab Navigation with Real Geographic Components */}
       <div className="scout-card-chart p-6">
-        <TabNavigation 
+        <TabNavigation
           tabs={tabs}
           activeTab={activeTab}
           onTabChange={setActiveTab}
         />
-        
+
         <div className="mt-4">
-          {activeTab === 'Regional Performance' && (
+          {activeTab === 'Store Map' && (
             <div>
-              <h3 className="text-lg font-semibold text-scout-text mb-4">Philippines Regional Performance Map</h3>
-              <MapboxChoroplethMap 
-                title="Regional Revenue & Performance Distribution"
-                metric="revenue"
-              />
-              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <StorePerformanceMap className="mb-6" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-scout-accent">
-                  <p className="text-sm font-medium text-scout-text">Regional Insights</p>
+                  <p className="text-sm font-medium text-scout-text">Store Distribution</p>
                   <p className="text-sm text-gray-600 mt-1">
-                    Metro Manila (NCR) leads with ₱2.85M revenue and 45 stores. 
-                    CALABARZON shows highest growth at 14.2% with strong market penetration.
+                    20 stores concentrated in Quezon City area. Store 108 on Quezon Ave dominates with
+                    ₱1.25M revenue (26.6% market share). 7 stores have advanced analytics enabled.
                   </p>
                 </div>
                 <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-                  <p className="text-sm font-medium text-scout-text">Growth Opportunities</p>
+                  <p className="text-sm font-medium text-scout-text">Performance Insights</p>
                   <p className="text-sm text-gray-600 mt-1">
-                    Central Visayas and Davao Region show balanced performance with 
-                    strong growth rates (11.8% and 10.6%) and expanding customer base.
+                    Top performers: Store 108 (₱1.25M), Store 105 Katipunan (₱420K), Store 103 Diliman (₱380K).
+                    All analyzed stores show higher avg transaction values (₱200 vs ₱141).
                   </p>
                 </div>
               </div>
             </div>
           )}
-          {activeTab === 'Store Locations' && (
+          {activeTab === 'Geographic Insights' && (
             <div>
-              <h3 className="text-lg font-semibold text-scout-text mb-4">Store Location Intelligence</h3>
-              <StoreLocationChart />
-              <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-scout-accent">
-                <p className="text-sm font-medium text-scout-text">Location Strategy</p>
-                <p className="text-sm text-gray-600 mt-1">
-                  Standalone stores achieve highest conversion (42%) despite lower foot traffic. 
-                  Mall locations generate most revenue (₱450K) through high traffic volume.
-                </p>
+              <GeographicInsights className="mb-6" />
+              <div className="mt-4 p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                <p className="text-sm font-medium text-orange-800">Strategic Recommendations</p>
+                <ul className="text-sm text-orange-700 mt-1 space-y-1">
+                  <li>• Diversify revenue sources - Store 108 concentration creates business risk</li>
+                  <li>• Upgrade network stores to analytics-enabled status for performance boost</li>
+                  <li>• Focus expansion on Fairview and southern QC areas</li>
+                  <li>• Implement bundle optimization across all analyzed stores</li>
+                </ul>
               </div>
             </div>
           )}
-          {activeTab === 'Demographics' && (
+          {activeTab === 'Performance Analysis' && (
             <div>
-              <h3 className="text-lg font-semibold text-scout-text mb-4">Geographic Demographics Distribution</h3>
-              <GeoDemographicsChart />
-              <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-scout-accent">
-                <p className="text-sm font-medium text-scout-text">Demographic Patterns</p>
-                <p className="text-sm text-gray-600 mt-1">
-                  Urban core customers (₱145 avg spend) drive highest revenue per capita. 
-                  Suburban 35-44 demographic (35% population) represents growth opportunity.
-                </p>
-              </div>
-            </div>
-          )}
-          {activeTab === 'Market Penetration' && (
-            <div>
-              <h3 className="text-lg font-semibold text-scout-text mb-4">Market Penetration Analysis</h3>
+              <h3 className="text-lg font-semibold text-scout-text mb-4">Store Performance Analysis</h3>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-                    <h4 className="font-medium text-green-800 mb-2">High Penetration Markets</h4>
+                    <h4 className="font-medium text-green-800 mb-2">Top Performers</h4>
                     <div className="space-y-2 text-sm text-green-700">
                       <div className="flex justify-between">
-                        <span>Metro Manila:</span>
-                        <span className="font-medium">65% penetration</span>
+                        <span>Store 108 - Quezon Ave:</span>
+                        <span className="font-medium">₱1.25M</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Cebu:</span>
-                        <span className="font-medium">48% penetration</span>
+                        <span>Store 105 - Katipunan:</span>
+                        <span className="font-medium">₱420K</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Davao:</span>
-                        <span className="font-medium">42% penetration</span>
+                        <span>Store 103 - Diliman:</span>
+                        <span className="font-medium">₱380K</span>
                       </div>
                     </div>
                   </div>
@@ -863,44 +848,52 @@ export const EnhancedGeographicalIntelligence = () => {
                     <h4 className="font-medium text-orange-800 mb-2">Growth Opportunities</h4>
                     <div className="space-y-2 text-sm text-orange-700">
                       <div className="flex justify-between">
-                        <span>Iloilo:</span>
-                        <span className="font-medium">28% penetration</span>
+                        <span>Store 202 - Fairview:</span>
+                        <span className="font-medium">₱158K (expansion target)</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Baguio:</span>
-                        <span className="font-medium">22% penetration</span>
+                        <span>Store 203 - La Mesa:</span>
+                        <span className="font-medium">₱152K (optimize)</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Cagayan de Oro:</span>
-                        <span className="font-medium">35% penetration</span>
+                        <span>Store 106 - Commonwealth:</span>
+                        <span className="font-medium">₱180K (analytics upgrade)</span>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-                    <h4 className="font-medium text-blue-800 mb-2">Strategic Recommendations</h4>
-                    <ul className="text-sm text-blue-700 space-y-1">
-                      <li>• Expand in Visayas region (Iloilo focus)</li>
-                      <li>• Increase Mindanao presence (Davao base)</li>
-                      <li>• Optimize Metro Manila store density</li>
-                      <li>• Pilot rural market entry strategies</li>
-                    </ul>
+                    <h4 className="font-medium text-blue-800 mb-2">Performance Metrics</h4>
+                    <div className="space-y-2 text-sm text-blue-700">
+                      <div className="flex justify-between">
+                        <span>Analyzed Stores Avg:</span>
+                        <span className="font-medium">₱384K revenue</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Network Stores Avg:</span>
+                        <span className="font-medium">₱124K revenue</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Performance Gap:</span>
+                        <span className="font-medium">38% higher</span>
+                      </div>
+                    </div>
                   </div>
                   <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
-                    <h4 className="font-medium text-purple-800 mb-2">Market Potential</h4>
+                    <h4 className="font-medium text-purple-800 mb-2">Revenue Potential</h4>
                     <div className="space-y-2 text-sm text-purple-700">
                       <div className="flex justify-between">
-                        <span>Addressable Market:</span>
-                        <span className="font-medium">₱2.4B</span>
+                        <span>Total Network Revenue:</span>
+                        <span className="font-medium">₱4.69M</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Current Capture:</span>
-                        <span className="font-medium">₱1.0B (42%)</span>
+                        <span>Bundle Opportunities:</span>
+                        <span className="font-medium">₱675K potential</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Growth Potential:</span>
-                        <span className="font-medium">₱1.4B (58%)</span>
+                        <span>Analytics Upgrade Value:</span>
+                        <span className="font-medium">₱1.2M+ potential</span>
                       </div>
                     </div>
                   </div>

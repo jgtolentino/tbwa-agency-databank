@@ -1,0 +1,41 @@
+{
+  "concentration_risk": {
+    "store_108_dominance": 44.6,
+    "top_3_stores_share": 68.0,
+    "geographic_spread": "Concentrated in Quezon City North",
+    "recommendation": "Diversify to Southern QC and adjacent cities"
+  },
+  "performance_clusters": {
+    "high_performance_zone": "Quezon Ave - Katipunan corridor",
+    "underperforming_areas": [
+      "UP Village",
+      "Teachers Village"
+    ],
+    "expansion_opportunities": [
+      "Fairview",
+      "Commonwealth East"
+    ]
+  },
+  "analyzed_vs_network": {
+    "analyzed_avg_revenue": 438285.71428571426,
+    "network_avg_revenue": 125000.0,
+    "performance_gap": 35.2
+  },
+  "optimization_priorities": [
+    {
+      "area": "Store 108 vicinity",
+      "action": "Add 2 stores within 2km",
+      "impact": "\u20b1300K/month"
+    },
+    {
+      "area": "Fairview-Commonwealth",
+      "action": "Upgrade to analyzed status",
+      "impact": "\u20b1150K/month"
+    },
+    {
+      "area": "UP Campus area",
+      "action": "Consolidate 3 stores to 2",
+      "impact": "\u20b150K savings"
+    }
+  ]
+}
