@@ -6,15 +6,39 @@ const DATA_MODE = import.meta.env.VITE_DATA_MODE || 'mock_csv'
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || ''
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || ''
 
+// Guard against missing environment variables with clear error message
+function validateSupabaseConfig() {
+  if (DATA_MODE === 'supabase') {
+    const missing = [
+      !SUPABASE_URL && 'VITE_SUPABASE_URL',
+      !SUPABASE_ANON_KEY && 'VITE_SUPABASE_ANON_KEY',
+    ].filter(Boolean);
+
+    if (missing.length > 0) {
+      throw new Error(`[Supabase] Missing required env(s): ${missing.join(', ')}`);
+    }
+
+    if (SUPABASE_URL === 'https://your-project.supabase.co' || SUPABASE_ANON_KEY === 'your-anon-key') {
+      throw new Error('[Supabase] Environment variables contain placeholder values');
+    }
+  }
+}
+
 // Initialize Supabase client only if in supabase mode and credentials are available
 let supabase: any = null;
-if (DATA_MODE === 'supabase' && SUPABASE_URL && SUPABASE_ANON_KEY && SUPABASE_URL !== 'https://your-project.supabase.co') {
+if (DATA_MODE === 'supabase') {
   try {
-    supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    validateSupabaseConfig();
+    supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+      auth: { persistSession: false },
+    });
+    console.log('✅ Supabase client initialized for trusted data mode');
   } catch (error) {
-    console.warn('Failed to initialize Supabase client:', error);
+    console.warn('⚠️ Supabase initialization failed, falling back to CSV mode:', error);
     supabase = null;
   }
+} else {
+  console.log('📁 Using CSV data mode');
 }
 
 export interface FlatTxn {
