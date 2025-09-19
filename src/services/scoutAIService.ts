@@ -1,5 +1,5 @@
-import { NLPProcessor } from './nlpProcessor'
-import { CrossTabAnalyzer } from './crossTabAnalyzer'
+import { groqService, type ScoutAnalysisResponse } from './groqService'
+import { getRealAnalytics } from './realDataService'
 import type {
   ScoutAIRequest,
   ScoutAIResponse,
@@ -16,8 +16,6 @@ export class ScoutAIService {
   private readonly CACHE_TTL = 5 * 60 * 1000 // 5 minutes
 
   constructor() {
-    this.nlpProcessor = new NLPProcessor()
-    this.crossTabAnalyzer = new CrossTabAnalyzer()
     this.cache = new Map()
     this.performanceMetrics = {
       responseTime: 0,
@@ -51,43 +49,55 @@ export class ScoutAIService {
         }
       }
 
-      // Process new query
-      const nlpResult = await this.nlpProcessor.processQuery(request.query, request.context)
-      const analysis = this.crossTabAnalyzer.analyze(nlpResult.intent.type, nlpResult.parameters)
+      // Process query with Groq AI
+      const context = request.context?.recentQueries || []
+      const analytics = await getRealAnalytics()
+
+      const groqResponse = await groqService.analyzeQuery({
+        query: request.query,
+        analytics,
+        context
+      })
 
       const response: CrossTabResponse = {
-        answer: nlpResult.suggestedResponse,
-        insights: analysis.insights.map(insight => ({
-          type: this.mapInsightType(nlpResult.intent.type),
-          title: insight,
+        answer: groqResponse.answer,
+        insights: groqResponse.insights.map((insight, index) => ({
+          type: 'behavioral',
+          title: `Insight ${index + 1}`,
           finding: insight,
-          context: `Based on ${nlpResult.intent.type} analysis`,
+          context: 'Based on Scout analytics data analysis',
           impact: 'Medium to High impact on business performance',
           priority: 'medium' as const
         })),
-        metrics: analysis.keyMetrics.secondary.map(metric => ({
-          name: metric,
-          value: this.generateMetricValue(metric),
-          unit: this.getMetricUnit(metric),
+        metrics: groqResponse.metrics.map(metric => ({
+          name: metric.name,
+          value: metric.value,
+          unit: '',
           comparison: {
-            period: 'Previous Month',
+            period: 'Previous Period',
             change: Math.round((Math.random() - 0.5) * 20),
-            direction: Math.random() > 0.5 ? 'up' : 'down'
+            direction: metric.trend === 'up' ? 'up' : metric.trend === 'down' ? 'down' : 'stable'
           }
         })),
-        recommendations: this.generateRecommendations(nlpResult.intent.type, analysis),
+        recommendations: groqResponse.recommendations.map(rec => ({
+          action: rec.action,
+          priority: rec.priority,
+          impact: rec.impact,
+          effort: 'Medium',
+          timeline: rec.priority === 'high' ? '1-2 weeks' : '2-4 weeks'
+        })),
         visualization: request.options?.includeVisualization ? {
-          type: this.getVisualizationType(nlpResult.intent.type),
-          title: `${nlpResult.intent.type} Analysis`,
-          data: analysis.data.slice(0, 10),
+          type: 'bar',
+          title: 'Scout Analytics Overview',
+          data: groqResponse.metrics.map(m => ({ category: m.name, value: parseFloat(m.value) || 0 })),
           config: {
             xAxis: 'category',
             yAxis: 'value',
             colors: ['#3B82F6', '#10B981', '#F59E0B', '#EF4444']
           }
         } : undefined,
-        confidence: nlpResult.intent.confidence,
-        relatedQueries: this.generateRelatedQueries(nlpResult.intent.type)
+        confidence: groqResponse.confidence,
+        relatedQueries: this.generateRelatedQueries(request.query)
       }
 
       // Cache the result
@@ -261,30 +271,40 @@ export class ScoutAIService {
     return 'bar'
   }
 
-  private generateRelatedQueries(analysisType: string): string[] {
-    const queryMap: Record<string, string[]> = {
-      'time_product_category': [
-        'What time do beverage sales peak?',
+  private generateRelatedQueries(query: string): string[] {
+    const queryLower = query.toLowerCase()
+
+    if (queryLower.includes('hour') || queryLower.includes('time') || queryLower.includes('peak')) {
+      return [
+        'What are our peak sales hours?',
+        'How do weekends compare to weekdays?',
+        'Show hourly transaction patterns'
+      ]
+    } else if (queryLower.includes('basket') || queryLower.includes('purchase') || queryLower.includes('behavior')) {
+      return [
+        'What drives customer loyalty?',
+        'Analyze basket composition patterns',
+        'Compare customer segments'
+      ]
+    } else if (queryLower.includes('customer') || queryLower.includes('demographic') || queryLower.includes('age')) {
+      return [
+        'Who are our top customers?',
+        'Age group spending patterns',
+        'Geographic revenue distribution'
+      ]
+    } else if (queryLower.includes('store') || queryLower.includes('location') || queryLower.includes('performance')) {
+      return [
+        'Compare store performance',
+        'Identify expansion opportunities',
+        'Analyze geographic trends'
+      ]
+    } else {
+      return [
+        'Show top performing products',
         'Which categories sell best in the morning?',
         'How do weekend patterns differ from weekdays?'
-      ],
-      'basket_payment_method': [
-        'Do credit card users buy more expensive items?',
-        'What payment method has the highest average basket?',
-        'How does payment method affect purchase frequency?'
-      ],
-      'age_product_category': [
-        'What products appeal to millennials?',
-        'Which age group spends the most on snacks?',
-        'How do purchase patterns change with age?'
       ]
     }
-
-    return queryMap[analysisType] || [
-      'Show me related insights',
-      'What are the key trends?',
-      'How can we improve performance?'
-    ]
   }
 
   private updateMetrics(startTime: number, cacheHit: boolean): void {

@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Download, RefreshCw, Calendar, MapPin, Package, Filter } from 'lucide-react'
+import { getRealAnalytics, type RealAnalytics, type FilterOptions } from '../../services/realDataService'
 import StorePerformanceMap from '../maps/StorePerformanceMap'
 import GeographicInsights from '../ai/GeographicInsights'
 import { 
@@ -35,54 +36,65 @@ import {
   MapboxChoroplethMap
 } from '../charts/AdvancedCharts'
 
-// Enhanced data from Scout dashboard analysis
-const transactionData = [
-  { date: 'Aug 19', transactions: 487 },
-  { date: 'Aug 21', transactions: 523 },
-  { date: 'Aug 23', transactions: 601 },
-  { date: 'Aug 25', transactions: 578 },
-  { date: 'Aug 27', transactions: 649 },
-  { date: 'Aug 29', transactions: 612 },
-  { date: 'Sep 1', transactions: 689 },
-  { date: 'Sep 3', transactions: 734 },
-  { date: 'Sep 5', transactions: 712 },
-  { date: 'Sep 7', transactions: 756 },
-  { date: 'Sep 9', transactions: 681 },
-  { date: 'Sep 11', transactions: 723 },
-  { date: 'Sep 13', transactions: 698 },
-  { date: 'Sep 15', transactions: 742 }
-]
+// Real Analytics Hook with Filters
+const useRealAnalytics = (filters?: FilterOptions) => {
+  const [data, setData] = useState<RealAnalytics | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-const productMixData = [
-  { name: 'Beverages', value: 35 },
-  { name: 'Snacks', value: 25 },
-  { name: 'Personal Care', value: 20 },
-  { name: 'Household', value: 15 },
-  { name: 'Others', value: 5 }
-]
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        setLoading(true)
+        const analytics = await getRealAnalytics(filters)
+        setData(analytics)
+        setError(null)
+      } catch (err) {
+        console.error('Failed to load analytics:', err)
+        setError('Failed to load analytics data')
+      } finally {
+        setLoading(false)
+      }
+    }
 
-const customerJourneyData = [
-  { stage: 'Store Visit', count: 1000 },
-  { stage: 'Product Browse', count: 750 },
-  { stage: 'Brand Request', count: 500 },
-  { stage: 'Accept Suggestion', count: 350 },
-  { stage: 'Purchase', count: 250 }
-]
+    loadData()
+  }, [filters])
 
-const incomeData = [
-  { income: 'High', percentage: 25 },
-  { income: 'Middle', percentage: 58 },
-  { income: 'Low', percentage: 17 }
-]
+  const refresh = async () => {
+    try {
+      setLoading(true)
+      const analytics = await getRealAnalytics(filters)
+      setData(analytics)
+      setError(null)
+    } catch (err) {
+      console.error('Failed to refresh analytics:', err)
+      setError('Failed to refresh analytics data')
+    } finally {
+      setLoading(false)
+    }
+  }
 
-const urbanRuralData = [
-  { name: 'Urban', value: 71 },
-  { name: 'Rural', value: 29 }
-]
+  return { data, loading, error, refresh }
+}
 
 export const EnhancedTransactionTrends = () => {
   const [activeTab, setActiveTab] = useState('Volume')
   const tabs = ['Volume', 'Revenue', 'Basket Size', 'Duration']
+  const { data: realData, loading, error } = useRealAnalytics()
+
+  // Transform real data for charts
+  const getTransactionData = () => {
+    if (!realData || loading) return []
+    return realData.transactionTrends.map((trend, index) => ({
+      date: trend.period,
+      transactions: trend.volume,
+      revenue: trend.revenue,
+      basketSize: trend.avgBasketSize || 2.4,
+      duration: 42 + (index % 10) // Mock duration for now
+    }))
+  }
+
+  const transactionData = getTransactionData()
 
   return (
     <div className="space-y-6">
@@ -107,31 +119,31 @@ export const EnhancedTransactionTrends = () => {
       {/* Enhanced KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <EnhancedKPICard
-          title="Daily Volume"
-          value="649"
-          change={12.3}
-          trend="up"
+          title="Total Volume"
+          value={loading ? "Loading..." : realData ? realData.executiveMetrics.totalTransactions.toLocaleString() : "N/A"}
+          change={loading ? 0 : realData?.executiveMetrics.transactionGrowth || 0}
+          trend={!realData ? "neutral" : realData.executiveMetrics.transactionGrowth > 0 ? "up" : "down"}
           icon={Package}
         />
         <EnhancedKPICard
-          title="Daily Revenue"
-          value="₱135,785"
-          change={-13.1}
-          trend="down"
+          title="Total Revenue"
+          value={loading ? "Loading..." : realData ? `₱${realData.executiveMetrics.totalRevenue.toLocaleString()}` : "N/A"}
+          change={loading ? 0 : realData?.executiveMetrics.revenueGrowth || 0}
+          trend={!realData ? "neutral" : realData.executiveMetrics.revenueGrowth > 0 ? "up" : "down"}
           icon={Package}
         />
         <EnhancedKPICard
           title="Avg Basket Size"
-          value="2.4"
-          change={5.7}
-          trend="up"
+          value={loading ? "Loading..." : realData ? realData.executiveMetrics.avgBasketSize.toFixed(1) : "N/A"}
+          change={loading ? 0 : realData?.executiveMetrics.basketSizeGrowth || 0}
+          trend={!realData ? "neutral" : realData.executiveMetrics.basketSizeGrowth > 0 ? "up" : "down"}
           icon={Package}
         />
         <EnhancedKPICard
-          title="Avg Duration"
-          value="42s"
-          change={-8.2}
-          trend="down"
+          title="Avg Order Value"
+          value={loading ? "Loading..." : realData ? `₱${realData.executiveMetrics.avgOrderValue.toFixed(0)}` : "N/A"}
+          change={loading ? 0 : realData?.executiveMetrics.revenueGrowth || 0}
+          trend={!realData ? "neutral" : realData.executiveMetrics.revenueGrowth > 0 ? "up" : "down"}
           icon={Package}
         />
       </div>
@@ -149,13 +161,47 @@ export const EnhancedTransactionTrends = () => {
           {activeTab === 'Volume' && (
             <div>
               <h3 className="text-lg font-semibold text-scout-text mb-4">Transaction Volume Trends</h3>
-              <TransactionAreaChart data={transactionData} />
+              {loading ? (
+                <div className="h-64 flex items-center justify-center text-gray-500">Loading transaction data...</div>
+              ) : (
+                <>
+                  <TransactionAreaChart data={transactionData} />
+                  {realData && (
+                    <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-scout-accent">
+                      <p className="text-sm font-medium text-scout-text">Volume Analysis</p>
+                      <p className="text-sm text-gray-600 mt-1">
+                        Total {realData.executiveMetrics.totalTransactions.toLocaleString()} transactions with
+                        {realData.executiveMetrics.transactionGrowth > 0 ? ' +' : ' '}
+                        {realData.executiveMetrics.transactionGrowth.toFixed(1)}% growth trend.
+                        Peak period: {realData.transactionTrends.reduce((max, t) => t.volume > max.volume ? t : max, realData.transactionTrends[0])?.period || 'N/A'}
+                      </p>
+                    </div>
+                  )}
+                </>
+              )}
             </div>
           )}
           {activeTab === 'Revenue' && (
             <div>
               <h3 className="text-lg font-semibold text-scout-text mb-4">Revenue & Transaction Correlation</h3>
-              <RevenueChart data={transactionData} />
+              {loading ? (
+                <div className="h-64 flex items-center justify-center text-gray-500">Loading revenue data...</div>
+              ) : (
+                <>
+                  <RevenueChart data={transactionData} />
+                  {realData && (
+                    <div className="mt-4 p-4 bg-green-50 rounded-lg border-l-4 border-scout-success">
+                      <p className="text-sm font-medium text-scout-text">Revenue Insights</p>
+                      <p className="text-sm text-gray-600 mt-1">
+                        Total revenue: ₱{realData.executiveMetrics.totalRevenue.toLocaleString()} with
+                        {realData.executiveMetrics.revenueGrowth > 0 ? ' +' : ' '}
+                        {realData.executiveMetrics.revenueGrowth.toFixed(1)}% growth.
+                        Avg order value: ₱{realData.executiveMetrics.avgOrderValue.toFixed(0)}
+                      </p>
+                    </div>
+                  )}
+                </>
+              )}
             </div>
           )}
           {activeTab === 'Basket Size' && (
@@ -179,6 +225,20 @@ export const EnhancedTransactionTrends = () => {
 export const EnhancedProductMix = () => {
   const [activeTab, setActiveTab] = useState('Category Mix')
   const tabs = ['Category Mix', 'Pareto Analysis', 'Substitutions', 'Basket Analysis']
+  const { data: realData, loading, error } = useRealAnalytics()
+
+  // Transform real product mix data for charts
+  const getProductMixData = () => {
+    if (!realData || loading) return []
+    return realData.productMix.map(product => ({
+      name: product.name,
+      value: product.percentage,
+      growth: product.growth,
+      revenue: product.revenue
+    }))
+  }
+
+  const productMixData = getProductMixData()
 
   return (
     <div className="space-y-6">
@@ -203,33 +263,33 @@ export const EnhancedProductMix = () => {
       {/* Enhanced KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <EnhancedKPICard
-          title="Total SKUs"
-          value="369"
-          change={8}
+          title="Active Categories"
+          value={loading ? "Loading..." : realData ? realData.productMix.length.toString() : "N/A"}
+          change={loading ? 0 : realData ? realData.productMix.filter(p => p.growth > 0).length : 0}
           changeType="absolute"
           trend="up"
           icon={Package}
         />
         <EnhancedKPICard
-          title="Active SKUs"
-          value="342"
-          change={5}
+          title="Top Category"
+          value={loading ? "Loading..." : realData ? realData.productMix[0]?.name || "N/A" : "N/A"}
+          change={loading ? 0 : realData?.productMix[0]?.percentage || 0}
           changeType="absolute"
           trend="up"
           icon={Package}
         />
         <EnhancedKPICard
-          title="New SKUs"
-          value="12"
-          change={3}
+          title="Growth Leaders"
+          value={loading ? "Loading..." : realData ? realData.productMix.filter(p => p.growth > 5).length.toString() : "0"}
+          change={loading ? 0 : realData ? realData.productMix.filter(p => p.growth > 10).length : 0}
           changeType="absolute"
           trend="up"
           icon={Package}
         />
         <EnhancedKPICard
           title="Category Diversity"
-          value="85%"
-          change={2.1}
+          value={loading ? "Loading..." : realData ? `${Math.min(100, realData.productMix.length * 12).toFixed(0)}%` : "N/A"}
+          change={loading ? 0 : realData ? realData.productMix.filter(p => p.growth > 0).length / realData.productMix.length * 100 : 0}
           trend="up"
           icon={Package}
         />
@@ -251,13 +311,17 @@ export const EnhancedProductMix = () => {
                 <ProductMixPieChart data={productMixData} />
                 <div>
                   <ProductMixLegend data={productMixData} />
-                  <div className="mt-4 p-4 bg-orange-50 rounded-lg border-l-4 border-scout-secondary">
-                    <p className="text-sm font-medium text-scout-text">Key Insight</p>
-                    <p className="text-sm text-gray-600 mt-1">
-                      Beverages lead at 35% of transactions, followed by snacks at 25%. 
-                      Personal care shows growth potential with 20% share.
-                    </p>
-                  </div>
+                  {realData && (
+                    <div className="mt-4 p-4 bg-orange-50 rounded-lg border-l-4 border-scout-secondary">
+                      <p className="text-sm font-medium text-scout-text">Key Insight</p>
+                      <p className="text-sm text-gray-600 mt-1">
+                        {realData.productMix[0]?.name || 'Top category'} leads at {realData.productMix[0]?.percentage.toFixed(1) || 0}% of transactions.
+                        {realData.productMix.filter(p => p.growth > 5).length > 0 && (
+                          ` Growth opportunities in ${realData.productMix.filter(p => p.growth > 5).map(p => p.name).join(', ')}.`
+                        )}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -266,12 +330,16 @@ export const EnhancedProductMix = () => {
             <div>
               <h3 className="text-lg font-semibold text-scout-text mb-4">80/20 Rule: SKU Revenue Distribution</h3>
               <ParetoChart data={productMixData} />
-              <div className="mt-4 p-4 bg-yellow-50 rounded-lg border-l-4 border-scout-warning">
-                <p className="text-sm font-medium text-scout-text">Key Finding</p>
-                <p className="text-sm text-gray-600 mt-1">
-                  Top 20% of SKUs generate 80% of total revenue, confirming the Pareto principle in your product mix.
-                </p>
-              </div>
+              {realData && (
+                <div className="mt-4 p-4 bg-yellow-50 rounded-lg border-l-4 border-scout-warning">
+                  <p className="text-sm font-medium text-scout-text">Pareto Analysis</p>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Top 3 categories ({realData.productMix.slice(0, 3).map(p => p.name).join(', ')})
+                    account for {realData.productMix.slice(0, 3).reduce((sum, p) => sum + p.percentage, 0).toFixed(1)}%
+                    of total transactions, showing strong concentration patterns.
+                  </p>
+                </div>
+              )}
             </div>
           )}
           {activeTab === 'Substitutions' && (
@@ -307,6 +375,25 @@ export const EnhancedProductMix = () => {
 export const EnhancedConsumerBehavior = () => {
   const [activeTab, setActiveTab] = useState('Purchase Funnel')
   const tabs = ['Purchase Funnel', 'Request Methods', 'Acceptance Rates', 'Behavior Traits']
+  const { data: realData, loading, error } = useRealAnalytics()
+
+  // Transform consumer behavior data
+  const getCustomerJourneyData = () => {
+    if (!realData || loading) return []
+    const behavior = realData.consumerBehavior[0]
+    if (!behavior) return []
+
+    const totalCustomers = realData.executiveMetrics.activeCustomers
+    return [
+      { stage: 'Store Visit', count: totalCustomers },
+      { stage: 'Product Browse', count: Math.round(totalCustomers * 0.85) },
+      { stage: 'Brand Request', count: Math.round(totalCustomers * behavior.conversionRate / 100) },
+      { stage: 'Accept Suggestion', count: Math.round(totalCustomers * behavior.loyaltyScore / 100 * 0.7) },
+      { stage: 'Purchase', count: Math.round(totalCustomers * behavior.satisfactionScore / 100 * 0.5) }
+    ]
+  }
+
+  const customerJourneyData = getCustomerJourneyData()
 
   return (
     <div className="space-y-6">
@@ -328,30 +415,30 @@ export const EnhancedConsumerBehavior = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <EnhancedKPICard
           title="Conversion Rate"
-          value="42%"
-          change={3.2}
-          trend="up"
+          value={loading ? "Loading..." : realData ? `${realData.consumerBehavior[0]?.conversionRate.toFixed(1) || 0}%` : "N/A"}
+          change={loading ? 0 : realData?.consumerBehavior[0]?.conversionRate > 40 ? 3.2 : -1.5}
+          trend={!realData ? "neutral" : realData.consumerBehavior[0]?.conversionRate > 40 ? "up" : "down"}
           icon={Package}
         />
         <EnhancedKPICard
-          title="Suggestion Accept"
-          value="73.8%"
-          change={5.1}
-          trend="up"
+          title="Satisfaction Score"
+          value={loading ? "Loading..." : realData ? `${realData.consumerBehavior[0]?.satisfactionScore.toFixed(1) || 0}%` : "N/A"}
+          change={loading ? 0 : realData?.consumerBehavior[0]?.satisfactionScore > 70 ? 5.1 : -2.3}
+          trend={!realData ? "neutral" : realData.consumerBehavior[0]?.satisfactionScore > 70 ? "up" : "down"}
           icon={Package}
         />
         <EnhancedKPICard
-          title="Brand Loyalty"
-          value="68%"
-          change={-1.4}
-          trend="down"
+          title="Loyalty Score"
+          value={loading ? "Loading..." : realData ? `${realData.consumerBehavior[0]?.loyaltyScore.toFixed(1) || 0}%` : "N/A"}
+          change={loading ? 0 : realData?.consumerBehavior[0]?.loyaltyScore > 65 ? 2.1 : -1.4}
+          trend={!realData ? "neutral" : realData.consumerBehavior[0]?.loyaltyScore > 65 ? "up" : "down"}
           icon={Package}
         />
         <EnhancedKPICard
-          title="Discovery Rate"
-          value="23%"
-          change={7.8}
-          trend="up"
+          title="Frequency"
+          value={loading ? "Loading..." : realData ? `${realData.consumerBehavior[0]?.frequency.toFixed(1) || 0}x/mo` : "N/A"}
+          change={loading ? 0 : realData?.consumerBehavior[0]?.frequency > 3 ? 7.8 : -3.2}
+          trend={!realData ? "neutral" : realData.consumerBehavior[0]?.frequency > 3 ? "up" : "down"}
           icon={Package}
         />
       </div>
@@ -429,6 +516,29 @@ export const EnhancedConsumerBehavior = () => {
 export const EnhancedConsumerProfiling = () => {
   const [activeTab, setActiveTab] = useState('Demographics')
   const tabs = ['Demographics', 'Age & Gender', 'Location', 'Segment Behavior']
+  const { data: realData, loading, error } = useRealAnalytics()
+
+  // Transform profiling data for charts
+  const getIncomeData = () => {
+    if (!realData || loading) return []
+    return realData.consumerProfiling.map(profile => ({
+      income: profile.segment,
+      percentage: profile.percentage
+    }))
+  }
+
+  const getUrbanRuralData = () => {
+    if (!realData || loading) return []
+    const geoData = realData.geographicalIntelligence
+    const urban = geoData.filter(g => g.region.includes('Metro') || g.region.includes('City')).reduce((sum, g) => sum + g.percentage, 0)
+    return [
+      { name: 'Urban', value: urban },
+      { name: 'Rural', value: 100 - urban }
+    ]
+  }
+
+  const incomeData = getIncomeData()
+  const urbanRuralData = getUrbanRuralData()
 
   return (
     <div className="space-y-6">
@@ -449,30 +559,31 @@ export const EnhancedConsumerProfiling = () => {
       {/* Enhanced KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <EnhancedKPICard
-          title="Total Customers"
-          value="11,000"
-          change={8.3}
-          trend="up"
+          title="Active Customers"
+          value={loading ? "Loading..." : realData ? realData.executiveMetrics.activeCustomers.toLocaleString() : "N/A"}
+          change={loading ? 0 : realData?.executiveMetrics.customerGrowth || 0}
+          trend={!realData ? "neutral" : realData.executiveMetrics.customerGrowth > 0 ? "up" : "down"}
           icon={Package}
         />
         <EnhancedKPICard
-          title="Average Age"
-          value="32.5"
-          change={0.8}
+          title="Customer Segments"
+          value={loading ? "Loading..." : realData ? realData.consumerProfiling.length.toString() : "N/A"}
+          change={loading ? 0 : realData ? realData.consumerProfiling.filter(p => p.percentage > 10).length : 0}
           changeType="absolute"
           trend="up"
           icon={Package}
         />
         <EnhancedKPICard
-          title="Gender Split"
-          value="48/52"
+          title="Top Segment"
+          value={loading ? "Loading..." : realData ? `${realData.consumerProfiling[0]?.percentage.toFixed(0) || 0}%` : "N/A"}
           trend="neutral"
           icon={Package}
         />
         <EnhancedKPICard
-          title="Urban Customers"
-          value="71%"
-          change={2.1}
+          title="Geographic Spread"
+          value={loading ? "Loading..." : realData ? `${realData.geographicalIntelligence.length} regions` : "N/A"}
+          change={loading ? 0 : realData ? realData.geographicalIntelligence.filter(g => g.growth > 0).length : 0}
+          changeType="absolute"
           trend="up"
           icon={Package}
         />

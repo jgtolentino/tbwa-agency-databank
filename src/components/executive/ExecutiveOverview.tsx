@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 import StorePerformanceMap from '../maps/StorePerformanceMap'
 import { useStoreData } from '../../hooks/useStoreData'
+import { getRealAnalytics } from '../../services/realDataService'
 
 interface ExecutiveOverviewProps {
   className?: string
@@ -49,124 +50,219 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
   const { stores } = useStoreData()
   const [lastUpdate, setLastUpdate] = useState(new Date())
   const [refreshing, setRefreshing] = useState(false)
+  const [realData, setRealData] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
 
-  // Business Health Metrics
-  const businessMetrics: BusinessMetric[] = [
-    {
-      label: 'Revenue Today',
-      value: '₱135,785',
-      change: -13.1,
-      status: 'amber',
-      target: '₱155K'
-    },
-    {
-      label: 'MTD Revenue',
-      value: '₱2.8M',
-      change: 8.0,
-      status: 'green',
-      target: '₱3.2M'
-    },
-    {
-      label: 'Avg Basket Size',
-      value: '2.4 items',
-      change: -20.0,
-      status: 'red',
-      target: '3.0 items'
-    },
-    {
-      label: 'Transaction Velocity',
-      value: '649 daily',
-      change: 5.2,
-      status: 'green',
-      target: '700'
-    },
-    {
-      label: 'Peak Utilization',
-      value: '52.7%',
-      change: 2.3,
-      status: 'amber',
-      target: '60%'
-    },
-    {
-      label: 'Store Concentration',
-      value: '44.6%',
-      change: 0,
-      status: 'red',
-      target: '<30%'
-    }
-  ]
+  useEffect(() => {
+    loadRealData()
+  }, [])
 
-  // Strategic Opportunities
-  const opportunities: StrategicOpportunity[] = [
-    {
-      title: 'Basket Expansion',
-      currentState: '74.5% single-item transactions',
-      action: 'Create ₱120 bundle strategy',
-      impact: '+₱200K/month',
-      priority: 'high',
-      timeframe: '2 weeks'
-    },
-    {
-      title: 'Store 108 Model Replication',
-      currentState: '44.6% revenue concentration',
-      action: 'Clone high-performance model 2x',
-      impact: '+₱500K/month',
-      priority: 'high',
-      timeframe: '6 weeks'
-    },
-    {
-      title: 'Morning Optimization',
-      currentState: '52.7% revenue in AM hours',
-      action: 'Redistribute staff allocation',
-      impact: '+₱50K savings/month',
-      priority: 'medium',
-      timeframe: '1 week'
-    },
-    {
-      title: 'Payment Evolution',
-      currentState: '100% cash transactions',
-      action: 'E-wallet pilot for ₱200+ purchases',
-      impact: '+₱150K/month',
-      priority: 'medium',
-      timeframe: '4 weeks'
+  const loadRealData = async () => {
+    try {
+      setLoading(true)
+      const analytics = await getRealAnalytics()
+      setRealData(analytics)
+    } catch (error) {
+      console.error('Failed to load real analytics:', error)
+    } finally {
+      setLoading(false)
     }
-  ]
+  }
 
-  // Decision Triggers
-  const decisionTriggers: DecisionTrigger[] = [
-    {
-      condition: 'Basket size < 2.0 items',
-      action: 'Emergency bundle promotion',
-      threshold: '2.4 current',
-      status: 'triggered'
-    },
-    {
-      condition: 'Morning queue > 5 minutes',
-      action: 'Add staff immediately',
-      threshold: '3.2 avg',
-      status: 'active'
-    },
-    {
-      condition: 'Stockout rate > 15%',
-      action: 'Supplier escalation',
-      threshold: '12% current',
-      status: 'active'
-    },
-    {
-      condition: 'Store 108 dependency > 45%',
-      action: 'Accelerate expansion',
-      threshold: '44.6% current',
-      status: 'triggered'
+  // Business Health Metrics (Real Data)
+  const getBusinessMetrics = (): BusinessMetric[] => {
+    if (!realData || loading) {
+      return [
+        { label: 'Revenue Today', value: 'Loading...', change: 0, status: 'amber' },
+        { label: 'MTD Revenue', value: 'Loading...', change: 0, status: 'amber' },
+        { label: 'Avg Basket Size', value: 'Loading...', change: 0, status: 'amber' },
+        { label: 'Transaction Velocity', value: 'Loading...', change: 0, status: 'amber' },
+        { label: 'Peak Utilization', value: 'Loading...', change: 0, status: 'amber' },
+        { label: 'Store Concentration', value: 'Loading...', change: 0, status: 'amber' }
+      ]
     }
-  ]
+
+    const exec = realData.executiveMetrics
+    return [
+      {
+        label: 'Daily Revenue',
+        value: `₱${(exec.totalRevenue / 30).toLocaleString('en-PH', { maximumFractionDigits: 0 })}`,
+        change: exec.revenueGrowth,
+        status: exec.revenueGrowth >= 5 ? 'green' : exec.revenueGrowth >= 0 ? 'amber' : 'red',
+        target: '₱155K'
+      },
+      {
+        label: 'Total Revenue',
+        value: `₱${exec.totalRevenue.toLocaleString('en-PH')}`,
+        change: exec.revenueGrowth,
+        status: exec.revenueGrowth >= 5 ? 'green' : exec.revenueGrowth >= 0 ? 'amber' : 'red',
+        target: '₱3.2M'
+      },
+      {
+        label: 'Avg Basket Size',
+        value: `${exec.avgBasketSize.toFixed(1)} items`,
+        change: exec.basketSizeGrowth,
+        status: exec.avgBasketSize >= 3.0 ? 'green' : exec.avgBasketSize >= 2.5 ? 'amber' : 'red',
+        target: '3.0 items'
+      },
+      {
+        label: 'Total Transactions',
+        value: exec.totalTransactions.toLocaleString(),
+        change: exec.transactionGrowth,
+        status: exec.transactionGrowth >= 5 ? 'green' : exec.transactionGrowth >= 0 ? 'amber' : 'red',
+        target: '700K'
+      },
+      {
+        label: 'Active Customers',
+        value: exec.activeCustomers.toLocaleString(),
+        change: exec.customerGrowth,
+        status: exec.customerGrowth >= 5 ? 'green' : exec.customerGrowth >= 0 ? 'amber' : 'red',
+        target: '50K'
+      },
+      {
+        label: 'Top Store Share',
+        value: `${exec.topStoreConcentration.toFixed(1)}%`,
+        change: 0,
+        status: exec.topStoreConcentration > 45 ? 'red' : exec.topStoreConcentration > 35 ? 'amber' : 'green',
+        target: '<30%'
+      }
+    ]
+  }
+
+  const businessMetrics = getBusinessMetrics()
+
+  // Strategic Opportunities (Data-Driven)
+  const getStrategicOpportunities = (): StrategicOpportunity[] => {
+    if (!realData || loading) {
+      return [
+        { title: 'Loading...', currentState: 'Analyzing data...', action: 'Please wait...', impact: 'TBD', priority: 'medium', timeframe: 'TBD' }
+      ]
+    }
+
+    const exec = realData.executiveMetrics
+    const opportunities: StrategicOpportunity[] = []
+
+    // Basket Size Opportunity
+    if (exec.avgBasketSize < 3.0) {
+      const singleItemPct = ((exec.totalTransactions - (exec.totalQuantity - exec.totalTransactions)) / exec.totalTransactions * 100)
+      opportunities.push({
+        title: 'Basket Expansion Strategy',
+        currentState: `${singleItemPct.toFixed(1)}% single-item transactions`,
+        action: 'Implement bundle pricing & cross-sell',
+        impact: `+₱${Math.round(exec.totalRevenue * 0.15 / 1000)}K/month`,
+        priority: 'high',
+        timeframe: '2 weeks'
+      })
+    }
+
+    // Store Concentration Risk
+    if (exec.topStoreConcentration > 40) {
+      opportunities.push({
+        title: 'Diversification Initiative',
+        currentState: `${exec.topStoreConcentration.toFixed(1)}% revenue concentration`,
+        action: 'Expand high-performing store models',
+        impact: `+₱${Math.round(exec.totalRevenue * 0.25 / 1000)}K/month`,
+        priority: 'high',
+        timeframe: '6 weeks'
+      })
+    }
+
+    // Product Mix Optimization
+    const topCategories = realData.productMix.slice(0, 3)
+    if (topCategories.length > 0) {
+      opportunities.push({
+        title: 'Category Growth',
+        currentState: `${topCategories[0].name} leads at ${topCategories[0].percentage.toFixed(1)}%`,
+        action: 'Optimize category adjacencies',
+        impact: `+₱${Math.round(exec.totalRevenue * 0.08 / 1000)}K/month`,
+        priority: 'medium',
+        timeframe: '3 weeks'
+      })
+    }
+
+    // Customer Retention
+    if (exec.customerGrowth < 5) {
+      opportunities.push({
+        title: 'Customer Retention',
+        currentState: `${exec.customerGrowth.toFixed(1)}% customer growth`,
+        action: 'Loyalty program pilot launch',
+        impact: `+₱${Math.round(exec.totalRevenue * 0.12 / 1000)}K/month`,
+        priority: 'medium',
+        timeframe: '4 weeks'
+      })
+    }
+
+    return opportunities.slice(0, 4) // Limit to top 4
+  }
+
+  const opportunities = getStrategicOpportunities()
+
+  // Decision Triggers (Data-Driven)
+  const getDecisionTriggers = (): DecisionTrigger[] => {
+    if (!realData || loading) {
+      return [
+        { condition: 'Loading triggers...', action: 'Please wait...', threshold: 'Analyzing...', status: 'active' }
+      ]
+    }
+
+    const exec = realData.executiveMetrics
+    const triggers: DecisionTrigger[] = []
+
+    // Basket Size Alert
+    if (exec.avgBasketSize < 2.5) {
+      triggers.push({
+        condition: 'Basket size below target',
+        action: 'Implement bundle promotion strategy',
+        threshold: `${exec.avgBasketSize.toFixed(1)} items (target: 3.0)`,
+        status: exec.avgBasketSize < 2.0 ? 'triggered' : 'active'
+      })
+    }
+
+    // Revenue Growth Alert
+    if (exec.revenueGrowth < 5) {
+      triggers.push({
+        condition: 'Revenue growth below 5%',
+        action: 'Review pricing and promotion strategy',
+        threshold: `${exec.revenueGrowth.toFixed(1)}% growth`,
+        status: exec.revenueGrowth < 0 ? 'triggered' : 'active'
+      })
+    }
+
+    // Store Concentration Risk
+    if (exec.topStoreConcentration > 40) {
+      triggers.push({
+        condition: 'High store concentration risk',
+        action: 'Accelerate diversification plan',
+        threshold: `${exec.topStoreConcentration.toFixed(1)}% (target: <30%)`,
+        status: exec.topStoreConcentration > 45 ? 'triggered' : 'active'
+      })
+    }
+
+    // Customer Growth Alert
+    if (exec.customerGrowth < 3) {
+      triggers.push({
+        condition: 'Customer acquisition slowing',
+        action: 'Launch retention and acquisition campaign',
+        threshold: `${exec.customerGrowth.toFixed(1)}% growth (target: 5%+)`,
+        status: exec.customerGrowth < 0 ? 'triggered' : 'active'
+      })
+    }
+
+    return triggers.slice(0, 4) // Limit to top 4 most critical
+  }
+
+  const decisionTriggers = getDecisionTriggers()
 
   const handleRefresh = async () => {
     setRefreshing(true)
-    // Simulate data refresh
-    setTimeout(() => {
+    try {
+      await loadRealData()
       setLastUpdate(new Date())
+    } catch (error) {
+      console.error('Refresh failed:', error)
+    } finally {
       setRefreshing(false)
-    }, 1500)
+    }
   }
 
   const getStatusIcon = (status: string) => {
@@ -332,22 +428,35 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
         <div className="scout-card p-4">
           <h4 className="font-medium text-scout-text mb-3">Category Winners</h4>
           <div className="space-y-2 text-sm">
-            <div className="flex justify-between">
-              <span className="text-gray-600">Top Category:</span>
-              <span className="font-medium">Snacks (35%)</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Growth:</span>
-              <span className="font-medium">Personal Care (+18%)</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Switching:</span>
-              <span className="font-medium">231 events</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Bundle Sweet Spot:</span>
-              <span className="font-medium">₱136 (3 items)</span>
-            </div>
+            {loading ? (
+              <div className="text-gray-500">Loading product data...</div>
+            ) : realData ? (
+              <>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Top Category:</span>
+                  <span className="font-medium">
+                    {realData.productMix[0]?.name || 'N/A'} ({realData.productMix[0]?.percentage.toFixed(1) || 0}%)
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Growth Leader:</span>
+                  <span className="font-medium">
+                    {realData.productMix.find(p => p.growth > 5)?.name || realData.productMix[1]?.name || 'N/A'}
+                    (+{realData.productMix.find(p => p.growth > 5)?.growth.toFixed(1) || realData.productMix[1]?.growth.toFixed(1) || 0}%)
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Categories:</span>
+                  <span className="font-medium">{realData.productMix.length} active</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Avg Basket:</span>
+                  <span className="font-medium">₱{realData.executiveMetrics.avgOrderValue.toFixed(0)} ({realData.executiveMetrics.avgBasketSize.toFixed(1)} items)</span>
+                </div>
+              </>
+            ) : (
+              <div className="text-gray-500">No data available</div>
+            )}
           </div>
         </div>
 
@@ -355,22 +464,34 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
         <div className="scout-card p-4">
           <h4 className="font-medium text-scout-text mb-3">Shopper Patterns</h4>
           <div className="space-y-2 text-sm">
-            <div className="flex justify-between">
-              <span className="text-gray-600">Segments:</span>
-              <span className="font-medium">Conv. 58%</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Brand Loyalty:</span>
-              <span className="font-medium">64.7%</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Peak Behavior:</span>
-              <span className="font-medium">AM planned</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Demo Skew:</span>
-              <span className="font-medium">Working age</span>
-            </div>
+            {loading ? (
+              <div className="text-gray-500">Loading behavior data...</div>
+            ) : realData ? (
+              <>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Top Segment:</span>
+                  <span className="font-medium">
+                    {realData.consumerProfiling[0]?.segment || 'General'} ({realData.consumerProfiling[0]?.percentage.toFixed(1) || 0}%)
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Repeat Rate:</span>
+                  <span className="font-medium">{realData.consumerBehavior[0]?.loyaltyScore.toFixed(1) || 0}%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Peak Time:</span>
+                  <span className="font-medium">
+                    {realData.transactionTrends.reduce((max, t) => t.volume > max.volume ? t : max, realData.transactionTrends[0])?.period || 'N/A'}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Avg Frequency:</span>
+                  <span className="font-medium">{realData.consumerBehavior[0]?.frequency.toFixed(1) || 0}x/month</span>
+                </div>
+              </>
+            ) : (
+              <div className="text-gray-500">No data available</div>
+            )}
           </div>
         </div>
 
@@ -378,22 +499,32 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
         <div className="scout-card p-4">
           <h4 className="font-medium text-scout-text mb-3">Operations</h4>
           <div className="space-y-2 text-sm">
-            <div className="flex justify-between">
-              <span className="text-gray-600">Top 3 Stores:</span>
-              <span className="font-medium">68% revenue</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Stockout Risk:</span>
-              <span className="font-medium text-red-600">12%</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Staffing:</span>
-              <span className="font-medium">Eve +60%</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Queue Peak:</span>
-              <span className="font-medium">5-7 PM</span>
-            </div>
+            {loading ? (
+              <div className="text-gray-500">Loading operations data...</div>
+            ) : realData ? (
+              <>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Store Concentration:</span>
+                  <span className="font-medium">{realData.executiveMetrics.topStoreConcentration.toFixed(1)}%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Top Region:</span>
+                  <span className="font-medium">
+                    {realData.geographicalIntelligence[0]?.region || 'N/A'} ({realData.geographicalIntelligence[0]?.percentage.toFixed(1) || 0}%)
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Growth Rate:</span>
+                  <span className="font-medium text-green-600">+{realData.executiveMetrics.revenueGrowth.toFixed(1)}%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Active Stores:</span>
+                  <span className="font-medium">{realData.geographicalIntelligence.length} locations</span>
+                </div>
+              </>
+            ) : (
+              <div className="text-gray-500">No data available</div>
+            )}
           </div>
         </div>
 
@@ -401,22 +532,42 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
         <div className="scout-card p-4">
           <h4 className="font-medium text-scout-text mb-3">Growth Potential</h4>
           <div className="space-y-2 text-sm">
-            <div className="flex justify-between">
-              <span className="text-gray-600">Weekend:</span>
-              <span className="font-medium text-green-600">+40% opp</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Digital Ready:</span>
-              <span className="font-medium">0% e-wallet</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Cross-sell:</span>
-              <span className="font-medium">35% open</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Geographic:</span>
-              <span className="font-medium">3 areas ID'd</span>
-            </div>
+            {loading ? (
+              <div className="text-gray-500">Loading growth data...</div>
+            ) : realData ? (
+              <>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Revenue Growth:</span>
+                  <span className={`font-medium ${
+                    realData.executiveMetrics.revenueGrowth > 0 ? 'text-green-600' : 'text-red-600'
+                  }`}>
+                    {realData.executiveMetrics.revenueGrowth > 0 ? '+' : ''}{realData.executiveMetrics.revenueGrowth.toFixed(1)}%
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Customer Growth:</span>
+                  <span className={`font-medium ${
+                    realData.executiveMetrics.customerGrowth > 0 ? 'text-green-600' : 'text-red-600'
+                  }`}>
+                    {realData.executiveMetrics.customerGrowth > 0 ? '+' : ''}{realData.executiveMetrics.customerGrowth.toFixed(1)}%
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Basket Growth:</span>
+                  <span className={`font-medium ${
+                    realData.executiveMetrics.basketSizeGrowth > 0 ? 'text-green-600' : 'text-red-600'
+                  }`}>
+                    {realData.executiveMetrics.basketSizeGrowth > 0 ? '+' : ''}{realData.executiveMetrics.basketSizeGrowth.toFixed(1)}%
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Market Expansion:</span>
+                  <span className="font-medium">{realData.geographicalIntelligence.filter(g => g.growth > 5).length} high-growth areas</span>
+                </div>
+              </>
+            ) : (
+              <div className="text-gray-500">No data available</div>
+            )}
           </div>
         </div>
       </div>
@@ -454,26 +605,40 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
       {/* Summary Actions */}
       <div className="scout-card p-6 bg-blue-50 border-l-4 border-scout-accent">
         <h4 className="font-medium text-scout-text mb-3">Decisions Required This Week</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-          <div>
-            <h5 className="font-medium mb-2">Immediate Actions:</h5>
-            <ul className="space-y-1 text-gray-700">
-              <li>• Approve ₱120 bundle pricing strategy</li>
-              <li>• Authorize Store 108 replication study</li>
-              <li>• Implement morning shift changes</li>
-              <li>• Select e-wallet provider for pilot</li>
-            </ul>
+        {loading ? (
+          <div className="text-gray-500">Loading recommendations...</div>
+        ) : realData ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <h5 className="font-medium mb-2">Immediate Actions:</h5>
+              <ul className="space-y-1 text-gray-700">
+                {realData.executiveMetrics.avgBasketSize < 2.5 && (
+                  <li>• Implement basket expansion strategy (current: {realData.executiveMetrics.avgBasketSize.toFixed(1)} items)</li>
+                )}
+                {realData.executiveMetrics.topStoreConcentration > 40 && (
+                  <li>• Address store concentration risk ({realData.executiveMetrics.topStoreConcentration.toFixed(1)}%)</li>
+                )}
+                {realData.executiveMetrics.revenueGrowth < 5 && (
+                  <li>• Review revenue optimization opportunities</li>
+                )}
+                {realData.executiveMetrics.customerGrowth < 3 && (
+                  <li>• Launch customer acquisition campaign</li>
+                )}
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-medium mb-2">Watch Items:</h5>
+              <ul className="space-y-1 text-gray-700">
+                <li>• Monitor top category performance ({realData.productMix[0]?.name || 'N/A'})</li>
+                <li>• Track regional growth opportunities</li>
+                <li>• Customer behavior pattern analysis</li>
+                <li>• Product mix optimization potential</li>
+              </ul>
+            </div>
           </div>
-          <div>
-            <h5 className="font-medium mb-2">Watch Items:</h5>
-            <ul className="space-y-1 text-gray-700">
-              <li>• Detergent switching volatility</li>
-              <li>• Weekend underperformance</li>
-              <li>• Single-item transaction opportunity</li>
-              <li>• Store concentration risk monitoring</li>
-            </ul>
-          </div>
-        </div>
+        ) : (
+          <div className="text-gray-500">No recommendations available</div>
+        )}
       </div>
     </div>
   )
