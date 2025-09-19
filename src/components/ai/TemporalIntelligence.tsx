@@ -238,7 +238,7 @@ const TemporalIntelligence: React.FC<TemporalIntelligenceProps> = ({
       </div>
 
       {/* Temporal Patterns */}
-      {temporalAnalysis.patterns.length > 0 && (
+      {Array.isArray(temporalAnalysis.patterns) && temporalAnalysis.patterns.length > 0 && (
         <div className="mb-6">
           <h4 className="font-medium text-scout-text mb-3">Time-Based Patterns</h4>
           <div className="space-y-3">
@@ -263,7 +263,7 @@ const TemporalIntelligence: React.FC<TemporalIntelligenceProps> = ({
       )}
 
       {/* Forecasts */}
-      {temporalAnalysis.forecasts.length > 0 && (
+      {Array.isArray(temporalAnalysis.forecasts) && temporalAnalysis.forecasts.length > 0 && (
         <div className="mb-6">
           <h4 className="font-medium text-scout-text mb-3">Temporal Forecasts</h4>
           <div className="space-y-3">
@@ -291,7 +291,7 @@ const TemporalIntelligence: React.FC<TemporalIntelligenceProps> = ({
       )}
 
       {/* Intelligence Insights */}
-      {temporalAnalysis.insights.length > 0 && (
+      {Array.isArray(temporalAnalysis.insights) && temporalAnalysis.insights.length > 0 && (
         <div>
           <h4 className="font-medium text-scout-text mb-3">Temporal Intelligence Insights</h4>
           <div className="space-y-3">

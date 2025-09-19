@@ -211,7 +211,7 @@ const BundleRecommendationEngine: React.FC<BundleRecommendationEngineProps> = ({
       </div>
 
       {/* Top Recommendations */}
-      {bundleAnalysis.recommendations.length > 0 ? (
+      {Array.isArray(bundleAnalysis.recommendations) && bundleAnalysis.recommendations.length > 0 ? (
         <div className="space-y-4 mb-6">
           <h4 className="font-medium text-scout-text">High-Impact Bundle Recommendations</h4>
           {bundleAnalysis.recommendations.slice(0, 4).map((rec, index) => (
@@ -268,7 +268,7 @@ const BundleRecommendationEngine: React.FC<BundleRecommendationEngineProps> = ({
       )}
 
       {/* Category Affinity Rules */}
-      {bundleAnalysis.affinityRules.length > 0 && (
+      {Array.isArray(bundleAnalysis.affinityRules) && bundleAnalysis.affinityRules.length > 0 && (
         <div className="mb-6">
           <h4 className="font-medium text-scout-text mb-3">Category Affinity Rules</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -292,7 +292,7 @@ const BundleRecommendationEngine: React.FC<BundleRecommendationEngineProps> = ({
       )}
 
       {/* AI Insights */}
-      {bundleAnalysis.insights.length > 0 && (
+      {Array.isArray(bundleAnalysis.insights) && bundleAnalysis.insights.length > 0 && (
         <div>
           <h4 className="font-medium text-scout-text mb-3">Bundle Intelligence Insights</h4>
           <div className="space-y-3">

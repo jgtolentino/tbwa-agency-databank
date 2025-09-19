@@ -7,12 +7,14 @@ interface AIInsightsPanelProps {
   className?: string
   autoRefresh?: boolean
   refreshInterval?: number
+  insights?: any[] // Accept external insights
 }
 
 const AIInsightsPanel: React.FC<AIInsightsPanelProps> = ({
   className = '',
   autoRefresh = false,
-  refreshInterval = 300000 // 5 minutes
+  refreshInterval = 300000, // 5 minutes
+  insights: externalInsights
 }) => {
   const [insights, setInsights] = useState<CrossTabInsight[]>([])
   const [metrics, setMetrics] = useState<CrossTabMetric[]>([])
@@ -20,13 +22,20 @@ const AIInsightsPanel: React.FC<AIInsightsPanelProps> = ({
   const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
 
   useEffect(() => {
-    generateAIInsights()
+    // If external insights are provided, use them instead of generating
+    if (externalInsights && Array.isArray(externalInsights)) {
+      setInsights(externalInsights.slice(0, 6))
+      setLoading(false)
+      setLastUpdate(new Date())
+    } else {
+      generateAIInsights()
 
-    if (autoRefresh) {
-      const interval = setInterval(generateAIInsights, refreshInterval)
-      return () => clearInterval(interval)
+      if (autoRefresh) {
+        const interval = setInterval(generateAIInsights, refreshInterval)
+        return () => clearInterval(interval)
+      }
     }
-  }, [autoRefresh, refreshInterval])
+  }, [autoRefresh, refreshInterval, externalInsights])
 
   const generateAIInsights = async () => {
     setLoading(true)
@@ -125,7 +134,7 @@ const AIInsightsPanel: React.FC<AIInsightsPanelProps> = ({
           <h3 className="text-lg font-semibold text-scout-text">AI-Generated Insights</h3>
         </div>
         <div className="space-y-4">
-          {[...Array(3)].map((_, i) => (
+          {Array.from({ length: 3 }).map((_, i) => (
             <div key={i} className="animate-pulse">
               <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
               <div className="h-3 bg-gray-100 rounded w-full"></div>
@@ -162,7 +171,7 @@ const AIInsightsPanel: React.FC<AIInsightsPanelProps> = ({
       <div className="mb-6">
         <h4 className="text-sm font-medium text-gray-700 mb-3">Key Performance Metrics</h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {metrics.slice(0, 4).map((metric, index) => (
+          {Array.isArray(metrics) && metrics.slice(0, 4).map((metric, index) => (
             <div key={index} className="bg-gray-50 p-3 rounded-lg">
               <div className="flex items-center gap-2 mb-1">
                 {getMetricIcon(metric.name)}
@@ -182,7 +191,7 @@ const AIInsightsPanel: React.FC<AIInsightsPanelProps> = ({
       {/* AI Insights */}
       <div className="space-y-4">
         <h4 className="text-sm font-medium text-gray-700">Smart Insights</h4>
-        {insights.map((insight, index) => (
+        {Array.isArray(insights) && insights.map((insight, index) => (
           <div
             key={index}
             className={`p-4 rounded-lg border ${getPriorityColor(insight.priority)}`}

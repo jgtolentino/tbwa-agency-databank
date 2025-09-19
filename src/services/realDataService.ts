@@ -1,4 +1,5 @@
 import { getTransactions, getKpis, type FlatTxn, type KpiSummary } from './dataService'
+import { ensureArray } from '../utils/ensureArray'
 
 export interface RealAnalytics {
   transactionTrends: TransactionTrendData[]
@@ -218,7 +219,9 @@ class RealDataService {
       // Fetch real transaction data
       const transactionsResponse = await getTransactions(1, 10000) // Get large sample
       const kpis = await getKpis()
-      let transactions = transactionsResponse.rows
+      let transactions = ensureArray<FlatTxn>(
+        'rows' in transactionsResponse ? transactionsResponse.rows : transactionsResponse
+      )
 
       // Apply filters if provided
       if (filters) {
