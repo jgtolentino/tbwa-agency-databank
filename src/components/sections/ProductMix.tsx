@@ -4,8 +4,19 @@ import MetricCard from '../cards/MetricCard'
 import BundleRecommendationEngine from '../ai/BundleRecommendationEngine'
 import TemporalIntelligence from '../ai/TemporalIntelligence'
 import { useScoutData } from '../../hooks/useScoutData'
+import {
+  ProductMixPieChart,
+  ProductMixLegend,
+  EnhancedKPICard,
+  TabNavigation,
+  BrandMarketShareChart,
+  CategoryCompetitiveChart,
+  BasketAnalysisChart
+} from '../charts/AdvancedCharts'
 
 const ProductMix = () => {
+  const [activeTab, setActiveTab] = useState('Category Performance')
+  const tabs = ['Category Performance', 'Brand Analysis', 'Bundle Analysis', 'SKU Details']
   const [filters, setFilters] = useState({
     category: 'all',
     brand: 'all',
@@ -227,124 +238,128 @@ const ProductMix = () => {
       </div>
 
       {/* Key Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {metrics.map((metric, index) => (
-          <MetricCard key={index} {...metric} />
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <EnhancedKPICard
+          title="Total SKUs"
+          value={loading ? "Loading..." : new Set(filteredData.map(row => row.sku).filter(Boolean)).size.toString()}
+          change={5.2}
+          trend="up"
+          icon={Package}
+        />
+        <EnhancedKPICard
+          title="Avg Items/Transaction"
+          value={loading ? "Loading..." : (filteredData.reduce((sum, row) => sum + (parseInt(row.qty) || 0), 0) / filteredData.length).toFixed(1)}
+          change={8.7}
+          trend="up"
+          icon={ShoppingCart}
+        />
+        <EnhancedKPICard
+          title="Category Diversity"
+          value={loading ? "Loading..." : `${Math.round((new Set(filteredData.map(row => row.category).filter(Boolean)).size / 10) * 100)}%`}
+          change={3.1}
+          trend="up"
+          icon={BarChart3}
+        />
+        <EnhancedKPICard
+          title="Brand Loyalty"
+          value={loading ? "Loading..." : "74%"}
+          change={-1.4}
+          trend="down"
+          icon={Star}
+        />
       </div>
 
       {/* AI-Powered Bundle Intelligence */}
       <BundleRecommendationEngine transactions={filteredData} />
 
-      {/* Category Performance */}
+      {/* Advanced Product Analytics with Tabs */}
       <div className="scout-card-chart p-6">
-        <h3 className="text-lg font-semibold text-scout-text mb-4">Category Performance Overview</h3>
-        <div className="space-y-4">
-          {categoryData.map((category, index) => (
-            <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-              <div className="flex-1">
-                <div className="font-medium text-scout-text">{category.category}</div>
-                <div className="text-sm text-gray-500">{category.transactions} transactions</div>
-              </div>
-              <div className="flex-1 mx-4">
-                <div className="bg-gray-200 rounded-full h-3 relative">
-                  <div 
-                    className="bg-scout-secondary rounded-full h-3 transition-all duration-300"
-                    style={{ width: `${category.percentage}%` }}
-                  />
-                </div>
-              </div>
-              <div className="text-right">
-                <div className="font-semibold text-scout-text">₱{category.revenue.toLocaleString()}</div>
-                <div className="text-sm text-gray-500">{category.percentage}% of sales</div>
+        <TabNavigation
+          tabs={tabs}
+          activeTab={activeTab}
+          onTabChange={setActiveTab}
+        />
+
+        {/* Chart Content */}
+        <div className="mt-4">
+          {activeTab === 'Category Performance' && (
+            <div>
+              <h3 className="text-lg font-semibold text-scout-text mb-4">Category Performance Analysis</h3>
+              {loading ? (
+                <div className="h-64 flex items-center justify-center text-gray-500">Loading category data...</div>
+              ) : (
+                <>
+                  <ProductMixPieChart data={categoryData.map(cat => ({ name: cat.category, value: cat.percentage }))} />
+                  <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-scout-accent">
+                    <p className="text-sm font-medium text-scout-text">Category Insights</p>
+                    <p className="text-sm text-gray-600 mt-1">
+                      Top category: {categoryData[0]?.category || 'N/A'} with {categoryData[0]?.percentage || 0}% market share and ₱{categoryData[0]?.revenue?.toLocaleString() || 0} revenue
+                    </p>
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+          {activeTab === 'Brand Analysis' && (
+            <div>
+              <h3 className="text-lg font-semibold text-scout-text mb-4">Brand Market Share Analysis</h3>
+              {loading ? (
+                <div className="h-64 flex items-center justify-center text-gray-500">Loading brand data...</div>
+              ) : (
+                <>
+                  <ProductMixPieChart data={brandPerformance.map(brand => ({ name: brand.brand, value: brand.sales }))} />
+                  <div className="mt-4 p-4 bg-green-50 rounded-lg border-l-4 border-scout-success">
+                    <p className="text-sm font-medium text-scout-text">Brand Performance</p>
+                    <p className="text-sm text-gray-600 mt-1">
+                      Leading brand: {brandPerformance[0]?.brand || 'N/A'} with {brandPerformance[0]?.sales || 0} sales and {brandPerformance[0]?.margin || 0}% margin
+                    </p>
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+          {activeTab === 'Bundle Analysis' && (
+            <div>
+              <h3 className="text-lg font-semibold text-scout-text mb-4">Product Bundle Opportunities</h3>
+              <BundleRecommendationEngine transactions={filteredData} />
+            </div>
+          )}
+          {activeTab === 'SKU Details' && (
+            <div>
+              <h3 className="text-lg font-semibold text-scout-text mb-4">SKU Performance Details</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-gray-200">
+                      <th className="text-left py-3 px-2 font-medium text-scout-text">Product</th>
+                      <th className="text-left py-3 px-2 font-medium text-scout-text">Category</th>
+                      <th className="text-right py-3 px-2 font-medium text-scout-text">Units Sold</th>
+                      <th className="text-right py-3 px-2 font-medium text-scout-text">Revenue</th>
+                      <th className="text-right py-3 px-2 font-medium text-scout-text">Margin %</th>
+                      <th className="text-right py-3 px-2 font-medium text-scout-text">Trend</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {brandPerformance.slice(0, 5).map((brand, index) => (
+                      <tr key={index} className="border-b border-gray-100">
+                        <td className="py-3 px-2 font-medium">{brand.brand}</td>
+                        <td className="py-3 px-2 text-gray-600">{brand.category}</td>
+                        <td className="py-3 px-2 text-right">{brand.sales}</td>
+                        <td className="py-3 px-2 text-right">₱{(brand.sales * 45).toLocaleString()}</td>
+                        <td className="py-3 px-2 text-right">{brand.margin}%</td>
+                        <td className="py-3 px-2 text-right">
+                          <TrendingUp className="w-4 h-4 text-green-600 inline" />
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
-          ))}
+          )}
         </div>
       </div>
 
-      {/* Brand Performance & Bundle Analysis */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="scout-card-chart p-6">
-          <h3 className="text-lg font-semibold text-scout-text mb-4">Top Brand Performance</h3>
-          <div className="space-y-3">
-            {brandPerformance.map((brand, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded">
-                <div>
-                  <div className="font-medium text-scout-text">{brand.brand}</div>
-                  <div className="text-xs text-gray-500">{brand.category}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-sm font-semibold text-scout-text">{brand.sales}</div>
-                  <div className="text-xs text-gray-500">units sold</div>
-                </div>
-                <div className="text-right">
-                  <div className={`text-sm font-semibold ${brand.margin > 20 ? 'text-green-600' : 'text-scout-text'}`}>
-                    {brand.margin}%
-                  </div>
-                  <div className="text-xs text-gray-500">margin</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* AI-Powered Bundle Recommendation Engine replaces simple bundle analysis */}
-        <div className="lg:col-span-1">
-          <BundleRecommendationEngine transactions={filteredData} />
-        </div>
-      </div>
-
-      {/* SKU Performance Details */}
-      <div className="scout-card-chart p-6">
-        <h3 className="text-lg font-semibold text-scout-text mb-4">SKU Performance Details</h3>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-gray-200">
-                <th className="text-left py-3 px-2 font-medium text-scout-text">Product</th>
-                <th className="text-left py-3 px-2 font-medium text-scout-text">Category</th>
-                <th className="text-right py-3 px-2 font-medium text-scout-text">Units Sold</th>
-                <th className="text-right py-3 px-2 font-medium text-scout-text">Revenue</th>
-                <th className="text-right py-3 px-2 font-medium text-scout-text">Margin %</th>
-                <th className="text-right py-3 px-2 font-medium text-scout-text">Trend</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b border-gray-100">
-                <td className="py-3 px-2 font-medium">Marlboro Red</td>
-                <td className="py-3 px-2 text-gray-600">Tobacco</td>
-                <td className="py-3 px-2 text-right">1,245</td>
-                <td className="py-3 px-2 text-right">₱87,150</td>
-                <td className="py-3 px-2 text-right">15.2%</td>
-                <td className="py-3 px-2 text-right">
-                  <TrendingUp className="w-4 h-4 text-green-600 inline" />
-                </td>
-              </tr>
-              <tr className="border-b border-gray-100">
-                <td className="py-3 px-2 font-medium">Coca-Cola 350ml</td>
-                <td className="py-3 px-2 text-gray-600">Beverages</td>
-                <td className="py-3 px-2 text-right">756</td>
-                <td className="py-3 px-2 text-right">₱22,680</td>
-                <td className="py-3 px-2 text-right">22.5%</td>
-                <td className="py-3 px-2 text-right">
-                  <TrendingUp className="w-4 h-4 text-green-600 inline" />
-                </td>
-              </tr>
-              <tr className="border-b border-gray-100">
-                <td className="py-3 px-2 font-medium">Pringles Original</td>
-                <td className="py-3 px-2 text-gray-600">Snacks</td>
-                <td className="py-3 px-2 text-right">543</td>
-                <td className="py-3 px-2 text-right">₱32,580</td>
-                <td className="py-3 px-2 text-right">18.7%</td>
-                <td className="py-3 px-2 text-right">
-                  <TrendingUp className="w-4 h-4 text-green-600 inline" />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
 
       {/* Temporal Intelligence for Product Performance */}
       <TemporalIntelligence transactions={filteredData} metricType="transactions" />
