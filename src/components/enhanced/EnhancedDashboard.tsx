@@ -843,13 +843,17 @@ export const EnhancedGeographicalIntelligence = () => {
 
   return (
     <div className="space-y-6">
-      {/* Enhanced Header */}
+      {/* Header */}
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold text-scout-text mb-2">Geographic Analytics</h2>
           <p className="text-gray-600">Store performance mapping, concentration risk analysis & expansion opportunities</p>
         </div>
         <div className="flex items-center space-x-2">
+          <button className="scout-btn-secondary flex items-center space-x-2">
+            <RefreshCw className="w-4 h-4" />
+            <span>Refresh</span>
+          </button>
           <button className="scout-btn-primary flex items-center space-x-2">
             <Download className="w-4 h-4" />
             <span>Export</span>

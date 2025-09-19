@@ -17,6 +17,7 @@ import {
 import StorePerformanceMap from '../maps/StorePerformanceMap'
 import { useStoreData } from '../../hooks/useStoreData'
 import { getRealAnalytics } from '../../services/realDataService'
+import { EnhancedKPICard } from '../charts/AdvancedCharts'
 
 interface ExecutiveOverviewProps {
   className?: string
@@ -312,24 +313,21 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-scout-text">Executive Overview</h1>
+          <h2 className="text-2xl font-bold text-scout-text mb-2">Executive Overview</h2>
           <p className="text-gray-600">Strategic command center for Scout network performance</p>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="text-sm text-gray-500">
-            Last updated: {lastUpdate.toLocaleTimeString()}
-          </div>
+        <div className="flex items-center space-x-2">
           <button
             onClick={handleRefresh}
             disabled={refreshing}
-            className="flex items-center gap-2 px-3 py-2 bg-scout-accent text-white rounded-lg hover:bg-scout-secondary transition-colors disabled:opacity-50"
+            className="scout-btn-secondary flex items-center space-x-2"
           >
             <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
-            Refresh
+            <span>Refresh</span>
           </button>
-          <button className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+          <button className="scout-btn-primary flex items-center space-x-2">
             <Download className="w-4 h-4" />
-            Export
+            <span>Export</span>
           </button>
         </div>
       </div>
@@ -360,28 +358,23 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
       </div>
 
       {/* Business Health Pulse */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        {businessMetrics.map((metric, index) => (
-          <div key={index} className="scout-card p-4">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-gray-600">{metric.label}</span>
-              {getStatusIcon(metric.status)}
-            </div>
-            <div className="text-lg font-bold text-scout-text mb-1">{metric.value}</div>
-            <div className="flex items-center justify-between">
-              {getChangeIndicator(metric.change)}
-              {metric.target && (
-                <span className="text-xs text-gray-500">Target: {metric.target}</span>
-              )}
-            </div>
-          </div>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        {businessMetrics.slice(0, 4).map((metric, index) => (
+          <EnhancedKPICard
+            key={index}
+            title={metric.label}
+            value={metric.value}
+            change={metric.change}
+            trend={metric.status === 'green' ? 'up' : metric.status === 'red' ? 'down' : 'neutral'}
+            icon={DollarSign}
+          />
         ))}
       </div>
 
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Strategic Opportunities */}
-        <div className="scout-card p-6">
+        <div className="scout-card-chart p-6">
           <div className="flex items-center gap-2 mb-4">
             <Target className="w-5 h-5 text-scout-secondary" />
             <h3 className="text-lg font-semibold text-scout-text">Strategic Opportunities</h3>
@@ -413,7 +406,7 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
         </div>
 
         {/* Store Performance Map */}
-        <div className="scout-card p-6">
+        <div className="scout-card-chart p-6">
           <div className="flex items-center gap-2 mb-4">
             <MapPin className="w-5 h-5 text-scout-secondary" />
             <h3 className="text-lg font-semibold text-scout-text">Network Performance</h3>
@@ -572,72 +565,133 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
         </div>
       </div>
 
-      {/* Decision Triggers */}
-      <div className="scout-card p-6">
-        <div className="flex items-center gap-2 mb-4">
-          <Zap className="w-5 h-5 text-scout-secondary" />
-          <h3 className="text-lg font-semibold text-scout-text">Decision Triggers</h3>
+      {/* Decision Triggers - Enhanced layout */}
+      <div className="scout-card p-6 hover:shadow-lg transition-shadow">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="p-2 bg-yellow-100 rounded-lg">
+            <Zap className="w-6 h-6 text-yellow-600" />
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-scout-text">Decision Triggers</h3>
+            <p className="text-sm text-gray-600">Automated alerts for critical business conditions</p>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {decisionTriggers.map((trigger, index) => (
-            <div key={index} className={`p-4 rounded-lg border ${
-              trigger.status === 'triggered' ? 'border-red-300 bg-red-50' :
-              trigger.status === 'resolved' ? 'border-green-300 bg-green-50' :
-              'border-gray-300 bg-gray-50'
-            }`}>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-gray-900">{trigger.condition}</span>
-                <span className={`text-xs px-2 py-1 rounded-full ${
+            <div key={index} className={`p-5 rounded-lg border-l-4 ${
+              trigger.status === 'triggered' ? 'border-red-500 bg-red-50' :
+              trigger.status === 'resolved' ? 'border-green-500 bg-green-50' :
+              'border-gray-400 bg-gray-50'
+            } hover:shadow-md transition-shadow`}>
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm font-semibold text-gray-900">{trigger.condition}</span>
+                <span className={`text-xs px-3 py-1 rounded-full font-medium ${
                   trigger.status === 'triggered' ? 'bg-red-100 text-red-800' :
                   trigger.status === 'resolved' ? 'bg-green-100 text-green-800' :
                   'bg-gray-100 text-gray-800'
                 }`}>
-                  {trigger.status}
+                  {trigger.status.toUpperCase()}
                 </span>
               </div>
-              <p className="text-sm text-gray-600 mb-1">{trigger.action}</p>
-              <p className="text-xs text-gray-500">Current: {trigger.threshold}</p>
+              <p className="text-sm text-gray-700 mb-2 font-medium">{trigger.action}</p>
+              <p className="text-xs text-gray-600 bg-white bg-opacity-70 px-2 py-1 rounded">
+                Current: {trigger.threshold}
+              </p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Summary Actions */}
-      <div className="scout-card p-6 bg-blue-50 border-l-4 border-scout-accent">
-        <h4 className="font-medium text-scout-text mb-3">Decisions Required This Week</h4>
+      {/* Summary Actions - Enhanced layout */}
+      <div className="scout-card p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-scout-accent hover:shadow-lg transition-shadow">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="p-2 bg-scout-accent bg-opacity-10 rounded-lg">
+            <Calendar className="w-6 h-6 text-scout-accent" />
+          </div>
+          <div>
+            <h4 className="text-xl font-semibold text-scout-text">Weekly Action Plan</h4>
+            <p className="text-sm text-gray-600">Strategic decisions and priority items for this week</p>
+          </div>
+        </div>
         {loading ? (
-          <div className="text-gray-500">Loading recommendations...</div>
+          <div className="text-gray-500 text-center py-4">Loading recommendations...</div>
         ) : realData ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div>
-              <h5 className="font-medium mb-2">Immediate Actions:</h5>
-              <ul className="space-y-1 text-gray-700">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="bg-white bg-opacity-70 p-5 rounded-lg">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                <h5 className="font-semibold text-gray-800">Immediate Actions</h5>
+              </div>
+              <ul className="space-y-3 text-sm">
                 {realData.executiveMetrics.avgBasketSize < 2.5 && (
-                  <li>• Implement basket expansion strategy (current: {realData.executiveMetrics.avgBasketSize.toFixed(1)} items)</li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span className="text-gray-700">
+                      <strong>Basket expansion strategy</strong> - Current: {realData.executiveMetrics.avgBasketSize.toFixed(1)} items (Target: 3.0)
+                    </span>
+                  </li>
                 )}
                 {realData.executiveMetrics.topStoreConcentration > 40 && (
-                  <li>• Address store concentration risk ({realData.executiveMetrics.topStoreConcentration.toFixed(1)}%)</li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span className="text-gray-700">
+                      <strong>Address concentration risk</strong> - Current: {realData.executiveMetrics.topStoreConcentration.toFixed(1)}% (Target: &lt;30%)
+                    </span>
+                  </li>
                 )}
                 {realData.executiveMetrics.revenueGrowth < 5 && (
-                  <li>• Review revenue optimization opportunities</li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span className="text-gray-700">
+                      <strong>Revenue optimization review</strong> - Current growth: {realData.executiveMetrics.revenueGrowth.toFixed(1)}%
+                    </span>
+                  </li>
                 )}
                 {realData.executiveMetrics.customerGrowth < 3 && (
-                  <li>• Launch customer acquisition campaign</li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span className="text-gray-700">
+                      <strong>Customer acquisition campaign</strong> - Growth: {realData.executiveMetrics.customerGrowth.toFixed(1)}%
+                    </span>
+                  </li>
                 )}
               </ul>
             </div>
-            <div>
-              <h5 className="font-medium mb-2">Watch Items:</h5>
-              <ul className="space-y-1 text-gray-700">
-                <li>• Monitor top category performance ({realData.productMix[0]?.name || 'N/A'})</li>
-                <li>• Track regional growth opportunities</li>
-                <li>• Customer behavior pattern analysis</li>
-                <li>• Product mix optimization potential</li>
+            <div className="bg-white bg-opacity-70 p-5 rounded-lg">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <h5 className="font-semibold text-gray-800">Watch Items</h5>
+              </div>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-500 mt-1">•</span>
+                  <span className="text-gray-700">
+                    <strong>Top category performance:</strong> {realData.productMix[0]?.name || 'N/A'} ({realData.productMix[0]?.percentage.toFixed(1) || 0}%)
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-500 mt-1">•</span>
+                  <span className="text-gray-700">
+                    <strong>Regional expansion:</strong> {realData.geographicalIntelligence.filter(g => g.growth > 5).length} high-growth areas identified
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-500 mt-1">•</span>
+                  <span className="text-gray-700">
+                    <strong>Customer behavior trends:</strong> Loyalty score at {realData.consumerBehavior[0]?.loyaltyScore.toFixed(1) || 0}%
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-500 mt-1">•</span>
+                  <span className="text-gray-700">
+                    <strong>Product mix optimization:</strong> {realData.productMix.filter(p => p.growth > 5).length} categories showing growth
+                  </span>
+                </li>
               </ul>
             </div>
           </div>
         ) : (
-          <div className="text-gray-500">No recommendations available</div>
+          <div className="text-gray-500 text-center py-4">No recommendations available</div>
         )}
       </div>
     </div>
