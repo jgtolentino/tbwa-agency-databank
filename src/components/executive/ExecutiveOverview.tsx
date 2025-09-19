@@ -100,9 +100,9 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
       },
       {
         label: 'Avg Basket Size',
-        value: `${exec.avgBasketSize.toFixed(1)} items`,
-        change: exec.basketSizeGrowth,
-        status: exec.avgBasketSize >= 3.0 ? 'green' : exec.avgBasketSize >= 2.5 ? 'amber' : 'red',
+        value: `${(exec.avgBasketSize || 0).toFixed(1)} items`,
+        change: exec.basketSizeGrowth || 0,
+        status: (exec.avgBasketSize || 0) >= 3.0 ? 'green' : (exec.avgBasketSize || 0) >= 2.5 ? 'amber' : 'red',
         target: '3.0 items'
       },
       {
@@ -121,7 +121,7 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
       },
       {
         label: 'Top Store Share',
-        value: `${exec.topStoreConcentration.toFixed(1)}%`,
+        value: `${(exec.topStoreConcentration || 0).toFixed(1)}%`,
         change: 0,
         status: exec.topStoreConcentration > 45 ? 'red' : exec.topStoreConcentration > 35 ? 'amber' : 'green',
         target: '<30%'
@@ -147,7 +147,7 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
       const singleItemPct = ((exec.totalTransactions - (exec.totalQuantity - exec.totalTransactions)) / exec.totalTransactions * 100)
       opportunities.push({
         title: 'Basket Expansion Strategy',
-        currentState: `${singleItemPct.toFixed(1)}% single-item transactions`,
+        currentState: `${(singleItemPct || 0).toFixed(1)}% single-item transactions`,
         action: 'Implement bundle pricing & cross-sell',
         impact: `+₱${Math.round(exec.totalRevenue * 0.15 / 1000)}K/month`,
         priority: 'high',
@@ -159,7 +159,7 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
     if (exec.topStoreConcentration > 40) {
       opportunities.push({
         title: 'Diversification Initiative',
-        currentState: `${exec.topStoreConcentration.toFixed(1)}% revenue concentration`,
+        currentState: `${(exec.topStoreConcentration || 0).toFixed(1)}% revenue concentration`,
         action: 'Expand high-performing store models',
         impact: `+₱${Math.round(exec.totalRevenue * 0.25 / 1000)}K/month`,
         priority: 'high',
@@ -172,7 +172,7 @@ const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({ className = '' })
     if (topCategories.length > 0) {
       opportunities.push({
         title: 'Category Growth',
-        currentState: `${topCategories[0].name} leads at ${topCategories[0].percentage.toFixed(1)}%`,
+        currentState: `${topCategories[0]?.name || 'N/A'} leads at ${(topCategories[0]?.percentage || 0).toFixed(1)}%`,
         action: 'Optimize category adjacencies',
         impact: `+₱${Math.round(exec.totalRevenue * 0.08 / 1000)}K/month`,
         priority: 'medium',

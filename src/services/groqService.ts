@@ -43,11 +43,11 @@ class GroqService {
   private lastAnalyticsUpdate: Date | null = null
 
   constructor() {
-    // Get the API key from environment variables
-    this.apiKey = import.meta.env.VITE_GROQ_API_KEY || ''
+    // Get the API key from environment variables (try both naming conventions)
+    this.apiKey = import.meta.env.VITE_GROQ_API_KEY || import.meta.env.GROQ_API_KEY || ''
 
     if (!this.apiKey) {
-      console.warn('VITE_GROQ_API_KEY not found in environment variables')
+      console.warn('Groq API key not found in environment variables. Please set VITE_GROQ_API_KEY.')
     }
   }
 
