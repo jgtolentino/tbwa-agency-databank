@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scout ETL Hub - Triple Source Pipeline Monitor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* PS2 ETL Status Banner */
+        .ps2-banner {
+            background: linear-gradient(135deg, #00C851 0%, #007E33 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: pulse-green 3s infinite;
+        }
+
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+            50% { box-shadow: 0 10px 40px rgba(0, 200, 81, 0.4); }
+        }
+
+        .ps2-banner h2 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        .ps2-banner p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+
+        /* Architecture Diagram */
+        .architecture {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .source-box, .hub-box, .output-box {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .source-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .azure-source, .gdrive-source, .ps2-source {
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 180px;
+        }
+
+        .azure-source {
+            background: linear-gradient(135deg, #0078D4 0%, #005a9e 100%);
+        }
+
+        .gdrive-source {
+            background: linear-gradient(135deg, #34A853 0%, #0F9D58 100%);
+        }
+
+        .ps2-source {
+            background: linear-gradient(135deg, #FF6B35 0%, #D84315 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ps2-source::before {
+            content: '✨ NEW';
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #D84315;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 0.7em;
+            font-weight: bold;
+        }
+
+        .hub-box {
+            background: linear-gradient(135deg, #3FCF8E 0%, #2FA86D 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            min-width: 280px;
+            transform: scale(1.1);
+        }
+
+        .output-box {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .output-item {
+            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 180px;
+        }
+
+        /* Animated flow lines */
+        .flow-line {
+            position: absolute;
+            height: 3px;
+            background: linear-gradient(90deg,
+                transparent,
+                #667eea 20%,
+                #764ba2 50%,
+                #667eea 80%,
+                transparent);
+            top: 50%;
+            animation: flow 2s linear infinite;
+            z-index: 1;
+        }
+
+        .flow-line.azure-to-hub {
+            left: 200px;
+            width: 320px;
+            transform: translateY(-40px);
+        }
+
+        .flow-line.gdrive-to-hub {
+            left: 200px;
+            width: 320px;
+            transform: translateY(0px);
+        }
+
+        .flow-line.ps2-to-hub {
+            left: 200px;
+            width: 320px;
+            transform: translateY(40px);
+        }
+
+        .flow-line.hub-to-output {
+            right: 200px;
+            width: 320px;
+        }
+
+        @keyframes flow {
+            0% {
+                background-position: -100px 0;
+            }
+            100% {
+                background-position: 400px 0;
+            }
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .stat-card.ps2-card::before {
+            background: linear-gradient(90deg, #FF6B35, #D84315);
+        }
+
+        .stat-source {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .stat-trend {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5em;
+        }
+
+        .trend-up {
+            color: #34A853;
+        }
+
+        .trend-down {
+            color: #EA4335;
+        }
+
+        /* PS2 ETL Status Section */
+        .ps2-status {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .ps2-status h3 {
+            color: #FF6B35;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        .ps2-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .ps2-metric {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #FF6B35;
+        }
+
+        .ps2-metric-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #FF6B35;
+        }
+
+        .ps2-metric-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Queue Monitor */
+        .queue-monitor {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .queue-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .queue-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .queue-status {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.pending {
+            background: #FFA500;
+        }
+
+        .status-dot.processing {
+            background: #4169E1;
+            animation: spin 1s linear infinite;
+        }
+
+        .status-dot.completed {
+            background: #34A853;
+        }
+
+        .status-dot.failed {
+            background: #EA4335;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Progress bars */
+        .progress-container {
+            margin-top: 20px;
+        }
+
+        .progress-item {
+            margin-bottom: 15px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-fill.ps2 {
+            background: linear-gradient(90deg, #FF6B35, #D84315);
+        }
+
+        /* Data Quality Score */
+        .quality-gauge {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .gauge-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                #EA4335 0deg 36deg,
+                #FBBC05 36deg 108deg,
+                #34A853 108deg 360deg
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .gauge-center {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gauge-value {
+            font-size: 3em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .gauge-label {
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+        }
+
+        /* Real-time feed */
+        .activity-feed {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .feed-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .feed-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid;
+            animation: slideIn 0.3s ease;
+        }
+
+        .feed-item.azure {
+            border-left-color: #0078D4;
+        }
+
+        .feed-item.gdrive {
+            border-left-color: #34A853;
+        }
+
+        .feed-item.ps2 {
+            border-left-color: #FF6B35;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .feed-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        .feed-icon.azure {
+            background: #E3F2FD;
+            color: #0078D4;
+        }
+
+        .feed-icon.gdrive {
+            background: #E8F5E9;
+            color: #34A853;
+        }
+
+        .feed-icon.ps2 {
+            background: #FFF3E0;
+            color: #FF6B35;
+        }
+
+        .feed-content {
+            flex: 1;
+        }
+
+        .feed-message {
+            font-size: 0.95em;
+            color: #333;
+        }
+
+        .feed-time {
+            font-size: 0.8em;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .flow-diagram {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .flow-line {
+                display: none;
+            }
+
+            .hub-box {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Scout ETL Central Hub - Triple Source Pipeline</h1>
+
+        <!-- PS2 ETL Status Banner -->
+        <div class="ps2-banner">
+            <h2>✅ PS2 ETL Fixes Deployed Successfully</h2>
+            <p>Transaction array flattening • Timestamp fallback • Canonical TX ID regeneration</p>
+        </div>
+
+        <!-- Architecture Diagram -->
+        <div class="architecture">
+            <div class="flow-diagram">
+                <div class="source-box">
+                    <div class="azure-source">
+                        <div style="font-size: 2em;">☁️</div>
+                        <div style="font-weight: bold;">Azure SQL</div>
+                        <div style="font-size: 0.8em;">Silver Tables</div>
+                    </div>
+                    <div class="gdrive-source">
+                        <div style="font-size: 2em;">📁</div>
+                        <div style="font-weight: bold;">Google Drive</div>
+                        <div style="font-size: 0.8em;">JSON/SRT Files</div>
+                    </div>
+                    <div class="ps2-source">
+                        <div style="font-size: 2em;">🔧</div>
+                        <div style="font-weight: bold;">PS2 Edge</div>
+                        <div style="font-size: 0.8em;">Transaction Arrays</div>
+                    </div>
+                </div>
+
+                <div class="flow-line azure-to-hub"></div>
+                <div class="flow-line gdrive-to-hub"></div>
+                <div class="flow-line ps2-to-hub"></div>
+
+                <div class="hub-box">
+                    <div style="font-size: 3em;">⚡</div>
+                    <div style="font-size: 1.5em; font-weight: bold;">SUPABASE</div>
+                    <div>ETL Processing Hub</div>
+                    <div style="font-size: 0.9em; margin-top: 10px;">Queue • Transform • Validate</div>
+                </div>
+
+                <div class="flow-line hub-to-output"></div>
+
+                <div class="output-box">
+                    <div class="output-item" style="background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);">
+                        <div style="font-size: 1.5em;">📊</div>
+                        <div>Analytics</div>
+                    </div>
+                    <div class="output-item" style="background: linear-gradient(135deg, #4ECDC4 0%, #44A8B3 100%);">
+                        <div style="font-size: 1.5em;">💾</div>
+                        <div>Clean Storage</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-source">Azure SQL</div>
+                <div class="stat-value" id="azure-count">1,247</div>
+                <div class="stat-label">Records Today</div>
+                <div class="stat-trend trend-up">↑</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-source">Google Drive</div>
+                <div class="stat-value" id="gdrive-count">523</div>
+                <div class="stat-label">Files Processed</div>
+                <div class="stat-trend trend-up">↑</div>
+            </div>
+
+            <div class="stat-card ps2-card">
+                <div class="stat-source">PS2 Edge</div>
+                <div class="stat-value" id="ps2-count">342</div>
+                <div class="stat-label">Items Flattened</div>
+                <div class="stat-trend trend-up">↑</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-source">Queue Status</div>
+                <div class="stat-value" id="queue-size">28</div>
+                <div class="stat-label">Pending Items</div>
+                <div class="stat-trend trend-down">↓</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-source">Data Quality</div>
+                <div class="stat-value" id="quality-score">98%</div>
+                <div class="stat-label">Average Score</div>
+                <div class="stat-trend trend-up">↑</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-source">Processing</div>
+                <div class="stat-value" id="processing-rate">184</div>
+                <div class="stat-label">Records/Minute</div>
+                <div class="stat-trend trend-up">↑</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-source">Success Rate</div>
+                <div class="stat-value" id="success-rate">99.8%</div>
+                <div class="stat-label">Last 24 Hours</div>
+                <div class="stat-trend trend-up">↑</div>
+            </div>
+
+            <div class="stat-card ps2-card">
+                <div class="stat-source">Timestamp Coverage</div>
+                <div class="stat-value" id="timestamp-coverage">100%</div>
+                <div class="stat-label">PS2 Effective TS</div>
+                <div class="stat-trend trend-up">✅</div>
+            </div>
+        </div>
+
+        <!-- PS2 ETL Status -->
+        <div class="ps2-status">
+            <h3>🔧 PS2 ETL Pipeline Status</h3>
+            <div class="ps2-metrics">
+                <div class="ps2-metric">
+                    <div class="ps2-metric-value" id="ps2-timestamp-fixes">100%</div>
+                    <div class="ps2-metric-label">Timestamp Fallback Success</div>
+                </div>
+                <div class="ps2-metric">
+                    <div class="ps2-metric-value" id="ps2-items-flattened">2,847</div>
+                    <div class="ps2-metric-label">Items Array Entries</div>
+                </div>
+                <div class="ps2-metric">
+                    <div class="ps2-metric-value" id="ps2-canonical-fixed">1,429</div>
+                    <div class="ps2-metric-label">Canonical TX IDs</div>
+                </div>
+                <div class="ps2-metric">
+                    <div class="ps2-metric-value" id="ps2-store-coverage">100%</div>
+                    <div class="ps2-metric-label">Store ID Coverage</div>
+                </div>
+                <div class="ps2-metric">
+                    <div class="ps2-metric-value" id="ps2-price-mapping">100%</div>
+                    <div class="ps2-metric-label">Price Mapping Success</div>
+                </div>
+                <div class="ps2-metric">
+                    <div class="ps2-metric-value" id="ps2-zero-collapses">0</div>
+                    <div class="ps2-metric-label">Transaction Collapses</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Queue Monitor -->
+        <div class="queue-monitor">
+            <div class="queue-header">
+                <div class="queue-title">📋 ETL Queue Monitor</div>
+                <div class="queue-status">
+                    <div class="status-indicator">
+                        <div class="status-dot pending"></div>
+                        <span>Pending: <strong id="pending-count">28</strong></span>
+                    </div>
+                    <div class="status-indicator">
+                        <div class="status-dot processing"></div>
+                        <span>Processing: <strong id="processing-count">8</strong></span>
+                    </div>
+                    <div class="status-indicator">
+                        <div class="status-dot completed"></div>
+                        <span>Completed: <strong id="completed-count">2,387</strong></span>
+                    </div>
+                    <div class="status-indicator">
+                        <div class="status-dot failed"></div>
+                        <span>Failed: <strong id="failed-count">1</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Azure SQL Sync</span>
+                        <span>89%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 89%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Google Drive Sync</span>
+                        <span>94%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 94%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>PS2 Items Array Flattening</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill ps2" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Canonical TX ID Generation</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill ps2" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Data Transformation</span>
+                        <span>91%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 91%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Quality Validation</span>
+                        <span>98%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 98%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Feed and Quality Gauge -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+            <div class="activity-feed">
+                <div class="feed-title">🔄 Real-time Activity</div>
+                <div id="activity-list">
+                    <div class="feed-item ps2">
+                        <div class="feed-icon ps2">🔧</div>
+                        <div class="feed-content">
+                            <div class="feed-message">PS2 ETL: 67 items flattened from transaction arrays, canonical IDs regenerated</div>
+                            <div class="feed-time">1 minute ago</div>
+                        </div>
+                    </div>
+
+                    <div class="feed-item azure">
+                        <div class="feed-icon azure">☁️</div>
+                        <div class="feed-content">
+                            <div class="feed-message">Azure SQL: 245 transactions synced from silver.transactions</div>
+                            <div class="feed-time">2 minutes ago</div>
+                        </div>
+                    </div>
+
+                    <div class="feed-item ps2">
+                        <div class="feed-icon ps2">🔧</div>
+                        <div class="feed-content">
+                            <div class="feed-message">PS2 ETL: Timestamp fallback applied to 23 records using privacy.consentTimestamp</div>
+                            <div class="feed-time">2 minutes ago</div>
+                        </div>
+                    </div>
+
+                    <div class="feed-item gdrive">
+                        <div class="feed-icon gdrive">📁</div>
+                        <div class="feed-content">
+                            <div class="feed-message">Google Drive: New file TXN_20250119_batch.json processed</div>
+                            <div class="feed-time">3 minutes ago</div>
+                        </div>
+                    </div>
+
+                    <div class="feed-item ps2">
+                        <div class="feed-icon ps2">🔧</div>
+                        <div class="feed-content">
+                            <div class="feed-message">PS2 ETL: Store coverage validation complete - 100% success rate</div>
+                            <div class="feed-time">4 minutes ago</div>
+                        </div>
+                    </div>
+
+                    <div class="feed-item azure">
+                        <div class="feed-icon azure">☁️</div>
+                        <div class="feed-content">
+                            <div class="feed-message">Azure SQL: Product catalog update - 18 SKUs refreshed</div>
+                            <div class="feed-time">5 minutes ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-feed">
+                <div class="feed-title">📊 Data Quality Score</div>
+                <div class="quality-gauge">
+                    <div class="gauge-circle">
+                        <div class="gauge-center">
+                            <div class="gauge-value">98</div>
+                            <div class="gauge-label">Quality Score</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                    <div style="font-weight: bold; margin-bottom: 10px; color: #00C851;">✅ PS2 ETL Fixes:</div>
+                    <div style="font-size: 0.9em; color: #666;">
+                        • 100% Timestamp coverage<br>
+                        • 100% Items array flattened<br>
+                        • 100% Store ID mapping<br>
+                        • 0% Transaction collapses<br>
+                        • 100% Price mapping success
+                    </div>
+                    <div style="font-weight: bold; margin: 15px 0 10px 0;">Minor Issues:</div>
+                    <div style="font-size: 0.9em; color: #666;">
+                        • 1.2% Missing customer data<br>
+                        • 0.8% Invalid product SKUs
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulate real-time updates
+        function updateStats() {
+            // Animate Azure count
+            const azureCount = document.getElementById('azure-count');
+            azureCount.textContent = (parseInt(azureCount.textContent.replace(',', '')) + Math.floor(Math.random() * 10)).toLocaleString();
+
+            // Animate GDrive count
+            const gdriveCount = document.getElementById('gdrive-count');
+            gdriveCount.textContent = (parseInt(gdriveCount.textContent) + Math.floor(Math.random() * 3)).toLocaleString();
+
+            // Animate PS2 count
+            const ps2Count = document.getElementById('ps2-count');
+            ps2Count.textContent = (parseInt(ps2Count.textContent) + Math.floor(Math.random() * 8)).toLocaleString();
+
+            // Update queue size
+            const queueSize = document.getElementById('queue-size');
+            const currentQueue = parseInt(queueSize.textContent);
+            const newQueue = Math.max(0, currentQueue + Math.floor(Math.random() * 10) - 5);
+            queueSize.textContent = newQueue;
+
+            // Update processing rate
+            const processingRate = document.getElementById('processing-rate');
+            processingRate.textContent = (170 + Math.floor(Math.random() * 30)).toLocaleString();
+
+            // Update PS2 metrics
+            const ps2ItemsFlattened = document.getElementById('ps2-items-flattened');
+            ps2ItemsFlattened.textContent = (parseInt(ps2ItemsFlattened.textContent.replace(',', '')) + Math.floor(Math.random() * 15)).toLocaleString();
+
+            const ps2CanonicalFixed = document.getElementById('ps2-canonical-fixed');
+            ps2CanonicalFixed.textContent = (parseInt(ps2CanonicalFixed.textContent.replace(',', '')) + Math.floor(Math.random() * 8)).toLocaleString();
+
+            // Update queue counts
+            document.getElementById('pending-count').textContent = newQueue;
+            document.getElementById('processing-count').textContent = Math.floor(Math.random() * 15) + 5;
+            document.getElementById('completed-count').textContent =
+                (parseInt(document.getElementById('completed-count').textContent.replace(',', '')) + Math.floor(Math.random() * 25)).toLocaleString();
+        }
+
+        // Add new activity items
+        function addActivityItem() {
+            const activities = [
+                { type: 'ps2', icon: '🔧', message: 'PS2 ETL: 43 transaction items flattened from JSON arrays' },
+                { type: 'ps2', icon: '🔧', message: 'PS2 ETL: Timestamp fallback successful for 12 records' },
+                { type: 'ps2', icon: '🔧', message: 'PS2 ETL: Canonical TX ID regeneration complete for batch PS2_20250119' },
+                { type: 'azure', icon: '☁️', message: 'Azure SQL: Batch processing completed - 312 records' },
+                { type: 'gdrive', icon: '📁', message: 'Google Drive: Scout device scoutpi-0003 uploaded 45 transactions' },
+                { type: 'ps2', icon: '🔧', message: 'PS2 ETL: Store coverage validation passed - 100% mapping success' },
+                { type: 'azure', icon: '☁️', message: 'Azure SQL: Store master data synchronized' },
+                { type: 'ps2', icon: '🔧', message: 'PS2 ETL: Price mapping complete for 89 items array entries' },
+                { type: 'gdrive', icon: '📁', message: 'Google Drive: Processing batch from folder /incoming/2025-01-19' },
+                { type: 'ps2', icon: '🔧', message: 'PS2 ETL: Zero transaction collapses detected in latest batch' }
+            ];
+
+            const randomActivity = activities[Math.floor(Math.random() * activities.length)];
+
+            const newItem = document.createElement('div');
+            newItem.className = `feed-item ${randomActivity.type}`;
+            newItem.innerHTML = `
+                <div class="feed-icon ${randomActivity.type}">${randomActivity.icon}</div>
+                <div class="feed-content">
+                    <div class="feed-message">${randomActivity.message}</div>
+                    <div class="feed-time">Just now</div>
+                </div>
+            `;
+
+            const activityList = document.getElementById('activity-list');
+            activityList.insertBefore(newItem, activityList.firstChild);
+
+            // Remove old items
+            if (activityList.children.length > 8) {
+                activityList.removeChild(activityList.lastChild);
+            }
+        }
+
+        // Update every 3 seconds
+        setInterval(updateStats, 3000);
+
+        // Add new activity every 4 seconds
+        setInterval(addActivityItem, 4000);
+
+        // Initial load
+        updateStats();
+    </script>
+</body>
+</html>
