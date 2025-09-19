@@ -1,5 +1,6 @@
 import React from 'react'
-import { TrendingUp, Package, Users, UserCheck, BarChart3, Database, Target, MapPin, ChevronLeft, Menu } from 'lucide-react'
+import { TrendingUp, Package, Users, UserCheck, BarChart3, Database, Target, MapPin, ChevronLeft, Menu, Crown } from 'lucide-react'
+import { getDataSourceBadge } from '../../services/dataService'
 
 interface SidebarProps {
   activeSection: string
@@ -11,8 +12,14 @@ interface SidebarProps {
 const Sidebar = ({ activeSection, onSectionChange, isCollapsed, onToggle }: SidebarProps) => {
   const navItems = [
     {
+      id: 'executive-overview',
+      label: 'Executive Overview',
+      icon: Crown,
+      description: 'Strategic command center'
+    },
+    {
       id: 'transaction-trends',
-      label: 'Transaction Trends', 
+      label: 'Transaction Trends',
       icon: TrendingUp,
       description: 'Volume, timing & patterns'
     },
@@ -152,7 +159,7 @@ const Sidebar = ({ activeSection, onSectionChange, isCollapsed, onToggle }: Side
       <div className="absolute bottom-4 left-4 right-4">
         <div className="text-xs text-tbwa-yellow text-opacity-70 space-y-1">
           <div>Created by <strong className="text-tbwa-white">Scout Team</strong></div>
-          <div>Data Source: <strong className="text-tbwa-white">Mock Data</strong></div>
+          <div>Data Source: <strong className="text-tbwa-white">{getDataSourceBadge()}</strong></div>
         </div>
       </div>
     </div>

@@ -70,33 +70,36 @@ export const TransactionAreaChart = ({ data }: { data: any[] }) => {
 
 // Product Mix Horizontal Bar Chart (no diagonal labels)
 export const ProductMixPieChart = ({ data }: { data: any[] }) => {
+  // Ensure data is an array and has valid entries
+  const safeData = Array.isArray(data) ? data : []
+
   return (
     <div className="h-64 w-full">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart 
-          data={data} 
+        <BarChart
+          data={safeData}
           layout="horizontal"
           margin={{ top: 20, right: 30, left: 80, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-          <XAxis 
+          <XAxis
             type="number"
-            stroke="#6B7280" 
+            stroke="#6B7280"
             fontSize={12}
             tickLine={false}
             axisLine={false}
             label={{ value: 'Percentage (%)', position: 'insideBottom', offset: -5 }}
           />
-          <YAxis 
+          <YAxis
             type="category"
             dataKey="name"
-            stroke="#6B7280" 
+            stroke="#6B7280"
             fontSize={12}
             tickLine={false}
             axisLine={false}
             width={80}
           />
-          <Tooltip 
+          <Tooltip
             formatter={(value: any, name: any) => [`${value}%`, 'Share']}
             contentStyle={{
               backgroundColor: 'white',
@@ -106,13 +109,13 @@ export const ProductMixPieChart = ({ data }: { data: any[] }) => {
             }}
           />
           <Bar dataKey="value" radius={[0, 4, 4, 0]}>
-            {data.map((entry, index) => (
+            {safeData.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />
             ))}
-            <LabelList 
-              dataKey="value" 
-              position="inside" 
-              fill="white" 
+            <LabelList
+              dataKey="value"
+              position="inside"
+              fill="white"
               fontSize={12}
               fontWeight="600"
               formatter={(value: any) => `${value}%`}

@@ -13,9 +13,10 @@ import {
 import { DatabankPage } from './components/databank'
 import DataSourceBadge from './components/ui/DataSourceBadge'
 import { assertNoMockInProd } from './lib/env'
+import ExecutiveOverview from './components/executive/ExecutiveOverview'
 
 function App() {
-  const [activeSection, setActiveSection] = useState('transaction-trends')
+  const [activeSection, setActiveSection] = useState('executive-overview')
   const [showEnhanced, setShowEnhanced] = useState(true) // Toggle between enhanced and basic views
   
   // Panel states
@@ -92,6 +93,11 @@ function App() {
       return <DatabankPage />
     }
 
+    // Check if this is the executive overview page
+    if (activeSection === 'executive-overview') {
+      return <ExecutiveOverview />
+    }
+
     if (showEnhanced) {
       switch (activeSection) {
         case 'transaction-trends':
@@ -148,20 +154,22 @@ function App() {
         >
           {/* Dashboard Content */}
           <div className="flex-1 p-6">
-            {/* Data Source Status Header */}
-            <div className="mb-4 flex justify-between items-center">
-              <h1 className="text-2xl font-bold text-gray-900 capitalize">
-                {activeSection.replace('-', ' ')} Dashboard
-              </h1>
-              <DataSourceBadge
-                data-testid="data-source-badge"
-                showDetails={true}
-                size="md"
-              />
-            </div>
+            {/* Data Source Status Header - only show for non-executive sections */}
+            {activeSection !== 'executive-overview' && (
+              <div className="mb-4 flex justify-between items-center">
+                <h1 className="text-2xl font-bold text-gray-900 capitalize">
+                  {activeSection.replace('-', ' ')} Dashboard
+                </h1>
+                <DataSourceBadge
+                  data-testid="data-source-badge"
+                  showDetails={true}
+                  size="md"
+                />
+              </div>
+            )}
 
-            {/* Check if this is the databank page for different layout */}
-            {activeSection === 'databank' ? (
+            {/* Check if this is the databank or executive overview page for different layout */}
+            {activeSection === 'databank' || activeSection === 'executive-overview' ? (
               <div className="w-full">
                 {renderActiveSection()}
               </div>
@@ -171,7 +179,7 @@ function App() {
                 <div className="xl:col-span-3">
                   {renderActiveSection()}
                 </div>
-                
+
                 {/* AI Recommendations Panel */}
                 <div className="xl:col-span-1">
                   <AIPanel section={activeSection} />
@@ -180,8 +188,8 @@ function App() {
             )}
           </div>
           
-          {/* Cascading Filter Panel - hide for databank */}
-          {activeSection !== 'databank' && (
+          {/* Cascading Filter Panel - hide for databank and executive overview */}
+          {activeSection !== 'databank' && activeSection !== 'executive-overview' && (
             <CascadingFilterPanel
               isCollapsed={isFilterCollapsed}
               onToggle={() => setIsFilterCollapsed(!isFilterCollapsed)}
