@@ -354,7 +354,7 @@ const TransactionTrends = () => {
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-scout-secondary"
             >
               <option value="all">All Locations</option>
-              {filterOptions.locations.map(location => (
+              {Array.isArray(filterOptions.locations) && filterOptions.locations.map(location => (
                 <option key={location} value={location.toLowerCase()}>{location}</option>
               ))}
             </select>
@@ -368,7 +368,7 @@ const TransactionTrends = () => {
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-scout-secondary"
             >
               <option value="all">All Categories</option>
-              {filterOptions.categories.map(category => (
+              {Array.isArray(filterOptions.categories) && filterOptions.categories.map(category => (
                 <option key={category} value={category.toLowerCase()}>{category}</option>
               ))}
             </select>
@@ -478,11 +478,11 @@ const TransactionTrends = () => {
           {activeTab === 'Time Distribution' && (
             <div>
               <h3 className="text-lg font-semibold text-scout-text mb-4">Transaction Volume by Time of Day</h3>
-              <ProductMixPieChart data={timeSlots.map(slot => ({ name: slot.time, value: slot.percentage }))} />
+              <ProductMixPieChart data={Array.isArray(timeSlots) ? timeSlots.map(slot => ({ name: slot.time, value: slot.percentage })) : []} />
               <div className="mt-4 p-4 bg-yellow-50 rounded-lg border-l-4 border-scout-warning">
                 <p className="text-sm font-medium text-scout-text">Peak Hours Analysis</p>
                 <p className="text-sm text-gray-600 mt-1">
-                  Peak transaction period: {timeSlots.reduce((max, slot) => slot.transactions > max.transactions ? slot : max, timeSlots[0])?.time || 'N/A'} with {timeSlots.reduce((max, slot) => slot.transactions > max.transactions ? slot : max, timeSlots[0])?.transactions || 0} transactions
+                  Peak transaction period: {Array.isArray(timeSlots) && timeSlots.length > 0 ? timeSlots.reduce((max, slot) => slot.transactions > max.transactions ? slot : max, timeSlots[0])?.time || 'N/A' : 'N/A'} with {Array.isArray(timeSlots) && timeSlots.length > 0 ? timeSlots.reduce((max, slot) => slot.transactions > max.transactions ? slot : max, timeSlots[0])?.transactions || 0 : 0} transactions
                 </p>
               </div>
             </div>
@@ -490,7 +490,7 @@ const TransactionTrends = () => {
           {activeTab === 'Location Performance' && (
             <div>
               <h3 className="text-lg font-semibold text-scout-text mb-4">Location Performance Overview</h3>
-              <ProductMixPieChart data={locationData} />
+              <ProductMixPieChart data={Array.isArray(locationData) ? locationData : []} />
               <div className="mt-4 p-4 bg-purple-50 rounded-lg border-l-4 border-scout-purple">
                 <p className="text-sm font-medium text-scout-text">Location Insights</p>
                 <p className="text-sm text-gray-600 mt-1">
@@ -510,9 +510,9 @@ const TransactionTrends = () => {
             <div className="h-64 flex items-center justify-center text-gray-500">Loading value distribution...</div>
           ) : (
             <>
-              <ProductMixPieChart data={valueDistribution} />
+              <ProductMixPieChart data={Array.isArray(valueDistribution) ? valueDistribution : []} />
               <div className="mt-4 grid grid-cols-2 gap-2">
-                {valueDistribution.map((item, index) => (
+                {Array.isArray(valueDistribution) && valueDistribution.map((item, index) => (
                   <div key={index} className="flex items-center justify-between p-2 bg-gray-50 rounded text-sm">
                     <span className="font-medium">{item.name}</span>
                     <span className="text-scout-text">{item.value}% ({item.count})</span>
@@ -531,7 +531,7 @@ const TransactionTrends = () => {
             <>
               <ProductMixPieChart data={locationData} />
               <div className="mt-4 space-y-2">
-                {locationData.map((location, index) => (
+                {Array.isArray(locationData) && locationData.map((location, index) => (
                   <div key={index} className="flex justify-between items-center p-2 bg-gray-50 rounded text-sm">
                     <div className="font-medium">{location.name}</div>
                     <div className="text-right">

@@ -187,7 +187,7 @@ const ProductMix = () => {
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-scout-secondary"
             >
               <option value="all">All Categories</option>
-              {filterOptions.categories.map(category => (
+              {Array.isArray(filterOptions.categories) && filterOptions.categories.map(category => (
                 <option key={category} value={category.toLowerCase()}>{category}</option>
               ))}
             </select>
@@ -201,7 +201,7 @@ const ProductMix = () => {
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-scout-secondary"
             >
               <option value="all">All Brands</option>
-              {filterOptions.brands.map(brand => (
+              {Array.isArray(filterOptions.brands) && filterOptions.brands.map(brand => (
                 <option key={brand} value={brand.toLowerCase()}>{brand}</option>
               ))}
             </select>
@@ -289,7 +289,7 @@ const ProductMix = () => {
                 <div className="h-64 flex items-center justify-center text-gray-500">Loading category data...</div>
               ) : (
                 <>
-                  <ProductMixPieChart data={categoryData.map(cat => ({ name: cat.category, value: cat.percentage }))} />
+                  <ProductMixPieChart data={Array.isArray(categoryData) ? categoryData.map(cat => ({ name: cat.category, value: cat.percentage })) : []} />
                   <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-scout-accent">
                     <p className="text-sm font-medium text-scout-text">Category Insights</p>
                     <p className="text-sm text-gray-600 mt-1">
@@ -307,7 +307,7 @@ const ProductMix = () => {
                 <div className="h-64 flex items-center justify-center text-gray-500">Loading brand data...</div>
               ) : (
                 <>
-                  <ProductMixPieChart data={brandPerformance.map(brand => ({ name: brand.brand, value: brand.sales }))} />
+                  <ProductMixPieChart data={Array.isArray(brandPerformance) ? brandPerformance.map(brand => ({ name: brand.brand, value: brand.sales })) : []} />
                   <div className="mt-4 p-4 bg-green-50 rounded-lg border-l-4 border-scout-success">
                     <p className="text-sm font-medium text-scout-text">Brand Performance</p>
                     <p className="text-sm text-gray-600 mt-1">
@@ -340,7 +340,7 @@ const ProductMix = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {brandPerformance.slice(0, 5).map((brand, index) => (
+                    {Array.isArray(brandPerformance) && brandPerformance.slice(0, 5).map((brand, index) => (
                       <tr key={index} className="border-b border-gray-100">
                         <td className="py-3 px-2 font-medium">{brand.brand}</td>
                         <td className="py-3 px-2 text-gray-600">{brand.category}</td>
