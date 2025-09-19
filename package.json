@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
+    "@types/leaflet": "1.9.20",
     "@types/papaparse": "5.3.16",
     "@types/react-grid-layout": "^1.3.5",
     "@visx/geo": "3.12.0",
@@ -24,6 +25,7 @@
     "date-fns": "^3.0.0",
     "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
+    "leaflet": "1.9.4",
     "lucide-react": "0.294.0",
     "mapbox-gl": "1.13.3",
     "papaparse": "5.5.3",
@@ -34,6 +36,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-grid-layout": "^1.4.4",
+    "react-leaflet": "5.0.0",
     "react-map-gl": "8.0.4",
     "react-plotly.js": "2.6.0",
     "react-router-dom": "^6.20.1",
