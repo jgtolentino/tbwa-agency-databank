@@ -1,0 +1,1061 @@
+{
+  "metadata": {
+    "title": "",
+    "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/164f4fb6-69a77c80738c9314.js",
+    "extractedAt": "2025-09-15T11:02:35.713Z",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  },
+  "componentStructure": {
+    "tagName": "div",
+    "className": "min-h-screen bg-gray-50",
+    "id": "",
+    "textContent": "Scout Databank DashboardExecutive Analytics & Insights PlatformRefreshExport ReportExport as PDFExpo",
+    "attributes": {
+      "class": "min-h-screen bg-gray-50"
+    },
+    "children": [
+      {
+        "tagName": "div",
+        "className": "min-h-screen bg-gray-50",
+        "id": "",
+        "textContent": "Scout Databank DashboardExecutive Analytics & Insights PlatformRefreshExport ReportExport as PDFExpo",
+        "attributes": {
+          "class": "min-h-screen bg-gray-50"
+        },
+        "children": [
+          {
+            "tagName": "div",
+            "className": "bg-white border-b border-gray-200",
+            "id": "",
+            "textContent": "Scout Databank DashboardExecutive Analytics & Insights PlatformRefreshExport ReportExport as PDFExpo",
+            "attributes": {
+              "class": "bg-white border-b border-gray-200"
+            },
+            "children": [
+              {
+                "tagName": "div",
+                "className": "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8",
+                "id": "",
+                "textContent": "Scout Databank DashboardExecutive Analytics & Insights PlatformRefreshExport ReportExport as PDFExpo",
+                "attributes": {
+                  "class": "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
+                },
+                "children": [
+                  {
+                    "tagName": "div",
+                    "className": "flex items-center justify-between py-6",
+                    "id": "",
+                    "textContent": "Scout Databank DashboardExecutive Analytics & Insights PlatformRefreshExport ReportExport as PDFExpo",
+                    "attributes": {
+                      "class": "flex items-center justify-between py-6"
+                    },
+                    "children": [
+                      {
+                        "tagName": "div",
+                        "className": "",
+                        "id": "",
+                        "textContent": "Scout Databank DashboardExecutive Analytics & Insights Platform",
+                        "attributes": {},
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      },
+                      {
+                        "tagName": "div",
+                        "className": "flex items-center gap-4",
+                        "id": "",
+                        "textContent": "RefreshExport ReportExport as PDFExport as Excel",
+                        "attributes": {
+                          "class": "flex items-center gap-4"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      }
+                    ],
+                    "isChart": false,
+                    "chartType": null,
+                    "depth": 4,
+                    "hasReactFiber": true
+                  }
+                ],
+                "isChart": false,
+                "chartType": null,
+                "depth": 3,
+                "hasReactFiber": true
+              }
+            ],
+            "isChart": false,
+            "chartType": null,
+            "depth": 2,
+            "hasReactFiber": true
+          },
+          {
+            "tagName": "div",
+            "className": "bg-white border-b border-gray-200 sticky top-0 z-10",
+            "id": "",
+            "textContent": "TodayLast 7 DaysLast 30 DaysLast 90 DaysCustom RangeAll LocationsMetro ManilaLuzonVisayasMindanaoAll",
+            "attributes": {
+              "class": "bg-white border-b border-gray-200 sticky top-0 z-10"
+            },
+            "children": [
+              {
+                "tagName": "div",
+                "className": "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4",
+                "id": "",
+                "textContent": "TodayLast 7 DaysLast 30 DaysLast 90 DaysCustom RangeAll LocationsMetro ManilaLuzonVisayasMindanaoAll",
+                "attributes": {
+                  "class": "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4"
+                },
+                "children": [
+                  {
+                    "tagName": "div",
+                    "className": "flex flex-wrap items-center gap-4",
+                    "id": "",
+                    "textContent": "TodayLast 7 DaysLast 30 DaysLast 90 DaysCustom RangeAll LocationsMetro ManilaLuzonVisayasMindanaoAll",
+                    "attributes": {
+                      "class": "flex flex-wrap items-center gap-4"
+                    },
+                    "children": [
+                      {
+                        "tagName": "div",
+                        "className": "flex items-center gap-2",
+                        "id": "",
+                        "textContent": "TodayLast 7 DaysLast 30 DaysLast 90 DaysCustom Range",
+                        "attributes": {
+                          "class": "flex items-center gap-2"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      },
+                      {
+                        "tagName": "div",
+                        "className": "flex items-center gap-2",
+                        "id": "",
+                        "textContent": "All LocationsMetro ManilaLuzonVisayasMindanao",
+                        "attributes": {
+                          "class": "flex items-center gap-2"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      },
+                      {
+                        "tagName": "div",
+                        "className": "flex items-center gap-2",
+                        "id": "",
+                        "textContent": "All CategoriesBeveragesSnacksPersonal CareHousehold",
+                        "attributes": {
+                          "class": "flex items-center gap-2"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      },
+                      {
+                        "tagName": "div",
+                        "className": "flex items-center gap-2",
+                        "id": "",
+                        "textContent": "All BrandsBrand ABrand BBrand CUnbranded",
+                        "attributes": {
+                          "class": "flex items-center gap-2"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      }
+                    ],
+                    "isChart": false,
+                    "chartType": null,
+                    "depth": 4,
+                    "hasReactFiber": true
+                  }
+                ],
+                "isChart": false,
+                "chartType": null,
+                "depth": 3,
+                "hasReactFiber": true
+              }
+            ],
+            "isChart": false,
+            "chartType": null,
+            "depth": 2,
+            "hasReactFiber": true
+          },
+          {
+            "tagName": "div",
+            "className": "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8",
+            "id": "",
+            "textContent": "Transaction TrendsDaily Volume5043.7%Daily Revenue₱172,93421.5%Volume₱ RevenueBasket SizeDurationCom",
+            "attributes": {
+              "class": "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8"
+            },
+            "children": [
+              {
+                "tagName": "div",
+                "className": "grid grid-cols-1 lg:grid-cols-2 gap-6",
+                "id": "",
+                "textContent": "Transaction TrendsDaily Volume5043.7%Daily Revenue₱172,93421.5%Volume₱ RevenueBasket SizeDurationCom",
+                "attributes": {
+                  "class": "grid grid-cols-1 lg:grid-cols-2 gap-6"
+                },
+                "children": [
+                  {
+                    "tagName": "div",
+                    "className": "bg-white rounded-lg shadow-sm border border-gray-200 p-6",
+                    "id": "",
+                    "textContent": "Transaction TrendsDaily Volume5043.7%Daily Revenue₱172,93421.5%Volume₱ RevenueBasket SizeDurationCom",
+                    "attributes": {
+                      "class": "bg-white rounded-lg shadow-sm border border-gray-200 p-6"
+                    },
+                    "children": [
+                      {
+                        "tagName": "div",
+                        "className": "flex items-center justify-between mb-4",
+                        "id": "",
+                        "textContent": "Transaction Trends",
+                        "attributes": {
+                          "class": "flex items-center justify-between mb-4"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      },
+                      {
+                        "tagName": "div",
+                        "className": "space-y-4",
+                        "id": "",
+                        "textContent": "Daily Volume5043.7%Daily Revenue₱172,93421.5%Volume₱ RevenueBasket SizeDurationCompare with previous",
+                        "attributes": {
+                          "class": "space-y-4"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      }
+                    ],
+                    "isChart": false,
+                    "chartType": null,
+                    "depth": 4,
+                    "hasReactFiber": true
+                  },
+                  {
+                    "tagName": "div",
+                    "className": "bg-white rounded-lg shadow-sm border border-gray-200 p-6",
+                    "id": "",
+                    "textContent": "Product Mix & SKU AnalyticsTotal SKUs369Active SKUs342New SKUs12Category MixPareto AnalysisSubstitut",
+                    "attributes": {
+                      "class": "bg-white rounded-lg shadow-sm border border-gray-200 p-6"
+                    },
+                    "children": [
+                      {
+                        "tagName": "div",
+                        "className": "flex items-center justify-between mb-4",
+                        "id": "",
+                        "textContent": "Product Mix & SKU Analytics",
+                        "attributes": {
+                          "class": "flex items-center justify-between mb-4"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      },
+                      {
+                        "tagName": "div",
+                        "className": "space-y-4",
+                        "id": "",
+                        "textContent": "Total SKUs369Active SKUs342New SKUs12Category MixPareto AnalysisSubstitutionsBasket AnalysisBeverage",
+                        "attributes": {
+                          "class": "space-y-4"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      }
+                    ],
+                    "isChart": false,
+                    "chartType": null,
+                    "depth": 4,
+                    "hasReactFiber": true
+                  },
+                  {
+                    "tagName": "div",
+                    "className": "bg-white rounded-lg shadow-sm border border-gray-200 p-6",
+                    "id": "",
+                    "textContent": "Consumer Behavior & PreferencesConversion Rate42%Suggestion Accept73.8%Brand Loyalty68%Purchase Funn",
+                    "attributes": {
+                      "class": "bg-white rounded-lg shadow-sm border border-gray-200 p-6"
+                    },
+                    "children": [
+                      {
+                        "tagName": "div",
+                        "className": "flex items-center justify-between mb-4",
+                        "id": "",
+                        "textContent": "Consumer Behavior & Preferences",
+                        "attributes": {
+                          "class": "flex items-center justify-between mb-4"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      },
+                      {
+                        "tagName": "div",
+                        "className": "space-y-4",
+                        "id": "",
+                        "textContent": "Conversion Rate42%Suggestion Accept73.8%Brand Loyalty68%Purchase FunnelRequest MethodsAcceptance Rat",
+                        "attributes": {
+                          "class": "space-y-4"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      }
+                    ],
+                    "isChart": false,
+                    "chartType": null,
+                    "depth": 4,
+                    "hasReactFiber": true
+                  },
+                  {
+                    "tagName": "div",
+                    "className": "bg-white rounded-lg shadow-sm border border-gray-200 p-6",
+                    "id": "",
+                    "textContent": "Consumer ProfilingTotal Customers11,000Avg Age32.5Gender Split48/52DemographicsAge & GenderLocationS",
+                    "attributes": {
+                      "class": "bg-white rounded-lg shadow-sm border border-gray-200 p-6"
+                    },
+                    "children": [
+                      {
+                        "tagName": "div",
+                        "className": "flex items-center justify-between mb-4",
+                        "id": "",
+                        "textContent": "Consumer Profiling",
+                        "attributes": {
+                          "class": "flex items-center justify-between mb-4"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      },
+                      {
+                        "tagName": "div",
+                        "className": "space-y-4",
+                        "id": "",
+                        "textContent": "Total Customers11,000Avg Age32.5Gender Split48/52DemographicsAge & GenderLocationSegment BehaviorInc",
+                        "attributes": {
+                          "class": "space-y-4"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      }
+                    ],
+                    "isChart": false,
+                    "chartType": null,
+                    "depth": 4,
+                    "hasReactFiber": true
+                  }
+                ],
+                "isChart": false,
+                "chartType": null,
+                "depth": 3,
+                "hasReactFiber": true
+              },
+              {
+                "tagName": "div",
+                "className": "mt-8 bg-white rounded-lg shadow-sm border border-gray-200 p-6",
+                "id": "",
+                "textContent": "Comparative AnalyticsPeriod-over-Period Growth+12.5%Forecast Accuracy94.2%Market Share28.7%",
+                "attributes": {
+                  "class": "mt-8 bg-white rounded-lg shadow-sm border border-gray-200 p-6"
+                },
+                "children": [
+                  {
+                    "tagName": "h2",
+                    "className": "text-lg font-semibold text-gray-900 mb-4",
+                    "id": "",
+                    "textContent": "Comparative Analytics",
+                    "attributes": {
+                      "class": "text-lg font-semibold text-gray-900 mb-4"
+                    },
+                    "children": [],
+                    "isChart": false,
+                    "chartType": null,
+                    "depth": 4,
+                    "hasReactFiber": true
+                  },
+                  {
+                    "tagName": "div",
+                    "className": "grid grid-cols-1 md:grid-cols-3 gap-6",
+                    "id": "",
+                    "textContent": "Period-over-Period Growth+12.5%Forecast Accuracy94.2%Market Share28.7%",
+                    "attributes": {
+                      "class": "grid grid-cols-1 md:grid-cols-3 gap-6"
+                    },
+                    "children": [
+                      {
+                        "tagName": "div",
+                        "className": "text-center",
+                        "id": "",
+                        "textContent": "Period-over-Period Growth+12.5%",
+                        "attributes": {
+                          "class": "text-center"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      },
+                      {
+                        "tagName": "div",
+                        "className": "text-center",
+                        "id": "",
+                        "textContent": "Forecast Accuracy94.2%",
+                        "attributes": {
+                          "class": "text-center"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      },
+                      {
+                        "tagName": "div",
+                        "className": "text-center",
+                        "id": "",
+                        "textContent": "Market Share28.7%",
+                        "attributes": {
+                          "class": "text-center"
+                        },
+                        "children": [],
+                        "isChart": false,
+                        "chartType": null,
+                        "depth": 5,
+                        "hasReactFiber": true
+                      }
+                    ],
+                    "isChart": false,
+                    "chartType": null,
+                    "depth": 4,
+                    "hasReactFiber": true
+                  }
+                ],
+                "isChart": false,
+                "chartType": null,
+                "depth": 3,
+                "hasReactFiber": true
+              }
+            ],
+            "isChart": false,
+            "chartType": null,
+            "depth": 2,
+            "hasReactFiber": true
+          }
+        ],
+        "isChart": false,
+        "chartType": null,
+        "depth": 1,
+        "hasReactFiber": true
+      }
+    ],
+    "isChart": false,
+    "chartType": null,
+    "depth": 0,
+    "hasReactFiber": true
+  },
+  "databankComponents": {
+    "header": {
+      "text": "Scout Databank Dashboard",
+      "classes": "text-3xl font-bold text-gray-900",
+      "parent": ""
+    },
+    "filters": [
+      {
+        "name": "Unknown",
+        "options": [
+          "Today",
+          "Last 7 Days",
+          "Last 30 Days",
+          "Last 90 Days",
+          "Custom Range"
+        ],
+        "classes": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500"
+      },
+      {
+        "name": "Unknown",
+        "options": [
+          "All Locations",
+          "Metro Manila",
+          "Luzon",
+          "Visayas",
+          "Mindanao"
+        ],
+        "classes": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500"
+      },
+      {
+        "name": "Unknown",
+        "options": [
+          "All Categories",
+          "Beverages",
+          "Snacks",
+          "Personal Care",
+          "Household"
+        ],
+        "classes": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500"
+      },
+      {
+        "name": "Unknown",
+        "options": [
+          "All Brands",
+          "Brand A",
+          "Brand B",
+          "Brand C",
+          "Unbranded"
+        ],
+        "classes": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500"
+      }
+    ],
+    "charts": [
+      {
+        "index": 0,
+        "title": "Transaction Trends",
+        "containerClasses": "recharts-responsive-container",
+        "cardClasses": "bg-white rounded-lg shadow-sm border border-gray-200 p-6",
+        "chartType": "recharts",
+        "svgElement": {
+          "width": "546",
+          "height": "256",
+          "viewBox": "0 0 546 256"
+        }
+      },
+      {
+        "index": 1,
+        "title": "Product Mix & SKU Analytics",
+        "containerClasses": "recharts-responsive-container",
+        "cardClasses": "bg-white rounded-lg shadow-sm border border-gray-200 p-6",
+        "chartType": "recharts",
+        "svgElement": {
+          "width": "546",
+          "height": "256",
+          "viewBox": "0 0 546 256"
+        }
+      },
+      {
+        "index": 2,
+        "title": "Consumer Behavior & Preferences",
+        "containerClasses": "recharts-responsive-container",
+        "cardClasses": "bg-white rounded-lg shadow-sm border border-gray-200 p-6",
+        "chartType": "recharts",
+        "svgElement": {
+          "width": "546",
+          "height": "256",
+          "viewBox": "0 0 546 256"
+        }
+      }
+    ],
+    "buttons": [
+      {
+        "text": "Refresh",
+        "classes": "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50",
+        "type": "submit",
+        "hasIcon": true
+      },
+      {
+        "text": "Export Report",
+        "classes": "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+        "type": "submit",
+        "hasIcon": true
+      },
+      {
+        "text": "Export as PDF",
+        "classes": "flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50",
+        "type": "submit",
+        "hasIcon": true
+      },
+      {
+        "text": "Export as Excel",
+        "classes": "flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50",
+        "type": "submit",
+        "hasIcon": true
+      },
+      {
+        "text": "Volume",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+        "type": "submit",
+        "hasIcon": true
+      },
+      {
+        "text": "₱ Revenue",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "type": "submit",
+        "hasIcon": false
+      },
+      {
+        "text": "Basket Size",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "type": "submit",
+        "hasIcon": false
+      },
+      {
+        "text": "Duration",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "type": "submit",
+        "hasIcon": true
+      },
+      {
+        "text": "Category Mix",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+        "type": "submit",
+        "hasIcon": false
+      },
+      {
+        "text": "Pareto Analysis",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "type": "submit",
+        "hasIcon": false
+      },
+      {
+        "text": "Substitutions",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "type": "submit",
+        "hasIcon": false
+      },
+      {
+        "text": "Basket Analysis",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "type": "submit",
+        "hasIcon": false
+      },
+      {
+        "text": "Purchase Funnel",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+        "type": "submit",
+        "hasIcon": false
+      },
+      {
+        "text": "Request Methods",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "type": "submit",
+        "hasIcon": false
+      },
+      {
+        "text": "Acceptance Rates",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "type": "submit",
+        "hasIcon": false
+      },
+      {
+        "text": "Behavior Traits",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "type": "submit",
+        "hasIcon": false
+      },
+      {
+        "text": "Demographics",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+        "type": "submit",
+        "hasIcon": false
+      },
+      {
+        "text": "Age & Gender",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "type": "submit",
+        "hasIcon": false
+      },
+      {
+        "text": "Location",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "type": "submit",
+        "hasIcon": false
+      },
+      {
+        "text": "Segment Behavior",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "type": "submit",
+        "hasIcon": false
+      }
+    ],
+    "tabs": [
+      {
+        "text": "Volume",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+        "isActive": true
+      },
+      {
+        "text": "₱ Revenue",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "isActive": false
+      },
+      {
+        "text": "Basket Size",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "isActive": false
+      },
+      {
+        "text": "Duration",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "isActive": false
+      },
+      {
+        "text": "Category Mix",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+        "isActive": true
+      },
+      {
+        "text": "Pareto Analysis",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "isActive": false
+      },
+      {
+        "text": "Substitutions",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "isActive": false
+      },
+      {
+        "text": "Basket Analysis",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "isActive": false
+      },
+      {
+        "text": "Purchase Funnel",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+        "isActive": true
+      },
+      {
+        "text": "Request Methods",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "isActive": false
+      },
+      {
+        "text": "Acceptance Rates",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "isActive": false
+      },
+      {
+        "text": "Behavior Traits",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "isActive": false
+      },
+      {
+        "text": "Demographics",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+        "isActive": true
+      },
+      {
+        "text": "Age & Gender",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "isActive": false
+      },
+      {
+        "text": "Location",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "isActive": false
+      },
+      {
+        "text": "Segment Behavior",
+        "classes": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+        "isActive": false
+      }
+    ],
+    "metricCards": [
+      {
+        "label": "Daily Volume",
+        "value": "664",
+        "trend": "20.3%",
+        "classes": "bg-gray-50 rounded-lg p-4"
+      },
+      {
+        "label": "Daily Revenue",
+        "value": "₱153,279",
+        "trend": "88.4%",
+        "classes": "bg-gray-50 rounded-lg p-4"
+      }
+    ],
+    "insights": [
+      {
+        "type": "blue",
+        "title": "Key Insight",
+        "content": "Top 20% of SKUs generate 80% of revenue. Consider optimizing inventory for high-performing items.",
+        "classes": "bg-blue-50 rounded-lg p-3"
+      },
+      {
+        "type": "blue",
+        "title": "High Brand Affinity",
+        "content": "68% repeat purchase rate",
+        "classes": "bg-blue-50 rounded-lg p-3"
+      },
+      {
+        "type": "green",
+        "title": "Discovery Oriented",
+        "content": "23% try new products",
+        "classes": "bg-green-50 rounded-lg p-3"
+      },
+      {
+        "type": "purple",
+        "title": "Geographic Insight",
+        "content": "Metro Manila accounts for 35% of customers but 45% of revenue, indicating higher purchasing power.",
+        "classes": "bg-purple-50 rounded-lg p-3"
+      }
+    ]
+  },
+  "networkRequests": [
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/databank",
+      "method": "GET",
+      "resourceType": "document",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"macOS\""
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/css/a30ac04de8fe0978.css",
+      "method": "GET",
+      "resourceType": "stylesheet",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/webpack-9504e47d199ff7da.js",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/4bd1b696-a45697d7c9a7d01d.js",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/684-c6b1666611f5f958.js",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/main-app-df55f4bdaf350cb2.js",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/2170a4aa-f220f188891353c6.js",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/164f4fb6-69a77c80738c9314.js",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/72-9942fe08882ea7fc.js",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/app/databank/page-7b1709c270c9f498.js",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "sec-ch-ua-platform": "\"macOS\"",
+        "referer": "https://scout-analytics-nextjs.vercel.app/databank",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/4bd1b696-a45697d7c9a7d01d.js",
+      "method": "GET",
+      "resourceType": "document",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"macOS\""
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/684-c6b1666611f5f958.js",
+      "method": "GET",
+      "resourceType": "document",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"macOS\""
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/main-app-df55f4bdaf350cb2.js",
+      "method": "GET",
+      "resourceType": "document",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"macOS\""
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/2170a4aa-f220f188891353c6.js",
+      "method": "GET",
+      "resourceType": "document",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"macOS\""
+      }
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/164f4fb6-69a77c80738c9314.js",
+      "method": "GET",
+      "resourceType": "document",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"macOS\""
+      }
+    }
+  ],
+  "apiResponses": [
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/databank",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "data": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/css/a30ac04de8fe0978.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-9504e47d199ff7da.js\"/><script src=\"/_next/static/chunks/4bd1b696-a45697d7c9a7d01d.js\" async=\"\"></script><script src=\"/_next/static/chunks/684-c6b1666611f5f958.js\" async=\"\"></script><script src=\"/_next/static/chunks/main-app-df55f4bdaf350cb2.js\" async=\"\"></script><script src=\"/_next/static/chunks/2170a4aa-f220f188891353c6.js\" async=\"\"></script><script src=\"/_next/static/chunks/164f4fb6-69a77c80738c9314.js\" async=\"\"></script><script src=\"/_next/static/chunks/72-9942fe08882ea7fc.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/databank/page-7b1709c270c9f498.js\" async=\"\"></script><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"/><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin=\"\"/><title>Scout Analytics Dashboard - TBWA AI Platform</title><meta name=\"description\" content=\"AI-powered retail intelligence platform for the Philippines market\"/><meta name=\"robots\" content=\"index, follow\"/><meta property=\"og:title\" content=\"Scout Analytics Dashboard\"/><meta property=\"og:description\" content=\"AI-powered retail intelligence platform\"/><meta property=\"og:url\" content=\"https://scout-mvp.vercel.app\"/><meta property=\"og:type\" content=\"website\"/><meta name=\"twitter:card\" content=\"summary_large_image\"/><meta name=\"twitter:title\" content=\"Scout Analytics Dashboard\"/><meta name=\"twitter:description\" content=\"AI-powered retail intelligence platform\"/><script>document.querySelectorAll('body link[rel=\"icon\"], body link[rel=\"apple-touch-icon\"]').forEach(el => document.head.appendChild(el))</script><script src=\"/_next/static/chunks/polyfills-42372ed130431b0a.js\" noModule=\"\"></script></head><body><div class=\"min-h-screen bg-gray-50\"><div class=\"min-h-screen bg-gray-50\"><div class=\"bg-white border-b border-gray-200\"><div class=\"mx-auto max-w-7xl px-4 sm:px-6 lg:px-8\"><div class=\"flex items-center justify-between py-6\"><div><h1 class=\"text-3xl font-bold text-gray-900\">Scout Databank Dashboard</h1><p class=\"mt-1 text-sm text-gray-500\">Executive Analytics &amp; Insights Platform</p></div><div class=\"flex items-center gap-4\"><button class=\"inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-refresh-cw h-4 w-4\" aria-hidden=\"true\"><path d=\"M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8\"></path><path d=\"M21 3v5h-5\"></path><path d=\"M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16\"></path><path d=\"M8 16H3v5\"></path></svg>Refresh</button><div class=\"relative group\"><button class=\"inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-download h-4 w-4\" aria-hidden=\"true\"><path d=\"M12 15V3\"></path><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"></path><path d=\"m7 10 5 5 5-5\"></path></svg>Export Report</button><div class=\"absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 hidden group-hover:block\"><button class=\"flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-file-text h-4 w-4\" aria-hidden=\"true\"><path d=\"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z\"></path><path d=\"M14 2v4a2 2 0 0 0 2 2h4\"></path><path d=\"M10 9H8\"></path><path d=\"M16 13H8\"></path><path d=\"M16 17H8\"></path></svg>Export as PDF</button><button class=\"flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-file-spreadsheet h-4 w-4\" aria-hidden=\"true\"><path d=\"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z\"></path><path d=\"M14 2v4a2 2 0 0 0 2 2h4\"></path><path d=\"M8 13h2\"></path><path d=\"M14 13h2\"></path><path d=\"M8 17h2\"></path><path d=\"M14 17h2\"></path></svg>Export as Excel</button></div></div></div></div></div></div><div class=\"bg-white border-b border-gray-200 sticky top-0 z-10\"><div class=\"mx-auto max-w-7xl px-4"
+    },
+    {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/app/databank/page-7b1709c270c9f498.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "data": "(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[989],{32383:()=>{},60510:(e,s,t)=>{\"use strict\";t.r(s),t.d(s,{default:()=>eh});var a=t(95155),r=t(12115),l=t(83540),n=t(99445),i=t(94754),c=t(96025),o=t(52071),d=t(27086),x=t(61667),m=t(57046),h=t(56690),u=t(13279),g=t(93504),j=t(3401),b=t(33109),y=t(68500),p=t(27809),v=t(14186);let f=()=>{let e=[],s=new Date;for(let t=29;t>=0;t--){let a=new Date(s);a.setDate(a.getDate()-t),e.push({date:a.toISOString().split(\"T\")[0],volume:Math.floor(500*Math.random())+400,revenue:Math.floor(1e5*Math.random())+8e4,avgBasket:Math.floor(50*Math.random())+150,duration:Math.floor(2*Math.random())+2.5,units:Math.floor(15*Math.random())+10})}return e};function N(e){let{}=e,[s,t]=(0,r.useState)(\"volume\"),[N,k]=(0,r.useState)(!1),w=f(),B=w[w.length-1],S=w[w.length-8],C=(B.volume-S.volume)/S.volume*100,A=(B.revenue-S.revenue)/S.revenue*100;return(0,a.jsxs)(\"div\",{className:\"space-y-4\",children:[(0,a.jsxs)(\"div\",{className:\"grid grid-cols-2 gap-4\",children:[(0,a.jsx)(\"div\",{className:\"bg-gray-50 rounded-lg p-4\",children:(0,a.jsxs)(\"div\",{className:\"flex items-center justify-between\",children:[(0,a.jsxs)(\"div\",{children:[(0,a.jsx)(\"p\",{className:\"text-sm text-gray-500\",children:\"Daily Volume\"}),(0,a.jsx)(\"p\",{className:\"text-2xl font-bold text-gray-900\",children:B.volume})]}),(0,a.jsxs)(\"div\",{className:\"flex items-center \".concat(C>0?\"text-green-600\":\"text-red-600\"),children:[C>0?(0,a.jsx)(b.A,{className:\"h-4 w-4\"}):(0,a.jsx)(y.A,{className:\"h-4 w-4\"}),(0,a.jsxs)(\"span\",{className:\"text-sm font-medium ml-1\",children:[Math.abs(C).toFixed(1),\"%\"]})]})]})}),(0,a.jsx)(\"div\",{className:\"bg-gray-50 rounded-lg p-4\",children:(0,a.jsxs)(\"div\",{className:\"flex items-center justify-between\",children:[(0,a.jsxs)(\"div\",{children:[(0,a.jsx)(\"p\",{className:\"text-sm text-gray-500\",children:\"Daily Revenue\"}),(0,a.jsxs)(\"p\",{className:\"text-2xl font-bold text-gray-900\",children:[\"₱\",B.revenue.toLocaleString()]})]}),(0,a.jsxs)(\"div\",{className:\"flex items-center \".concat(A>0?\"text-green-600\":\"text-red-600\"),children:[A>0?(0,a.jsx)(b.A,{className:\"h-4 w-4\"}):(0,a.jsx)(y.A,{className:\"h-4 w-4\"}),(0,a.jsxs)(\"span\",{className:\"text-sm font-medium ml-1\",children:[Math.abs(A).toFixed(1),\"%\"]})]})]})})]}),(0,a.jsxs)(\"div\",{className:\"flex items-center gap-2 border-b border-gray-200\",children:[(0,a.jsxs)(\"button\",{onClick:()=>t(\"volume\"),className:\"px-3 py-2 text-sm font-medium border-b-2 transition-colors \".concat(\"volume\"===s?\"border-blue-600 text-blue-600\":\"border-transparent text-gray-500 hover:text-gray-700\"),children:[(0,a.jsx)(p.A,{className:\"h-4 w-4 inline mr-1\"}),\"Volume\"]}),(0,a.jsx)(\"button\",{onClick:()=>t(\"revenue\"),className:\"px-3 py-2 text-sm font-medium border-b-2 transition-colors \".concat(\"revenue\"===s?\"border-blue-600 text-blue-600\":\"border-transparent text-gray-500 hover:text-gray-700\"),children:\"₱ Revenue\"}),(0,a.jsx)(\"button\",{onClick:()=>t(\"basket\"),className:\"px-3 py-2 text-sm font-medium border-b-2 transition-colors \".concat(\"basket\"===s?\"border-blue-600 text-blue-600\":\"border-transparent text-gray-500 hover:text-gray-700\"),children:\"Basket Size\"}),(0,a.jsxs)(\"button\",{onClick:()=>t(\"duration\"),className:\"px-3 py-2 text-sm font-medium border-b-2 transition-colors \".concat(\"duration\"===s?\"border-blue-600 text-blue-600\":\"border-transparent text-gray-500 hover:text-gray-700\"),children:[(0,a.jsx)(v.A,{className:\"h-4 w-4 inline mr-1\"}),\"Duration\"]})]}),(0,a.jsx)(\"div\",{className:\"flex items-center justify-between\",children:(0,a.jsxs)(\"label\",{className:\"flex items-center gap-2 text-sm text-gray-600\",children:[(0,a.jsx)(\"input\",{type:\"checkbox\",checked:N,onChange:e=>k(e.target.checked),className:\"rounded border-gray-300 text-blue-600 focus:ring-blue-500\"}),\"Compare with previous period\"]})}),(0,a.jsxs)(\"div\",{className:\"h-64\",children:[\"volume\"===s&&(0,a.jsx)(l.u,{width:\"100%\",height:\"100%\",children:(0,a.jsxs)(n.Q,{data:w,children:[(0,a.jsx)(i.d,{strokeDasharray:\"3 3\"}),(0,a.jsx)(c.W,{dataKey:\"date\",tick:{fontSize:12}}),(0,a.jsx)(o.h,{tick:{fontSize:12}}),(0,a.jsx)(d.m,{}),(0,a.jsx)(x.Gk,{type:\"monotone\",dataKey:\"volume\",stroke:\"#3B82F6\",fill:\"#93BBFC\",strokeWidth:2}),N&&(0,a.jsx)(x.Gk,{type:\"monotone\",dataKey:\"units\",stroke:\"#10B981\",fill:\"#86EFAC\",strokeWidth:2})]})}),\"revenue\"===s&&(0,a.jsx)(l.u,{width:\"100%\",height:\"100%\",children:(0,a.jsxs)(m.X,{data:w,children:[(0,a.jsx)(i.d,{strokeDasharray:\"3 3\"}),(0,a.jsx)(c.W,{dataKey:\"date\",tick:{fontSize:12}}),(0,a.jsx)(o.h,{tick:{fontSize:12}}),(0,a.jsx)(d.m,{}),(0,a.jsx)(h.y,{dataKey:\"revenue\",fill:\"#3B82F6\"}),N&&(0,a.jsx)(u.N,{type:\"monotone\",dataKey:\"avgBasket\",stroke:\"#F59E0B\",strokeWidth:2,yAxisId:\"right\"})]})}),\"basket\"===s&&(0,a.jsx)(l.u,{width:\"100%\",height:\"100%\",children:(0,a.jsxs)(g.b,{data:w,children:[(0,a.jsx)(i.d,{strokeDasharray:\"3 3\"}),(0,a.jsx)(c.W,{dataKey:\"date\",tick:{fontSize:12}}),(0,a.jsx)(o.h,{tick:{fontSize:12}}),(0,a.jsx)(d.m,{}),(0,a.jsx)(u.N,{type:\"monotone\",dataKey:\"avgBasket\",stroke:\"#3B82F6\",strokeWidth:2,dot:{"
+    }
+  ],
+  "sourceFiles": {
+    "4bd1b696-a45697d7c9a7d01d.js": {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/4bd1b696-a45697d7c9a7d01d.js",
+      "content": "\"use strict\";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[441],{59248:(e,n,t)=>{var r,l=t(49509),a=t(66206),o=t(12115),u=t(47650);function i(e){var n=\"https://react.dev/errors/\"+e;if(1<arguments.length){n+=\"?args[]=\"+encodeURIComponent(arguments[1]);for(var t=2;t<arguments.length;t++)n+=\"&args[]=\"+encodeURIComponent(arguments[t])}return\"Minified React error #\"+e+\"; visit \"+n+\" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\"}function s(e){return!(!e||1!==e.nodeType&&9!==e.nodeType&&11!==e.nodeType)}function c(e){var n=e,t=e;if(e.alternate)for(;n.return;)n=n.return;else{e=n;do 0!=(4098&(n=e).flags)&&(t=n.return),e=n.return;while(e)}return 3===n.tag?t:null}function f(e){if(13===e.tag){var n=e.memoizedState;if(null===n&&null!==(e=e.alternate)&&(n=e.memoizedState),null!==n)return n.dehydrated}return null}function d(e){if(c(e)!==e)throw Error(i(188))}var p=Object.assign,m=Symbol.for(\"react.element\"),h=Symbol.for(\"react.transitional.element\"),g=Symbol.for(\"react.portal\"),y=Symbol.for(\"react.fragment\"),v=Symbol.for(\"react.strict_mode\"),b=Symbol.for(\"react.profiler\"),k=Symbol.for(\"react.provider\"),w=Symbol.for(\"react.consumer\"),S=Symbol.for(\"react.context\"),x=Symbol.for(\"react.forward_ref\"),E=Symbol.for(\"react.suspense\"),C=Symbol.for(\"react.suspense_list\"),z=Symbol.for(\"react.memo\"),P=Symbol.for(\"react.lazy\");Symbol.for(\"react.scope\");var N=Symbol.for(\"react.activity\");Symbol.for(\"react.legacy_hidden\"),Symbol.for(\"react.tracing_marker\");var L=Symbol.for(\"react.memo_cache_sentinel\");Symbol.for(\"react.view_transition\");var T=Symbol.iterator;function _(e){return null===e||\"object\"!=typeof e?null:\"function\"==typeof(e=T&&e[T]||e[\"@@iterator\"])?e:null}var F=Symbol.for(\"react.client.reference\"),D=Array.isArray,M=o.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE,O=u.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE,A={pending:!1,data:null,method:null,action:null},R=[],I=-1;function U(e){return{current:e}}function j(e){0>I||(e.current=R[I],R[I]=null,I--)}function H(e,n){R[++I]=e.current,e.current=n}var V=U(null),Q=U(null),$=U(null),B=U(null);function W(e,n){switch(H($,n),H(Q,e),H(V,null),n.nodeType){case 9:case 11:e=(e=n.documentElement)&&(e=e.namespaceURI)?si(e):0;break;default:if(e=n.tagName,n=n.namespaceURI)e=ss(n=si(n),e);else switch(e){case\"svg\":e=1;break;case\"math\":e=2;break;default:e=0}}j(V),H(V,e)}function q(){j(V),j(Q),j($)}function K(e){null!==e.memoizedState&&H(B,e);var n=V.current,t=ss(n,e.type);n!==t&&(H(Q,e),H(V,t))}function Y(e){Q.current===e&&(j(V),j(Q)),B.current===e&&(j(B),sZ._currentValue=A)}function X(e){if(void 0===nO)try{throw Error()}catch(e){var n=e.stack.trim().match(/\\n( *(at )?)/);nO=n&&n[1]||\"\",nA=-1<e.stack.indexOf(\"\\n    at\")?\" (<anonymous>)\":-1<e.stack.indexOf(\"@\")?\"@unknown:0:0\":\"\"}return\"\\n\"+nO+e+nA}var G=!1;function Z(e,n){if(!e||G)return\"\";G=!0;var t=Error.prepareStackTrace;Error.prepareStackTrace=void 0;try{var r={DetermineComponentFrameRoot:function(){try{if(n){var t=function(){throw Error()};if(Object.defineProperty(t.prototype,\"props\",{set:function(){throw Error()}}),\"object\"==typeof Reflect&&Reflect.construct){try{Reflect.construct(t,[])}catch(e){var r=e}Reflect.construct(e,[],t)}else{try{t.call()}catch(e){r=e}e.call(t.prototype)}}else{try{throw Error()}catch(e){r=e}(t=e())&&\"function\"==typeof t.catch&&t.catch(function(){})}}catch(e){if(e&&r&&\"string\"==typeof e.stack)return[e.stack,r.stack]}return[null,null]}};r.DetermineComponentFrameRoot.displayName=\"DetermineComponentFrameRoot\";var l=Object.getOwnPropertyDescriptor(r.DetermineComponentFrameRoot,\"name\");l&&l.configurable&&Object.defineProperty(r.DetermineComponentFrameRoot,\"name\",{value:\"DetermineComponentFrameRoot\"});var a=r.DetermineComponentFrameRoot(),o=a[0],u=a[1];if(o&&u){var i=o.split(\"\\n\"),s=u.split(\"\\n\");for(l=r=0;r<i.length&&!i[r].includes(\"DetermineComponentFrameRoot\");)r++;for(;l<s.length&&!s[l].includes(\"DetermineComponentFrameRoot\");)l++;if(r===i.length||l===s.length)for(r=i.length-1,l=s.length-1;1<=r&&0<=l&&i[r]!==s[l];)l--;for(;1<=r&&0<=l;r--,l--)if(i[r]!==s[l]){if(1!==r||1!==l)do if(r--,l--,0>l||i[r]!==s[l]){var c=\"\\n\"+i[r].replace(\" at new \",\" at \");return e.displayName&&c.includes(\"<anonymous>\")&&(c=c.replace(\"<anonymous>\",e.displayName)),c}while(1<=r&&0<=l);break}}}finally{G=!1,Error.prepareStackTrace=t}return(t=e?e.displayName||e.name:\"\")?X(t):\"\"}function J(e){try{var n=\"\";do n+=function(e){switch(e.tag){case 26:case 27:case 5:return X(e.type);case 16:return X(\"Lazy\");case 13:return X(\"Suspense\");case 19:return X(\"SuspenseList\");case 0:case 15:return Z(e.type,!1);case 11:return Z(e.type.render,!1);case 1:return Z(e.type,!0);case 31:return X(\"Activity\");default:return\"\"}}(e),e=e.return;while(e);return n}catch(e){return\"\\nError generating stack: \"+e.message+\"\\n\"+e.stack}}var ee=Object.prototype.hasOwnProperty,en=a.unstable_scheduleCallback,et=a.unstable_cancelCallback,er=a.unstable_shouldYield,el=a.unstable_requestPaint,ea=a.unstable_now,eo=a.unstable_getCurrentPriorityLevel,eu=a.unstable_ImmediatePriority,ei=a.unstable_UserBlockingPriority,es=a.unstable_NormalPriority,ec=a.unstable_LowPriority,ef=a.unstable_IdlePriority,ed=a.log,ep=a.unstable_setDisableYieldValue,em=null,eh=null;function eg(e){if(\"function\"==typeof ed&&ep(e),eh&&\"function\"==typeof eh.setStrictMode)try{eh.setStrictMode(em,e)}catch(e){}}var ey=Math.clz32?Math.clz32:function(e){return 0==(e>>>=0)?32:31-(ev(e)/eb|0)|0},ev=Math.log,eb=Math.LN2,ek=256,ew=4194304;function eS(e){var n=42&e;if(0!==n)return n;switch(e&-e){case 1:return 1;case 2:return 2;case 4:return 4;case 8:return 8;case 16:return 16;case 32:return 32;case 64:return 64;case 128:return 128;case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:return 4194048&e;case 4194304:case 8388608:case 0x1000000:case 0x2000000:return 0x3c00000&e;case 0x4000000:return 0x4000000;case 0x8000000:return 0x8000000;case 0x10000000:return 0x10000000;case 0x20000000:return 0x20000000;case 0x40000000:return 0;default:return e}}function ex(e,n,t){var r=e.pendingLanes;if(0===r)return 0;var l=0,a=e.suspendedLanes,o=e.pingedLanes;e=e.warmLanes;var u=0x7ffffff&r;return 0!==u?0!=(r=u&~a)?l=eS(r):0!=(o&=u)?l=eS(o):t||0!=(t=u&~e)&&(l=eS(t)):0!=(u=r&~a)?l=eS(u):0!==o?l=eS(o):t||0!=(t=r&~e)&&(l=eS(t)),0===l?0:0!==n&&n!==l&&0==(n&a)&&((a=l&-l)>=(t=n&-n)||32===a&&0!=(4194048&t))?n:l}function eE(e,n){return 0==(e.pendingLanes&~(e.suspendedLanes&~e.pingedLanes)&n)}function eC(){var e=ek;return 0==(4194048&(ek<<=1))&&(ek=256),e}function ez(){var e=ew;return 0==(0x3c00000&(ew<<=1))&&(ew=4194304),e}function eP(e){for(var n=[],t=0;31>t;t++)n.push(e);return n}function eN(e,n){e.pendingLanes|=n,0x10000000!==n&&(e.suspendedLanes=0,e.pingedLanes=0,e.warmLanes=0)}function eL(e,n,t){e.pendingLanes|=n,e.suspendedLanes&=~n;var r=31-ey(n);e.entangledLanes|=n,e.entanglements[r]=0x40000000|e.entanglements[r]|4194090&t}function eT(e,n){var t=e.entangledLanes|=n;for(e=e.entanglements;t;){var r=31-ey(t),l=1<<r;l&n|e[r]&n&&(e[r]|=n),t&=~l}}function e_(e){switch(e){case 2:e=1;break;case 8:e=4;break;case 32:e=16;break;case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:case 4194304:case 8388608:case 0x1000000:case 0x2000000:e=128;break;case 0x10000000:e=0x8000000;break;default:e=0}return e}function eF(e){return 2<(e&=-e)?8<e?0!=(0x7ffffff&e)?32:0x10000000:8:2}function eD(){var e=O.p;return 0!==e?e:void 0===(e=window.event)?32:cr(e.type)}var eM=Math.random().toString(36).slice(2),eO=\"__reactFiber$\"+eM,eA=\"__reactProps$\"+eM,eR=\"__reactContainer$\"+eM,eI=\"__reactEvents$\"+eM,eU=\"__reactListeners$\"+eM,ej=\"__reactHandles$\"+eM,eH=\"__reactResources$\"+eM,eV=\"__reactMarker$\"+eM;function eQ(e){delete e[eO],delete e[eA],delete e[eI],delete e[eU],delete e[ej]}function e$(e){var n=e[eO];if(n)return n;for(var t=e.parentNode;t;){if(n=t[eR]||t[eO]){if(t=n.alternate,null!==n.child||null!==t&&null!==t.child)for(e=sx(e);null!==e;){if(t=e[eO])return t;e=sx(e)}return n}t=(e=t).parentNode}return null}function eB(e){if(e=e[eO]||e[eR]){var n=e.tag;if(5===n||6===n||13===n||26===n||27===n||3===n)return e}return null}function eW(e){var n=e.tag;if(5===n||26===n||27===n||6===n)return e.stateNode;throw Error(i(33))}function eq(e){var n=e[eH];return n||(n=e[eH]={hoistableStyles:new Map,hoistableScripts:new Map}),n}function eK(e){e[eV]=!0}var eY=new Set,eX={};function eG(e,n){eZ(e,n),eZ(e+\"Capture\",n)}function eZ(e,n){for(eX[e]=n,e=0;e<n.length;e++)eY.add(n[e])}var eJ=RegExp(\"^[:A-Z_a-z\\\\u00C0-\\\\u00D6\\\\u00D8-\\\\u00F6\\\\u00F8-\\\\u02FF\\\\u0370-\\\\u037D\\\\u037F-\\\\u1FFF\\\\u200C-\\\\u200D\\\\u2070-\\\\u218F\\\\u2C00-\\\\u2FEF\\\\u3001-\\\\uD7FF\\\\uF900-\\\\uFDCF\\\\uFDF0-\\\\uFFFD][:A-Z_a-z\\\\u00C0-\\\\u00D6\\\\u00D8-\\\\u00F6\\\\u00F8-\\\\u02FF\\\\u0370-\\\\u037D\\\\u037F-\\\\u1FFF\\\\u200C-\\\\u200D\\\\u2070-\\\\u218F\\\\u2C00-\\\\u2FEF\\\\u3001-\\\\uD7FF\\\\uF900-\\\\uFDCF\\\\uFDF0-\\\\uFFFD\\\\-.0-9\\\\u00B7\\\\u0300-\\\\u036F\\\\u203F-\\\\u2040]*$\"),e0={},e1={};function e2(e,n,t){if(ee.call(e1,n)||!ee.call(e0,n)&&(eJ.test(n)?e1[n]=!0:(e0[n]=!0,!1)))if(null===t)e.removeAttribute(n);else{switch(typeof t){case\"undefined\":case\"function\":case\"symbol\":e.removeAttribute(n);return;case\"boolean\":var r=n.toLowerCase().slice(0,5);if(\"data-\"!==r&&\"aria-\"!==r)return void e.removeAttribute(n)}e.setAttribute(n,\"\"+t)}}function e3(e,n,t){if(null===t)e.removeAttribute(n);else{switch(typeof t){case\"undefined\":case\"function\":case\"symbol\":case\"boolean\":e.removeAttribute(n);return}e.setAttribute(n,\"\"+t)}}function e4(e,n,t,r){if(null===r)e.removeAttribute(t);else{switch(typeof r){case\"undefined\":case\"function\":case\"symbol\":case\"boolean\":e.removeAttribute(t);return}e.setAttributeNS(n,t,\"\"+r)}}function e8(e){switch(typeof e){case\"bigint\":case\"boolean\":case\"number\":case\"string\":case\"undefined\":case\"object\":return e;default:return\"\"}}function e6(e){var n=e.type;return(e=e.nodeName)&&\"input\"===",
+      "size": 168418
+    },
+    "684-c6b1666611f5f958.js": {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/684-c6b1666611f5f958.js",
+      "content": "(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[684],{214:(e,t,r)=>{\"use strict\";Object.defineProperty(t,\"__esModule\",{value:!0}),Object.defineProperty(t,\"normalizePathTrailingSlash\",{enumerable:!0,get:function(){return u}});let n=r(66361),o=r(70427),u=e=>{if(!e.startsWith(\"/\"))return e;let{pathname:t,query:r,hash:u}=(0,o.parsePath)(e);return\"\"+(0,n.removeTrailingSlash)(t)+r+u};(\"function\"==typeof t.default||\"object\"==typeof t.default&&null!==t.default)&&void 0===t.default.__esModule&&(Object.defineProperty(t.default,\"__esModule\",{value:!0}),Object.assign(t.default,t),e.exports=t.default)},886:(e,t,r)=>{\"use strict\";Object.defineProperty(t,\"__esModule\",{value:!0}),!function(e,t){for(var r in t)Object.defineProperty(e,r,{enumerable:!0,get:t[r]})}(t,{PathParamsContext:function(){return l},PathnameContext:function(){return u},SearchParamsContext:function(){return o}});let n=r(12115),o=(0,n.createContext)(null),u=(0,n.createContext)(null),l=(0,n.createContext)(null)},3269:(e,t)=>{\"use strict\";Object.defineProperty(t,\"__esModule\",{value:!0}),!function(e,t){for(var r in t)Object.defineProperty(e,r,{enumerable:!0,get:t[r]})}(t,{ACTION_HEADER:function(){return n},FLIGHT_HEADERS:function(){return f},NEXT_DID_POSTPONE_HEADER:function(){return h},NEXT_HMR_REFRESH_HASH_COOKIE:function(){return i},NEXT_HMR_REFRESH_HEADER:function(){return a},NEXT_IS_PRERENDER_HEADER:function(){return b},NEXT_REWRITTEN_PATH_HEADER:function(){return y},NEXT_REWRITTEN_QUERY_HEADER:function(){return _},NEXT_ROUTER_PREFETCH_HEADER:function(){return u},NEXT_ROUTER_SEGMENT_PREFETCH_HEADER:function(){return l},NEXT_ROUTER_STALE_TIME_HEADER:function(){return p},NEXT_ROUTER_STATE_TREE_HEADER:function(){return o},NEXT_RSC_UNION_QUERY:function(){return d},NEXT_URL:function(){return c},RSC_CONTENT_TYPE_HEADER:function(){return s},RSC_HEADER:function(){return r}});let r=\"RSC\",n=\"Next-Action\",o=\"Next-Router-State-Tree\",u=\"Next-Router-Prefetch\",l=\"Next-Router-Segment-Prefetch\",a=\"Next-HMR-Refresh\",i=\"__next_hmr_refresh_hash__\",c=\"Next-Url\",s=\"text/x-component\",f=[r,o,u,a,l],d=\"_rsc\",p=\"x-nextjs-stale-time\",h=\"x-nextjs-postponed\",y=\"x-nextjs-rewritten-path\",_=\"x-nextjs-rewritten-query\",b=\"x-nextjs-prerender\";(\"function\"==typeof t.default||\"object\"==typeof t.default&&null!==t.default)&&void 0===t.default.__esModule&&(Object.defineProperty(t.default,\"__esModule\",{value:!0}),Object.assign(t.default,t),e.exports=t.default)},3507:(e,t,r)=>{\"use strict\";Object.defineProperty(t,\"__esModule\",{value:!0}),Object.defineProperty(t,\"handleMutable\",{enumerable:!0,get:function(){return u}});let n=r(68946);function o(e){return void 0!==e}function u(e,t){var r,u;let l=null==(r=t.shouldScroll)||r,a=e.nextUrl;if(o(t.patchedTree)){let r=(0,n.computeChangedPath)(e.tree,t.patchedTree);r?a=r:a||(a=e.canonicalUrl)}return{canonicalUrl:o(t.canonicalUrl)?t.canonicalUrl===e.canonicalUrl?e.canonicalUrl:t.canonicalUrl:e.canonicalUrl,pushRef:{pendingPush:o(t.pendingPush)?t.pendingPush:e.pushRef.pendingPush,mpaNavigation:o(t.mpaNavigation)?t.mpaNavigation:e.pushRef.mpaNavigation,preserveCustomHistoryState:o(t.preserveCustomHistoryState)?t.preserveCustomHistoryState:e.pushRef.preserveCustomHistoryState},focusAndScrollRef:{apply:!!l&&(!!o(null==t?void 0:t.scrollableSegments)||e.focusAndScrollRef.apply),onlyHashChange:t.onlyHashChange||!1,hashFragment:l?t.hashFragment&&\"\"!==t.hashFragment?decodeURIComponent(t.hashFragment.slice(1)):e.focusAndScrollRef.hashFragment:null,segmentPaths:l?null!=(u=null==t?void 0:t.scrollableSegments)?u:e.focusAndScrollRef.segmentPaths:[]},cache:t.cache?t.cache:e.cache,prefetchCache:t.prefetchCache?t.prefetchCache:e.prefetchCache,tree:o(t.patchedTree)?t.patchedTree:e.tree,nextUrl:a}}(\"function\"==typeof t.default||\"object\"==typeof t.default&&null!==t.default)&&void 0===t.default.__esModule&&(Object.defineProperty(t.default,\"__esModule\",{value:!0}),Object.assign(t.default,t),e.exports=t.default)},4108:(e,t,r)=>{\"use strict\";Object.defineProperty(t,\"__esModule\",{value:!0}),Object.defineProperty(t,\"hasInterceptionRouteInCurrentTree\",{enumerable:!0,get:function(){return function e(t){let[r,o]=t;if(Array.isArray(r)&&(\"di\"===r[2]||\"ci\"===r[2])||\"string\"==typeof r&&(0,n.isInterceptionRouteAppPath)(r))return!0;if(o){for(let t in o)if(e(o[t]))return!0}return!1}}});let n=r(47755);(\"function\"==typeof t.default||\"object\"==typeof t.default&&null!==t.default)&&void 0===t.default.__esModule&&(Object.defineProperty(t.default,\"__esModule\",{value:!0}),Object.assign(t.default,t),e.exports=t.default)},4466:(e,t,r)=>{\"use strict\";Object.defineProperty(t,\"__esModule\",{value:!0}),Object.defineProperty(t,\"invalidateCacheBelowFlightSegmentPath\",{enumerable:!0,get:function(){return function e(t,r,u){let l=u.length<=2,[a,i]=u,c=(0,n.createRouterCacheKey)(i),s=r.parallelRoutes.get(a);if(!s)return;let f=t.parallelRoutes.get(a);if(f&&f!==s||(f=new Map(s),t.parallelRoutes.set(a,f)),l)return void f.delete(c);let d=s.get(c),p=f.get(c);p&&d&&(p===d&&(p={lazyData:p.lazyData,rsc:p.rsc,prefetchRsc:p.prefetchRsc,head:p.head,prefetchHead:p.prefetchHead,parallelRoutes:new Map(p.parallelRoutes)},f.set(c,p)),e(p,d,(0,o.getNextFlightSegmentPath)(u)))}}});let n=r(85637),o=r(22561);(\"function\"==typeof t.default||\"object\"==typeof t.default&&null!==t.default)&&void 0===t.default.__esModule&&(Object.defineProperty(t.default,\"__esModule\",{value:!0}),Object.assign(t.default,t),e.exports=t.default)},5072:(e,t)=>{\"use strict\";Object.defineProperty(t,\"__esModule\",{value:!0}),Object.defineProperty(t,\"HTML_LIMITED_BOT_UA_RE\",{enumerable:!0,get:function(){return r}});let r=/Mediapartners-Google|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti/i},5209:(e,t)=>{\"use strict\";function r(e){return Object.prototype.toString.call(e)}function n(e){if(\"[object Object]\"!==r(e))return!1;let t=Object.getPrototypeOf(e);return null===t||t.hasOwnProperty(\"isPrototypeOf\")}Object.defineProperty(t,\"__esModule\",{value:!0}),!function(e,t){for(var r in t)Object.defineProperty(e,r,{enumerable:!0,get:t[r]})}(t,{getObjectClassLabel:function(){return r},isPlainObject:function(){return n}})},5449:(e,t,r)=>{\"use strict\";Object.defineProperty(t,\"__esModule\",{value:!0}),r(13668);let n=r(20589);{let e=r.u;r.u=function(){for(var t=arguments.length,r=Array(t),o=0;o<t;o++)r[o]=arguments[o];return(0,n.encodeURIPath)(e(...r))}}(\"function\"==typeof t.default||\"object\"==typeof t.default&&null!==t.default)&&void 0===t.default.__esModule&&(Object.defineProperty(t.default,\"__esModule\",{value:!0}),Object.assign(t.default,t),e.exports=t.default)},6002:(e,t,r)=>{\"use strict\";Object.defineProperty(t,\"__esModule\",{value:!0}),(0,r(66905).patchConsoleError)(),(\"function\"==typeof t.default||\"object\"==typeof t.default&&null!==t.default)&&void 0===t.default.__esModule&&(Object.defineProperty(t.default,\"__esModule\",{value:!0}),Object.assign(t.default,t),e.exports=t.default)},6634:(e,t,r)=>{\"use strict\";Object.defineProperty(t,\"__esModule\",{value:!0}),!function(e,t){for(var r in t)Object.defineProperty(e,r,{enumerable:!0,get:t[r]})}(t,{createMutableActionQueue:function(){return y},dispatchNavigateAction:function(){return g},dispatchTraverseAction:function(){return v},getCurrentAppRouterState:function(){return _},publicAppRouterInstance:function(){return m}});let n=r(69818),o=r(29726),u=r(12115),l=r(95122);r(86005);let a=r(81027),i=r(85929),c=r(56158),s=r(89154),f=r(24930);function d(e,t){null!==e.pending&&(e.pending=e.pending.next,null!==e.pending?p({actionQueue:e,action:e.pending,setState:t}):e.needsRefresh&&(e.needsRefresh=!1,e.dispatch({type:n.ACTION_REFRESH,origin:window.location.origin},t)))}async function p(e){let{actionQueue:t,action:r,setState:n}=e,o=t.state;t.pending=r;let u=r.payload,a=t.action(o,u);function i(e){r.discarded||(t.state=e,d(t,n),r.resolve(e))}(0,l.isThenable)(a)?a.then(i,e=>{d(t,n),r.reject(e)}):i(a)}let h=null;function y(e,t){let r={state:e,dispatch:(e,t)=>(function(e,t,r){let o={resolve:r,reject:()=>{}};if(t.type!==n.ACTION_RESTORE){let e=new Promise((e,t)=>{o={resolve:e,reject:t}});(0,u.startTransition)(()=>{r(e)})}let l={payload:t,next:null,resolve:o.resolve,reject:o.reject};null===e.pending?(e.last=l,p({actionQueue:e,action:l,setState:r})):t.type===n.ACTION_NAVIGATE||t.type===n.ACTION_RESTORE?(e.pending.discarded=!0,l.next=e.pending.next,e.pending.payload.type===n.ACTION_SERVER_ACTION&&(e.needsRefresh=!0),p({actionQueue:e,action:l,setState:r})):(null!==e.last&&(e.last.next=l),e.last=l)})(r,e,t),action:async(e,t)=>(0,o.reducer)(e,t),pending:null,last:null,onRouterTransitionStart:null!==t&&\"function\"==typeof t.onRouterTransitionStart?t.onRouterTransitionStart:null};if(null!==h)throw Object.defineProperty(Error(\"Internal Next.js Error: createMutableActionQueue was called more than once\"),\"__NEXT_ERROR_CODE\",{value:\"E624\",enumerable:!1,configurable:!0});return h=r,r}function _(){return null!==h?h.state:null}function b(){return null!==h?h.onRouterTransitionStart:null}function g(e,t,r,o){let u=new URL((0,i.addBasePath)(e),location.href);(0,f.setLinkForCurrentNavigation)(o);let l=b();null!==l&&l(e,t),(0,a.dispatchAppRouterAction)({type:n.ACTION_NAVIGATE,url:u,isExternalUrl:(0,c.isExternalURL)(u),locationSearch:location.search,shouldScroll:r,navigateType:t,allowAliasing:!0})}function v(e,t){let r=b();null!==r&&r(e,\"traverse\"),(0,a.dispatchAppRouterAction)({type:n.ACTION_RESTORE,url:new URL(e),tree:t})}let m={back:()=>window.history.back(),forward:()=>window.history.forward(),prefetch:(e,t)=>{let r=function(){if(null===h)throw Object.defineProperty(Error(\"Internal Next.js error: Router action dispatched before initialization.\"),\"__NEXT_ERROR_CODE\",{value:\"E668\",enumerable:!1,configurable:!0});return h}(),o=(0,c.createPrefetchURL)(e);if(null!==o){var u;(0,s.prefetchReducer)(r.state,{type:n.ACTION_PREFETCH,url:o,kind:null!=(u=null==t?void 0:t.kind)?u",
+      "size": 175410
+    },
+    "main-app-df55f4bdaf350cb2.js": {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/main-app-df55f4bdaf350cb2.js",
+      "content": "(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[358],{19393:()=>{},59288:(e,s,n)=>{Promise.resolve().then(n.t.bind(n,90894,23)),Promise.resolve().then(n.t.bind(n,94970,23)),Promise.resolve().then(n.t.bind(n,26614,23)),Promise.resolve().then(n.t.bind(n,46975,23)),Promise.resolve().then(n.t.bind(n,87555,23)),Promise.resolve().then(n.t.bind(n,74911,23)),Promise.resolve().then(n.t.bind(n,59665,23)),Promise.resolve().then(n.t.bind(n,31295,23))}},e=>{var s=s=>e(e.s=s);e.O(0,[441,684],()=>(s(35415),s(59288))),_N_E=e.O()}]);",
+      "size": 531
+    },
+    "2170a4aa-f220f188891353c6.js": {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/2170a4aa-f220f188891353c6.js",
+      "content": "\"use strict\";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[524],{3925:(e,t,r)=>{let a;r.d(t,{Wp:()=>io,_h:()=>s6});var n,s,i,o,l=r(83686).Buffer,c=r(32383),f={};f.version=\"0.18.5\";var h=1200,u=1252,d=[874,932,936,949,950,1250,1251,1252,1253,1254,1255,1256,1257,1258,1e4],p={0:1252,1:65001,2:65001,77:1e4,128:932,129:949,130:1361,134:936,136:950,161:1253,162:1254,163:1258,177:1255,178:1256,186:1257,204:1251,222:874,238:1250,255:1252,69:6969},m=function(e){-1!=d.indexOf(e)&&(u=p[0]=e)},g=function(e){h=e,m(e)};function v(){g(1200),m(1252)}function T(e){for(var t=[],r=0,a=e.length;r<a;++r)t[r]=e.charCodeAt(r);return t}function b(e){for(var t=[],r=0;r<e.length>>1;++r)t[r]=String.fromCharCode(e.charCodeAt(2*r+1)+(e.charCodeAt(2*r)<<8));return t.join(\"\")}var w=function(e){var t=e.charCodeAt(0),r=e.charCodeAt(1);if(255==t&&254==r){for(var a=e.slice(2),n=[],s=0;s<a.length>>1;++s)n[s]=String.fromCharCode(a.charCodeAt(2*s)+(a.charCodeAt(2*s+1)<<8));return n.join(\"\")}return 254==t&&255==r?b(e.slice(2)):65279==t?e.slice(1):e},E=function(e){return String.fromCharCode(e)},S=function(e){return String.fromCharCode(e)},_=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=\";function A(e){for(var t=\"\",r=0,a=0,n=0,s=0,i=0,o=0,l=0,c=0;c<e.length;)s=(r=e.charCodeAt(c++))>>2,i=(3&r)<<4|(a=e.charCodeAt(c++))>>4,o=(15&a)<<2|(n=e.charCodeAt(c++))>>6,l=63&n,isNaN(a)?o=l=64:isNaN(n)&&(l=64),t+=_.charAt(s)+_.charAt(i)+_.charAt(o)+_.charAt(l);return t}function y(e){var t=\"\",r=0,a=0,n=0,s=0,i=0,o=0,l=0;e=e.replace(/[^\\w\\+\\/\\=]/g,\"\");for(var c=0;c<e.length;)t+=String.fromCharCode((s=_.indexOf(e.charAt(c++)))<<2|(i=_.indexOf(e.charAt(c++)))>>4),a=(15&i)<<4|(o=_.indexOf(e.charAt(c++)))>>2,64!==o&&(t+=String.fromCharCode(a)),n=(3&o)<<6|(l=_.indexOf(e.charAt(c++))),64!==l&&(t+=String.fromCharCode(n));return t}var x=void 0!==l&&void 0!==c&&void 0!==c.versions&&!!c.versions.node,O=function(){if(void 0!==l){var e=!l.from;if(!e)try{l.from(\"foo\",\"utf8\")}catch(t){e=!0}return e?function(e,t){return t?new l(e,t):new l(e)}:l.from.bind(l)}return function(){}}();function k(e){return x?l.alloc?l.alloc(e):new l(e):\"undefined\"!=typeof Uint8Array?new Uint8Array(e):Array(e)}function C(e){return x?l.allocUnsafe?l.allocUnsafe(e):new l(e):\"undefined\"!=typeof Uint8Array?new Uint8Array(e):Array(e)}var R=function(e){return x?O(e,\"binary\"):e.split(\"\").map(function(e){return 255&e.charCodeAt(0)})};function I(e){if(\"undefined\"==typeof ArrayBuffer)return R(e);for(var t=new ArrayBuffer(e.length),r=new Uint8Array(t),a=0;a!=e.length;++a)r[a]=255&e.charCodeAt(a);return t}function N(e){if(Array.isArray(e))return e.map(function(e){return String.fromCharCode(e)}).join(\"\");for(var t=[],r=0;r<e.length;++r)t[r]=String.fromCharCode(e[r]);return t.join(\"\")}var D=x?function(e){return l.concat(e.map(function(e){return l.isBuffer(e)?e:O(e)}))}:function(e){if(\"undefined\"!=typeof Uint8Array){var t=0,r=0;for(t=0;t<e.length;++t)r+=e[t].length;var a=new Uint8Array(r),n=0;for(t=0,r=0;t<e.length;r+=n,++t)if(n=e[t].length,e[t]instanceof Uint8Array)a.set(e[t],r);else if(\"string\"==typeof e[t])throw\"wtf\";else a.set(new Uint8Array(e[t]),r);return a}return[].concat.apply([],e.map(function(e){return Array.isArray(e)?e:[].slice.call(e)}))},P=/\\u0000/g,L=/[\\u0001-\\u0006]/g;function F(e){for(var t=\"\",r=e.length-1;r>=0;)t+=e.charAt(r--);return t}function M(e,t){var r=\"\"+e;return r.length>=t?r:eW(\"0\",t-r.length)+r}function U(e,t){var r=\"\"+e;return r.length>=t?r:eW(\" \",t-r.length)+r}function B(e,t){var r=\"\"+e;return r.length>=t?r:r+eW(\" \",t-r.length)}function H(e,t){var r,a;return e>0x100000000||e<-0x100000000?(r=\"\"+Math.round(e)).length>=t?r:eW(\"0\",t-r.length)+r:(a=\"\"+Math.round(e)).length>=t?a:eW(\"0\",t-a.length)+a}function W(e,t){return t=t||0,e.length>=7+t&&(32|e.charCodeAt(t))==103&&(32|e.charCodeAt(t+1))==101&&(32|e.charCodeAt(t+2))==110&&(32|e.charCodeAt(t+3))==101&&(32|e.charCodeAt(t+4))==114&&(32|e.charCodeAt(t+5))==97&&(32|e.charCodeAt(t+6))==108}var G=[[\"Sun\",\"Sunday\"],[\"Mon\",\"Monday\"],[\"Tue\",\"Tuesday\"],[\"Wed\",\"Wednesday\"],[\"Thu\",\"Thursday\"],[\"Fri\",\"Friday\"],[\"Sat\",\"Saturday\"]],V=[[\"J\",\"Jan\",\"January\"],[\"F\",\"Feb\",\"February\"],[\"M\",\"Mar\",\"March\"],[\"A\",\"Apr\",\"April\"],[\"M\",\"May\",\"May\"],[\"J\",\"Jun\",\"June\"],[\"J\",\"Jul\",\"July\"],[\"A\",\"Aug\",\"August\"],[\"S\",\"Sep\",\"September\"],[\"O\",\"Oct\",\"October\"],[\"N\",\"Nov\",\"November\"],[\"D\",\"Dec\",\"December\"]],z={0:\"General\",1:\"0\",2:\"0.00\",3:\"#,##0\",4:\"#,##0.00\",9:\"0%\",10:\"0.00%\",11:\"0.00E+00\",12:\"# ?/?\",13:\"# ??/??\",14:\"m/d/yy\",15:\"d-mmm-yy\",16:\"d-mmm\",17:\"mmm-yy\",18:\"h:mm AM/PM\",19:\"h:mm:ss AM/PM\",20:\"h:mm\",21:\"h:mm:ss\",22:\"m/d/yy h:mm\",37:\"#,##0 ;(#,##0)\",38:\"#,##0 ;[Red](#,##0)\",39:\"#,##0.00;(#,##0.00)\",40:\"#,##0.00;[Red](#,##0.00)\",45:\"mm:ss\",46:\"[h]:mm:ss\",47:\"mmss.0\",48:\"##0.0E+0\",49:\"@\",56:'\"上午/下午 \"hh\"時\"mm\"分\"ss\"秒 \"'},j={5:37,6:38,7:39,8:40,23:0,24:0,25:0,26:0,27:14,28:14,29:14,30:14,31:14,50:14,51:14,52:14,53:14,54:14,55:14,56:14,57:14,58:14,59:1,60:2,61:3,62:4,67:9,68:10,69:12,70:13,71:14,72:14,73:15,74:16,75:17,76:20,77:21,78:22,79:45,80:46,81:47,82:0},Y={5:'\"$\"#,##0_);\\\\(\"$\"#,##0\\\\)',63:'\"$\"#,##0_);\\\\(\"$\"#,##0\\\\)',6:'\"$\"#,##0_);[Red]\\\\(\"$\"#,##0\\\\)',64:'\"$\"#,##0_);[Red]\\\\(\"$\"#,##0\\\\)',7:'\"$\"#,##0.00_);\\\\(\"$\"#,##0.00\\\\)',65:'\"$\"#,##0.00_);\\\\(\"$\"#,##0.00\\\\)',8:'\"$\"#,##0.00_);[Red]\\\\(\"$\"#,##0.00\\\\)',66:'\"$\"#,##0.00_);[Red]\\\\(\"$\"#,##0.00\\\\)',41:'_(* #,##0_);_(* \\\\(#,##0\\\\);_(* \"-\"_);_(@_)',42:'_(\"$\"* #,##0_);_(\"$\"* \\\\(#,##0\\\\);_(\"$\"* \"-\"_);_(@_)',43:'_(* #,##0.00_);_(* \\\\(#,##0.00\\\\);_(* \"-\"??_);_(@_)',44:'_(\"$\"* #,##0.00_);_(\"$\"* \\\\(#,##0.00\\\\);_(\"$\"* \"-\"??_);_(@_)'};function K(e,t,r){for(var a=e<0?-1:1,n=e*a,s=0,i=1,o=0,l=1,c=0,f=0,h=Math.floor(n);c<t&&(o=(h=Math.floor(n))*i+s,f=h*c+l,!(n-h<5e-8));)n=1/(n-h),s=i,i=o,l=c,c=f;if(f>t&&(c>t?(f=l,o=s):(f=c,o=i)),!r)return[0,a*o,f];var u=Math.floor(a*o/f);return[u,a*o-u*f,f]}function X(e,t,r){if(e>2958465||e<0)return null;var a=0|e,n=Math.floor(86400*(e-a)),s=0,i=[],o={D:a,T:n,u:86400*(e-a)-n,y:0,m:0,d:0,H:0,M:0,S:0,q:0};if(1e-6>Math.abs(o.u)&&(o.u=0),t&&t.date1904&&(a+=1462),o.u>.9999&&(o.u=0,86400==++n&&(o.T=n=0,++a,++o.D)),60===a)i=r?[1317,10,29]:[1900,2,29],s=3;else if(0===a)i=r?[1317,8,29]:[1900,1,0],s=6;else{a>60&&--a;var l,c,f,h=new Date(1900,0,1);h.setDate(h.getDate()+a-1),i=[h.getFullYear(),h.getMonth()+1,h.getDate()],s=h.getDay(),a<60&&(s=(s+6)%7),r&&(l=h,c=i,c[0]-=581,f=l.getDay(),l<60&&(f=(f+6)%7),s=f)}return o.y=i[0],o.m=i[1],o.d=i[2],o.S=n%60,o.M=(n=Math.floor(n/60))%60,o.H=n=Math.floor(n/60),o.q=s,o}var J=new Date(1899,11,31,0,0,0),Z=J.getTime(),q=new Date(1900,2,1,0,0,0);function Q(e,t){var r=e.getTime();return t?r-=1262304e5:e>=q&&(r+=864e5),(r-(Z+(e.getTimezoneOffset()-J.getTimezoneOffset())*6e4))/864e5}function ee(e){return -1==e.indexOf(\".\")?e:e.replace(/(?:\\.0*|(\\.\\d*[1-9])0+)$/,\"$1\")}function et(e){var t,r,a,n,s,i=Math.floor(Math.log(Math.abs(e))*Math.LOG10E);return i>=-4&&i<=-1?s=e.toPrecision(10+i):9>=Math.abs(i)?(t=e<0?12:11,s=(r=ee(e.toFixed(12))).length<=t||(r=e.toPrecision(10)).length<=t?r:e.toExponential(5)):s=10===i?e.toFixed(10).substr(0,12):(a=ee(e.toFixed(11))).length>(e<0?12:11)||\"0\"===a||\"-0\"===a?e.toPrecision(6):a,ee(-1==(n=s.toUpperCase()).indexOf(\"E\")?n:n.replace(/(?:\\.0*|(\\.\\d*[1-9])0+)[Ee]/,\"$1E\").replace(/(E[+-])(\\d)$/,\"$10$2\"))}function er(e,t){switch(typeof e){case\"string\":return e;case\"boolean\":return e?\"TRUE\":\"FALSE\";case\"number\":return(0|e)===e?e.toString(10):et(e);case\"undefined\":return\"\";case\"object\":if(null==e)return\"\";if(e instanceof Date)return ev(14,Q(e,t&&t.date1904),t)}throw Error(\"unsupported value in General format: \"+e)}function ea(e){if(e.length<=3)return e;for(var t=e.length%3,r=e.substr(0,t);t!=e.length;t+=3)r+=(r.length>0?\",\":\"\")+e.substr(t,3);return r}var en=/%/g,es=/# (\\?+)( ?)\\/( ?)(\\d+)/,ei=/^#*0*\\.([0#]+)/,eo=/\\).*[0#]/,el=/\\(###\\) ###\\\\?-####/;function ec(e){for(var t,r=\"\",a=0;a!=e.length;++a)switch(t=e.charCodeAt(a)){case 35:break;case 63:r+=\" \";break;case 48:r+=\"0\";break;default:r+=String.fromCharCode(t)}return r}function ef(e,t){var r=Math.pow(10,t);return\"\"+Math.round(e*r)/r}function eh(e,t){var r=e-Math.floor(e),a=Math.pow(10,t);return t<(\"\"+Math.round(r*a)).length?0:Math.round(r*a)}function eu(e,t,r){return(0|r)===r?function e(t,r,a){if(40===t.charCodeAt(0)&&!r.match(eo)){var n,s=r.replace(/\\( */,\"\").replace(/ \\)/,\"\").replace(/\\)/,\"\");return a>=0?e(\"n\",s,a):\"(\"+e(\"n\",s,-a)+\")\"}if(44===r.charCodeAt(r.length-1)){for(var i=r,o=i.length-1;44===i.charCodeAt(o-1);)--o;return eu(t,i.substr(0,o),a/Math.pow(10,3*(i.length-o)))}if(-1!==r.indexOf(\"%\"))return c=(l=r).replace(en,\"\"),f=l.length-c.length,eu(t,c,a*Math.pow(10,2*f))+eW(\"%\",f);if(-1!==r.indexOf(\"E\"))return function e(t,r){var a,n=t.indexOf(\"E\")-t.indexOf(\".\")-1;if(t.match(/^#+0.0E\\+0$/)){if(0==r)return\"0.0E+0\";if(r<0)return\"-\"+e(t,-r);var s=t.indexOf(\".\");-1===s&&(s=t.indexOf(\"E\"));var i=Math.floor(Math.log(r)*Math.LOG10E)%s;if(i<0&&(i+=s),!(a=(r/Math.pow(10,i)).toPrecision(n+1+(s+i)%s)).match(/[Ee]/)){var o=Math.floor(Math.log(r)*Math.LOG10E);-1===a.indexOf(\".\")?a=a.charAt(0)+\".\"+a.substr(1)+\"E+\"+(o-a.length+i):a+=\"E+\"+(o-i),a=a.replace(/\\+-/,\"-\")}a=a.replace(/^([+-]?)(\\d*)\\.(\\d*)[Ee]/,function(e,t,r,a){return t+r+a.substr(0,(s+i)%s)+\".\"+a.substr(i)+\"E\"})}else a=r.toExponential(n);return t.match(/E\\+00$/)&&a.match(/e[+-]\\d$/)&&(a=a.substr(0,a.length-1)+\"0\"+a.charAt(a.length-1)),t.match(/E\\-/)&&a.match(/e\\+/)&&(a=a.replace(/e\\+/,\"e\")),a.replace(\"e\",\"E\")}(r,a);if(36===r.charCodeAt(0))return\"$\"+e(t,r.substr(\" \"==r.charAt(1)?2:1),a);var l,c,f,h,u,d,p,m=Math.abs(a),g=a<0?\"-\":\"\";if(r.match(/^00+$/))return g+M(m,r.length);if(r.match(/^[#?]+$/))return h=\"\"+a,0===a&&(h=\"\"),h.length>r.length?h:ec(r.substr(0,r.length-h.length))+h;if(u=r.match(es))return g+(0===m?\"\":\"\"+m)+eW(\" \",(n=u)[1].length+2+n[4].length);if(r.match(/^#+0+$/))return g+M(m,r.length-r.indexOf(\"0\"));if(u=r.match(ei))return h=(h=(\"\"+a).replace(/^([^\\.]+)$/,\"$1.\"+ec(u[1])).replace(/\\.$/,\".\"+ec(u[1]))).replace(/\\.(\\d*)$/,function(e,t){return\".\"+t+eW(\"0\",ec(u[1]).length-t.length)}),-1!==r.indexOf(\"0.\")?h:h.replace(/^0\\./,\".\")",
+      "size": 337974
+    },
+    "164f4fb6-69a77c80738c9314.js": {
+      "url": "https://scout-analytics-nextjs.vercel.app/_next/static/chunks/164f4fb6-69a77c80738c9314.js",
+      "content": "\"use strict\";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[930],{26597:(t,e,r)=>{r.d(e,{uE:()=>q});var n=r(86608),i=r(61260),a=function(){return\"undefined\"!=typeof window?window:void 0!==r.g?r.g:\"undefined\"!=typeof self?self:this}();function o(){a.console&&\"function\"==typeof a.console.log&&a.console.log.apply(a.console,arguments)}var s={log:o,warn:function(t){a.console&&(\"function\"==typeof a.console.warn?a.console.warn.apply(a.console,arguments):o.call(null,arguments))},error:function(t){a.console&&(\"function\"==typeof a.console.error?a.console.error.apply(a.console,arguments):o(t))}};function c(t,e,r){var n=new XMLHttpRequest;n.open(\"GET\",t),n.responseType=\"blob\",n.onload=function(){d(n.response,e,r)},n.onerror=function(){s.error(\"could not download file\")},n.send()}function u(t){var e=new XMLHttpRequest;e.open(\"HEAD\",t,!1);try{e.send()}catch(t){}return e.status>=200&&e.status<=299}function h(t){try{t.dispatchEvent(new MouseEvent(\"click\"))}catch(r){var e=document.createEvent(\"MouseEvents\");e.initMouseEvent(\"click\",!0,!0,window,0,0,0,80,20,!1,!1,!1,!1,0,null),t.dispatchEvent(e)}}var l,f,d=a.saveAs||(\"object\"!==(\"undefined\"==typeof window?\"undefined\":(0,n.A)(window))||window!==a?function(){}:\"undefined\"!=typeof HTMLAnchorElement&&\"download\"in HTMLAnchorElement.prototype?function(t,e,r){var n=a.URL||a.webkitURL,i=document.createElement(\"a\");i.download=e=e||t.name||\"download\",i.rel=\"noopener\",\"string\"==typeof t?(i.href=t,i.origin!==location.origin?u(i.href)?c(t,e,r):h(i,i.target=\"_blank\"):h(i)):(i.href=n.createObjectURL(t),setTimeout(function(){n.revokeObjectURL(i.href)},4e4),setTimeout(function(){h(i)},0))}:\"msSaveOrOpenBlob\"in navigator?function(t,e,r){if(e=e||t.name||\"download\",\"string\"==typeof t)if(u(t))c(t,e,r);else{var i,a=document.createElement(\"a\");a.href=t,a.target=\"_blank\",setTimeout(function(){h(a)})}else navigator.msSaveOrOpenBlob((void 0===(i=r)?i={autoBom:!1}:\"object\"!==(0,n.A)(i)&&(s.warn(\"Deprecated: Expected third argument to be a object\"),i={autoBom:!i}),i.autoBom&&/^\\s*(?:text\\/\\S*|application\\/xml|\\S*\\/\\S*\\+xml)\\s*;.*charset\\s*=\\s*utf-8/i.test(t.type)?new Blob([String.fromCharCode(65279),t],{type:t.type}):t),e)}:function(t,e,r,i){if((i=i||open(\"\",\"_blank\"))&&(i.document.title=i.document.body.innerText=\"downloading...\"),\"string\"==typeof t)return c(t,e,r);var o=\"application/octet-stream\"===t.type,s=/constructor/i.test(a.HTMLElement)||a.safari,u=/CriOS\\/[\\d]+/.test(navigator.userAgent);if((u||o&&s)&&\"object\"===(\"undefined\"==typeof FileReader?\"undefined\":(0,n.A)(FileReader))){var h=new FileReader;h.onloadend=function(){var t=h.result;t=u?t:t.replace(/^data:[^;]*;/,\"data:attachment/file;\"),i?i.location.href=t:location=t,i=null},h.readAsDataURL(t)}else{var l=a.URL||a.webkitURL,f=l.createObjectURL(t);i?i.location=f:location.href=f,i=null,setTimeout(function(){l.revokeObjectURL(f)},4e4)}});function p(t){var e;t=t||\"\",this.ok=!1,\"#\"==t.charAt(0)&&(t=t.substr(1,6)),t=({aliceblue:\"f0f8ff\",antiquewhite:\"faebd7\",aqua:\"00ffff\",aquamarine:\"7fffd4\",azure:\"f0ffff\",beige:\"f5f5dc\",bisque:\"ffe4c4\",black:\"000000\",blanchedalmond:\"ffebcd\",blue:\"0000ff\",blueviolet:\"8a2be2\",brown:\"a52a2a\",burlywood:\"deb887\",cadetblue:\"5f9ea0\",chartreuse:\"7fff00\",chocolate:\"d2691e\",coral:\"ff7f50\",cornflowerblue:\"6495ed\",cornsilk:\"fff8dc\",crimson:\"dc143c\",cyan:\"00ffff\",darkblue:\"00008b\",darkcyan:\"008b8b\",darkgoldenrod:\"b8860b\",darkgray:\"a9a9a9\",darkgreen:\"006400\",darkkhaki:\"bdb76b\",darkmagenta:\"8b008b\",darkolivegreen:\"556b2f\",darkorange:\"ff8c00\",darkorchid:\"9932cc\",darkred:\"8b0000\",darksalmon:\"e9967a\",darkseagreen:\"8fbc8f\",darkslateblue:\"483d8b\",darkslategray:\"2f4f4f\",darkturquoise:\"00ced1\",darkviolet:\"9400d3\",deeppink:\"ff1493\",deepskyblue:\"00bfff\",dimgray:\"696969\",dodgerblue:\"1e90ff\",feldspar:\"d19275\",firebrick:\"b22222\",floralwhite:\"fffaf0\",forestgreen:\"228b22\",fuchsia:\"ff00ff\",gainsboro:\"dcdcdc\",ghostwhite:\"f8f8ff\",gold:\"ffd700\",goldenrod:\"daa520\",gray:\"808080\",green:\"008000\",greenyellow:\"adff2f\",honeydew:\"f0fff0\",hotpink:\"ff69b4\",indianred:\"cd5c5c\",indigo:\"4b0082\",ivory:\"fffff0\",khaki:\"f0e68c\",lavender:\"e6e6fa\",lavenderblush:\"fff0f5\",lawngreen:\"7cfc00\",lemonchiffon:\"fffacd\",lightblue:\"add8e6\",lightcoral:\"f08080\",lightcyan:\"e0ffff\",lightgoldenrodyellow:\"fafad2\",lightgrey:\"d3d3d3\",lightgreen:\"90ee90\",lightpink:\"ffb6c1\",lightsalmon:\"ffa07a\",lightseagreen:\"20b2aa\",lightskyblue:\"87cefa\",lightslateblue:\"8470ff\",lightslategray:\"778899\",lightsteelblue:\"b0c4de\",lightyellow:\"ffffe0\",lime:\"00ff00\",limegreen:\"32cd32\",linen:\"faf0e6\",magenta:\"ff00ff\",maroon:\"800000\",mediumaquamarine:\"66cdaa\",mediumblue:\"0000cd\",mediumorchid:\"ba55d3\",mediumpurple:\"9370d8\",mediumseagreen:\"3cb371\",mediumslateblue:\"7b68ee\",mediumspringgreen:\"00fa9a\",mediumturquoise:\"48d1cc\",mediumvioletred:\"c71585\",midnightblue:\"191970\",mintcream:\"f5fffa\",mistyrose:\"ffe4e1\",moccasin:\"ffe4b5\",navajowhite:\"ffdead\",navy:\"000080\",oldlace:\"fdf5e6\",olive:\"808000\",olivedrab:\"6b8e23\",orange:\"ffa500\",orangered:\"ff4500\",orchid:\"da70d6\",palegoldenrod:\"eee8aa\",palegreen:\"98fb98\",paleturquoise:\"afeeee\",palevioletred:\"d87093\",papayawhip:\"ffefd5\",peachpuff:\"ffdab9\",peru:\"cd853f\",pink:\"ffc0cb\",plum:\"dda0dd\",powderblue:\"b0e0e6\",purple:\"800080\",red:\"ff0000\",rosybrown:\"bc8f8f\",royalblue:\"4169e1\",saddlebrown:\"8b4513\",salmon:\"fa8072\",sandybrown:\"f4a460\",seagreen:\"2e8b57\",seashell:\"fff5ee\",sienna:\"a0522d\",silver:\"c0c0c0\",skyblue:\"87ceeb\",slateblue:\"6a5acd\",slategray:\"708090\",snow:\"fffafa\",springgreen:\"00ff7f\",steelblue:\"4682b4\",tan:\"d2b48c\",teal:\"008080\",thistle:\"d8bfd8\",tomato:\"ff6347\",turquoise:\"40e0d0\",violet:\"ee82ee\",violetred:\"d02090\",wheat:\"f5deb3\",white:\"ffffff\",whitesmoke:\"f5f5f5\",yellow:\"ffff00\",yellowgreen:\"9acd32\"})[t=(t=t.replace(/ /g,\"\")).toLowerCase()]||t;for(var r=[{re:/^rgb\\((\\d{1,3}),\\s*(\\d{1,3}),\\s*(\\d{1,3})\\)$/,example:[\"rgb(123, 234, 45)\",\"rgb(255,234,245)\"],process:function(t){return[parseInt(t[1]),parseInt(t[2]),parseInt(t[3])]}},{re:/^(\\w{2})(\\w{2})(\\w{2})$/,example:[\"#00ff00\",\"336699\"],process:function(t){return[parseInt(t[1],16),parseInt(t[2],16),parseInt(t[3],16)]}},{re:/^(\\w{1})(\\w{1})(\\w{1})$/,example:[\"#fb0\",\"f0f\"],process:function(t){return[parseInt(t[1]+t[1],16),parseInt(t[2]+t[2],16),parseInt(t[3]+t[3],16)]}}],n=0;n<r.length;n++){var i=r[n].re,a=r[n].process,o=i.exec(t);o&&(e=a(o),this.r=e[0],this.g=e[1],this.b=e[2],this.ok=!0)}this.r=this.r<0||isNaN(this.r)?0:this.r>255?255:this.r,this.g=this.g<0||isNaN(this.g)?0:this.g>255?255:this.g,this.b=this.b<0||isNaN(this.b)?0:this.b>255?255:this.b,this.toRGB=function(){return\"rgb(\"+this.r+\", \"+this.g+\", \"+this.b+\")\"},this.toHex=function(){var t=this.r.toString(16),e=this.g.toString(16),r=this.b.toString(16);return 1==t.length&&(t=\"0\"+t),1==e.length&&(e=\"0\"+e),1==r.length&&(r=\"0\"+r),\"#\"+t+e+r}}function g(t,e){var r=t[0],n=t[1],i=t[2],a=t[3];r=v(r,n,i,a,e[0],7,-0x28955b88),a=v(a,r,n,i,e[1],12,-0x173848aa),i=v(i,a,r,n,e[2],17,0x242070db),n=v(n,i,a,r,e[3],22,-0x3e423112),r=v(r,n,i,a,e[4],7,-0xa83f051),a=v(a,r,n,i,e[5],12,0x4787c62a),i=v(i,a,r,n,e[6],17,-0x57cfb9ed),n=v(n,i,a,r,e[7],22,-0x2b96aff),r=v(r,n,i,a,e[8],7,0x698098d8),a=v(a,r,n,i,e[9],12,-0x74bb0851),i=v(i,a,r,n,e[10],17,-42063),n=v(n,i,a,r,e[11],22,-0x76a32842),r=v(r,n,i,a,e[12],7,0x6b901122),a=v(a,r,n,i,e[13],12,-0x2678e6d),i=v(i,a,r,n,e[14],17,-0x5986bc72),r=b(r,n=v(n,i,a,r,e[15],22,0x49b40821),i,a,e[1],5,-0x9e1da9e),a=b(a,r,n,i,e[6],9,-0x3fbf4cc0),i=b(i,a,r,n,e[11],14,0x265e5a51),n=b(n,i,a,r,e[0],20,-0x16493856),r=b(r,n,i,a,e[5],5,-0x29d0efa3),a=b(a,r,n,i,e[10],9,0x2441453),i=b(i,a,r,n,e[15],14,-0x275e197f),n=b(n,i,a,r,e[4],20,-0x182c0438),r=b(r,n,i,a,e[9],5,0x21e1cde6),a=b(a,r,n,i,e[14],9,-0x3cc8f82a),i=b(i,a,r,n,e[3],14,-0xb2af279),n=b(n,i,a,r,e[8],20,0x455a14ed),r=b(r,n,i,a,e[13],5,-0x561c16fb),a=b(a,r,n,i,e[2],9,-0x3105c08),i=b(i,a,r,n,e[7],14,0x676f02d9),r=y(r,n=b(n,i,a,r,e[12],20,-0x72d5b376),i,a,e[5],4,-378558),a=y(a,r,n,i,e[8],11,-0x788e097f),i=y(i,a,r,n,e[11],16,0x6d9d6122),n=y(n,i,a,r,e[14],23,-0x21ac7f4),r=y(r,n,i,a,e[1],4,-0x5b4115bc),a=y(a,r,n,i,e[4],11,0x4bdecfa9),i=y(i,a,r,n,e[7],16,-0x944b4a0),n=y(n,i,a,r,e[10],23,-0x41404390),r=y(r,n,i,a,e[13],4,0x289b7ec6),a=y(a,r,n,i,e[0],11,-0x155ed806),i=y(i,a,r,n,e[3],16,-0x2b10cf7b),n=y(n,i,a,r,e[6],23,0x4881d05),r=y(r,n,i,a,e[9],4,-0x262b2fc7),a=y(a,r,n,i,e[12],11,-0x1924661b),i=y(i,a,r,n,e[15],16,0x1fa27cf8),r=w(r,n=y(n,i,a,r,e[2],23,-0x3b53a99b),i,a,e[0],6,-0xbd6ddbc),a=w(a,r,n,i,e[7],10,0x432aff97),i=w(i,a,r,n,e[14],15,-0x546bdc59),n=w(n,i,a,r,e[5],21,-0x36c5fc7),r=w(r,n,i,a,e[12],6,0x655b59c3),a=w(a,r,n,i,e[3],10,-0x70f3336e),i=w(i,a,r,n,e[10],15,-1051523),n=w(n,i,a,r,e[1],21,-0x7a7ba22f),r=w(r,n,i,a,e[8],6,0x6fa87e4f),a=w(a,r,n,i,e[15],10,-0x1d31920),i=w(i,a,r,n,e[6],15,-0x5cfebcec),n=w(n,i,a,r,e[13],21,0x4e0811a1),r=w(r,n,i,a,e[4],6,-0x8ac817e),a=w(a,r,n,i,e[11],10,-0x42c50dcb),i=w(i,a,r,n,e[2],15,0x2ad7d2bb),n=w(n,i,a,r,e[9],21,-0x14792c6f),t[0]=_(r,t[0]),t[1]=_(n,t[1]),t[2]=_(i,t[2]),t[3]=_(a,t[3])}function m(t,e,r,n,i,a){return e=_(_(e,t),_(n,a)),_(e<<i|e>>>32-i,r)}function v(t,e,r,n,i,a,o){return m(e&r|~e&n,t,e,i,a,o)}function b(t,e,r,n,i,a,o){return m(e&n|r&~n,t,e,i,a,o)}function y(t,e,r,n,i,a,o){return m(e^r^n,t,e,i,a,o)}function w(t,e,r,n,i,a,o){return m(r^(e|~n),t,e,i,a,o)}function x(t){var e,r=t.length,n=[0x67452301,-0x10325477,-0x67452302,0x10325476];for(e=64;e<=t.length;e+=64)g(n,function(t){var e,r=[];for(e=0;e<64;e+=4)r[e>>2]=t.charCodeAt(e)+(t.charCodeAt(e+1)<<8)+(t.charCodeAt(e+2)<<16)+(t.charCodeAt(e+3)<<24);return r}(t.substring(e-64,e)));t=t.substring(e-64);var i=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];for(e=0;e<t.length;e++)i[e>>2]|=t.charCodeAt(e)<<(e%4<<3);if(i[e>>2]|=128<<(e%4<<3),e>55)for(g(n,i),e=0;e<16;e++)i[e]=0;return i[14]=8*r,g(n,i),n}l=a.atob.bind(a),f=a.btoa.bind(a);var N=\"0123456789abcdef\".split(\"\");function L(t){return String.fromCharCode(255&t,(65280&t)>>8,(0xff0000&t)>>16,(0xff000000&t)>>24)}function A(t){return x(t).map(L).join(\"\")}var S=\"5d41402abc4b2a76b9719d911017c592\"!=function(t){for(var e=0;e<t.length;e++)t[e]=function(t){for(var e=\"\",r=0;r<4;r++)e+=N[t>>8*r+4&15]+",
+      "size": 335249
+    }
+  },
+  "cssClasses": [],
+  "performance": {
+    "loadTime": 7,
+    "domContentLoaded": 7
+  }
+}

@@ -1,0 +1,234 @@
+name: Production Guard
+on:
+  push:
+    branches: [main, scout-dashboard]
+  pull_request:
+    branches: [main]
+  workflow_call:
+
+jobs:
+  env-guard:
+    name: Environment Guards
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check production environment variables
+        run: |
+          echo "Checking production environment guards..."
+
+          # Block if VITE_USE_MOCK=1 in production secrets
+          if [ "${{ secrets.VITE_USE_MOCK || '0' }}" = "1" ]; then
+            echo "❌ ERROR: VITE_USE_MOCK=1 in production environment"
+            exit 1
+          fi
+
+          # Block if NEXT_PUBLIC_USE_MOCK=1 in production secrets (env drift protection)
+          if [ "${{ secrets.NEXT_PUBLIC_USE_MOCK || '0' }}" = "1" ]; then
+            echo "❌ ERROR: NEXT_PUBLIC_USE_MOCK=1 in production environment"
+            exit 1
+          fi
+
+          echo "✅ Production environment variables validated (both VITE_ and NEXT_PUBLIC_)"
+
+  lint-guard:
+    name: Lint Production Guards
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint with production guards
+        run: |
+          echo "Running ESLint with production mock guards..."
+          npm run lint
+          echo "✅ ESLint production guards passed"
+
+      - name: Check for mock imports in production code
+        run: |
+          echo "Scanning for forbidden mock imports..."
+
+          # Check for mock imports in src/ (excluding test files)
+          MOCK_IMPORTS=$(find src/ -name "*.ts" -o -name "*.tsx" | grep -v test | grep -v spec | xargs grep -l "from.*mock" || true)
+
+          if [ -n "$MOCK_IMPORTS" ]; then
+            echo "❌ ERROR: Mock imports found in production code:"
+            echo "$MOCK_IMPORTS"
+            echo "Use environment guards instead of direct mock imports"
+            exit 1
+          fi
+
+          echo "✅ No forbidden mock imports found"
+
+  build-guard:
+    name: Build Production Guard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build with production environment
+        env:
+          VITE_USE_MOCK: '0'
+          VITE_ALLOW_FALLBACK_IN_PROD: '0'
+          NEXT_PUBLIC_USE_MOCK: '0'
+          NEXT_PUBLIC_ALLOW_FALLBACK_IN_PROD: '0'
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+        run: |
+          echo "Building with production environment guards..."
+          npm run build
+          echo "✅ Production build completed successfully"
+
+      - name: Static build artifact scan
+        run: |
+          echo "Scanning build artifacts for mock content..."
+
+          # Check that build completed
+          if [ ! -d "dist" ]; then
+            echo "❌ ERROR: Build directory not found"
+            exit 1
+          fi
+
+          # Scan for forbidden mock content in build artifacts
+          echo "Checking for 'Mock Data' strings..."
+          if grep -RIn --binary-files=text "Mock Data" dist/ 2>/dev/null; then
+            echo "❌ ERROR: 'Mock Data' strings found in build artifacts"
+            exit 1
+          fi
+
+          echo "Checking for mock imports..."
+          if grep -RIn --binary-files=text "/lib/mocks/" dist/ 2>/dev/null; then
+            echo "❌ ERROR: Mock import paths found in build artifacts"
+            exit 1
+          fi
+
+          echo "Checking for mock function calls..."
+          if grep -RIn --binary-files=text -E "(mockData|mock_fallback)" dist/ 2>/dev/null; then
+            echo "❌ ERROR: Mock function calls found in build artifacts"
+            exit 1
+          fi
+
+          echo "✅ Build artifacts clean - no mock content detected"
+
+  e2e-prod:
+    name: E2E Production Tests
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      - name: Run production E2E tests
+        env:
+          DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
+        run: |
+          echo "Running production E2E tests..."
+          npx playwright test tests/e2e/prod-no-mock.spec.ts --project=chromium --reporter=line
+          echo "✅ Production E2E tests passed"
+
+  data-validation:
+    name: Data Validation
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Validate production data sources
+        env:
+          PG_URL_SCOUT: ${{ secrets.PG_URL_SCOUT }}
+        run: |
+          echo "Validating production data sources..."
+
+          # Install psql (PostgreSQL client)
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+
+          # Check data source badge status
+          BADGE_STATUS=$(psql "$PG_URL_SCOUT" -t -A -c "SELECT source_status FROM public.get_data_source_status();")
+
+          if [ "$BADGE_STATUS" != "Trusted" ]; then
+            echo "❌ ERROR: Data source badge is not 'Trusted'"
+            echo "Current status: $BADGE_STATUS"
+            exit 1
+          fi
+
+          # Check for real data
+          GOLD_TX_COUNT=$(psql "$PG_URL_SCOUT" -t -A -c "SELECT COUNT(*) FROM public.gold_recent_transactions;")
+
+          if [ "$GOLD_TX_COUNT" -eq 0 ]; then
+            echo "❌ ERROR: No gold transactions found"
+            exit 1
+          fi
+
+          echo "✅ Data source badge: $BADGE_STATUS"
+          echo "✅ Gold transactions: $GOLD_TX_COUNT"
+          echo "✅ Production data validation passed"
+
+  telemetry-check:
+    name: Telemetry Check
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - name: Check for mock fallback hits
+        env:
+          PG_URL_SCOUT: ${{ secrets.PG_URL_SCOUT }}
+        run: |
+          echo "Checking for mock fallback hits in the last 24 hours..."
+
+          # Install psql
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+
+          # Check for mock fallback hits
+          MOCK_HITS=$(psql "$PG_URL_SCOUT" -t -A -c "
+            SELECT COUNT(*)
+            FROM scout_ops.ui_events
+            WHERE event_type='mock_fallback_hit'
+            AND timestamp > NOW() - INTERVAL '24 hours';" 2>/dev/null || echo "0")
+
+          if [ "$MOCK_HITS" -gt 0 ]; then
+            echo "❌ ERROR: $MOCK_HITS mock fallback hits detected in production"
+            echo "This indicates production is using mock data"
+            exit 1
+          fi
+
+          echo "✅ No mock fallback hits detected"
+          echo "✅ Telemetry check passed"

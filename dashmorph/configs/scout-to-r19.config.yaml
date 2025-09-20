@@ -1,0 +1,399 @@
+# DashMorph Configuration: Scout Dashboard → r19 Data Visualization Kit
+# Comprehensive extraction and conversion configuration
+
+name: "scout-to-r19-conversion"
+version: "1.0.0"
+description: "Convert Scout Dashboard components to r19 Data Visualization Kit equivalents"
+target_framework: "react"
+source_framework: "react-recharts"
+
+# Global configuration
+global:
+  preserve_branding: true
+  maintain_interactivity: true
+  pixel_parity_threshold: 90
+  performance_target_ms: 2000
+
+# Color scheme mapping
+color_schemes:
+  tbwa_primary:
+    primary: "#FFD700"      # TBWA Yellow
+    secondary: "#1E40AF"    # TBWA Blue
+    success: "#059669"      # Green
+    warning: "#D97706"      # Orange
+    error: "#DC2626"        # Red
+    purple: "#6B46C1"       # Purple
+    gray: "#6B7280"         # Neutral
+
+  r19_mapping:
+    preserve_tbwa: true
+    fallback_palette: "blue_gradient"
+    opacity_levels: [0.1, 0.3, 0.6, 0.8, 1.0]
+
+# Data transformation rules
+data_transforms:
+  date_formats:
+    input_patterns:
+      - "YYYY-MM-DD"
+      - "MM/DD/YYYY"
+      - "timestamp"
+    output_format: "ISO8601"
+    display_formats:
+      daily: "MMM DD"
+      weekly: "Week of MMM DD"
+      monthly: "MMM YYYY"
+
+  value_formatting:
+    currency:
+      symbol: "₱"
+      decimal_places: 2
+      thousands_separator: ","
+      large_number_format: "M" # Millions
+
+    percentage:
+      decimal_places: 1
+      symbol: "%"
+
+    number:
+      thousands_separator: ","
+      decimal_places: 0
+
+# Component extraction rules
+extraction_rules:
+
+  # Bar Chart Family
+  bar_charts:
+    - name: "PurchaseFunnelChart"
+      source_file: "components/charts/BehaviorCharts.tsx"
+      source_line: 3
+      target_component: "HorizontalBarChart"
+      complexity: "low"
+      properties:
+        data_key: "funnelData"
+        x_axis: "count"
+        y_axis: "stage"
+        orientation: "horizontal"
+        color: "#3b82f6"
+      transforms:
+        - preserve_stage_order: true
+        - maintain_funnel_visualization: true
+
+    - name: "RequestMethodsBar"
+      source_file: "components/charts/BehaviorCharts.tsx"
+      source_line: 19
+      target_component: "VerticalBarChart"
+      complexity: "low"
+      properties:
+        data_key: "methodsData"
+        x_axis: "method"
+        y_axis: "count"
+        color: "#10b981"
+
+    - name: "VolumeBarChart"
+      source_file: "components/charts/TransactionCharts.tsx"
+      source_line: 20
+      target_component: "TimeSeriesBarChart"
+      complexity: "medium"
+      properties:
+        data_key: "dailyMetrics"
+        time_field: "date"
+        value_field: "volume"
+        period: "7days"
+        date_format: "weekday_short"
+
+    - name: "AgeGenderBar"
+      source_file: "components/charts/ProfilingCharts.tsx"
+      source_line: 30
+      target_component: "GroupedBarChart"
+      complexity: "medium"
+      properties:
+        data_key: "genderData"
+        category_field: "ageGroup"
+        series: ["male", "female"]
+        colors: ["#3b82f6", "#10b981"]
+
+  # Pie Chart Family
+  pie_charts:
+    - name: "CategoryPieChart"
+      source_file: "components/charts/ProductCharts.tsx"
+      source_line: 5
+      target_component: "PieChart"
+      complexity: "low"
+      properties:
+        data_key: "chartData"
+        value_field: "revenue"
+        label_field: "name"
+        max_slices: 6
+        show_percentages: true
+      transforms:
+        - slice_limit: 6
+        - color_rotation: "tbwa_primary"
+
+    - name: "DemographicsPie"
+      source_file: "components/charts/ProfilingCharts.tsx"
+      source_line: 5
+      target_component: "DonutChart"
+      complexity: "low"
+      properties:
+        data_key: "ageData"
+        value_field: "count"
+        label_field: "range"
+        inner_radius: 40
+        outer_radius: 60
+
+  # Line Chart Family
+  line_charts:
+    - name: "RevenueLineChart"
+      source_file: "components/charts/TransactionCharts.tsx"
+      source_line: 45
+      target_component: "TimeSeriesLineChart"
+      complexity: "medium"
+      properties:
+        data_key: "dailyMetrics"
+        x_field: "date"
+        y_field: "revenue"
+        period: "30days"
+        stroke_color: "#10b981"
+        stroke_width: 2
+        smooth_curve: true
+      transforms:
+        - revenue_formatting: "currency_millions"
+        - date_aggregation: "daily_last_30"
+
+    - name: "BasketSizeChart"
+      source_file: "components/charts/TransactionCharts.tsx"
+      source_line: 81
+      target_component: "MultiLineChart"
+      complexity: "high"
+      properties:
+        data_key: "dailyMetrics"
+        x_field: "date"
+        lines:
+          - field: "avgBasket"
+            color: "#f59e0b"
+            stroke_width: 2
+            style: "solid"
+          - field: "avgValue"
+            color: "#8b5cf6"
+            stroke_width: 2
+            style: "dashed"
+        period: "14days"
+      transforms:
+        - calculate_avg_basket: "revenue / count"
+        - dual_y_axis: true
+
+  # Area Chart Family
+  area_charts:
+    - name: "TransactionAreaChart"
+      source_file: "src/components/charts/AdvancedCharts.tsx"
+      source_line: 26
+      target_component: "GradientAreaChart"
+      complexity: "medium"
+      properties:
+        data_key: "data"
+        x_field: "date"
+        y_field: "transactions"
+        gradient:
+          color: "#FFD700"
+          opacity_start: 0.8
+          opacity_end: 0.1
+        stroke_color: "#FFD700"
+        stroke_width: 2
+
+  # Geographic Family
+  geographic:
+    - name: "RegionalHeatmap"
+      source_file: "components/charts/RegionalHeatmap.tsx"
+      source_line: 6
+      target_component: "GridHeatmap"
+      complexity: "medium"
+      properties:
+        data_key: "data"
+        value_field: "metric"
+        label_field: "name"
+        grid_cols: 2
+        grid_rows: 2
+        color_intensity: "blue_scale"
+
+    - name: "ChoroplethMap"
+      source_file: "src/components/charts/ChoroplethMap.tsx"
+      source_line: 168
+      target_component: "GeographicMap"
+      complexity: "very_high"
+      properties:
+        data_key: "data"
+        geo_json: "/geo/philippines-regions.json"
+        value_field: "value"
+        region_field: "id"
+        color_scale: "blue_quantize"
+        interactive: true
+      special_handling:
+        - custom_svg_extraction: true
+        - preserve_hover_interactions: true
+
+  # KPI Card Family
+  kpi_cards:
+    - name: "KPICard"
+      source_file: "src/components/charts/KPICard.tsx"
+      source_line: 12
+      target_component: "MetricCard"
+      complexity: "low"
+      properties:
+        title: "dynamic"
+        value: "dynamic"
+        change: "dynamic"
+        format: "dynamic"
+        icon: "dynamic"
+      transforms:
+        - icon_mapping: "lucide_to_r19"
+        - trend_calculation: "automatic"
+
+  # Composed Chart Family
+  composed_charts:
+    - name: "ParetoChart"
+      source_file: "src/components/charts/AdvancedCharts.tsx"
+      source_line: 459
+      target_component: "ComboChart"
+      complexity: "very_high"
+      properties:
+        data_key: "paretoData"
+        primary_chart:
+          type: "bar"
+          field: "revenue"
+          color: "#1E40AF"
+        secondary_chart:
+          type: "line"
+          field: "cumulative"
+          color: "#DC2626"
+          stroke_width: 3
+        reference_lines:
+          - y: 80
+            label: "80% Line"
+            color: "#D97706"
+      transforms:
+        - calculate_cumulative: true
+        - pareto_analysis: "80_20_rule"
+
+    - name: "BrandMarketShareChart"
+      source_file: "src/components/charts/AdvancedCharts.tsx"
+      source_line: 933
+      target_component: "MultiMetricChart"
+      complexity: "very_high"
+      properties:
+        data_key: "marketShareData"
+        category_field: "brand"
+        metrics:
+          - field: "storeVisits"
+            type: "bar"
+            color: "#FFD700"
+          - field: "conversion"
+            type: "line"
+            color: "#1E40AF"
+          - field: "marketShare"
+            type: "line"
+            color: "#059669"
+            style: "dashed"
+
+  # Specialty Charts
+  specialty_charts:
+    - name: "CustomerJourneyFunnel"
+      source_file: "src/components/charts/AdvancedCharts.tsx"
+      source_line: 146
+      target_component: "FunnelChart"
+      complexity: "very_high"
+      properties:
+        data_key: "data"
+        stage_field: "stage"
+        value_field: "count"
+        direction: "vertical"
+        colors: "tbwa_gradient"
+        show_labels: true
+        animation: true
+      special_handling:
+        - custom_svg_conversion: true
+        - preserve_trapezoid_shape: true
+
+    - name: "SubstitutionChart"
+      source_file: "src/components/charts/AdvancedCharts.tsx"
+      source_line: 497
+      target_component: "FlowDiagram"
+      complexity: "very_high"
+      properties:
+        data_key: "substitutionData"
+        source_field: "original"
+        target_field: "substitute"
+        value_field: "rate"
+        node_width: 120
+        node_height: 25
+        link_opacity: 0.6
+      special_handling:
+        - sankey_to_flow_conversion: true
+        - preserve_flow_visualization: true
+
+# Validation rules
+validation:
+  pixel_parity:
+    threshold: 90
+    tolerance: 5
+    key_elements:
+      - colors
+      - proportions
+      - typography
+      - spacing
+
+  data_integrity:
+    check_data_completeness: true
+    validate_calculations: true
+    preserve_null_handling: true
+
+  performance:
+    max_conversion_time_ms: 2000
+    memory_usage_limit_mb: 100
+    render_time_target_ms: 500
+
+# Output configuration
+output:
+  framework: "react"
+  typescript: true
+  styling: "tailwind"
+  component_structure:
+    - components/
+    - types/
+    - utils/
+    - stories/
+    - tests/
+
+  file_naming:
+    convention: "PascalCase"
+    suffix: ".tsx"
+    test_suffix: ".test.tsx"
+    story_suffix: ".stories.tsx"
+
+# Testing configuration
+testing:
+  generate_tests: true
+  test_framework: "jest"
+  visual_regression: true
+  accessibility_tests: true
+  performance_tests: true
+
+# Documentation generation
+documentation:
+  generate_readme: true
+  include_examples: true
+  api_documentation: true
+  migration_guide: true
+
+# Error handling
+error_handling:
+  fallback_components: true
+  graceful_degradation: true
+  error_boundaries: true
+  logging_level: "warn"
+
+# Optimization settings
+optimization:
+  code_splitting: true
+  lazy_loading: true
+  memoization: true
+  bundle_optimization: true

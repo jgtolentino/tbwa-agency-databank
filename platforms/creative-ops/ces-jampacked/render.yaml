@@ -1,43 +1,19 @@
 services:
-  # Palette Forge Service
   - type: web
-    name: palette-svc
-    runtime: docker
-    dockerfilePath: ./service/Dockerfile
-    plan: starter
+    name: scout-dashboard
+    env: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
     envVars:
-      - key: SUPABASE_URL
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        value: https://cxzllzyxwpyptfretryc.supabase.co
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4emxsenl4d3B5cHRmcmV0cnljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIzNzYxODAsImV4cCI6MjA2Nzk1MjE4MH0.b794GEIWE4ZdMAm9xQYAJ0Gx-XEn1fhJBTIIeTro_1g
+      - key: NEXT_PUBLIC_LLM_API_URL
         sync: false
-      - key: SUPABASE_ANON_KEY
+      - key: NEXT_PUBLIC_TRADINGVIEW_WIDGET_KEY
         sync: false
-      - key: PGVECTOR_URL
-        sync: false
-      - key: MODEL_PATH
-        value: models/ckpt.pt
-      - key: API_TOKEN
-        sync: false
-      - key: RETURN_EMBEDDINGS
-        value: true
-    healthCheckPath: /health
-    autoDeploy: true
-
-  # CES Gateway Service  
-  - type: web
-    name: ces-gw
-    runtime: docker
-    dockerfilePath: ./ces-gateway/Dockerfile
-    plan: starter
-    envVars:
-      - key: SUPABASE_URL
-        sync: false
-      - key: SUPABASE_ANON_KEY
-        sync: false
-      - key: PALETTE_SERVICE_URL
-        fromService:
-          type: web
-          name: palette-svc
-          property: host
-      - key: CES_API_TOKEN
-        sync: false
-    healthCheckPath: /health
-    autoDeploy: true
+    healthCheckPath: /
+    autoDeploy: false

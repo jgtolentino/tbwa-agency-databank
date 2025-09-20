@@ -1,0 +1,1024 @@
+{
+  "timestamp": "2025-09-15T10:29:20.470Z",
+  "url": "https://scout-analytics-nextjs.vercel.app/databank",
+  "title": "Scout Analytics Dashboard - TBWA AI Platform",
+  "navigation": [],
+  "contentStructure": [
+    {
+      "level": "H1",
+      "text": "Scout Databank Dashboard",
+      "className": "text-3xl font-bold text-gray-900"
+    },
+    {
+      "level": "H2",
+      "text": "Transaction Trends",
+      "className": "text-lg font-semibold text-gray-900"
+    },
+    {
+      "level": "H2",
+      "text": "Product Mix & SKU Analytics",
+      "className": "text-lg font-semibold text-gray-900"
+    },
+    {
+      "level": "H2",
+      "text": "Consumer Behavior & Preferences",
+      "className": "text-lg font-semibold text-gray-900"
+    },
+    {
+      "level": "H2",
+      "text": "Consumer Profiling",
+      "className": "text-lg font-semibold text-gray-900"
+    },
+    {
+      "level": "H4",
+      "text": "Income Distribution",
+      "className": "text-sm font-medium text-gray-700"
+    },
+    {
+      "level": "H4",
+      "text": "Urban vs Rural",
+      "className": "text-sm font-medium text-gray-700"
+    },
+    {
+      "level": "H2",
+      "text": "Comparative Analytics",
+      "className": "text-lg font-semibold text-gray-900 mb-4"
+    }
+  ],
+  "charts": [
+    {
+      "selector": "svg",
+      "index": 13,
+      "tagName": "svg",
+      "className": {},
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "2025-08-192025-08-242025-08-292025-09-032025-09-082025-09-1502505007501000"
+    },
+    {
+      "selector": "svg",
+      "index": 15,
+      "tagName": "svg",
+      "className": {},
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%"
+    },
+    {
+      "selector": "svg",
+      "index": 18,
+      "tagName": "svg",
+      "className": {},
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "1000850650480420"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 0,
+      "tagName": "DIV",
+      "className": "recharts-responsive-container",
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "2025-08-192025-08-242025-08-292025-09-032025-09-082025-09-1502505007501000"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 1,
+      "tagName": "DIV",
+      "className": "recharts-wrapper",
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "2025-08-192025-08-242025-08-292025-09-032025-09-082025-09-1502505007501000"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 5,
+      "tagName": "svg",
+      "className": {},
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "2025-08-192025-08-242025-08-292025-09-032025-09-082025-09-1502505007501000"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 6,
+      "tagName": "g",
+      "className": {},
+      "width": 476,
+      "height": 216,
+      "id": "",
+      "parentText": "2025-08-192025-08-242025-08-292025-09-032025-09-082025-09-1502505007501000"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 7,
+      "tagName": "g",
+      "className": {},
+      "width": 476,
+      "height": 216,
+      "id": "",
+      "parentText": ""
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 8,
+      "tagName": "g",
+      "className": {},
+      "width": 476,
+      "height": 216,
+      "id": "",
+      "parentText": ""
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 48,
+      "tagName": "g",
+      "className": {},
+      "width": 476,
+      "height": 194,
+      "id": "",
+      "parentText": "2025-08-192025-08-242025-08-292025-09-032025-09-082025-09-1502505007501000"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 49,
+      "tagName": "g",
+      "className": {},
+      "width": 476,
+      "height": 194,
+      "id": "",
+      "parentText": ""
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 50,
+      "tagName": "path",
+      "className": {},
+      "width": 476,
+      "height": 194,
+      "id": "",
+      "parentText": ""
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 51,
+      "tagName": "path",
+      "className": {},
+      "width": 476,
+      "height": 94,
+      "id": "",
+      "parentText": ""
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 52,
+      "tagName": "DIV",
+      "className": "recharts-responsive-container",
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 53,
+      "tagName": "DIV",
+      "className": "recharts-wrapper",
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 55,
+      "tagName": "svg",
+      "className": {},
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 56,
+      "tagName": "g",
+      "className": {},
+      "width": 382,
+      "height": 203,
+      "id": "",
+      "parentText": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 57,
+      "tagName": "g",
+      "className": {},
+      "width": 382,
+      "height": 203,
+      "id": "",
+      "parentText": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 58,
+      "tagName": "g",
+      "className": {},
+      "width": 127,
+      "height": 80,
+      "id": "",
+      "parentText": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 59,
+      "tagName": "path",
+      "className": {},
+      "width": 127,
+      "height": 80,
+      "id": "",
+      "parentText": ""
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 60,
+      "tagName": "g",
+      "className": {},
+      "width": 80,
+      "height": 112,
+      "id": "",
+      "parentText": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 61,
+      "tagName": "path",
+      "className": {},
+      "width": 80,
+      "height": 112,
+      "id": "",
+      "parentText": ""
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 62,
+      "tagName": "g",
+      "className": {},
+      "width": 89,
+      "height": 80,
+      "id": "",
+      "parentText": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 63,
+      "tagName": "path",
+      "className": {},
+      "width": 89,
+      "height": 80,
+      "id": "",
+      "parentText": ""
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 64,
+      "tagName": "g",
+      "className": {},
+      "width": 76,
+      "height": 76,
+      "id": "",
+      "parentText": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 65,
+      "tagName": "path",
+      "className": {},
+      "width": 76,
+      "height": 76,
+      "id": "",
+      "parentText": ""
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 68,
+      "tagName": "g",
+      "className": {},
+      "width": 382,
+      "height": 203,
+      "id": "",
+      "parentText": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 79,
+      "tagName": "DIV",
+      "className": "recharts-responsive-container",
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "1000850650480420"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 80,
+      "tagName": "DIV",
+      "className": "recharts-wrapper",
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "1000850650480420"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 84,
+      "tagName": "svg",
+      "className": {},
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "1000850650480420"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 85,
+      "tagName": "g",
+      "className": {},
+      "width": 476,
+      "height": 236,
+      "id": "",
+      "parentText": "1000850650480420"
+    },
+    {
+      "selector": "[class*=\"chart\"]",
+      "index": 86,
+      "tagName": "g",
+      "className": {},
+      "width": 476,
+      "height": 236,
+      "id": "",
+      "parentText": "1000850650480420"
+    },
+    {
+      "selector": ".recharts-wrapper",
+      "index": 0,
+      "tagName": "DIV",
+      "className": "recharts-wrapper",
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "2025-08-192025-08-242025-08-292025-09-032025-09-082025-09-1502505007501000"
+    },
+    {
+      "selector": ".recharts-wrapper",
+      "index": 1,
+      "tagName": "DIV",
+      "className": "recharts-wrapper",
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%"
+    },
+    {
+      "selector": ".recharts-wrapper",
+      "index": 2,
+      "tagName": "DIV",
+      "className": "recharts-wrapper",
+      "width": 546,
+      "height": 256,
+      "id": "",
+      "parentText": "1000850650480420"
+    }
+  ],
+  "interactiveElements": [
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Refresh",
+      "className": "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Export Report",
+      "className": "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Export as PDF",
+      "className": "flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Export as Excel",
+      "className": "flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "SELECT",
+      "type": "select-one",
+      "text": "TodayLast 7 DaysLast 30 DaysLast 90 DaysCustom Ran",
+      "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "SELECT",
+      "type": "select-one",
+      "text": "All LocationsMetro ManilaLuzonVisayasMindanao",
+      "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "SELECT",
+      "type": "select-one",
+      "text": "All CategoriesBeveragesSnacksPersonal CareHousehol",
+      "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "SELECT",
+      "type": "select-one",
+      "text": "All BrandsBrand ABrand BBrand CUnbranded",
+      "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Volume",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "₱ Revenue",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Basket Size",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Duration",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "INPUT",
+      "type": "checkbox",
+      "text": "",
+      "className": "rounded border-gray-300 text-blue-600 focus:ring-blue-500",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Category Mix",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Pareto Analysis",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Substitutions",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Basket Analysis",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Purchase Funnel",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Request Methods",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Acceptance Rates",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Behavior Traits",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Demographics",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-blue-600 text-blue-600",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Age & Gender",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Location",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+      "role": null,
+      "disabled": false
+    },
+    {
+      "tagName": "BUTTON",
+      "type": "submit",
+      "text": "Segment Behavior",
+      "className": "px-3 py-2 text-sm font-medium border-b-2 transition-colors border-transparent text-gray-500 hover:text-gray-700",
+      "role": null,
+      "disabled": false
+    }
+  ],
+  "formElements": [
+    {
+      "tagName": "SELECT",
+      "type": "select-one",
+      "name": "",
+      "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+      "role": null
+    },
+    {
+      "tagName": "SELECT",
+      "type": "select-one",
+      "name": "",
+      "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+      "role": null
+    },
+    {
+      "tagName": "SELECT",
+      "type": "select-one",
+      "name": "",
+      "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+      "role": null
+    },
+    {
+      "tagName": "SELECT",
+      "type": "select-one",
+      "name": "",
+      "className": "block w-40 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500",
+      "role": null
+    },
+    {
+      "tagName": "INPUT",
+      "type": "checkbox",
+      "name": "",
+      "placeholder": "",
+      "className": "rounded border-gray-300 text-blue-600 focus:ring-blue-500",
+      "role": null
+    }
+  ],
+  "tables": [
+    {
+      "index": 0,
+      "tagName": "DIV",
+      "className": "grid grid-cols-1 lg:grid-cols-2 gap-6",
+      "rowCount": 0,
+      "headerCount": 0,
+      "headers": []
+    },
+    {
+      "index": 1,
+      "tagName": "DIV",
+      "className": "grid grid-cols-2 gap-4",
+      "rowCount": 0,
+      "headerCount": 0,
+      "headers": []
+    },
+    {
+      "index": 2,
+      "tagName": "g",
+      "className": {},
+      "rowCount": 0,
+      "headerCount": 0,
+      "headers": []
+    },
+    {
+      "index": 3,
+      "tagName": "g",
+      "className": {},
+      "rowCount": 0,
+      "headerCount": 0,
+      "headers": []
+    },
+    {
+      "index": 4,
+      "tagName": "g",
+      "className": {},
+      "rowCount": 0,
+      "headerCount": 0,
+      "headers": []
+    },
+    {
+      "index": 5,
+      "tagName": "DIV",
+      "className": "grid grid-cols-3 gap-3",
+      "rowCount": 0,
+      "headerCount": 0,
+      "headers": []
+    },
+    {
+      "index": 6,
+      "tagName": "DIV",
+      "className": "grid grid-cols-3 gap-3",
+      "rowCount": 0,
+      "headerCount": 0,
+      "headers": []
+    },
+    {
+      "index": 7,
+      "tagName": "DIV",
+      "className": "grid grid-cols-2 gap-3",
+      "rowCount": 0,
+      "headerCount": 0,
+      "headers": []
+    },
+    {
+      "index": 8,
+      "tagName": "DIV",
+      "className": "grid grid-cols-3 gap-3",
+      "rowCount": 0,
+      "headerCount": 0,
+      "headers": []
+    },
+    {
+      "index": 9,
+      "tagName": "DIV",
+      "className": "grid grid-cols-2 gap-4 h-full",
+      "rowCount": 0,
+      "headerCount": 0,
+      "headers": []
+    },
+    {
+      "index": 10,
+      "tagName": "DIV",
+      "className": "grid grid-cols-1 md:grid-cols-3 gap-6",
+      "rowCount": 0,
+      "headerCount": 0,
+      "headers": []
+    }
+  ],
+  "designSystem": {
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(0, 0, 0)",
+    "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+    "fontSize": "16px",
+    "cssVariables": []
+  },
+  "metrics": [
+    {
+      "text": "(self.__next_f=self.__next_f||[]).push([0])",
+      "parentClass": "",
+      "parentTag": "SCRIPT"
+    },
+    {
+      "text": "self.__next_f.push([1,\"1:\\\"$Sreact.fragment\\\"\\n2:I[87555,[],\\\"\\\"]\\n3:I[31295,[],\\\"\\\"]\\n4:I[90894,[],\\\"ClientPageRoot\\\"]\\n5:I[60510,[\\\"524\\\",\\\"static/chunks/2170a4aa-f220f188891353c6.js\\\",\\\"930\\\",\\\"static/chunks/164f4fb6-69a77c80738c9314.js\\\",\\\"72\\\",\\\"static/chunks/72-9942fe08882ea7fc.js\\\",\\\"989\\\",\\\"static/chunks/app/databank/page-7b1709c270c9f498.js\\\"],\\\"default\\\"]\\n8:I[59665,[],\\\"MetadataBoundary\\\"]\\na:I[59665,[],\\\"OutletBoundary\\\"]\\nd:I[74911,[],\\\"AsyncMetadataOutlet\\\"]\\nf:I[59665,[],\\\"ViewportBoundary\\\"]\\n11:I[26614,[],\\\"\\\"]\\n:HL[\\\"/_next/static/css/a30ac04de8fe0978.css\\\",\\\"style\\\"]\\n\"])",
+      "parentClass": "",
+      "parentTag": "SCRIPT"
+    },
+    {
+      "text": "self.__next_f.push([1,\"0:{\\\"P\\\":null,\\\"b\\\":\\\"_S1ft5DQLFYgAHi8nbzPv\\\",\\\"p\\\":\\\"\\\",\\\"c\\\":[\\\"\\\",\\\"databank\\\"],\\\"i\\\":false,\\\"f\\\":[[[\\\"\\\",{\\\"children\\\":[\\\"databank\\\",{\\\"children\\\":[\\\"__PAGE__\\\",{}]}]},\\\"$undefined\\\",\\\"$undefined\\\",true],[\\\"\\\",[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/a30ac04de8fe0978.css\\\",\\\"precedence\\\":\\\"next\\\",\\\"crossOrigin\\\":\\\"$undefined\\\",\\\"nonce\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"html\\\",null,{\\\"lang\\\":\\\"en\\\",\\\"children\\\":[[\\\"$\\\",\\\"head\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"link\\\",null,{\\\"rel\\\":\\\"preconnect\\\",\\\"href\\\":\\\"https://fonts.googleapis.com\\\"}],[\\\"$\\\",\\\"link\\\",null,{\\\"rel\\\":\\\"preconnect\\\",\\\"href\\\":\\\"https://fonts.gstatic.com\\\",\\\"crossOrigin\\\":\\\"\\\"}]]}],[\\\"$\\\",\\\"body\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"min-h-screen bg-gray-50\\\",\\\"children\\\":[\\\"$\\\",\\\"$L2\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$L3\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":[[[\\\"$\\\",\\\"title\\\",null,{\\\"children\\\":\\\"404: This page could not be found.\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"fontFamily\\\":\\\"system-ui,\\\\\\\"Segoe UI\\\\\\\",Roboto,Helvetica,Arial,sans-serif,\\\\\\\"Apple Color Emoji\\\\\\\",\\\\\\\"Segoe UI Emoji\\\\\\\"\\\",\\\"height\\\":\\\"100vh\\\",\\\"textAlign\\\":\\\"center\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\",\\\"alignItems\\\":\\\"center\\\",\\\"justifyContent\\\":\\\"center\\\"},\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"style\\\",null,{\\\"dangerouslySetInnerHTML\\\":{\\\"__html\\\":\\\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\\\"}}],[\\\"$\\\",\\\"h1\\\",null,{\\\"className\\\":\\\"next-error-h1\\\",\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\",\\\"margin\\\":\\\"0 20px 0 0\\\",\\\"padding\\\":\\\"0 23px 0 0\\\",\\\"fontSize\\\":24,\\\"fontWeight\\\":500,\\\"verticalAlign\\\":\\\"top\\\",\\\"lineHeight\\\":\\\"49px\\\"},\\\"children\\\":404}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\"},\\\"children\\\":[\\\"$\\\",\\\"h2\\\",null,{\\\"style\\\":{\\\"fontSize\\\":14,\\\"fontWeight\\\":400,\\\"lineHeight\\\":\\\"49px\\\",\\\"margin\\\":0},\\\"children\\\":\\\"This page could not be found.\\\"}]}]]}]}]],[]],\\\"forbidden\\\":\\\"$undefined\\\",\\\"unauthorized\\\":\\\"$undefined\\\"}]}]}]]}]]}],{\\\"children\\\":[\\\"databank\\\",[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[null,[\\\"$\\\",\\\"$L2\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$L3\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":\\\"$undefined\\\",\\\"forbidden\\\":\\\"$undefined\\\",\\\"unauthorized\\\":\\\"$undefined\\\"}]]}],{\\\"children\\\":[\\\"__PAGE__\\\",[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[\\\"$\\\",\\\"$L4\\\",null,{\\\"Component\\\":\\\"$5\\\",\\\"searchParams\\\":{},\\\"params\\\":{},\\\"promises\\\":[\\\"$@6\\\",\\\"$@7\\\"]}],[\\\"$\\\",\\\"$L8\\\",null,{\\\"children\\\":\\\"$L9\\\"}],null,[\\\"$\\\",\\\"$La\\\",null,{\\\"children\\\":[\\\"$Lb\\\",\\\"$Lc\\\",[\\\"$\\\",\\\"$Ld\\\",null,{\\\"promise\\\":\\\"$@e\\\"}]]}]]}],{},null,false]},null,false]},null,false],[\\\"$\\\",\\\"$1\\\",\\\"h\\\",{\\\"children\\\":[null,[\\\"$\\\",\\\"$1\\\",\\\"M9T2XymTduli2EtAobc0M\\\",{\\\"children\\\":[[\\\"$\\\",\\\"$Lf\\\",null,{\\\"children\\\":\\\"$L10\\\"}],null]}],null]}],false]],\\\"m\\\":\\\"$undefined\\\",\\\"G\\\":[\\\"$11\\\",\\\"$undefined\\\"],\\\"s\\\":false,\\\"S\\\":true}\\n\"])",
+      "parentClass": "",
+      "parentTag": "SCRIPT"
+    },
+    {
+      "text": "self.__next_f.push([1,\"12:\\\"$Sreact.suspense\\\"\\n13:I[74911,[],\\\"AsyncMetadata\\\"]\\n6:{}\\n7:{}\\n9:[\\\"$\\\",\\\"$12\\\",null,{\\\"fallback\\\":null,\\\"children\\\":[\\\"$\\\",\\\"$L13\\\",null,{\\\"promise\\\":\\\"$@14\\\"}]}]\\n\"])",
+      "parentClass": "",
+      "parentTag": "SCRIPT"
+    },
+    {
+      "text": "self.__next_f.push([1,\"c:null\\n\"])",
+      "parentClass": "",
+      "parentTag": "SCRIPT"
+    },
+    {
+      "text": "self.__next_f.push([1,\"10:[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"charSet\\\":\\\"utf-8\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]]\\nb:null\\n\"])",
+      "parentClass": "",
+      "parentTag": "SCRIPT"
+    },
+    {
+      "text": "self.__next_f.push([1,\"14:{\\\"metadata\\\":[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"Scout Analytics Dashboard - TBWA AI Platform\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"description\\\",\\\"content\\\":\\\"AI-powered retail intelligence platform for the Philippines market\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"2\\\",{\\\"name\\\":\\\"robots\\\",\\\"content\\\":\\\"index, follow\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"3\\\",{\\\"property\\\":\\\"og:title\\\",\\\"content\\\":\\\"Scout Analytics Dashboard\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"4\\\",{\\\"property\\\":\\\"og:description\\\",\\\"content\\\":\\\"AI-powered retail intelligence platform\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"5\\\",{\\\"property\\\":\\\"og:url\\\",\\\"content\\\":\\\"https://scout-mvp.vercel.app\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"6\\\",{\\\"property\\\":\\\"og:type\\\",\\\"content\\\":\\\"website\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"7\\\",{\\\"name\\\":\\\"twitter:card\\\",\\\"content\\\":\\\"summary_large_image\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"8\\\",{\\\"name\\\":\\\"twitter:title\\\",\\\"content\\\":\\\"Scout Analytics Dashboard\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"9\\\",{\\\"name\\\":\\\"twitter:description\\\",\\\"content\\\":\\\"AI-powered retail intelligence platform\\\"}]],\\\"error\\\":null,\\\"digest\\\":\\\"$undefined\\\"}\\ne:{\\\"metadata\\\":\\\"$14:metadata\\\",\\\"error\\\":null,\\\"digest\\\":\\\"$undefined\\\"}\\n\"])",
+      "parentClass": "",
+      "parentTag": "SCRIPT"
+    },
+    {
+      "text": "Last 7 Days",
+      "parentClass": "",
+      "parentTag": "OPTION"
+    },
+    {
+      "text": "Last 30 Days",
+      "parentClass": "",
+      "parentTag": "OPTION"
+    },
+    {
+      "text": "Last 90 Days",
+      "parentClass": "",
+      "parentTag": "OPTION"
+    },
+    {
+      "text": "600",
+      "parentClass": "text-2xl font-bold text-gray-900",
+      "parentTag": "P"
+    },
+    {
+      "text": "27.0",
+      "parentClass": "text-sm font-medium ml-1",
+      "parentTag": "SPAN"
+    },
+    {
+      "text": "143,898",
+      "parentClass": "text-2xl font-bold text-gray-900",
+      "parentTag": "P"
+    },
+    {
+      "text": "9.2",
+      "parentClass": "text-sm font-medium ml-1",
+      "parentTag": "SPAN"
+    },
+    {
+      "text": "2025-08-19",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "2025-08-24",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "2025-08-29",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "2025-09-03",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "2025-09-08",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "2025-09-15",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "0",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "250",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "500",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "750",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "1000",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "369",
+      "parentClass": "text-xl font-bold text-gray-900",
+      "parentTag": "P"
+    },
+    {
+      "text": "342",
+      "parentClass": "text-xl font-bold text-green-600",
+      "parentTag": "P"
+    },
+    {
+      "text": "12",
+      "parentClass": "text-xl font-bold text-blue-600",
+      "parentTag": "P"
+    },
+    {
+      "text": "Beverages: 35%",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "Snacks: 25%",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "Personal Care: 20%",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "Household: 15%",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "Others: 5%",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "Top 20% of SKUs generate 80% of revenue. Consider optimizing inventory for high-performing items.",
+      "parentClass": "text-sm text-blue-700",
+      "parentTag": "P"
+    },
+    {
+      "text": "42%",
+      "parentClass": "text-xl font-bold text-gray-900",
+      "parentTag": "P"
+    },
+    {
+      "text": "73.8%",
+      "parentClass": "text-xl font-bold text-green-600",
+      "parentTag": "P"
+    },
+    {
+      "text": "68%",
+      "parentClass": "text-xl font-bold text-blue-600",
+      "parentTag": "P"
+    },
+    {
+      "text": "1000",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "850",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "650",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "480",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "420",
+      "parentClass": {},
+      "parentTag": "tspan"
+    },
+    {
+      "text": "68% repeat purchase rate",
+      "parentClass": "text-xs text-blue-700 mt-1",
+      "parentTag": "P"
+    },
+    {
+      "text": "23% try new products",
+      "parentClass": "text-xs text-green-700 mt-1",
+      "parentTag": "P"
+    },
+    {
+      "text": "11,000",
+      "parentClass": "text-xl font-bold text-gray-900",
+      "parentTag": "P"
+    },
+    {
+      "text": "32.5",
+      "parentClass": "text-xl font-bold text-blue-600",
+      "parentTag": "P"
+    },
+    {
+      "text": "48/52",
+      "parentClass": "text-xl font-bold text-purple-600",
+      "parentTag": "P"
+    },
+    {
+      "text": "25%",
+      "parentClass": "text-sm font-medium",
+      "parentTag": "SPAN"
+    },
+    {
+      "text": "58%",
+      "parentClass": "text-sm font-medium",
+      "parentTag": "SPAN"
+    },
+    {
+      "text": "17%",
+      "parentClass": "text-sm font-medium",
+      "parentTag": "SPAN"
+    }
+  ],
+  "sections": [
+    {
+      "index": 0,
+      "className": "recharts-responsive-container",
+      "tagName": "DIV",
+      "width": 546,
+      "height": 256,
+      "childrenCount": 1,
+      "textPreview": "2025-08-192025-08-242025-08-292025-09-032025-09-082025-09-1502505007501000"
+    },
+    {
+      "index": 1,
+      "className": "recharts-responsive-container",
+      "tagName": "DIV",
+      "width": 546,
+      "height": 256,
+      "childrenCount": 1,
+      "textPreview": "Beverages: 35%Snacks: 25%Personal Care: 20%Household: 15%Others: 5%"
+    },
+    {
+      "index": 2,
+      "className": "recharts-responsive-container",
+      "tagName": "DIV",
+      "width": 546,
+      "height": 256,
+      "childrenCount": 1,
+      "textPreview": "1000850650480420"
+    }
+  ],
+  "summary": {
+    "totalCharts": 35,
+    "totalInteractiveElements": 25,
+    "totalTables": 11,
+    "totalSections": 3
+  }
+}
