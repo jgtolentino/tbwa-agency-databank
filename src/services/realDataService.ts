@@ -163,6 +163,15 @@ class RealDataService {
     return Date.now() - this.lastFetch.getTime() > this.CACHE_DURATION
   }
 
+  // Helper method to ensure array safety
+  private ensureArraySafety<T>(data: T[] | any): T[] {
+    if (Array.isArray(data)) return data
+    if (data && typeof data === 'object' && Array.isArray(data.rows)) return data.rows
+    if (data && typeof data === 'object' && Array.isArray(data.items)) return data.items
+    console.warn('Data is not an array, returning empty array:', typeof data)
+    return []
+  }
+
   private applyFilters(transactions: FlatTxn[], filters: FilterOptions): FlatTxn[] {
     let filtered = [...transactions]
 
@@ -219,7 +228,9 @@ class RealDataService {
       // Fetch real transaction data
       const transactionsResponse = await getTransactions(1, 10000) // Get large sample
       const kpis = await getKpis()
-      let transactions = ensureArray<FlatTxn>(
+
+      // Use our enhanced array safety method
+      let transactions = this.ensureArraySafety<FlatTxn>(
         'rows' in transactionsResponse ? transactionsResponse.rows : transactionsResponse
       )
 
@@ -228,16 +239,23 @@ class RealDataService {
         transactions = this.applyFilters(transactions, filters)
       }
 
-      console.log(`Analyzing ${transactions.length} real transactions for insights`)
+      // CRITICAL: Double-check array safety before processing
+      const safeTransactions = this.ensureArraySafety<FlatTxn>(transactions)
+      console.log(`Analyzing ${safeTransactions.length} real transactions for insights`)
+
+      if (safeTransactions.length === 0) {
+        console.warn('No transactions found, falling back to mock data')
+        return this.getFallbackAnalytics()
+      }
 
       const analytics: RealAnalytics = {
-        transactionTrends: this.analyzeTransactionTrends(transactions),
-        productMix: this.analyzeProductMix(transactions),
-        consumerBehavior: this.analyzeConsumerBehavior(transactions),
-        consumerProfiling: this.analyzeConsumerProfiling(transactions),
-        competitiveAnalysis: this.analyzeCompetitiveData(transactions),
-        geographicalIntelligence: this.analyzeGeographicalData(transactions),
-        executiveMetrics: this.generateExecutiveMetrics(transactions, kpis)
+        transactionTrends: this.analyzeTransactionTrends(safeTransactions),
+        productMix: this.analyzeProductMix(safeTransactions),
+        consumerBehavior: this.analyzeConsumerBehavior(safeTransactions),
+        consumerProfiling: this.analyzeConsumerProfiling(safeTransactions),
+        competitiveAnalysis: this.analyzeCompetitiveData(safeTransactions),
+        geographicalIntelligence: this.analyzeGeographicalData(safeTransactions),
+        executiveMetrics: this.generateExecutiveMetrics(safeTransactions, kpis)
       }
 
       this.cachedData = analytics
@@ -253,6 +271,10 @@ class RealDataService {
   }
 
   private analyzeTransactionTrends(transactions: FlatTxn[]): TransactionTrendData[] {
+    // Ensure we have a valid array
+    const safeTransactions = this.ensureArraySafety<FlatTxn>(transactions)
+    if (safeTransactions.length === 0) return []
+
     const trendMap = new Map<string, {
       date: string
       transactions: number
@@ -261,7 +283,7 @@ class RealDataService {
       timeOfDay: string
     }>()
 
-    transactions.forEach(txn => {
+    safeTransactions.forEach(txn => {
       const date = txn.date_ph || txn.transactiondate
       if (!date) return
 
@@ -291,6 +313,10 @@ class RealDataService {
   }
 
   private analyzeProductMix(transactions: FlatTxn[]): ProductMixData[] {
+    // Ensure we have a valid array
+    const safeTransactions = this.ensureArraySafety<FlatTxn>(transactions)
+    if (safeTransactions.length === 0) return []
+
     const mixMap = new Map<string, {
       category: string
       revenue: number
@@ -300,7 +326,7 @@ class RealDataService {
 
     let totalRevenue = 0
 
-    transactions.forEach(txn => {
+    safeTransactions.forEach(txn => {
       const category = txn.category || 'Unknown'
       const revenue = txn.total_price || 0
       totalRevenue += revenue
@@ -333,6 +359,9 @@ class RealDataService {
   }
 
   private analyzeConsumerBehavior(transactions: FlatTxn[]): ConsumerBehaviorData {
+    const safeTransactions = this.ensureArraySafety<FlatTxn>(transactions)
+    if (safeTransactions.length === 0) return { basketSize: 0, sessionDuration: 0, conversionRate: 0, returnCustomerRate: 0, peakHours: [], paymentMethods: [] }
+
     const transactionsByCustomer = new Map<string, FlatTxn[]>()
     const paymentMethods = new Map<string, { count: number, totalValue: number }>()
     const hourlyData = new Map<string, number>()
@@ -340,7 +369,7 @@ class RealDataService {
     let totalBasketSize = 0
     let basketCount = 0
 
-    transactions.forEach(txn => {
+    safeTransactions.forEach(txn => {
       // Group by customer (using interaction ID as proxy)
       const customerId = txn.facialid || txn.interactionid || `guest_${txn.transaction_id}`
       if (!transactionsByCustomer.has(customerId)) {
