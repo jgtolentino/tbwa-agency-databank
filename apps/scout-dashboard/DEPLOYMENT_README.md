@@ -4,7 +4,7 @@
 
 ### **A) Vercel Build Settings**
 **Project**: scout-analytics
-**Build Command**: `npm --prefix apps/standalone-dashboard run build:vercel`
+**Build Command**: `npm --prefix apps/scout-dashboard run build:vercel`
 **Framework**: Next.js
 **Root Directory**: *(leave empty)*
 
@@ -23,7 +23,7 @@ NEXT_PUBLIC_STRICT_DATASOURCE=true
 
 **Local CSV Guard Test:**
 ```bash
-cd apps/standalone-dashboard
+cd apps/scout-dashboard
 npm run build:guard
 # Expected: ✅ CSV guard passed
 ```
@@ -102,7 +102,7 @@ curl https://your-deployment.vercel.app/api/enriched
 **Fix**: Ensure all components import from `@/lib/supabaseClient` only
 ```bash
 # Check for rogue createClient calls
-grep -r "createClient" apps/standalone-dashboard/src/
+grep -r "createClient" apps/scout-dashboard/src/
 # Should only find: src/lib/supabaseClient.ts
 ```
 
@@ -131,7 +131,7 @@ npm run build        # Should complete without errors
 ## **File Structure Reference**
 
 ```
-apps/standalone-dashboard/
+apps/scout-dashboard/
 ├── src/
 │   ├── app/
 │   │   ├── api/
