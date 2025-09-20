@@ -22,5 +22,16 @@
     "NEXT_PUBLIC_STRICT_DATASOURCE": "true"
   },
   "installCommand": "cd apps/standalone-dashboard && npm ci",
-  "buildCommand": "cd apps/standalone-dashboard && npm run build:vercel"
+  "buildCommand": "cd apps/standalone-dashboard && npm run build:vercel",
+  "headers": [
+    {
+      "source": "/api/(kpis|enriched|health)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "s-maxage=60, stale-while-revalidate=300"
+        }
+      ]
+    }
+  ]
 }
