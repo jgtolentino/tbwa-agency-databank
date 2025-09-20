@@ -218,6 +218,46 @@ async function loadMockData(): Promise<FlatTxn[]> {
   return mockData;
 }
 
+// Safe query wrapper to prevent .map() errors
+async function safeSupabaseQuery(tableName: string, query: string = '*', options: any = {}): Promise<any[]> {
+  try {
+    if (!supabase) {
+      throw new Error('Supabase not configured');
+    }
+
+    let queryBuilder = supabase.from(tableName).select(query);
+
+    // Apply filters
+    if (options.eq) {
+      Object.entries(options.eq).forEach(([key, value]) => {
+        queryBuilder = queryBuilder.eq(key, value);
+      });
+    }
+
+    // Apply limit and offset
+    if (options.limit) {
+      queryBuilder = queryBuilder.limit(options.limit);
+    }
+    if (options.offset) {
+      queryBuilder = queryBuilder.range(options.offset, options.offset + (options.limit || 50) - 1);
+    }
+
+    const { data, error } = await queryBuilder;
+
+    if (error) {
+      console.error(`Error fetching from ${tableName}:`, error);
+      return [];
+    }
+
+    // CRITICAL: Always return array
+    return Array.isArray(data) ? data : [];
+
+  } catch (err) {
+    console.error(`Failed to query ${tableName}:`, err);
+    return [];
+  }
+}
+
 async function fetchFromSupabase(endpoint: string, options: RequestInit = {}): Promise<any> {
   if (!supabase) {
     throw new Error('Supabase not configured for supabase mode');
@@ -246,25 +286,27 @@ export async function getTransactions(page: number = 1, pageSize: number = 50): 
   if (DATA_MODE === 'supabase' && supabase) {
     try {
       const offset = (page - 1) * pageSize;
-      const rows = await fetchFromSupabase(
-        `scout_gold_transactions_flat?select=*&offset=${offset}&limit=${pageSize}`
-      );
 
-      // Get total count with HEAD request
-      const totalResponse = await fetch(`${SUPABASE_URL}/rest/v1/scout_gold_transactions_flat?select=transaction_id`, {
-        method: 'HEAD',
-        headers: {
-          'apikey': SUPABASE_ANON_KEY,
-          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-          'Prefer': 'count=exact'
-        }
+      // Use safe query wrapper
+      const rows = await safeSupabaseQuery('scout_gold_transactions_flat', '*', {
+        limit: pageSize,
+        offset: offset
       });
 
-      const contentRange = totalResponse.headers.get('content-range') || '';
-      const total = Number((contentRange.includes('/') ? contentRange.split('/')[1] : '') || rows.length);
+      // Get total count safely
+      let total = rows.length;
+      try {
+        const countResult = await supabase
+          .from('scout_gold_transactions_flat')
+          .select('*', { count: 'exact', head: true });
+        total = countResult.count || rows.length;
+      } catch (countError) {
+        console.warn('Failed to get exact count, using page size:', countError);
+        total = rows.length;
+      }
 
       return {
-        rows,
+        rows: rows as FlatTxn[],
         total,
         page,
         pageSize
@@ -290,18 +332,39 @@ export async function getTransactions(page: number = 1, pageSize: number = 50): 
 export async function getKpis(): Promise<KpiSummary> {
   if (DATA_MODE === 'supabase' && supabase) {
     try {
-      const rows = await fetchFromSupabase(
-        'scout_gold_transactions_flat?select=brand,store,storeid,device,deviceid,total_price,transactiondate,ts_ph,date_ph&limit=200000'
+      // Use safe query wrapper with specific fields for KPIs
+      const rows = await safeSupabaseQuery(
+        'scout_gold_transactions_flat',
+        'brand,store,storeid,device,deviceid,total_price,transactiondate,ts_ph,date_ph',
+        { limit: 200000 }
       );
 
-      const uniqueStores = new Set(rows.map((r: any) => r.store || r.storeid)).size;
-      const uniqueDevices = new Set(rows.map((r: any) => r.device || r.deviceid)).size;
-      const uniqueBrands = new Set(rows.map((r: any) => r.brand)).size;
-      const totalRevenue = rows.reduce((sum: number, r: any) => sum + (Number(r.total_price) || 0), 0);
-      const dates = rows.map((r: any) => r.transactiondate || r.ts_ph || r.date_ph).filter(Boolean).sort();
+      // Ensure we have an array before mapping
+      const safeRows = Array.isArray(rows) ? rows : [];
+      console.log(`✅ Loaded ${safeRows.length} rows for KPI calculation`);
+
+      if (safeRows.length === 0) {
+        console.warn('No data returned from Supabase for KPIs');
+        // Return default values
+        return {
+          totalRows: 0,
+          uniqueStores: 0,
+          uniqueDevices: 0,
+          uniqueBrands: 0,
+          totalRevenue: 0,
+          dateMin: null,
+          dateMax: null
+        };
+      }
+
+      const uniqueStores = new Set(safeRows.map((r: any) => r.store || r.storeid).filter(Boolean)).size;
+      const uniqueDevices = new Set(safeRows.map((r: any) => r.device || r.deviceid).filter(Boolean)).size;
+      const uniqueBrands = new Set(safeRows.map((r: any) => r.brand).filter(Boolean)).size;
+      const totalRevenue = safeRows.reduce((sum: number, r: any) => sum + (Number(r.total_price) || 0), 0);
+      const dates = safeRows.map((r: any) => r.transactiondate || r.ts_ph || r.date_ph).filter(Boolean).sort();
 
       return {
-        totalRows: rows.length,
+        totalRows: safeRows.length,
         uniqueStores,
         uniqueDevices,
         uniqueBrands,
