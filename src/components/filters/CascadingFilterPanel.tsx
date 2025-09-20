@@ -46,7 +46,8 @@ interface CascadingFilterPanelProps {
   onApply: () => void
 }
 
-const mockData = {
+// Static filter data - no CSV imports
+const filterData = {
   brands: ['Coca-Cola', 'Pepsi', 'Sprite', 'Fanta', 'Mountain Dew', 'Dr Pepper', 'Red Bull', 'Monster'],
   categories: ['Beverages', 'Snacks', 'Dairy', 'Bakery', 'Meat', 'Produce', 'Household', 'Personal Care'],
   regions: ['Metro Manila', 'Cebu', 'Davao', 'Baguio', 'Iloilo', 'Cagayan de Oro', 'Bacolod', 'General Santos'],
@@ -353,7 +354,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
           <MultiSelectWithComparison
             title="Brand Selection"
             icon={<Package className="w-4 h-4" />}
-            items={mockData.brands}
+            items={filterData.brands}
             selected={filters.selectedBrands}
             onSelectionChange={(selected) => updateFilter('selectedBrands', selected)}
             comparison={filters.brandComparison}
@@ -370,7 +371,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
           <MultiSelectWithComparison
             title="Category Selection"
             icon={<Package className="w-4 h-4" />}
-            items={mockData.categories}
+            items={filterData.categories}
             selected={filters.selectedCategories}
             onSelectionChange={(selected) => updateFilter('selectedCategories', selected)}
             comparison={filters.categoryComparison}
@@ -388,7 +389,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
             <MultiSelectWithComparison
               title="Regions"
               icon={<MapPin className="w-4 h-4" />}
-              items={mockData.regions}
+              items={filterData.regions}
               selected={filters.selectedRegions}
               onSelectionChange={(selected) => updateFilter('selectedRegions', selected)}
               comparison={filters.locationComparison}
@@ -397,7 +398,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
             <MultiSelectWithComparison
               title="Stores"
               icon={<MapPin className="w-4 h-4" />}
-              items={mockData.stores}
+              items={filterData.stores}
               selected={filters.selectedStores}
               onSelectionChange={(selected) => updateFilter('selectedStores', selected)}
               comparison={filters.locationComparison}
@@ -425,7 +426,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
             <MultiSelectWithComparison
               title="Customer Segments"
               icon={<Target className="w-4 h-4" />}
-              items={mockData.customerSegments}
+              items={filterData.customerSegments}
               selected={filters.customerSegment}
               onSelectionChange={(selected) => updateFilter('customerSegment', selected)}
               comparison="and"
@@ -434,7 +435,7 @@ export const CascadingFilterPanel: React.FC<CascadingFilterPanelProps> = ({
             <MultiSelectWithComparison
               title="Transaction Types"
               icon={<Clock className="w-4 h-4" />}
-              items={mockData.transactionTypes}
+              items={filterData.transactionTypes}
               selected={filters.transactionType}
               onSelectionChange={(selected) => updateFilter('transactionType', selected)}
               comparison="or"

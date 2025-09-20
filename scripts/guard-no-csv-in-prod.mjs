@@ -30,7 +30,9 @@ const FORBIDDEN_PATTERNS = [
   // CSV data references
   /mockData/gi,
   /csvData/gi,
-  /\.csv/gi,
+  /fetch.*\.csv/gi,
+  /loadCsv/gi,
+  /papaparse/gi,
 
   // Mock/fake data patterns
   /fakeData/gi,

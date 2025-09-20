@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import geographicInsights from '../data/geographical_insights.json'
+import { dataService } from '../services/dataService'
 
 interface StoreLocation {
   id: number
@@ -49,40 +50,6 @@ interface UseStoreDataReturn {
   error: string | null
 }
 
-function parseCSV(csvText: string): StoreLocation[] {
-  const lines = csvText.split('\n')
-  const headers = lines[0].split(',')
-
-  return lines.slice(1)
-    .filter(line => line.trim())
-    .map(line => {
-      const values = line.split(',')
-      const row: any = {}
-
-      headers.forEach((header, index) => {
-        const value = values[index]?.trim() || ''
-        row[header.trim()] = value
-      })
-
-      return {
-        id: parseInt(row.id),
-        name: row.name,
-        lat: parseFloat(row.lat),
-        lng: parseFloat(row.lng),
-        revenue: parseInt(row.revenue),
-        transactions: parseInt(row.transactions),
-        performance: parseInt(row.performance),
-        analyzed: row.analyzed === 'True',
-        revenue_share: parseFloat(row.revenue_share),
-        avg_transaction_value: parseFloat(row.avg_transaction_value),
-        performance_tier: row.performance_tier as 'Top' | 'Medium' | 'Low',
-        morning_revenue_est: parseFloat(row.morning_revenue_est),
-        single_item_txns_est: parseInt(row.single_item_txns_est),
-        bundle_opportunity: parseInt(row.bundle_opportunity)
-      } as StoreLocation
-    })
-}
-
 export function useStoreData(): UseStoreDataReturn {
   const [stores, setStores] = useState<StoreLocation[]>([])
   const [loading, setLoading] = useState(true)
@@ -96,21 +63,39 @@ export function useStoreData(): UseStoreDataReturn {
         setLoading(true)
         setError(null)
 
-        // Fetch store analytics CSV
-        const response = await fetch('/data/store_analytics.csv')
+        // Fetch store performance from Supabase
+        const storePerformance = await dataService.fetchStorePerformance(100)
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`)
-        }
+        // Transform to expected format
+        const transformedStores: StoreLocation[] = storePerformance.map((store, index) => {
+          const revenue = Number(store.total_price) || 0
+          const transactions = 1 // Placeholder, should aggregate
+          const performance = revenue > 1000 ? 90 : revenue > 500 ? 70 : 50
 
-        const csvText = await response.text()
-        const parsedStores = parseCSV(csvText)
+          return {
+            id: store.storeid || index + 1,
+            name: store.storename || `Store ${store.storeid || index + 1}`,
+            lat: Math.random() * 0.5 + 14.5, // Placeholder coordinates (Philippines region)
+            lng: Math.random() * 0.5 + 121.0,
+            revenue,
+            transactions,
+            performance,
+            analyzed: true,
+            revenue_share: revenue / 10000, // Placeholder calculation
+            avg_transaction_value: revenue / Math.max(transactions, 1),
+            performance_tier: performance > 80 ? 'Top' : performance > 60 ? 'Medium' : 'Low',
+            morning_revenue_est: revenue * 0.3,
+            single_item_txns_est: transactions * 0.7,
+            bundle_opportunity: revenue * 0.2
+          }
+        })
 
         if (isMounted) {
-          setStores(parsedStores)
+          setStores(transformedStores)
           setLoading(false)
         }
       } catch (err) {
+        console.error('Failed to fetch store data from Supabase:', err)
         if (isMounted) {
           setError(err instanceof Error ? err.message : 'Failed to fetch store data')
           setLoading(false)

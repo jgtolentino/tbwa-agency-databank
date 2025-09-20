@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { dataService } from '../services/dataService'
 
 interface ScoutTransaction {
   transaction_id: string
@@ -72,65 +73,99 @@ interface UseScoutDataReturn {
   error: string | null
 }
 
-const CSV_URL = 'https://cxzllzyxwpyptfretryc.supabase.co/storage/v1/object/sign/scout-ingest/full_flat_enhanced.csv?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9lZDdiZGI2YS05YzY1LTQxOTktYTJkNS01NzFmMWQ4NWIyZjciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzY291dC1pbmdlc3QvZnVsbF9mbGF0X2VuaGFuY2VkLmNzdiIsImlhdCI6MTc1ODIzNDE5MCwiZXhwIjoxNzU4ODM4OTkwfQ.ILrxHUf3Lrud_IY_Fd6PXvks7dpqTGgPaRJa9LUXeS8'
-
-function parseCSV(csvText: string): ScoutTransaction[] {
-  const lines = csvText.split('\n')
-  const headers = lines[0].split(',')
-
-  return lines.slice(1)
-    .filter(line => line.trim()) // Remove empty lines
-    .map(line => {
-      const values = line.split(',')
-      const row: any = {}
-
-      headers.forEach((header, index) => {
-        row[header.trim()] = values[index]?.trim() || ''
-      })
-
-      return row as ScoutTransaction
-    })
-}
-
 export function useScoutData(): UseScoutDataReturn {
   const [data, setData] = useState<ScoutTransaction[] | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    let isMounted = true
-
     async function fetchData() {
       try {
         setLoading(true)
         setError(null)
 
-        const response = await fetch(CSV_URL)
+        // Use dataService to fetch from Supabase
+        const transactions = await dataService.fetchTx(10000)
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`)
-        }
+        // Transform to expected format
+        const transformedData: ScoutTransaction[] = transactions.map(tx => ({
+          transaction_id: tx.transaction_id || '',
+          facialid: tx.facialid || '',
+          storeid: String(tx.storeid || ''),
+          real_transaction_date: tx.transactiondate || '',
+          real_hour: tx.time_ph?.split(':')[0] || '',
+          real_day_of_week: tx.day_of_week || '',
+          real_month: tx.date_ph?.split('-')[1] || '',
+          real_year: tx.date_ph?.split('-')[0] || '',
+          gender: tx.gender || '',
+          age: String(tx.age || ''),
+          age_group: tx.agebracket || '',
+          emotion: tx.emotion || '',
+          transcript_audio: tx.transcript_audio || '',
+          date_ph: tx.date_ph || '',
+          ts_ph: tx.ts_ph || '',
+          device: tx.device || '',
+          store: String(tx.store || ''),
+          category: tx.category || '',
+          brand: tx.brand || '',
+          product: tx.product || '',
+          payment_method: tx.payment_method || '',
+          qty: String(tx.qty || ''),
+          unit_price: String(tx.unit_price || ''),
+          total_price: String(tx.total_price || ''),
+          brand_raw: tx.brand_raw || '',
+          unit: tx.unit || '',
+          storename: tx.storename || '',
+          storelocationmaster: tx.storelocationmaster || '',
+          storedeviceid: tx.storedeviceid || '',
+          storedevicename: tx.storedevicename || '',
+          location: tx.location || '',
+          time_ph: tx.time_ph || '',
+          day_of_week: tx.day_of_week || '',
+          weekday_weekend: tx.weekday_weekend || '',
+          time_of_day: tx.time_of_day || '',
+          bought_with_other_brands: tx.bought_with_other_brands || '',
+          edge_version: tx.edge_version || '',
+          sku: tx.sku || '',
+          agebracket: tx.agebracket || '',
+          interactionid: tx.interactionid || '',
+          productid: tx.productid || '',
+          transactiondate: tx.transactiondate || '',
+          deviceid: tx.deviceid || '',
+          sex: tx.sex || '',
+          age__query_4_1: String(tx.age__query_4_1 || ''),
+          emotionalstate: tx.emotionalstate || '',
+          transcriptiontext: tx.transcriptiontext || '',
+          gender__query_4_1: tx.gender__query_4_1 || '',
+          barangay: tx.barangay || '',
+          storename__query_10: tx.storename__query_10 || '',
+          location__query_10: tx.location__query_10 || '',
+          size: String(tx.size || ''),
+          geolatitude: String(tx.geolatitude || ''),
+          geolongitude: String(tx.geolongitude || ''),
+          storegeometry: tx.storegeometry || '',
+          managername: tx.managername || '',
+          managercontactinfo: tx.managercontactinfo || '',
+          devicename: tx.devicename || '',
+          deviceid__query_10: tx.deviceid__query_10 || '',
+          barangay__query_10: tx.barangay__query_10 || '',
+          link_id: tx.transaction_id || '', // Use transaction_id as link_id
+          real_daypart: tx.time_of_day || '',
+          real_day_type: tx.weekday_weekend || ''
+        }))
 
-        const csvText = await response.text()
-        const parsedData = parseCSV(csvText)
+        setData(transformedData)
+        console.log(`✅ Loaded ${transformedData.length} Scout transactions from Supabase`)
 
-        if (isMounted) {
-          setData(parsedData)
-          setLoading(false)
-        }
       } catch (err) {
-        if (isMounted) {
-          setError(err instanceof Error ? err.message : 'Failed to fetch data')
-          setLoading(false)
-        }
+        console.error('Failed to fetch Scout data:', err)
+        setError(err instanceof Error ? err.message : 'Failed to fetch data')
+      } finally {
+        setLoading(false)
       }
     }
 
     fetchData()
-
-    return () => {
-      isMounted = false
-    }
   }, [])
 
   return { data, loading, error }
