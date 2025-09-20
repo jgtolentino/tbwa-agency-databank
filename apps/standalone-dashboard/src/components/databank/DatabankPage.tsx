@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useCallback } from 'react';
 import { DatabankHeader } from './DatabankHeader';
 import { FilterControls, FilterState } from './FilterControls';

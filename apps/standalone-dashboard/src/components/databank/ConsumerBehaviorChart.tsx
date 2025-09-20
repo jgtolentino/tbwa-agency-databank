@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ResponsiveContainer, Cell } from 'recharts';
-import { Funnel, Heart, Sparkles } from 'lucide-react';
+import { Filter, Heart, Sparkles } from 'lucide-react';
 
 interface FunnelData {
   name: string;
@@ -89,7 +89,7 @@ export const ConsumerBehaviorChart: React.FC<ConsumerBehaviorChartProps> = ({
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-gray-900">Consumer Behavior & Preferences</h2>
-        <Funnel className="h-4 w-4 text-gray-400" />
+        <Filter className="h-4 w-4 text-gray-400" />
       </div>
 
       <div className="space-y-4">

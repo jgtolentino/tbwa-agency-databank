@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
-import { Funnel, TrendingUp } from 'lucide-react';
+import { Filter, TrendingUp } from 'lucide-react';
 
 interface CategoryData {
   name: string;
@@ -41,7 +41,7 @@ export const ProductMixChart: React.FC<ProductMixChartProps> = ({
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-gray-900">Product Mix & SKU Analytics</h2>
-        <Funnel className="h-4 w-4 text-gray-400" />
+        <Filter className="h-4 w-4 text-gray-400" />
       </div>
 
       <div className="space-y-4">
