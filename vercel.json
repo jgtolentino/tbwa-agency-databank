@@ -1,31 +1,16 @@
 {
-  "version": 2,
+  "buildCommand": "npm --prefix apps/scout-dashboard run build:vercel",
+  "installCommand": "npm --prefix apps/scout-dashboard ci",
   "framework": "nextjs",
-  "builds": [
-    {
-      "src": "apps/standalone-dashboard/package.json",
-      "use": "@vercel/next",
-      "config": {
-        "distDir": ".next"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "apps/standalone-dashboard/$1"
-    }
-  ],
+  "regions": ["iad1"],
   "env": {
     "NEXT_PUBLIC_SUPABASE_URL": "https://cxzllzyxwpyptfretryc.supabase.co",
     "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4emxsenl4d3B5cHRmcmV0cnljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUyMDYzMzQsImV4cCI6MjA3MDc4MjMzNH0.adA0EO89jw5uPH4qdL_aox6EbDPvJ28NcXGYW7u33Ok",
     "NEXT_PUBLIC_STRICT_DATASOURCE": "true"
   },
-  "installCommand": "cd apps/standalone-dashboard && npm ci",
-  "buildCommand": "cd apps/standalone-dashboard && npm run build:vercel",
   "headers": [
     {
-      "source": "/api/(kpis|enriched|health)",
+      "source": "/api/(kpis|enriched|health)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

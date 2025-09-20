@@ -1,0 +1,147 @@
+# Scout Dashboard Agent Registry
+# This file defines all AI agents available in the system
+
+agents:
+  # RetailBot - Conversational retail analytics
+  - id: retailbot
+    displayName: RetailBot
+    description: |
+      Conversational interface for ad-hoc data queries,
+      KPI lookups, and chart drill-downs.
+    entrypoint: supabase/functions/retailbot/index.ts
+    endpoint: /retailbot
+    category: Conversational Insights / Data Query
+    persona: "Your friendly retail analyst—ready to answer any sales, product, or region question."
+    scopes:
+      - transactions:read
+      - daily_metrics:read
+    config:
+      engine: edge-llm-small
+      maxHistory: 3
+      sqlTemplates: retail_queries.json
+      maxTokens: 512
+      rateLimit: 120 # requests per minute
+    features:
+      - free_text_query
+      - intent_parsing
+      - chart_generation
+      - context_retention
+      - drill_down_links
+
+  # AdsBot - Advertising and marketing analytics
+  - id: adsbot
+    displayName: AdsBot
+    description: |
+      Provides narrative ad-performance insights and alerts
+      (spend, CTR, ROAS) on demand or scheduled.
+    entrypoint: supabase/functions/adsbot/index.ts
+    endpoint: /adsbot
+    category: Campaign Analytics / Ad Performance Insights
+    persona: "Your ad-performance guru—dives into spend, impressions, and ROI."
+    scopes:
+      - ad_spend:read
+      - campaign_metrics:read
+    config:
+      engine: edge-llm-small
+      proactiveSchedule: "0 * * * *" # hourly spend alerts
+      anomalyPercent: 10
+      maxTokens: 512
+      rateLimit: 60
+    features:
+      - campaign_query_ui
+      - performance_narratives
+      - comparative_metrics
+      - trend_alerts
+      - anomaly_detection
+
+  # Aladdin Insights - Executive AI genie
+  - id: aladdin-insights
+    displayName: Aladdin Insights
+    description: |
+      On-demand & proactive narrative BI: executive summaries,
+      anomaly alerts, trend analyses, what-if projections.
+    entrypoint: supabase/functions/aladdin/index.ts
+    endpoint: /aladdin
+    category: Narrative BI / Anomaly Detection / What-If Modeling
+    persona: "Your data genie: concise, proactive, and always surfacing the most critical story."
+    scopes:
+      - transactions:read
+      - daily_metrics:read
+      - ai_insights:write
+    config:
+      engine: edge-llm-small
+      anomalyThresholdPercent: 15
+      proactiveSchedule: "0 8 * * *" # daily at 8 AM
+      whatIfModel: sql-simulation
+      maxResponseTokens: 1024
+      auditLogTable: ai_insights
+      rateLimit:
+        interactive: 60
+        scheduled: 10
+    features:
+      - executive_summaries
+      - anomaly_detection
+      - what_if_modeling
+      - trend_analysis
+      - proactive_alerts
+      - quick_actions
+      - audit_logging
+
+  # SQL-Certifier - Governance agent
+  - id: sql-certifier
+    displayName: SQL Certifier
+    description: |
+      Governs SQL generation—only runs pre-approved views/functions
+      with validated parameters to enforce data governance.
+    entrypoint: supabase/functions/sql-certifier/index.ts
+    endpoint: /sql-certifier
+    category: Governance / SQL Generation
+    persona: "Your safe-SQL guard—only issues queries through vetted views & functions."
+    scopes:
+      - views:execute
+    config:
+      templates: sql_templates.json
+      auditLogTable: ai_sql_audit
+      maxParams: 5
+      engine: deterministic # No LLM needed
+      responseTime: 50 # milliseconds
+    features:
+      - template_registry
+      - parameter_validation
+      - audit_logging
+      - error_handling
+      - whitelist_enforcement
+
+# Global Configuration
+config:
+  defaultEngine: groq-mixtral
+  fallbackEngine: openai-gpt4
+  maxConcurrentRequests: 100
+  globalRateLimit: 1000 # per minute across all agents
+  auditRetentionDays: 90
+  
+# Deployment Targets
+deployment:
+  platform: supabase-edge-functions
+  regions:
+    - us-west-1
+    - ap-southeast-1
+  scaling:
+    min_instances: 1
+    max_instances: 10
+    scale_to_zero: true
+    
+# Monitoring
+monitoring:
+  metrics:
+    - response_time
+    - error_rate
+    - token_usage
+    - request_volume
+  alerts:
+    - type: error_rate
+      threshold: 5 # percent
+      window: 5m
+    - type: response_time
+      threshold: 1000 # milliseconds
+      window: 1m

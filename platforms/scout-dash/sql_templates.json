@@ -1,0 +1,215 @@
+{
+  "templates": [
+    {
+      "id": "daily_metrics_summary",
+      "name": "Daily Metrics Summary",
+      "description": "Aggregated metrics for a date range with optional region filter",
+      "category": "metrics",
+      "sql": "SELECT date, region, SUM(total_transactions) as transactions, SUM(total_revenue) as revenue, AVG(avg_transaction_value) as avg_value FROM daily_metrics WHERE date BETWEEN :start_date AND :end_date {{region_filter}} GROUP BY date, region ORDER BY date DESC LIMIT :limit",
+      "parameters": {
+        "start_date": {
+          "type": "date",
+          "required": true,
+          "description": "Start date for the query"
+        },
+        "end_date": {
+          "type": "date",
+          "required": true,
+          "description": "End date for the query"
+        },
+        "region": {
+          "type": "string",
+          "required": false,
+          "description": "Filter by specific region"
+        },
+        "limit": {
+          "type": "number",
+          "required": false,
+          "default": 100,
+          "min": 1,
+          "max": 1000
+        }
+      },
+      "scopes": ["daily_metrics:read"]
+    },
+    {
+      "id": "top_products_by_revenue",
+      "name": "Top Products by Revenue",
+      "description": "Get top performing products ranked by total revenue",
+      "category": "products",
+      "sql": "SELECT category, brand, COUNT(DISTINCT transaction_id) as transaction_count, SUM(units) as total_units, SUM(peso_value) as total_revenue FROM transactions WHERE timestamp >= :start_date {{category_filter}} {{brand_filter}} GROUP BY category, brand ORDER BY total_revenue DESC LIMIT :limit",
+      "parameters": {
+        "start_date": {
+          "type": "date",
+          "required": true
+        },
+        "category": {
+          "type": "string",
+          "required": false
+        },
+        "brand": {
+          "type": "string",
+          "required": false
+        },
+        "limit": {
+          "type": "number",
+          "required": false,
+          "default": 20,
+          "min": 1,
+          "max": 100
+        }
+      },
+      "scopes": ["transactions:read"]
+    },
+    {
+      "id": "hourly_traffic_pattern",
+      "name": "Hourly Traffic Pattern",
+      "description": "Analyze transaction patterns by hour of day",
+      "category": "behavior",
+      "sql": "SELECT EXTRACT(HOUR FROM timestamp) as hour, COUNT(*) as transaction_count, SUM(peso_value) as revenue, AVG(peso_value) as avg_transaction FROM transactions WHERE timestamp BETWEEN :start_date AND :end_date {{store_filter}} GROUP BY hour ORDER BY hour",
+      "parameters": {
+        "start_date": {
+          "type": "date",
+          "required": true
+        },
+        "end_date": {
+          "type": "date",
+          "required": true
+        },
+        "store_id": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "scopes": ["transactions:read"]
+    },
+    {
+      "id": "anomaly_detection_zscore",
+      "name": "Anomaly Detection (Z-Score)",
+      "description": "Detect revenue anomalies using statistical z-score",
+      "category": "anomaly",
+      "sql": "WITH baseline AS (SELECT region, AVG(total_revenue) as avg_revenue, STDDEV(total_revenue) as stddev_revenue FROM daily_metrics WHERE date BETWEEN :baseline_start AND :baseline_end GROUP BY region), current AS (SELECT region, date, total_revenue FROM daily_metrics WHERE date = :check_date) SELECT c.region, c.date, c.total_revenue, b.avg_revenue, ((c.total_revenue - b.avg_revenue) / NULLIF(b.stddev_revenue, 0)) as z_score, ((c.total_revenue - b.avg_revenue) / NULLIF(b.avg_revenue, 0) * 100) as pct_change FROM current c JOIN baseline b ON c.region = b.region WHERE ABS((c.total_revenue - b.avg_revenue) / NULLIF(b.avg_revenue, 0)) > :threshold",
+      "parameters": {
+        "baseline_start": {
+          "type": "date",
+          "required": true
+        },
+        "baseline_end": {
+          "type": "date",
+          "required": true
+        },
+        "check_date": {
+          "type": "date",
+          "required": true
+        },
+        "threshold": {
+          "type": "number",
+          "required": false,
+          "default": 0.15,
+          "min": 0.05,
+          "max": 1.0
+        }
+      },
+      "scopes": ["daily_metrics:read"]
+    },
+    {
+      "id": "customer_segment_analysis",
+      "name": "Customer Segment Analysis",
+      "description": "Analyze customer segments by value and frequency",
+      "category": "profiling",
+      "sql": "WITH customer_metrics AS (SELECT customer_id, COUNT(DISTINCT transaction_id) as frequency, SUM(peso_value) as total_value, AVG(peso_value) as avg_value, MAX(timestamp) as last_purchase FROM transactions WHERE timestamp >= :start_date GROUP BY customer_id) SELECT CASE WHEN frequency >= 10 AND total_value >= 10000 THEN 'VIP' WHEN frequency >= 5 AND total_value >= 5000 THEN 'Regular' WHEN frequency >= 2 THEN 'Occasional' ELSE 'New' END as segment, COUNT(*) as customer_count, AVG(frequency) as avg_frequency, AVG(total_value) as avg_lifetime_value FROM customer_metrics GROUP BY segment",
+      "parameters": {
+        "start_date": {
+          "type": "date",
+          "required": true
+        }
+      },
+      "scopes": ["transactions:read", "customers:read"]
+    },
+    {
+      "id": "category_performance_trend",
+      "name": "Category Performance Trend",
+      "description": "Track category performance over time",
+      "category": "trends",
+      "sql": "SELECT DATE_TRUNC('week', timestamp) as week, category, COUNT(*) as transactions, SUM(peso_value) as revenue, SUM(units) as units_sold FROM transactions WHERE timestamp BETWEEN :start_date AND :end_date {{category_filter}} GROUP BY week, category ORDER BY week, revenue DESC",
+      "parameters": {
+        "start_date": {
+          "type": "date",
+          "required": true
+        },
+        "end_date": {
+          "type": "date",
+          "required": true
+        },
+        "category": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "scopes": ["transactions:read"]
+    },
+    {
+      "id": "store_comparison",
+      "name": "Store Performance Comparison",
+      "description": "Compare performance metrics across stores",
+      "category": "comparison",
+      "sql": "SELECT s.store_id, s.store_name, s.region, COUNT(t.transaction_id) as transactions, SUM(t.peso_value) as revenue, AVG(t.peso_value) as avg_transaction, COUNT(DISTINCT DATE(t.timestamp)) as active_days FROM stores s LEFT JOIN transactions t ON s.store_id = t.store_id WHERE t.timestamp BETWEEN :start_date AND :end_date GROUP BY s.store_id, s.store_name, s.region ORDER BY revenue DESC",
+      "parameters": {
+        "start_date": {
+          "type": "date",
+          "required": true
+        },
+        "end_date": {
+          "type": "date",
+          "required": true
+        }
+      },
+      "scopes": ["transactions:read", "stores:read"]
+    },
+    {
+      "id": "basket_analysis",
+      "name": "Market Basket Analysis",
+      "description": "Find frequently bought together products",
+      "category": "basket",
+      "sql": "WITH basket_items AS (SELECT transaction_id, category, brand FROM transactions WHERE timestamp >= :start_date), basket_pairs AS (SELECT a.category as category_a, b.category as category_b, COUNT(DISTINCT a.transaction_id) as co_occurrence FROM basket_items a JOIN basket_items b ON a.transaction_id = b.transaction_id AND a.category < b.category GROUP BY a.category, b.category HAVING COUNT(DISTINCT a.transaction_id) >= :min_support) SELECT category_a, category_b, co_occurrence, ROUND(co_occurrence::numeric / (SELECT COUNT(DISTINCT transaction_id) FROM transactions WHERE timestamp >= :start_date) * 100, 2) as support_pct FROM basket_pairs ORDER BY co_occurrence DESC LIMIT :limit",
+      "parameters": {
+        "start_date": {
+          "type": "date",
+          "required": true
+        },
+        "min_support": {
+          "type": "number",
+          "required": false,
+          "default": 10
+        },
+        "limit": {
+          "type": "number",
+          "required": false,
+          "default": 20
+        }
+      },
+      "scopes": ["transactions:read"]
+    }
+  ],
+  "filters": {
+    "region_filter": "AND region = :region",
+    "category_filter": "AND category = :category",
+    "brand_filter": "AND brand = :brand",
+    "store_filter": "AND store_id = :store_id"
+  },
+  "validations": {
+    "date": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "message": "Date must be in YYYY-MM-DD format"
+    },
+    "number": {
+      "pattern": "^\\d+$",
+      "message": "Must be a positive integer"
+    },
+    "string": {
+      "maxLength": 100,
+      "pattern": "^[a-zA-Z0-9\\s\\-_]+$",
+      "message": "Only alphanumeric characters, spaces, hyphens and underscores allowed"
+    }
+  }
+}
