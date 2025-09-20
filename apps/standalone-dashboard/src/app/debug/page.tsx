@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { supabase, supabaseConfig } from '@/lib/supabase';
+import { getSupabase } from '@/lib/supabaseClient';
 
 export default function DebugPage() {
   // Production safety: only show debug in development
@@ -26,7 +26,12 @@ export default function DebugPage() {
       hasUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
       hasKey: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
       strict: process.env.NEXT_PUBLIC_STRICT_DATASOURCE,
-      config: supabaseConfig
+      config: {
+        url: process.env.NEXT_PUBLIC_SUPABASE_URL,
+        hasUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+        hasKey: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+        isConfigured: !!(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
+      }
     });
 
     // Test API endpoint
@@ -36,6 +41,7 @@ export default function DebugPage() {
       .catch(err => setApiTest({ success: false, error: err.message }));
 
     // Test direct Supabase connection
+    const supabase = getSupabase();
     supabase
       .from('v_data_health_summary')
       .select('*')

@@ -1,0 +1,9 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/dq/summary/route": "/api/dq/summary",
+  "/api/enriched/route": "/api/enriched",
+  "/api/kpis/route": "/api/kpis",
+  "/data-health/page": "/data-health",
+  "/debug/page": "/debug",
+  "/page": "/"
+}

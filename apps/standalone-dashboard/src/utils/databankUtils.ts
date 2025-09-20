@@ -94,15 +94,19 @@ export const getInsightVariant = (type: 'success' | 'info' | 'warning' | 'error'
 };
 
 export const exportToCSV = (data: any[], filename: string): void => {
+  if (process.env.NEXT_PUBLIC_STRICT_DATASOURCE === 'true') {
+    throw new Error('CSV export is disabled in production mode');
+  }
+
   if (!data.length) return;
 
   const headers = Object.keys(data[0]);
   const csvContent = [
     headers.join(','),
-    ...data.map(row => 
-      headers.map(header => 
-        typeof row[header] === 'string' && row[header].includes(',') 
-          ? `"${row[header]}"` 
+    ...data.map(row =>
+      headers.map(header =>
+        typeof row[header] === 'string' && row[header].includes(',')
+          ? `"${row[header]}"`
           : row[header]
       ).join(',')
     )
@@ -110,7 +114,7 @@ export const exportToCSV = (data: any[], filename: string): void => {
 
   const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
   const link = document.createElement('a');
-  
+
   if (link.download !== undefined) {
     const url = URL.createObjectURL(blob);
     link.setAttribute('href', url);

@@ -27,7 +27,14 @@ const offenders = [];
 
 for (const f of files) {
   const s = await readFile(f, 'utf8');
-  if (s.includes('loadCsvDevOnly(') || s.match(/\.csv['"]/)) offenders.push(f);
+  if (
+    s.includes('loadCsvDevOnly(') ||
+    s.match(/\.csv['"]/) ||
+    s.includes('papaparse') ||
+    (s.includes('exportToCSV') && !s.includes('STRICT_DATASOURCE') && !s.includes('disabled in production'))
+  ) {
+    offenders.push(f);
+  }
 }
 
 if (offenders.length) {
