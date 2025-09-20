@@ -1,6 +1,8 @@
 {
   "version": 2,
   "name": "scout-analytics",
+  "buildCommand": "npm --prefix apps/standalone-dashboard run build:vercel",
+  "framework": "nextjs",
   "builds": [
     {
       "src": "apps/standalone-dashboard/package.json",
