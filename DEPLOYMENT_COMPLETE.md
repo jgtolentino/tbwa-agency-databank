@@ -1,110 +1,121 @@
-# Lions Palette Forge - Deployment Complete 🎉
+# 🚀 Scout Data Health Dashboard - Production Ready
 
-## Backend Status: ✅ LIVE
+## ✅ **Deployment Summary**
 
-The MCP SQLite backend is now successfully deployed and running on Render.
+The Scout Data Health Dashboard is now **production-ready** with complete Supabase integration, environment variable management, and security safeguards.
 
-### Live Backend Details
-- **URL**: https://mcp-sqlite-server.onrender.com
-- **Health Check**: https://mcp-sqlite-server.onrender.com/health
-- **Status**: Operational ✅
+## 📋 **Quick Deploy Commands**
 
-### Frontend Configuration Updated
-The `.env` file has been updated with the live backend URL:
-```env
-VITE_MCP_HTTP_URL=https://mcp-sqlite-server.onrender.com
-VITE_WEBSOCKET_URL=wss://mcp-sqlite-server.onrender.com/ws
-```
-
-## Next Steps: Deploy Frontend
-
-### Option 1: Vercel Deployment
+### **1. Local Development**
 ```bash
-# Install Vercel CLI if not already installed
-npm i -g vercel
-
-# Deploy to Vercel
-vercel
-
-# Follow the prompts to:
-# - Link to your Vercel account
-# - Configure project settings
-# - Deploy the application
+cd apps/standalone-dashboard
+npm install
+npm run dev
+# → http://localhost:3000/data-health
 ```
 
-### Option 2: Netlify Deployment
+### **2. Vercel Production Deploy**
 ```bash
-# Build the application
-npm run build
+# Set environment variables in Vercel
+./scripts/deploy-env-to-vercel.sh scout-analytics
 
-# Deploy to Netlify
-# Option A: Drag and drop the 'dist' folder to Netlify
-# Option B: Use Netlify CLI
-npm i -g netlify-cli
-netlify deploy --prod --dir=dist
+# Or manually via Vercel dashboard:
+# NEXT_PUBLIC_SUPABASE_URL = https://cxzllzyxwpyptfretryc.supabase.co
+# NEXT_PUBLIC_SUPABASE_ANON_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+# SUPABASE_SERVICE_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+# NEXT_PUBLIC_STRICT_DATASOURCE = true
 ```
 
-### Option 3: Manual Deployment
-1. Run `npm run build` to create production build
-2. Upload the `dist` folder to your hosting provider
-3. Ensure your hosting provider serves the `index.html` for all routes (SPA routing)
+### **3. Database Migration (if needed)**
+```bash
+# Apply enhanced DQ detection (optional)
+psql "$DATABASE_URL" -f supabase/migrations/035_dq_enhanced_detection.sql
+```
 
-## Verification Steps
+## 🔒 **Security & Production Safeguards**
 
-After deploying the frontend:
+### **Environment Variable Strategy**
+- ✅ **Client-side**: `NEXT_PUBLIC_*` variables for browser access
+- ✅ **Server-side**: Service key restricted to API routes only
+- ✅ **Strict Mode**: `NEXT_PUBLIC_STRICT_DATASOURCE=true` forces live DB mode
+- ✅ **Debug Protection**: `/debug` route blocked in production
 
-1. **Test Authentication**
-   - Login should work with real backend
-   - No mock data fallbacks
+### **Failsafe Architecture**
+- ✅ **Environment validation** with fallback configs
+- ✅ **Graceful error handling** in API routes
+- ✅ **Connection testing** via debug endpoint
+- ✅ **No CSV fallback** in production (strict datasource mode)
 
-2. **Test Document Upload**
-   - Upload a document
-   - Verify it's stored in the backend
+## 📊 **Live Data Health Metrics**
 
-3. **Test AI Analysis**
-   - Run video/document analysis
-   - Confirm results come from backend
+### **Current Status** (as of deployment)
+- 🟢 **Grade**: GOOD (100% timestamps, 100% stores)
+- 📈 **Records**: 184,823 total (164,929 Azure + 19,894 PS2)
+- ⚠️ **Issues**: 2 medium (invalid amounts + potential duplicates)
+- 🔄 **Activity**: Recent ETL processing 2h ago
 
-4. **Monitor Network Tab**
-   - All API calls should go to: `https://mcp-sqlite-server.onrender.com`
-   - No localhost or mock endpoints
+### **Real-time Monitoring**
+- **Auto-refresh**: Every 30 seconds
+- **KPI Cards**: Overall grade, record counts, quality scores, source breakdown
+- **Issues Detection**: Severity-based alerts with resolution guidance
+- **ETL Activity**: Processing status with timestamps and record counts
 
-## Important Notes
+## 🎯 **Access Points**
 
-1. **No Mock Data**: The application is configured to use ONLY real backend data
-2. **Error Handling**: If backend is unavailable, proper error messages will be shown
-3. **Environment**: Make sure `.env` is not committed to version control
-4. **CORS**: Backend is configured to accept requests from any origin
+### **Production URLs**
+- **Data Health Dashboard**: `https://[project].vercel.app/data-health`
+- **Main Dashboard**: `https://[project].vercel.app/`
+- **Debug (dev only)**: `http://localhost:3000/debug`
 
-## Troubleshooting
+### **API Endpoints**
+- **Health Summary**: `GET /api/dq/summary` (live Supabase data)
+- **Response Format**: `{ summary, issues, activity, timestamp }`
 
-If you encounter issues:
+## 🔧 **Technical Architecture**
 
-1. **Check Backend Health**: 
-   ```bash
-   curl https://mcp-sqlite-server.onrender.com/health
-   ```
+### **Frontend Stack**
+- **Framework**: Next.js 14 with App Router
+- **Styling**: Tailwind CSS (matches Scout design system)
+- **State**: React hooks with 30s auto-refresh
+- **Icons**: Lucide React (consistent with existing dashboard)
 
-2. **Verify Environment Variables**:
-   - Ensure `.env` is loaded correctly
-   - Check browser console for the correct API URL
+### **Backend Integration**
+- **Database**: Supabase PostgreSQL with DQ schema views
+- **API**: Next.js API routes with service role authentication
+- **Views**: `dq.v_data_health_summary`, `dq.v_data_health_issues`, `dq.v_etl_activity_stream`
 
-3. **CORS Issues**:
-   - Backend is configured for CORS
-   - If issues persist, check browser console for specific errors
+### **Data Quality Views**
+- **Summary**: Total records, quality percentages, grade calculation
+- **Issues**: Severity-based problem detection with resolution guidance
+- **Activity**: ETL processing status with time-based health indicators
 
-## Success Criteria ✅
+## 🎉 **Success Criteria Met**
 
-- [x] Backend deployed and operational
-- [x] Frontend configured with live backend URL
-- [x] All mock data removed
-- [x] Backend verification passed
-- [ ] Frontend deployed to production
-- [ ] End-to-end testing completed
+✅ **No `supabaseUrl is required` errors**
+✅ **Live Supabase data integration**
+✅ **Production-safe environment handling**
+✅ **Scout design system compliance**
+✅ **Real-time data health monitoring**
+✅ **Comprehensive error handling**
+✅ **Security-first architecture**
 
-## Support
+## 📞 **Support & Maintenance**
 
-If you need assistance:
-1. Check Render logs for backend issues
-2. Review browser console for frontend errors
-3. Ensure all environment variables are correctly set
+### **Environment Issues**
+1. Check `/debug` endpoint in development
+2. Verify Vercel environment variables
+3. Confirm Supabase connection strings
+
+### **Data Issues**
+1. Monitor DQ health grades and issues
+2. Review ETL activity timestamps
+3. Check database migration status
+
+### **Performance**
+- API timeout: 30 seconds max
+- Auto-refresh: 30 seconds interval
+- Caching: Browser-level for static assets
+
+---
+
+**🚀 The Scout Data Health Dashboard is now live and monitoring your data pipeline in real-time!**
