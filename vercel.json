@@ -1,16 +1,24 @@
 {
-  "buildCommand": "cd platforms/scout-dash && npm run build",
-  "outputDirectory": "platforms/scout-dash/.next",
-  "devCommand": "cd platforms/scout-dash && npm run dev",
-  "installCommand": "cd platforms/scout-dash && npm install",
+  "buildCommand": "cd apps/scout-dashboard && npm run build:vercel",
+  "outputDirectory": "apps/scout-dashboard/.next",
+  "devCommand": "cd apps/scout-dashboard && npm run dev",
+  "installCommand": "cd apps/scout-dashboard && npm ci",
   "framework": "nextjs",
   "regions": ["iad1"],
   "env": {
     "NEXT_PUBLIC_SUPABASE_URL": "https://cxzllzyxwpyptfretryc.supabase.co",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4emxsenl4d3B5cHRmcmV0cnljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg4NDE0NDgsImV4cCI6MjQwODg2MTQ0OH0.-m9PTb5gV17R9QqlhdRNLXxClnLbXn7v8XJ5qdoKKog",
-    "NEXT_PUBLIC_GENIE_URL": "https://cxzllzyxwpyptfretryc.supabase.co/functions/v1/aladdin",
-    "NEXT_PUBLIC_RETAILBOT_URL": "https://cxzllzyxwpyptfretryc.supabase.co/functions/v1/retailbot",
-    "NEXT_PUBLIC_ADSBOT_URL": "https://cxzllzyxwpyptfretryc.supabase.co/functions/v1/adsbot",
-    "NEXT_PUBLIC_SQL_CERTIFIER_URL": "https://cxzllzyxwpyptfretryc.supabase.co/functions/v1/sql-certifier"
-  }
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4emxsenl4d3B5cHRmcmV0cnljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUyMDYzMzQsImV4cCI6MjA3MDc4MjMzNH0.adA0EO89jw5uPH4qdL_aox6EbDPvJ28NcXGYW7u33Ok",
+    "NEXT_PUBLIC_STRICT_DATASOURCE": "true"
+  },
+  "headers": [
+    {
+      "source": "/api/(kpis|enriched|health)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "s-maxage=60, stale-while-revalidate=300"
+        }
+      ]
+    }
+  ]
 }
