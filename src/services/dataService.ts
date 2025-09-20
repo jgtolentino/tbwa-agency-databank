@@ -287,17 +287,36 @@ export async function getTransactions(page: number = 1, pageSize: number = 50): 
     try {
       const offset = (page - 1) * pageSize;
 
-      // Use safe query wrapper
-      const rows = await safeSupabaseQuery('scout_gold_transactions_flat', '*', {
+      // Use safe query wrapper - try the public view first
+      let tableName = 'scout_gold_transactions_flat';
+      let rows = await safeSupabaseQuery(tableName, '*', {
         limit: pageSize,
         offset: offset
       });
+
+      // If that fails, try other table names we know exist
+      if (rows.length === 0) {
+        console.log('Trying alternative table names...');
+        const alternativeTables = ['sales_data', 'transactions', 'scout_transactions'];
+        for (const table of alternativeTables) {
+          try {
+            rows = await safeSupabaseQuery(table, '*', { limit: pageSize, offset: offset });
+            if (rows.length > 0) {
+              tableName = table;
+              console.log(`✅ Found data in table: ${table}`);
+              break;
+            }
+          } catch (error) {
+            console.log(`Table ${table} not found, trying next...`);
+          }
+        }
+      }
 
       // Get total count safely
       let total = rows.length;
       try {
         const countResult = await supabase
-          .from('scout_gold_transactions_flat')
+          .from(tableName)
           .select('*', { count: 'exact', head: true });
         total = countResult.count || rows.length;
       } catch (countError) {
@@ -332,12 +351,39 @@ export async function getTransactions(page: number = 1, pageSize: number = 50): 
 export async function getKpis(): Promise<KpiSummary> {
   if (DATA_MODE === 'supabase' && supabase) {
     try {
-      // Use safe query wrapper with specific fields for KPIs
-      const rows = await safeSupabaseQuery(
-        'scout_gold_transactions_flat',
+      // Use safe query wrapper with specific fields for KPIs - try different table names
+      let rows: any[] = [];
+      let tableName = 'scout_gold_transactions_flat';
+
+      // First try the gold view
+      rows = await safeSupabaseQuery(
+        tableName,
         'brand,store,storeid,device,deviceid,total_price,transactiondate,ts_ph,date_ph',
         { limit: 200000 }
       );
+
+      // If no data, try alternative tables with available fields
+      if (rows.length === 0) {
+        console.log('Trying alternative tables for KPIs...');
+        const alternativeTables = [
+          { name: 'sales_data', fields: '*' },
+          { name: 'transactions', fields: '*' },
+          { name: 'scout_transactions', fields: '*' }
+        ];
+
+        for (const table of alternativeTables) {
+          try {
+            rows = await safeSupabaseQuery(table.name, table.fields, { limit: 200000 });
+            if (rows.length > 0) {
+              tableName = table.name;
+              console.log(`✅ Found KPI data in table: ${table.name}`);
+              break;
+            }
+          } catch (error) {
+            console.log(`Table ${table.name} not accessible for KPIs`);
+          }
+        }
+      }
 
       // Ensure we have an array before mapping
       const safeRows = Array.isArray(rows) ? rows : [];
@@ -411,4 +457,50 @@ export function getDataSourceBadge(): string {
     default:
       return 'Unknown';
   }
+}
+
+// Debug function to identify available tables
+export async function debugSupabaseTables(): Promise<void> {
+  if (!supabase) {
+    console.log('❌ Supabase not initialized');
+    return;
+  }
+
+  console.log('🔍 Debugging Supabase table access...');
+
+  const tablesToTest = [
+    'scout_gold_transactions_flat',
+    'sales_data',
+    'transactions',
+    'scout_transactions',
+    'consumer_data',
+    'scout_dashboard',
+    'scout_stats_summary',
+    'scout_gold_facial_demographics'
+  ];
+
+  for (const tableName of tablesToTest) {
+    try {
+      const { data, error, status } = await supabase
+        .from(tableName)
+        .select('*')
+        .limit(1);
+
+      if (error) {
+        console.log(`❌ ${tableName}: ${error.message}`);
+      } else {
+        console.log(`✅ ${tableName}: ${data?.length || 0} rows (sample success)`);
+        if (data && data.length > 0) {
+          console.log(`   Fields: ${Object.keys(data[0]).join(', ')}`);
+        }
+      }
+    } catch (err) {
+      console.log(`❌ ${tableName}: ${err}`);
+    }
+  }
+}
+
+// Add to window for debugging in production
+if (typeof window !== 'undefined') {
+  (window as any).debugSupabase = debugSupabaseTables;
 }
