@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build:guard": "node ./scripts/guard-no-csv.mjs",
     "build": "npm run build:guard && next build",
+    "build:vercel": "NEXT_PUBLIC_STRICT_DATASOURCE=true npm run build:guard && next build",
     "start": "next start",
     "lint": "next lint"
   },
