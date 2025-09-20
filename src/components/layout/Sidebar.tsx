@@ -1,6 +1,6 @@
 import React from 'react'
 import { TrendingUp, Package, Users, UserCheck, BarChart3, Database, Target, MapPin, ChevronLeft, Menu, Crown } from 'lucide-react'
-import { getDataSourceBadge } from '../../services/dataService'
+// Removed unused import
 
 interface SidebarProps {
   activeSection: string

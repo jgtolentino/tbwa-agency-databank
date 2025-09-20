@@ -1,4 +1,4 @@
-import { getTransactions, getKpis, type FlatTxn, type KpiSummary } from './dataService'
+import { fetchTx, fetchKpiSummary, type FlatTxn, type KpiSummary } from './dataService'
 import { ensureArray } from '../utils/ensureArray'
 
 export interface RealAnalytics {
@@ -226,8 +226,8 @@ class RealDataService {
 
     try {
       // Fetch real transaction data
-      const transactionsResponse = await getTransactions(1, 10000) // Get large sample
-      const kpis = await getKpis()
+      const transactionsResponse = await fetchTx(10000) // Get large sample
+      const kpis = await fetchKpiSummary()
 
       // Use our enhanced array safety method
       let transactions = this.ensureArraySafety<FlatTxn>(
