@@ -37,6 +37,14 @@ export default tseslint.config(
               group: ["**/lib/mocks/**"],
               message: "Mock library imports forbidden in production. Check ENV.USE_MOCK before importing.",
             },
+            {
+              group: ["**/*.csv", "**/data/*.csv", "**/csv/**"],
+              message: "🚨 CSV imports forbidden in production! Use strictDataSource.ts for all data access.",
+            },
+            {
+              group: ["**/mockData/**", "**/csvData/**", "**/testData/**"],
+              message: "🚨 Mock/CSV data imports forbidden! Use Supabase via strictDataSource.ts only.",
+            },
           ],
         },
       ],
@@ -46,6 +54,18 @@ export default tseslint.config(
         {
           selector: "CallExpression[callee.name='mockData']",
           message: "Direct mock calls forbidden. Use fetchOrFallback() with environment guards.",
+        },
+        {
+          selector: "CallExpression[callee.name='csvData']",
+          message: "🚨 CSV data calls forbidden! Use strictDataSource.ts methods only.",
+        },
+        {
+          selector: "Literal[value=/\\.csv$/]",
+          message: "🚨 CSV file references forbidden! Use Supabase database only.",
+        },
+        {
+          selector: "VariableDeclarator[id.name=/.*csv.*/i]",
+          message: "🚨 CSV variable names forbidden! Use 'data' or 'records' instead.",
         },
       ],
     },

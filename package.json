@@ -5,8 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:check": "tsc && vite build",
+    "build": "node scripts/guard-no-csv-in-prod.mjs && vite build",
+    "build:check": "tsc && node scripts/guard-no-csv-in-prod.mjs && vite build",
+    "build:unsafe": "vite build",
+    "guard:csv": "node scripts/guard-no-csv-in-prod.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

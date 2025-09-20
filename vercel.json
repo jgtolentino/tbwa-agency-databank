@@ -2,5 +2,26 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "env": {
+    "VITE_STRICT_DATASOURCE": "true",
+    "NODE_ENV": "production"
+  },
+  "build": {
+    "env": {
+      "VITE_STRICT_DATASOURCE": "true",
+      "NODE_ENV": "production"
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Strict-Datasource",
+          "value": "enabled"
+        }
+      ]
+    }
+  ]
 }

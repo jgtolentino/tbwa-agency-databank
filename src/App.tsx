@@ -12,7 +12,9 @@ import {
 } from './components/enhanced/EnhancedDashboard'
 import { DatabankPage } from './components/databank'
 import DataSourceBadge from './components/ui/DataSourceBadge'
+import HealthBadge from './components/ui/HealthBadge'
 import { assertNoMockInProd } from './lib/env'
+import { initializeRuntimeGuards } from './utils/runtimeGuard'
 import ExecutiveOverview from './components/executive/ExecutiveOverview'
 
 function App() {
@@ -47,9 +49,10 @@ function App() {
     showPercentages: true
   })
 
-  // Production guard - prevent mocks in production
+  // Production guard - prevent mocks in production & initialize runtime guards
   useEffect(() => {
     assertNoMockInProd();
+    initializeRuntimeGuards();
   }, []);
 
   const handleRefresh = () => {
@@ -160,11 +163,14 @@ function App() {
                 <h1 className="text-2xl font-bold text-gray-900 capitalize">
                   {activeSection.replace('-', ' ')} Dashboard
                 </h1>
-                <DataSourceBadge
-                  data-testid="data-source-badge"
-                  showDetails={true}
-                  size="md"
-                />
+                <div className="flex items-center gap-3">
+                  <HealthBadge showDetails={false} />
+                  <DataSourceBadge
+                    data-testid="data-source-badge"
+                    showDetails={true}
+                    size="md"
+                  />
+                </div>
               </div>
             )}
 

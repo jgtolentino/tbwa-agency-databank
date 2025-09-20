@@ -1,8 +1,15 @@
-// Data Service for Scout Dashboard - Toggle between CSV and Supabase
+// Data Service for Scout Dashboard - Strict Production Mode
 import { createClient } from '@supabase/supabase-js'
 import Papa from 'papaparse'
+import { validateDataSource, assertNoCSVInProduction } from '../utils/runtimeGuard'
+import { strictDataSource } from './strictDataSource'
 
 const DATA_MODE = import.meta.env.VITE_DATA_MODE || 'supabase'
+
+// Runtime guard - block CSV in production
+if (import.meta.env.PROD && DATA_MODE !== 'supabase') {
+  throw new Error('🚨 PRODUCTION ERROR: Only Supabase allowed in production. CSV mode blocked.')
+}
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || ''
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || ''
 
