@@ -287,17 +287,27 @@ export async function getTransactions(page: number = 1, pageSize: number = 50): 
     try {
       const offset = (page - 1) * pageSize;
 
-      // Use safe query wrapper - try the public view first
+      // Use safe query wrapper - try the available schemas first
       let tableName = 'scout_gold_transactions_flat';
       let rows = await safeSupabaseQuery(tableName, '*', {
         limit: pageSize,
         offset: offset
       });
 
-      // If that fails, try other table names we know exist
+      // If that fails, try tables in the exposed schemas
       if (rows.length === 0) {
-        console.log('Trying alternative table names...');
-        const alternativeTables = ['sales_data', 'transactions', 'scout_transactions'];
+        console.log('Trying alternative table names from exposed schemas...');
+        const alternativeTables = [
+          'public_gold.transactions_flat',
+          'public_gold.scout_transactions',
+          'scout_platform.transactions',
+          'scout_ops.sales_data',
+          'dal.transactions',
+          'sales_data',
+          'transactions',
+          'scout_transactions',
+          'scout_dashboard'
+        ];
         for (const table of alternativeTables) {
           try {
             rows = await safeSupabaseQuery(table, '*', { limit: pageSize, offset: offset });
@@ -307,7 +317,7 @@ export async function getTransactions(page: number = 1, pageSize: number = 50): 
               break;
             }
           } catch (error) {
-            console.log(`Table ${table} not found, trying next...`);
+            console.log(`Table ${table} not accessible, trying next...`);
           }
         }
       }
@@ -362,13 +372,19 @@ export async function getKpis(): Promise<KpiSummary> {
         { limit: 200000 }
       );
 
-      // If no data, try alternative tables with available fields
+      // If no data, try alternative tables from exposed schemas
       if (rows.length === 0) {
-        console.log('Trying alternative tables for KPIs...');
+        console.log('Trying alternative tables for KPIs from exposed schemas...');
         const alternativeTables = [
+          { name: 'public_gold.transactions_flat', fields: '*' },
+          { name: 'public_gold.scout_transactions', fields: '*' },
+          { name: 'scout_platform.transactions', fields: '*' },
+          { name: 'scout_ops.sales_data', fields: '*' },
+          { name: 'dal.transactions', fields: '*' },
           { name: 'sales_data', fields: '*' },
           { name: 'transactions', fields: '*' },
-          { name: 'scout_transactions', fields: '*' }
+          { name: 'scout_transactions', fields: '*' },
+          { name: 'scout_dashboard', fields: '*' }
         ];
 
         for (const table of alternativeTables) {
@@ -470,6 +486,11 @@ export async function debugSupabaseTables(): Promise<void> {
 
   const tablesToTest = [
     'scout_gold_transactions_flat',
+    'public_gold.transactions_flat',
+    'public_gold.scout_transactions',
+    'scout_platform.transactions',
+    'scout_ops.sales_data',
+    'dal.transactions',
     'sales_data',
     'transactions',
     'scout_transactions',
