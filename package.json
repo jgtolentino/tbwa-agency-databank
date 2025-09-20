@@ -5,7 +5,7 @@
   "private": true,
   "workspaces": [
     "platforms/creative-ops/ces-jampacked",
-    "platforms/scout-dash",
+    "apps/scout-dashboard",
     "platforms/hr-admin",
     "platforms/finance",
     "platforms/operations",
@@ -23,9 +23,9 @@
     "clean": "npm run clean --workspaces",
     "install-all": "npm install --workspaces",
     "dev:ces": "npm run dev --workspace=platforms/creative-ops/ces-jampacked",
-    "dev:scout": "npm run dev --workspace=platforms/scout-dash",
+    "dev:scout": "npm run dev --workspace=apps/scout-dashboard",
     "build:ces": "npm run build --workspace=platforms/creative-ops/ces-jampacked",
-    "build:scout": "npm run build --workspace=platforms/scout-dash",
+    "build:scout": "npm run build --workspace=apps/scout-dashboard",
     "start:mcp-reader": "node infrastructure/mcp-services/reader/server.js",
     "start:mcp-writer": "node infrastructure/mcp-services/writer/server.js"
   },

@@ -1,8 +1,6 @@
 {
-  "buildCommand": "cd apps/scout-dashboard && npm run build:vercel",
-  "outputDirectory": "apps/scout-dashboard/.next",
-  "devCommand": "cd apps/scout-dashboard && npm run dev",
-  "installCommand": "cd apps/scout-dashboard && npm ci",
+  "buildCommand": "npm --prefix apps/scout-dashboard run build:vercel",
+  "installCommand": "npm --prefix apps/scout-dashboard ci",
   "framework": "nextjs",
   "regions": ["iad1"],
   "env": {
@@ -12,7 +10,7 @@
   },
   "headers": [
     {
-      "source": "/api/(kpis|enriched|health)",
+      "source": "/api/(kpis|enriched|health)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
